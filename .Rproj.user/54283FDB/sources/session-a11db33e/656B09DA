@@ -1,12 +1,12 @@
 {
-    "id": "6F54D0B9",
-    "path": "F:/GitHub/RDataScience/index.qmd",
-    "project_path": "index.qmd",
+    "id": "656B09DA",
+    "path": "F:/GitHub/demo.qmd",
+    "project_path": null,
     "type": "quarto_markdown",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1712592706491.0,
+    "created": 1712593483383.0,
     "source_on_save": false,
     "relative_order": 1,
     "properties": {
@@ -15,15 +15,17 @@
         "source_window_id": "",
         "Source": "Source",
         "docOutlineVisible": "1",
-        "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "2:0"
+        "cursorPosition": "0,0",
+        "scrollLine": "0",
+        "rmdVisualModeLocation": "460:303.6363525390625",
+        "rmdVisualCollapsedChunks": ""
     },
     "folds": "",
-    "lastKnownWriteTime": 1712592696,
+    "lastKnownWriteTime": 1712593522,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1712592696,
+    "last_content_update": 1712593520998,
     "read_only": false,
     "read_only_alternatives": []
 }

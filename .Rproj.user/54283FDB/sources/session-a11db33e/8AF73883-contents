@@ -1,0 +1,22 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+#  pdf:
+#    documentclass: scrreprt
+
+editor: visual
+
