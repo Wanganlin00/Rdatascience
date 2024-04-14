@@ -1,0 +1,14 @@
+{
+  "hash": "34d4fbbda575c26440b8e824929259a3",
+  "result": {
+    "markdown": "# Introduction\n\n\n::: {.cell hash='intro_cache/html/unnamed-chunk-1_77da49d65ef5541b569b069552065c3f'}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

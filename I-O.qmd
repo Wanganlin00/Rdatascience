@@ -1,0 +1,160 @@
+---
+title: "Import & Write"
+knitr:
+  opts_chunk:
+    comment: "#>"
+    collapse: true
+---
+
+# Import
+
+## 键盘输入
+
+```{r}
+df <- data.frame(id=character(0),age=numeric(0),sex=character(0))
+df <- edit(df)
+
+fix(df)
+```
+
+## 文本文件
+
+常用的分隔符如逗号`,` ，制表符`\t`，分号`;`，空格`space`，...... 等。
+
+### `utils::` utilities,a piece of computer software that performs a particular task
+
+`read.table()` `read.csv()` `read.csv2`
+
+```{r}
+# 列名(第1行),行标识符 (第1列)
+utils::read.table("data/leadership.txt",header = TRUE,sep=",",row.names = 1)
+x <- read.csv("data/leadership.txt",header = TRUE,sep=",",row.names = 1)
+read.table("data/leadership.txt",header = TRUE,sep=",",row.names = "id") 
+```
+
+### `readr::`
+
+`read.csv2()` `read_tsv()` `read_delim()`
+
+```{r}
+#| eval: false
+readr::read_csv("data/leadership.txt",col_names = TRUE,id="file_path") |> 
+    column_to_rownames(var = "id")
+```
+
+## Excel
+
+```{r}
+library(readxl)
+#read_xls()
+#read_xlsx()
+read_excel(path = "data/example.xlsx",sheet = 1,range = "A1:D11")
+read_excel("data/example.xlsx",2)
+```
+
+## Internet datasets
+
+```{r}
+#| eval: false
+url = "https://www.monetdb.org/sites/default/files/voc_tsvs.zip"
+download.file(url, "voc_tsvs.zip") # download file
+unzip("voc_tsvs.zip", exdir = "data") # unzip files
+file.remove("voc_tsvs.zip") # tidy up by removing the zip file
+
+url = "https://vincentarelbundock.github.io/Rdatasets/csv/datasets/co2.csv"
+download.file(url, "extdata/co2.csv")
+df_co2 = read_csv("extdata/co2.csv")
+```
+
+## library datasets
+
+```{r}
+data(package = "dplyr")
+list.files(system.file("extdata", package = "readr"))  #inst/extdata
+```
+
+## 二进制文件
+
+RDS,R's custom binary format called RDS
+
+`read_rds()`
+
+```{r}
+write_rds(x,file = "data/leadership.parquet")
+read_rds("data/leadership.rds")
+```
+
+Parquet,a fast binary and columnar storage file format(列式存储文件)
+
+```{r}
+library(arrow)
+write_parquet(x,sink = "data/leadership.parquet")
+read_parquet(file = "data/leadership.parquet" )
+```
+
+## JSON
+
+*javascript object notation*
+
+```{r}
+library(jsonlite)
+read_json(path = "data/3龙门币3赤金.json",simplifyVector = TRUE)
+```
+
+## SPSS/SAS/stata DTA
+
+```{r}
+#| eval: false
+library(haven)
+read_spss()
+read_sav()
+
+read_sas()
+
+read_dta()
+read_stata()
+```
+
+## Database
+
+```{r}
+#| eval: false
+library(DBI)
+library(dbplyr)
+```
+
+## 脚本载入
+
+```{r}
+source("data/add_function.R")
+add(c(1,24,4),4)
+source("data/add_function")
+```
+
+::: callout-note
+add_function
+
+```{r}
+add <- function(x,y){
+  return(x+y)
+}
+```
+:::
+
+# Write
+
+## 文本输出
+
+```{r}
+sink("data/sink_output.txt",append = F,split = T)  # split =T 输出到控制台和文件
+letters
+sink(NULL)
+```
+
+## 图片输出
+
+```{r}
+pdf(file = "data/pdf_output.pdf")       # bmp,jpeg,png，SVG
+plot(1:25,1:25,pch=1:25,col="green",bg="red",type = "b")
+while(!is.null(dev.list()))  dev.off() 
+```

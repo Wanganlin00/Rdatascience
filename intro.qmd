@@ -1,7 +1,6 @@
 # Introduction
 
 ```{r}
-Sys.info()
 
 
 ```

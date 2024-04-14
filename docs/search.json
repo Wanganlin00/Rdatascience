@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R data science",
+    "section": "",
+    "text": "Preface\n\n1 + 1\n#&gt; [1] 2"
+  },
+  {
+    "objectID": "basic_data_type_class.html",
+    "href": "basic_data_type_class.html",
+    "title": "2  数据类型和数据结构",
+    "section": "",
+    "text": "3 数据类型\n数据类型（mode）：表示对象在计算机内存中的存储形式\nclass：是一种基于面向对象的R的抽象类型划分,或者理解为一种数据结构。"
+  },
+  {
+    "objectID": "basic_data_type_class.html#numeric-数值型integerdouble",
+    "href": "basic_data_type_class.html#numeric-数值型integerdouble",
+    "title": "2  数据类型和数据结构",
+    "section": "3.1 numeric – 数值型（integer/double）",
+    "text": "3.1 numeric – 数值型（integer/double）\ninteger – 整型 L\n\nmode(4.3)\n#&gt; [1] \"numeric\"\nclass(4.3)\n#&gt; [1] \"numeric\"\nmode(1L)\n#&gt; [1] \"numeric\"\nclass(1L)\n#&gt; [1] \"integer\""
+  },
+  {
+    "objectID": "basic_data_type_class.html#character-字符型",
+    "href": "basic_data_type_class.html#character-字符型",
+    "title": "2  数据类型和数据结构",
+    "section": "3.2 character – 字符型",
+    "text": "3.2 character – 字符型\n\nmode(c(\"car\"))\n#&gt; [1] \"character\"\nclass(\"car\")\n#&gt; [1] \"character\""
+  },
+  {
+    "objectID": "basic_data_type_class.html#logical-逻辑型",
+    "href": "basic_data_type_class.html#logical-逻辑型",
+    "title": "2  数据类型和数据结构",
+    "section": "3.3 logical – 逻辑型",
+    "text": "3.3 logical – 逻辑型\n\nmode(c(TRUE,FALSE))\n#&gt; [1] \"logical\"\nclass(c(TRUE,FALSE))\n#&gt; [1] \"logical\""
+  },
+  {
+    "objectID": "basic_data_type_class.html#complex-复数型",
+    "href": "basic_data_type_class.html#complex-复数型",
+    "title": "2  数据类型和数据结构",
+    "section": "3.4 complex – 复数型",
+    "text": "3.4 complex – 复数型\n\n\nmode(c(1+2i,3-4i)) \n#&gt; [1] \"complex\"\nclass(c(1+2i,3-4i))\n#&gt; [1] \"complex\""
+  },
+  {
+    "objectID": "basic_data_type_class.html#raw型",
+    "href": "basic_data_type_class.html#raw型",
+    "title": "2  数据类型和数据结构",
+    "section": "3.5 raw型",
+    "text": "3.5 raw型\n\ncharToRaw(\"abcde12345\") #字符串中每个字符的原始存储格式（十六进制？）\n#&gt;  [1] 61 62 63 64 65 31 32 33 34 35\nmode(charToRaw(\"abcde12345\")) \n#&gt; [1] \"raw\"\nclass(charToRaw(\"abcde12345\"))\n#&gt; [1] \"raw\""
+  },
+  {
+    "objectID": "basic_data_type_class.html#vector",
+    "href": "basic_data_type_class.html#vector",
+    "title": "2  数据类型和数据结构",
+    "section": "4.1 vector",
+    "text": "4.1 vector\n向量,同一类元素的集合。 ?c      #Combine Values into a Vector or List\nR中没有标量（scalar），只含一个元素的向量\n\n#单元素向量\n1 == c(1)\n#&gt; [1] TRUE\nis.vector(1)\n#&gt; [1] TRUE\n  \n\"a\"\n#&gt; [1] \"a\"\nis.vector(\"a\")\n#&gt; [1] TRUE\n\n#使用函数c()创建向量\n\nc(1)\n#&gt; [1] 1\nc(1,2,3,4,5)\n#&gt; [1] 1 2 3 4 5\nc(\"a\",\"b\",\"c\")\n#&gt; [1] \"a\" \"b\" \"c\""
+  },
+  {
+    "objectID": "basic_data_type_class.html#factor",
+    "href": "basic_data_type_class.html#factor",
+    "title": "2  数据类型和数据结构",
+    "section": "4.2 factor",
+    "text": "4.2 factor\n因子，分类变量，其中每个级别都是一类。?factor factor(vector,ordered=FALSE,levels=c(v1,v2,…),labels= ,...) ，在内存中以整数向量c(1,2,3,...,k)存储。\n\n# 存储形式\nclass(factor((c(1,2,3)))) \n#&gt; [1] \"factor\"\nmode(factor((c(1,2,3)))) \n#&gt; [1] \"numeric\"\n\n# 名义变量 nominal variable\ndiabetes&lt;-c(\"t1\",\"t2\",\"t1\",\"t1\") \nstr(diabetes)\n#&gt;  chr [1:4] \"t1\" \"t2\" \"t1\" \"t1\"\ndiabetes&lt;-factor(diabetes)\nstr(diabetes)\n#&gt;  Factor w/ 2 levels \"t1\",\"t2\": 1 2 1 1\n\n# 顺序变量 ordinal variable     默认水平根据字母顺序而定\nstatus&lt;-c(\"poor\",\"better\",\"best\",\"poor\")\nstatus&lt;-factor(status,ordered = TRUE) \nstr(status) \n#&gt;  Ord.factor w/ 3 levels \"best\"&lt;\"better\"&lt;..: 3 2 1 3\nstatus&lt;-factor(status,ordered =TRUE,levels = c(\"poor\",\"better\",\"best\")) \nstr(status) \n#&gt;  Ord.factor w/ 3 levels \"poor\"&lt;\"better\"&lt;..: 1 2 3 1\n\n\n#改变外在标签\nsex&lt;-c(1,2,2,1)\nsex\n#&gt; [1] 1 2 2 1\nsex&lt;-factor(sex,levels=c(1,2),labels = c(\"男\",\"女\")) \nstr(sex) \n#&gt;  Factor w/ 2 levels \"男\",\"女\": 1 2 2 1\nsex\n#&gt; [1] 男 女 女 男\n#&gt; Levels: 男 女\n\nleadership &lt;- read_csv(\"data/leadership.txt\") |&gt; column_to_rownames(var = \"id\")\n#&gt; Rows: 5 Columns: 10\n#&gt; ── Column specification ────────────────────────────────────────────────────────\n#&gt; Delimiter: \",\"\n#&gt; chr (4): id, date, country, gender\n#&gt; dbl (6): age, q1, q2, q3, q4, q5\n#&gt; \n#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.\n#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n# 连续型变量→因子\nleadership$agecat&lt;-cut(leadership$age,\n                    breaks = c(0,18,45,65,Inf),\n                    labels=c(\"minor\",\"young\",\"middle_age\",\"elder\"),\n                    include.lowest = TRUE,\n                    right = TRUE\n                    )\nleadership$agecat\n#&gt; [1] young young young elder elder\n#&gt; Levels: minor young middle_age elder"
+  },
+  {
+    "objectID": "basic_data_type_class.html#datedatetime",
+    "href": "basic_data_type_class.html#datedatetime",
+    "title": "2  数据类型和数据结构",
+    "section": "4.3 date/datetime",
+    "text": "4.3 date/datetime\n日期/日期时间 默认格式：\"%Y-%m-%d\" xxxx-xx-xx,例如：2023-03-15\n\nmode(as.Date(\"2023-12-11\"))\n#&gt; [1] \"numeric\"\nclass(as.Date(\"2023-12-11\")) \n#&gt; [1] \"Date\"\n\ndate()\n#&gt; [1] \"Mon Apr 15 00:43:19 2024\"\nSys.Date()\n#&gt; [1] \"2024-04-15\"\nas.Date(c(\"02 14-2002\",\"01 04-2013\"),\"%m %d-%Y\") #以\"%m %d-%Y\"格式读入\n#&gt; [1] \"2002-02-14\" \"2013-01-04\"\nformat(Sys.Date(),\"%Y/%m/%d\") #以\"%Y/%m/%d\"格式输出\n#&gt; [1] \"2024/04/15\"\n\nleadership&lt;-read_csv(\"data/leadership.txt\")\n#&gt; Rows: 5 Columns: 10\n#&gt; ── Column specification ────────────────────────────────────────────────────────\n#&gt; Delimiter: \",\"\n#&gt; chr (4): id, date, country, gender\n#&gt; dbl (6): age, q1, q2, q3, q4, q5\n#&gt; \n#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.\n#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\nleadership\n#&gt; # A tibble: 5 × 10\n#&gt;   id    date     country gender   age    q1    q2    q3    q4    q5\n#&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n#&gt; 1 Bob   10/24/14 US      M         29     5     4     5     5     5\n#&gt; 2 Mary  10/28/14 US      F         44     3     5     2     5     5\n#&gt; 3 Lily  10/01/14 UK      F         45     3     5     5     5     2\n#&gt; 4 July  10/12/14 UK      M         68     3     3     4    NA    NA\n#&gt; 5 Frank 05/01/14 UK      F         99     2     2     1     2     1\nleadership$date&lt;-as.Date(leadership$date,\"%m/%d/%y\")\nleadership\n#&gt; # A tibble: 5 × 10\n#&gt;   id    date       country gender   age    q1    q2    q3    q4    q5\n#&gt;   &lt;chr&gt; &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n#&gt; 1 Bob   2014-10-24 US      M         29     5     4     5     5     5\n#&gt; 2 Mary  2014-10-28 US      F         44     3     5     2     5     5\n#&gt; 3 Lily  2014-10-01 UK      F         45     3     5     5     5     2\n#&gt; 4 July  2014-10-12 UK      M         68     3     3     4    NA    NA\n#&gt; 5 Frank 2014-05-01 UK      F         99     2     2     1     2     1"
+  },
+  {
+    "objectID": "basic_data_type_class.html#matrix",
+    "href": "basic_data_type_class.html#matrix",
+    "title": "2  数据类型和数据结构",
+    "section": "4.4 matrix",
+    "text": "4.4 matrix\n矩阵，所有元素必须是同一类型。?matrix\nmatrix(data= ,nrow=1  ,ncol=1  ,byrow=FALSE ,dimnames=list(rnames,cnames) ,...)\n\nnum&lt;-c(16,22,24,28)\nrnames&lt;-c(\"R1\",\"R2\")\ncnames&lt;-c(\"C1\",\"C2\")\nmymatrix&lt;-matrix(num,nrow=2,ncol=2,byrow=TRUE,dimnames=list(rnames,cnames))\nmymatrix   \n#&gt;    C1 C2\n#&gt; R1 16 22\n#&gt; R2 24 28"
+  },
+  {
+    "objectID": "basic_data_type_class.html#array",
+    "href": "basic_data_type_class.html#array",
+    "title": "2  数据类型和数据结构",
+    "section": "4.5 array",
+    "text": "4.5 array\n数组，所有元素必须是同一类型。?array\narray(data,dim_numeric_vector=c(...),dimnames = list(dim1,dim2,...),...)\n\nv&lt;-1:24 \ndim1&lt;-c(\"A1\",\"A2\",\"A3\") \ndim2&lt;-c(\"B1\",\"B2\",\"B3\",\"B4\")\ndim3&lt;-c(\"C1\",\"C2\") \nmyarray&lt;-array(v,c(3,4,2),dimnames = list(dim1,dim2,dim3)) \nmyarray\n#&gt; , , C1\n#&gt; \n#&gt;    B1 B2 B3 B4\n#&gt; A1  1  4  7 10\n#&gt; A2  2  5  8 11\n#&gt; A3  3  6  9 12\n#&gt; \n#&gt; , , C2\n#&gt; \n#&gt;    B1 B2 B3 B4\n#&gt; A1 13 16 19 22\n#&gt; A2 14 17 20 23\n#&gt; A3 15 18 21 24"
+  },
+  {
+    "objectID": "basic_data_type_class.html#data.frametibble",
+    "href": "basic_data_type_class.html#data.frametibble",
+    "title": "2  数据类型和数据结构",
+    "section": "4.6 data.frame/tibble",
+    "text": "4.6 data.frame/tibble\n数据框， 由列向量组成，每一列元素必须是同一类型，列与列之间长度必须相同，但类型可以不同。?data.frame\ndata.frame(name1=col_vector1,name2=col_vector2,...,row.names = ,...) ?tibble，tibble()是tidyverse风格的数据框，用法类似。\n\nid&lt;-c(1,2,3,4) \nage&lt;-c(21,14,52,15) \ndiabetes&lt;-c(\"t1\",\"t2\",\"t1\",\"t1\") \nstatus&lt;-c(\"poor\",\"better\",\"best\",\"poor\") \npatient&lt;-data.frame(patientID=id,age,diabetes,status,row.names = id) # 4个列向量组成数据框 \npatient |&gt; rownames_to_column(var = \"ID\")\n#&gt;   ID patientID age diabetes status\n#&gt; 1  1         1  21       t1   poor\n#&gt; 2  2         2  14       t2 better\n#&gt; 3  3         3  52       t1   best\n#&gt; 4  4         4  15       t1   poor\nmode(patient)\n#&gt; [1] \"list\"\nclass(patient)\n#&gt; [1] \"data.frame\""
+  },
+  {
+    "objectID": "basic_data_type_class.html#list",
+    "href": "basic_data_type_class.html#list",
+    "title": "2  数据类型和数据结构",
+    "section": "4.7 list",
+    "text": "4.7 list\n列表，由以上各种数据结构组成?list list(name1=object1,name2=object2,...)\n\nmylist&lt;-list(title=\"My list\",\n             matr=matrix(c(\"a1\",\"b1\",\"a2\",\"b2\"),nrow=2,ncol=2,byrow=TRUE,\n                           dimnames = list(c(\"X1\",\"X2\"),c(\"Y1\",\"Y2\"))\n                         ),\n             df=data.frame(id=matrix(c(\"Lisa\",\"BOb\",\"John\",\"Jule\"),\n                                     nrow=4,ncol=1,byrow=TRUE\n                                     ),\n                           int=c(3,5,7,9),\n                           TF=c(T,T,T,F)\n                           ),\n             list=list(a=c(1,2,3),b=c(\"A\",\"B\"))\n             )\nmylist\n#&gt; $title\n#&gt; [1] \"My list\"\n#&gt; \n#&gt; $matr\n#&gt;    Y1   Y2  \n#&gt; X1 \"a1\" \"b1\"\n#&gt; X2 \"a2\" \"b2\"\n#&gt; \n#&gt; $df\n#&gt;     id int    TF\n#&gt; 1 Lisa   3  TRUE\n#&gt; 2  BOb   5  TRUE\n#&gt; 3 John   7  TRUE\n#&gt; 4 Jule   9 FALSE\n#&gt; \n#&gt; $list\n#&gt; $list$a\n#&gt; [1] 1 2 3\n#&gt; \n#&gt; $list$b\n#&gt; [1] \"A\" \"B\"\nmode(mylist)\n#&gt; [1] \"list\"\nclass(mylist)\n#&gt; [1] \"list\""
+  },
+  {
+    "objectID": "basic_data_type_class.html#function",
+    "href": "basic_data_type_class.html#function",
+    "title": "2  数据类型和数据结构",
+    "section": "4.8 function",
+    "text": "4.8 function\n\nmode(c)\n#&gt; [1] \"function\"\nclass(c)\n#&gt; [1] \"function\"\n\nmode(sum)\n#&gt; [1] \"function\"\nclass(sum)\n#&gt; [1] \"function\""
+  }
+]

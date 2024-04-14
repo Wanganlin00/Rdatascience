@@ -1,0 +1,14 @@
+{
+  "hash": "f0747a57f71f18035481f71b392941fa",
+  "result": {
+    "markdown": "# Preface {.unnumbered}\n\n\n\n\n::: {.cell hash='index_cache/html/unnamed-chunk-1_8170f11cbcc5395efeeb0bd68ee647a6'}\n\n```{.r .cell-code}\n1 + 1\n#> [1] 2\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

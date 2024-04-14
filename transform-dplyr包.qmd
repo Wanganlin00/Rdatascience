@@ -1,0 +1,179 @@
+# `dplyr::`
+
+tibble manipulate
+
+|     | 函数                                                                       | 高能             |
+|-----|----------------------------------------------------------------------------|------------------|
+|     | `filter()`                                                                 | 选择行/观测      |
+|     | `mutate(df,newvar1= ,newvar2= ,...)`                                       | 转化或重编码变量 |
+|     | `select()`                                                                 | 选择列/变量      |
+|     | ``` rename(df``,oldname1=newname1,oldname2=newname2,...``) ```             | 重命名列/变量    |
+|     | ``` recode(``col_vector,oldvalue1=newvalue1,oldvalue2=newvalue2,...``) ``` | 重编码变量值     |
+|     | `arrange()`                                                                | 按变量值行排序   |
+|     | `relocate()`                                                               |                  |
+
+```{r}
+
+library(nycflights13)
+flights
+
+                                               #rows####
+flights %>% 
+  dplyr::filter(dep_delay>120|dep_delay<10)   #筛选
+flights %>% 
+  dplyr::filter(month==1&day==1)
+
+df<-flights
+df |> slice_head(n = 1)#从每个组中获取第一行
+df |> slice_tail(n = 1)#取每组的最后一行
+df |> slice_min(x, n = 1)#取列值最小的n行
+df |> slice_max(x, n = 1)#取列值最大的n行
+df |> slice_sample(n = 1)#随机取n行
+flights |> 
+  group_by(dest) |> 
+  slice_max(arr_delay, n = 1,with_ties = TRUE)#含最大值的所有行（包括重复）
+  
+rm(list=ls())
+flights |>
+  arrange(year, month, day, dep_time)   #行排序
+flights |>
+  arrange(desc(dep_delay))              #行降序 order(decreasing = TRUE)
+flight |> 
+  .[order(.$year,.$month,.$day),]
+
+-rank(col)#列降序
+
+flights |> 
+  distinct()           #唯一行
+flights |> 
+  distinct(origin,tailnum) #唯一（origin,tailnum）的行
+flights |> 
+  distinct(origin, dest, 
+           .keep_all = TRUE) #保留其他行
+
+
+flights |> 
+  count(origin, dest, sort = TRUE)#次数
+flights %>% 
+  group_by(origin,dest) %>%  
+  summarise(n=n()) %>% 
+  .[order(-.$n),]
+
+                                                                    #columns####
+flights |> mutate(                    #添加或修改列
+    gain = dep_delay - arr_delay,
+    speed = distance / air_time * 60,
+    .before = 1,         #在*列之前添加  .after=   
+    .keep="used" )        #只保留使用列
+ 
+
+flights |> select(year, month, day)   #挑选列，取子集
+flights |> select(year:day)          
+flights |> select(!year:day)
+flights |> select(where(is.character)) #字符列       #正则表达式
+flights |> select(tail_num = tailnum)  #重命名，只保留该列
+
+
+flights |> rename(tail_num = tailnum) #重命名，保留所有列
+
+
+flights |> relocate(time_hour, air_time) #移动列向量
+flights |> 
+  relocate(month:dep_time, .after = sched_dep_time)
+flights |> 
+  relocate(starts_with("arr"), .before = dep_time)
+
+
+#                         The pipe                      ####
+flights |> 
+  dplyr::filter(dest == "IAH") |> 
+  mutate(speed = distance / air_time * 60) |> 
+  select(year:day, dep_time, carrier, flight, speed) |> 
+  arrange(desc(speed))
+
+
+                                              #Groups####
+
+flights |>  group_by(month) |>           #分组 ,后续操作将“按月”进行
+  summarize(avg_delay = mean(dep_delay, na.rm = TRUE),#汇总
+            n = n())                  #计数，每一组的行数
+
+flights |> 
+  group_by(dest) |> 
+  slice_max(arr_delay, n = 1,with_ties = TRUE) |> #含最大值的所有行（包括重复）
+  relocate(dest)
+
+
+#按多个变量分组
+daily <- flights |>  group_by(year, month, day)
+daily
+monthly_flights <- daily |> 
+  summarize(
+    n = n(), 
+    .groups = "drop_last") %>%  #删除最低一级分组结构，为按月分组做准备
+        summarise(
+          n=n(),
+          .groups = "drop_last")#删除最低一级分组结构，为按年分组做准备
+                          # drop_last: dropping the last level of grouping. This was the only supported option before version 1.0.0.
+                          #"drop": All levels of grouping are dropped.
+                          #"keep": Same grouping structure as .data.
+                          #"rowwise": Each row is its own group.
+monthly_flights %>% summarise(n=n()) #最后一级分组，无需设置.groups=
+
+#取消分组
+daily %>% ungroup()
+
+daily |> 
+  ungroup() |>
+  summarize(
+    avg_delay = mean(dep_delay, na.rm = TRUE), 
+    flights = n()      #未分组视为一组，返回一组的行数，即nrow（flights）
+  )
+                                          #tables####
+
+#.by
+flights |> 
+  summarize(
+    delay_mean = mean(dep_delay, na.rm = TRUE), 
+    n = n(),
+    .by = month
+  )
+
+#练习####
+df <- tibble(
+  x = 1:5,
+  y = c("a", "b", "a", "a", "b"),
+  z = c("K", "K", "L", "L", "K")
+)
+df
+df |>
+  group_by(y) %>% summarise(mean_x=mean(x),n=n())
+df |>
+  arrange(y)
+df |>
+  group_by(y, z) |>
+  summarize(mean_x = mean(x))
+df |>
+  group_by(y, z) |>
+  summarize(mean_x = mean(x), .groups = "drop")
+df |>
+  group_by(y, z) |>
+  mutate(mean_x = mean(x))
+
+#案例研究：聚合和样本量####
+install.packages("Lahman")
+batters <- Lahman::Batting |> 
+  group_by(playerID) |> 
+  summarize(
+    performance = sum(H, na.rm = TRUE) / sum(AB, na.rm = TRUE),
+    n = sum(AB, na.rm = TRUE)
+  )
+batters
+batters |> 
+  arrange(desc(performance))
+batters |> 
+  dplyr::filter(n > 100) |> 
+  ggplot(aes(x = n, y = performance)) +
+  geom_point(alpha = 0.1) + 
+  geom_smooth(se = FALSE)
+```

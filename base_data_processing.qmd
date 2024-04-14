@@ -1,0 +1,384 @@
+---
+title: "常用函数"
+  knitr:
+  opts_chunk:
+  comment: "#>"
+collapse: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# basic data processing
+
+```{r}
+x <- 1
+ls()
+rm(x)#删除某个对象
+.num<-c(1,2,3,4,5)  #以.开头的是隐藏对象  
+ls()
+rm(list=ls())#删除几乎所有对象,以.开头的隐藏对象不受影响
+.num
+```
+
+## 缺失值 missing values
+
+N/A，Not Available，不可用，缺失
+
+NaN，Not a Number，非数字，计算无法进行( `0/0` )
+
+```{r}
+x <- NA
+y <- 0/0
+is.na(x)
+is.nan(y)
+```
+
+```{r}
+leadership<-read_csv("data/leadership.txt") |> column_to_rownames(var = "id")
+leadership
+anyNA(leadership)
+is.na(leadership)
+
+new<-na.omit(leadership)
+new
+
+x<-c(2,3,1,4,5,NA,NA)
+sum(x,na.rm = TRUE)
+```
+
+## `seq()`, `rep()`, `cut()`
+
+```{r}
+seq(from=1,to=30,by=3)  # 生成一个序列
+seq(from=1,to=30,length=10) 
+
+rep(x = c("A",1,"B",2),times = 3)           #重复序列
+rep(x = c("A",1,"B",2),times = c(1,2,3,4))
+rep(x = c("A",1,"B",2),each = 3,times = 2)
+
+x <- c(2.3,4.5,2.4,3,3.8,4,5.6,6.7,2.1,1.5)
+cut( x = x, breaks =3,)                # 因子
+cut( x = x, breaks =c(1,3,5,8),include.lowest = TRUE) 
+```
+
+## 排序
+
+```{r}
+leadership
+
+# 返回原来的行索引 5,3,2,4,1,  原来第5行现在第1行
+order(leadership$gender,-leadership$age,na.last = TRUE)  
+
+# 性别升序，年龄降序
+leadership[order(leadership$gender,-leadership$age,na.last = TRUE) ,] 
+```
+
+## 子集和抽样
+
+```{r}
+base::subset(x = leadership,subset = age>=18 & age<=45,
+             select=c(age,q1:q5))
+
+# 随机抽样 sample(x,size,replace=T/F 有无放回)
+set.seed(123)
+sample(x = nrow(leadership),size = 10,replace = T)
+
+leadership[sample(nrow(leadership),10,replace = T),]
+```
+
+## 查找
+
+```{r}
+x<-c(2,3,5,1,4)
+which(x>2)
+which.max(x)
+which.min(x)
+all(x>2)
+any(x>2)
+```
+
+## 数学函数
+
+```{r}
+x<-c(25,-4,3.66,3.42,-5.99)
+abs(x)                       #绝对值
+sqrt(x)                      #平方根
+ceiling(x)                   #向上取整
+floor(x)                     #向下取整
+trunc(x)                     #整数部分
+round(x,digits = 2)          #四舍五入，保留2位小数
+signif(x,digits = 2)         #四舍五入，保留2有效数字
+log(x,base=4)                #对x取以base为底的对数
+log(x)                          #自然对数
+log10(x)                        #常用对数
+exp(x)                       #e指数函数
+```
+
+## 统计函数
+
+```{r}
+mean(x,trim = 0.05,na.rm = TRUE)     #算术平均值
+median(x)                            #中位数
+sd(x)                                #标准差
+var(x)                               #方差
+mad(x)                               #绝对中位差
+quantile(x,probs = c(0,0.25,0.5,0.75,1))     #分位数
+range(x)                             # 值域
+scale(x,center = TRUE,scale = TRUE)  #标准化（均值为0、标准差为1）
+scale(x,center = TRUE,scale =FALSE)  #中心化：减去均值
+
+
+x <- c(1,3,5,7,9,11,13)
+# Find the "previous" (lag()) or "next" (lead()) values in a vector
+dplyr::lag(x,n=2)                      # n阶滞后
+dplyr::lead(x,n=2)                     # n阶前移
+
+# 滞后差分  lag阶滞后  difference阶差分
+diff(x,lag = 1,difference=1)     # 隔0个值后位减前位，进行1次
+diff(x,lag = 1,difference=2)     ## 隔0个值后位减前位，进行2次
+diff(x,lag = 1,difference=3)     # 隔0个值后位减前位，进行3次
+
+diff(x,lag = 2,difference=1)  # 隔1个值后位减前位，进行1次
+diff(x,lag = 2,difference=2) ## 隔1个值后位减前位，进行2次
+```
+
+## 字符串函数
+
+```{r}
+# 正则表达式
+substr(x="qwertyyuio",start = 2,stop=4)            #子串
+sub(pattern = " ",replacement = ".",
+    x="hello world",ignore.case = FALSE,fixed = FALSE)  #查找替换
+grep(pattern = "v",x=c("a","v","D","A","f","J"),ignore.case = FALSE,fixed = FALSE)   # 查找,返回下标
+strsplit(x="a.fa.fag",split = "\\.",fixed = FALSE)  # 分隔，\\转义字符
+
+
+#
+paste("x",c("a","b"),sep="+")   #连接
+cat("hello","BOb","\b\n","\bIsn\' R","\t","GREAT?\n",sep = " " )
+
+#
+toupper("abc")              #大写转换
+tolower("aaAGEErg")         #小写转换
+```
+
+## apply函数簇
+
+### `apply()`
+
+```{r}
+apply(X = mtcars, MARGIN = 2, FUN = mean)
+
+```
+
+### `aggregate()`
+
+```{r}
+aggregate(x = mtcars,
+          by = list(am=mtcars$am,cyl=mtcars$cyl),
+          FUN = mean)  
+aggregate(.~am+cyl,
+          data = mtcars,
+          FUN = mean)
+aggregate(mpg~am+cyl,
+          data = mtcars,
+          FUN = summary)
+```
+
+### `by()`, `tapply()`
+
+`by()`是应用于数据框的tapply的面向对象包装器。
+
+```{r}
+by(data = mtcars[,1:3],
+   INDICES = list(cyl=mtcars$cyl),
+   FUN = summary)
+
+by(data = mtcars[,1:3],
+   INDICES = factor(mtcars$cyl),
+   FUN = function(x) lm( disp ~ mpg, data = x))
+
+tapply(X = mtcars[,1:3],
+       INDEX = list(cyl=mtcars$cyl),
+       FUN = summary)
+```
+
+### `lapply()`, `sapply()`
+
+`lapply()` returns a list of the same length as X,
+
+`sapply()` is a user-friendly version and wrapper of `lapply()` by default returning a vector or matrix
+
+```{r}
+x <- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+lapply(X = x,FUN = quantile)
+
+sapply(x, quantile)
+```
+
+mapply for applying a function to multiple arguments,
+
+rapply for a recursive version of lapply()
+
+eapply for applying a function to each entry in an environment.
+
+## 稀疏矩阵
+
+稀疏矩阵(Sparse matrices)对象仅存储非零元素，更节省内存
+
+```{r}
+library("Matrix")
+N = 100
+
+m = diag(1, N, N)
+sp = sparseMatrix(1:N, 1:N, x = 1)
+ 
+object.size(m)
+object.size(sp)
+
+```
+
+## 并行计算
+
+Parallel computing
+
+```{r}
+library("parallel")
+no_of_cores = detectCores()
+no_of_cores
+```
+
+`parLapply（cl， x， FUN， ...）`
+
+`parApply（cl = NULL， X， MARGIN， FUN， ...）`
+
+`parSapply（cl = NULL， X， FUN， ...， simplify = TRUE， USE.NAMES = TRUE)`
+
+`makeCluster()`此函数指定要使用的处理器数量
+
+```{r}
+library("parallel")
+
+
+N = 10^4
+sapply(1:N, sd)
+
+cl = makeCluster(4)
+parSapply(cl, 1:N, sd)
+stopCluster(cl)
+```
+
+## Rcpp
+
+[Rcpp](http://www.rcpp.org/)
+
+Rcpp sugar
+
+`NumericVector` `IntegerVector` `CharacterVector` `LogicalVector`
+
+`NumericMatrix` `IntegerMatrix` `CharacterMatrix` `LogicalMatrix`
+
+```{r}
+library(Rcpp)
+sourceCpp("function/add_cpp.cpp")
+
+add_cpp(2,34.5)
+
+sourceCpp("function/mean_cpp.cpp")
+```
+
+## 硬件
+
+```{r}
+library("benchmarkme")
+```
+
+1字节（byte）= 8位（bit） 二进制数 = 1个 ASCII 字符。
+
+International System of Units (SI)
+
+1 kilobyte (kB) =(2\^{10}) bytes
+
+1 megabyte (MB) = (2^{10}) kilobytes= (2^{20}) bytes
+
+```{r}
+# 随机存取存储器 Random access memory,RAM
+benchmarkme::get_ram()
+```
+
+standard hard disk drives (HDDs)
+
+Solid state drives (SSDs)
+
+```{r}
+# 操作系统 2^8
+.Machine$sizeof.pointer
+```
+
+```{r}
+# CPU
+res = benchmark_std() 
+plot(res)
+```
+
+## 概率函数
+
+形如`[dpqr]distribution_abbreviation`，其中密度函数`d`，分布函数`p`，分位数函数`q`，随机数生成函数`r`
+
+```{r}
+### 正态分布
+dnorm(3,0,2)  #N(0,4)在 3 处的密度值
+pnorm(1:3,0,2)#N(0,4)在1，2，3处的分布概率值
+qnorm(1-0.025,0,1)# N(0,1)的上0.025分位数
+rnorm(5,3,3)  # 生成5个服从N(3,9)的随机数
+
+
+### 二项分布
+1-sum(dbinom(0:1,400,0.02))# 命中率为0.02，独立射击400次，至少击中2次的概率
+ggplot()
+
+
+
+### 多元正态分布
+mean<-c(230.7,146.7,3.6)
+sigma<-matrix(c(15360.8,6721.2,-47.1,
+                6721.2,4700.9,-16.5,
+                -47.1,16.5,0.3),nrow = 3,ncol = 3)
+library(MASS)
+multi <- mvrnorm(500,mean,sigma)
+head(multi)
+```
+
+#### 正态分布
+
+```{r}
+norm <- function(xlim = c(-Inf,+Inf)){
+  ggplot() + xlim(xlim) +
+    geom_function(fun = dnorm, args = list(mean = 0, sd = 1), color="red")+
+        scale_y_continuous(limits = c(0,1))+
+    geom_function(fun = pnorm,color="blue")
+}
+norm(c(-5,5))
+
+```
+
+#### 二项分布
+
+```{r}
+binom <- function(n,p){
+    ggplot() +
+        geom_line(data.frame(x = 0:n, 
+                      y = dbinom(0:n, size = n, prob = p)), 
+           mapping=aes(x = x, y = y),
+           color="red")+
+        geom_line(data.frame(x = 0:n, 
+                      y = pbinom(0:n, size = n, prob = p)), 
+           mapping=aes(x = x, y = y),
+           color="blue")
+}
+
+binom(10,0.5)
+
+
+```
