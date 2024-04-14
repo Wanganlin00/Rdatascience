@@ -5,4 +5,4 @@
 /.quarto/
 /*cache/
 /data/
-/R/
+.R
