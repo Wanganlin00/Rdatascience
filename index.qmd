@@ -1,7 +1,1 @@
 # Preface {.unnumbered}
-
-
-
-```{r}
-1 + 1
-```

@@ -8,22 +8,38 @@ book:
     - index.qmd
     - intro.qmd
     - basic_data_type_class.qmd
-    - basic_data_type_class.qmd
+    - I-O.qmd
+    - base_data_processing.qmd
+ 
+execute:
+  cache: true
+  error: true
+  message: false #阻止消息或警告出现在完成的文件中
+  warning: false
+# eval: false阻止对代码进行评估。（显然，如果不运行代码，则不会生成任何结果）
+# include: false运行代码，但不会在最终文档中显示代码或结果。
+# echo: false阻止代码，但不会阻止结果出现在完成的文件中
+toc: true
+toc-depth: 3
+number-sections: true
 
-knitr: 
+code-fold: true
+code-tools: true
+code-link: true
+
+knitr:
   opts_chunk: 
-    comment: "#>"
+    comment: "#>" 
     collapse: TRUE
     
-execute: 
-  cache: true
-  message: false
-  error: false
-  
- 
-
-format:
-  html:
+format: 
+  html: 
     theme: cosmo
+    df-print: kable
+
+    html-math-method: katex
+    callout-appearance: simple
 editor: visual
+
+
 

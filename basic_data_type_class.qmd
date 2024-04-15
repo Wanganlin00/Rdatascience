@@ -1,16 +1,12 @@
 ---
 title: "数据类型和数据结构"
-knitr:
-  opts_chunk:
-    comment: "#>"
-    collapse: true
 ---
 
-# 数据类型
+## 数据类型
 
 **数据类型（mode）**：表示对象在计算机内存中的存储形式
 
-## numeric -- 数值型（integer/double）
+### numeric -- 数值型（integer/double）
 
 integer -- 整型 L
 
@@ -21,21 +17,21 @@ mode(1L)
 class(1L)
 ```
 
-## character -- 字符型
+### character -- 字符型
 
 ```{r}
 mode(c("car"))
 class("car")
 ```
 
-## logical -- 逻辑型
+### logical -- 逻辑型
 
 ```{r}
 mode(c(TRUE,FALSE))
 class(c(TRUE,FALSE))
 ```
 
-## complex -- 复数型
+### complex -- 复数型
 
 ```{r}
 
@@ -43,7 +39,7 @@ mode(c(1+2i,3-4i))
 class(c(1+2i,3-4i))
 ```
 
-## raw型
+### raw型
 
 ```{r}
 charToRaw("abcde12345") #字符串中每个字符的原始存储格式（十六进制？）
@@ -51,11 +47,11 @@ mode(charToRaw("abcde12345"))
 class(charToRaw("abcde12345"))
 ```
 
-# 数据结构
+## 数据结构
 
 **class**：是一种基于*面向对象*的R的抽象类型划分,或者理解为一种数据结构。
 
-## vector
+### vector
 
 向量,同一类元素的集合。 `?c      #Combine Values into a Vector or List`
 
@@ -77,7 +73,7 @@ c("a","b","c")
 
 ```
 
-## factor
+### factor
 
 因子，分类变量，其中每个级别都是一类。`?factor` `factor(vector,ordered=FALSE,levels=c(v1,v2,…),labels= ,...)` ，在内存中以整数向量`c(1,2,3,...,k)`存储。
 
@@ -118,7 +114,7 @@ leadership$agecat<-cut(leadership$age,
 leadership$agecat
 ```
 
-## date/datetime
+### date/datetime
 
 日期/日期时间 默认格式：`"%Y-%m-%d" xxxx-xx-xx,例如：2023-03-15`
 
@@ -137,7 +133,7 @@ leadership$date<-as.Date(leadership$date,"%m/%d/%y")
 leadership
 ```
 
-## matrix
+### matrix
 
 矩阵，所有元素必须是同一类型。`?matrix`
 
@@ -151,7 +147,7 @@ mymatrix<-matrix(num,nrow=2,ncol=2,byrow=TRUE,dimnames=list(rnames,cnames))
 mymatrix   
 ```
 
-## array
+### array
 
 数组，所有元素必须是同一类型。`?array`
 
@@ -166,7 +162,7 @@ myarray<-array(v,c(3,4,2),dimnames = list(dim1,dim2,dim3))
 myarray
 ```
 
-## data.frame/tibble
+### data frame/tibble
 
 数据框， 由列向量组成，每一列元素必须是同一类型，列与列之间长度必须相同，但类型可以不同。`?data.frame`
 
@@ -183,7 +179,7 @@ mode(patient)
 class(patient)
 ```
 
-## list
+### list
 
 列表，由以上各种数据结构组成`?list` `list(name1=object1,name2=object2,...)`
 
@@ -205,7 +201,7 @@ mode(mylist)
 class(mylist)
 ```
 
-## function
+### function
 
 ```{r}
 mode(c)
