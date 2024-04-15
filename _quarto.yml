@@ -6,7 +6,6 @@ book:
   title: "R data science"
   chapters:
     - index.qmd
-    - intro.qmd
     - basic_data_type_class.qmd
     - I-O.qmd
     - base_data_processing.qmd
