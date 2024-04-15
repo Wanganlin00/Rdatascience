@@ -4,7 +4,17 @@
     "href": "index.html",
     "title": "R data science",
     "section": "",
-    "text": "参考资料\n\nR for data science\ntidyverse.org\nbookdown.org\nEfficient R\ndata.table\nAdvanced R\nR Packages(2e)\narrow.apache.org",
+    "text": "参考资料",
+    "crumbs": [
+      "参考资料"
+    ]
+  },
+  {
+    "objectID": "index.html#参考资料",
+    "href": "index.html#参考资料",
+    "title": "R data science",
+    "section": "",
+    "text": "R for data science\nggplot2: Elegant Graphics for Data Analysis (3e)\nhttps://exts.ggplot2.tidyverse.org/gallery/\nhttps://www.datanovia.com/en/blog/tag/ggpubr/\ntidyverse.org\nbookdown.org\nR in action 3rd\nEfficient R\ndata.table\nAdvanced R\nR Packages(2e)\narrow.apache.org\nPandoc",
     "crumbs": [
       "参考资料"
     ]
