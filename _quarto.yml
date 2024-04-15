@@ -4,6 +4,7 @@ project:
 
 book:
   title: "R data science"
+  reader-mode: true
   chapters:
     - index.qmd
     - basic_data_type_class.qmd
