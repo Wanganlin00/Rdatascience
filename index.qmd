@@ -2,6 +2,10 @@
 
 -   [R for data science](https://r4ds.hadley.nz/)
 
+-   [Advanced R](https://adv-r.hadley.nz/index.html#other-books)
+
+-   [Modern Data Visualization with R](https://doi.org/10.1201/9781003299271)
+
 -   [ggplot2: Elegant Graphics for Data Analysis (3e)](https://ggplot2-book.org/)
 
 -   <https://exts.ggplot2.tidyverse.org/gallery/>
@@ -18,7 +22,7 @@
 
 -   [data.table](https://rdatatable.gitlab.io/data.table/)
 
--   [Advanced R](https://adv-r.hadley.nz/index.html#other-books)
+-   
 
 -   [R Packages(2e)](https://r-pkgs.org/)
 

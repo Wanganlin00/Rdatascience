@@ -10,6 +10,7 @@ book:
     - basic_data_type_class.qmd
     - I-O.qmd
     - base_data_processing.qmd
+    - function_programming.qmd
  
 execute:
   cache: true

@@ -2,40 +2,64 @@
 title: "数据类型和数据结构"
 ---
 
-## 数据类型
+## 数据类型 {style="color:red"}
 
-**数据类型（mode）**：表示对象在计算机内存中的存储形式
+强制类型转换：字符 \> 双精度 \> 整数 \> 逻辑
 
-### numeric -- 数值型（integer/double）
-
-integer -- 整型 L
+### numeric -- 数值型
 
 ```{r}
-mode(4.3)
-class(4.3)
-mode(1L)
-class(1L)
+c(c(1.5, 2), c(3L, 4))
+```
+
+#### double -- 双精度
+
+十进制`decimal ()`，科学计数法`scientific ()` ，十六进制`hexadecimal ()`
+
+```{r}
+0.1234
+1.23e4
+0x111   # 16^2×1+ 16^1×1 + 16^0×1
+```
+
+浮点标准定义的特殊值
+
+-   无穷大
+-   Not a Number
+
+```{r}
+Inf
+-Inf
+NaN
+0/0
+is.nan(0/0)
+```
+
+#### integer --整型
+
+```{r}
+class(128L)
 ```
 
 ### character -- 字符型
 
 ```{r}
-mode(c("car"))
+typeof(c("c"))
 class("car")
 ```
 
 ### logical -- 逻辑型
 
 ```{r}
-mode(c(TRUE,FALSE))
+typeof(c(T,FALSE))
 class(c(TRUE,FALSE))
 ```
 
-### complex -- 复数型
+### complex型
 
 ```{r}
 
-mode(c(1+2i,3-4i)) 
+typeof(c(1+2i,3-4i)) 
 class(c(1+2i,3-4i))
 ```
 
@@ -43,19 +67,37 @@ class(c(1+2i,3-4i))
 
 ```{r}
 charToRaw("abcde12345") #字符串中每个字符的原始存储格式（十六进制？）
-mode(charToRaw("abcde12345")) 
+typeof(charToRaw("abcde12345")) 
 class(charToRaw("abcde12345"))
 ```
 
-## 数据结构
+### NA -- 缺失值
 
-**class**：是一种基于*面向对象*的R的抽象类型划分,或者理解为一种数据结构。
+从技术上讲，每种原子类型有一个缺失值：NA_logical、NA_integer、NA_double、NA_character。
 
-### vector
+Not Available
 
-向量,同一类元素的集合。 `?c      #Combine Values into a Vector or List`
+```{r}
+NA
+is.na(NA)
+anyNA(c(1,3,NA,9))
+x<-c(2,3,1,4,5,NA,NA)
+na.omit(x)
+```
 
-| R中没有标量（scalar），只含一个元素的向量
+## 数据结构 {style="color:red"}
+
+**class**：是一种基于***面向对象编程***的R的抽象类型划分，或者理解为一种数据结构。
+
+### atomic vectors
+
+向量,同一类元素的集合。 `c()  Combine Values into a Vector or List`
+
+![](images/summary-tree-atomic.png){fig-align="center" width="50%"}
+
+还有不常用的complex 和 raw。
+
+| 每一种原子向量都有一种特殊的语法来创建单元素向量，也就是标量**scalar**。
 
 ```{r}
 #单元素向量
@@ -70,23 +112,118 @@ is.vector("a")
 c(1)
 c(1,2,3,4,5)
 c("a","b","c")
-
+c(list(1),list(T)) |> is.vector()
 ```
 
-### factor
+列表不存储值本身，而是存储对它们的引用：
 
-因子，分类变量，其中每个级别都是一类。`?factor` `factor(vector,ordered=FALSE,levels=c(v1,v2,…),labels= ,...)` ，在内存中以整数向量`c(1,2,3,...,k)`存储。
+```{r}
+l1 <- list(1,2,3)
+```
+
+![](images/list.png){#fig-list fig-align="center" width="50%"}
+
+#### 属性
+
+```{r}
+a <- 1:3
+attr(a, "x") <- "abcdef"
+attr(a, "x")
+attr(a, "y") <- 4:6
+str(attributes(a))
+
+# 或者
+a <- structure(
+  1:3, 
+  x = "abcdef",
+  y = 4:6
+)
+str(attributes(a))
+```
+
+大多数操作都会丢失大多数属性。
+
+只有两个属性是例行保留的：
+
+1.  names，一个字符向量，为每个元素命名。
+
+    ```{r}
+    # When creating it: 
+    x <- c(a = 1, b = 2, c = 3)
+    attributes(x)
+    names(x)
+
+    # By assigning a character vector to names()
+    x <- 1:3
+    names(x) <- c("a", "b", "c")
+
+    # Inline, with setNames():
+    x <- setNames(1:3, c("a", "b", "c"))
+    ```
+
+2.  dim，dimensions 的缩写，整数向量，用于将向量转换为矩阵或数组。
+
+    对于原子向量，dimension 属性通常用于创建矩阵或数组。对于列表，dimension 属性可用于创建列表矩阵或列表数组：
+
+    ```{r}
+    z <- 1:6
+    dim(z) <- c(3, 2, 1)
+    z
+    attributes(z)
+    dim(z)
+
+    l <- list(1:3, "a", TRUE, 1.0)
+    dim(l) <- c(2, 2)
+    l
+    l[[1,2]]
+    ```
+
+    | 向量            | 矩阵                  | 数组           |
+    |-----------------|-----------------------|----------------|
+    | names()         | rownames(),colnames() | dimnames()     |
+    | length()        | nrow(),ncol()         | dim()          |
+    | c()             | rbind(),cbind()       | abind::abind() |
+    | ---             | t()                   | aperm()        |
+    | is.null(dim(x)) | is.matrix()           | is.array()     |
+
+要保留其他属性，需要创建S3 类。
+
+### S3原子向量
+
+base R 中使用的四个重要的 S3 向量：
+
+1.  分类数据，其中值来自**factor**向量中记录的一组固定水平。
+
+2.  日期（具有日期分辨率），记录在**Date**向量中。
+
+3.  日期时间（具有秒或亚秒分辨率），存储在 **POSIXct** 向量中。
+
+4.  持续时间，存储在**difftime**向量中。
+
+![](images/summary-tree-s3-baseR.png){fig-align="center" width="50%"}
+
+#### factor
+
+因子，分类变量，建立在具有两个属性（class，levels）的 **integer 向量**之上。
+
+`factor(vector,ordered=FALSE,levels=c(v1,v2,…),labels= ,...)` ，在内存中以整数向量`c(1,2,3,...,k)`存储。
 
 ```{r}
 # 存储形式
-class(factor((c(1,2,3)))) 
-mode(factor((c(1,2,3)))) 
+x <- factor(c("a", "b", "b", "a"))
+x
+typeof(x)
+attributes(x)
+levels(x)
+class(x)
+
 
 # 名义变量 nominal variable
 diabetes<-c("t1","t2","t1","t1") 
-str(diabetes)
+attributes(diabetes)
 diabetes<-factor(diabetes)
-str(diabetes)
+attributes(diabetes)
+
 
 # 顺序变量 ordinal variable     默认水平根据字母顺序而定
 status<-c("poor","better","best","poor")
@@ -114,28 +251,66 @@ leadership$agecat<-cut(leadership$age,
 leadership$agecat
 ```
 
-### date/datetime
+#### Date
 
-日期/日期时间 默认格式：`"%Y-%m-%d" xxxx-xx-xx,例如：2023-03-15`
+日期向量建立在 **double 向量**之上，具有`class "Date"`属性。
+
+日期 默认格式：`"%Y-%m-%d" xxxx-xx-xx,例如：2023-03-15`
 
 ```{r}
-mode(as.Date("2023-12-11"))
-class(as.Date("2023-12-11")) 
+today <- Sys.Date()
+today
+typeof(today)
+attributes(today)
+class(today)
 
-date()
-Sys.Date()
 as.Date(c("02 14-2002","01 04-2013"),"%m %d-%Y") #以"%m %d-%Y"格式读入
 format(Sys.Date(),"%Y/%m/%d") #以"%Y/%m/%d"格式输出
 
-leadership<-read_csv("data/leadership.txt")
-leadership
-leadership$date<-as.Date(leadership$date,"%m/%d/%y")
-leadership
+
+# 双精度值（通过剥离类来查看）表示自 1970 年 1 月 1 日以来的天数
+date <- as.Date("1970-02-01")
+unclass(date)
+```
+
+#### Datetime
+
+POSIXct 和 POSIXlt
+
+"POSIX"是可移植操作系统接口（ Portable Operating System Interface）的缩写，这是一个跨平台标准系列。"ct"代表calendar time（C 中的类型），"lt"代表local time（C 中的类型）。
+
+POSIXct 向量建立在 **double 向量**之上，其中值表示自 1970-01-01 以来的秒数
+
+```{r}
+now_ct <- as.POSIXct("2024-04-20 15:45", tz = "Asia/Shanghai")
+now_ct
+typeof(now_ct)
+attributes(now_ct)
+class(now_ct)
+
+
+```
+
+#### Durations
+
+持续时间（表示日期对或日期时间对之间的时间量）存储在difftimes中。Difftimes 建立在 **double** 之上，并且具有确定整数应如何解释的属性。
+
+```{r}
+units_1 <- as.difftime(1, units = "weeks")  #units = c("auto", "secs", "mins", "hours","days", "weeks"))
+
+units_1
+typeof(units_1)
+attributes(units_1)
+class(units_1)
+units(units_1)
+units(units_1) <- "days"
+
+attributes(units_1)
 ```
 
 ### matrix
 
-矩阵，所有元素必须是同一类型。`?matrix`
+矩阵，所有元素必须是同一类型。
 
 `matrix(data= ,nrow=1  ,ncol=1  ,byrow=FALSE ,dimnames=list(rnames,cnames) ,...)`
 
@@ -143,13 +318,18 @@ leadership
 num<-c(16,22,24,28)
 rnames<-c("R1","R2")
 cnames<-c("C1","C2")
-mymatrix<-matrix(num,nrow=2,ncol=2,byrow=TRUE,dimnames=list(rnames,cnames))
-mymatrix   
+m<-matrix(num,nrow=2,ncol=2,byrow=TRUE,dimnames=list(rnames,cnames))
+m
+
+attributes(m)
+dim(m)
+rownames(m)
+colnames(m)
 ```
 
 ### array
 
-数组，所有元素必须是同一类型。`?array`
+数组，所有元素必须是同一类型。
 
 `array(data,dim_numeric_vector=c(...),dimnames = list(dim1,dim2,...),...)`
 
@@ -158,30 +338,17 @@ v<-1:24
 dim1<-c("A1","A2","A3") 
 dim2<-c("B1","B2","B3","B4")
 dim3<-c("C1","C2") 
-myarray<-array(v,c(3,4,2),dimnames = list(dim1,dim2,dim3)) 
-myarray
-```
-
-### data frame/tibble
-
-数据框， 由列向量组成，每一列元素必须是同一类型，列与列之间长度必须相同，但类型可以不同。`?data.frame`
-
-`data.frame(name1=col_vector1,name2=col_vector2,...,row.names = ,...)` `?tibble`，`tibble()`是tidyverse风格的数据框，用法类似。
-
-```{r}
-id<-c(1,2,3,4) 
-age<-c(21,14,52,15) 
-diabetes<-c("t1","t2","t1","t1") 
-status<-c("poor","better","best","poor") 
-patient<-data.frame(patientID=id,age,diabetes,status,row.names = id) # 4个列向量组成数据框 
-patient |> rownames_to_column(var = "ID")
-mode(patient)
-class(patient)
+array_3d<-array(v,c(3,4,2),dimnames = list(dim1,dim2,dim3)) 
+array_3d
+attributes(array_3d)
+dimnames(array_3d)
 ```
 
 ### list
 
-列表，由以上各种数据结构组成`?list` `list(name1=object1,name2=object2,...)`
+从技术上讲，列表的每个元素实际上是相同的类型，因为每个元素实际上是对另一个对象的引用 @fig-list ，该对象可以是任何类型。
+
+列表，`list(name1=object1,name2=object2,...)`
 
 ```{r}
 mylist<-list(title="My list",
@@ -197,17 +364,119 @@ mylist<-list(title="My list",
              list=list(a=c(1,2,3),b=c("A","B"))
              )
 mylist
-mode(mylist)
+typeof(mylist)
+attributes(mylist)
 class(mylist)
+names(mylist)
+
 ```
 
-### function
+### data frame/tibble
+
+建立在`"list"`之上的两个最重要的 S3 向量是数据框和 tibble
+
+![](images/summary-tree-s3-df_tbl.png){fig-align="center" width="30%"}
+
+数据框是列向量具有 names，row.names ，class"data.frame" 属性的命名列表。
+
+与常规列表相比，数据框每个向量的长度必须相同。这为数据框提供了矩形结构，并解释了为什么它们共享矩阵和列表的属性
 
 ```{r}
-mode(c)
-class(c)
+id<-c(001231,001241,001413,001244) 
+age<-c(21,14,52,15) 
+diabetes<-c("t1","t2","t1","t1") 
+status<-c("poor","better","best","poor") 
+df1<-data.frame(patientID=id,age,diabetes,status,row.names = c(1,2,3,4),
+                stringsAsFactors = FALSE) # 4个列向量组成数据框 
+df1
+typeof(df1)
+attributes(df1)
+class(df1)
+names(df1)
+colnames(df1)
+row.names(df1)
+rownames(df1)
 
-mode(sum)
-class(sum)
+```
 
+`tibblle`与`data frame`共享相同的结构。区别是`class`属性更多,不会自动进行强制类型转换，不会自动转换非法名称（自动反引号非法名称）， tibbles 只能循环较短的长度为 1 的向量，允许引用在构造过程中创建的变量。
+
+```{r}
+library(tibble)
+df2 <- tibble(x = 1:3, y = letters[1:3])
+typeof(df2)
+attributes(df2)
+
+
+names(tibble(`1` = 1))
+
+tibble(x = 1:4, y = 1)
+#tibble(x = 1:4, y = 1:2)
+#> Error in `tibble()`:
+#> ! Tibble columns must have compatible sizes.
+#> • Size 4: Existing data.
+#> • Size 2: Column `y`.
+#> ℹ Only values of size one are recycled.
+tibble(
+  x = 1:3,
+  y = x * 2
+)
+```
+
+#### 行名→列
+
+```{r}
+df3 <- data.frame(
+  age = c(35, 27, 18),
+  hair = c("blond", "brown", "black"),
+  row.names = c("Bob", "Susan", "Sam")
+)
+df3 |> rownames_to_column(var = "name")
+as_tibble(df3, rownames = "name")
+
+
+is_tibble(df2)
+is_tibble(df3)
+as_tibble(df3)
+```
+
+#### 列表列
+
+```{r}
+df <- data.frame(x = 1:3)
+df$y <- list(1:2, 1:3, 1:4)
+
+data.frame(
+  x = 1:3, 
+  y = I(list(1:2, 1:3, 1:4))
+)
+
+tibble(
+  x = 1:3, 
+  y = list(1:2, 1:3, 1:4)
+)
+```
+
+### 矩阵和数据框列
+
+行数必须相等
+
+```{r}
+dfm <- data.frame(
+  x = 1:3 * 10
+)
+dfm$y <- matrix(1:9, nrow = 3)
+dfm$z <- data.frame(a = 3:1, b = letters[1:3], stringsAsFactors = FALSE)
+dfm[1, ]
+```
+
+## `NULL`
+
+长度始终为零，并且没有属性。
+
+```{r}
+typeof(NULL)
+length(NULL)
+is.null(NULL)
+c()
 ```

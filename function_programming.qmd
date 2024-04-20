@@ -1,0 +1,490 @@
+---
+execute: 
+  error: true
+  warning: true
+
+knitr:
+  opts_chunk: 
+    comment: "#>" 
+    collapse: TRUE
+---
+
+# 函数式编程
+
+## 函数
+
+### 函数组件
+
+1.  `formals()` 控制如何调用函数的参数列表
+2.  `body()` 函数内部的代码
+3.  `environment()` 确定函数如何查找与名称相关联的值的数据结构
+
+source reference `srcref`属性，指向用于创建函数的源代码
+
+```{r}
+f02 <- function(x, y) {
+  # A comment
+  x + y
+}
+
+formals(f02)
+body(f02)
+environment(f02)
+```
+
+### Primitive functions {#sec-Primitive_functions}
+
+函数有三个组件的规则有一个例外，Primitive functions ( 如`sum()`) 直接调用C code。
+
+Primitive functions有内置builtin 和 特殊special 类型。
+
+```{r}
+sum
+typeof(sum)
+
+`[`
+typeof(`[`)
+
+```
+
+这些函数主要存在于 C 中，而不是 R 中。Primitive functions仅在 base package 找到。
+
+```{r}
+formals(sum)
+body(sum)
+environment(sum)
+```
+
+### First-class functions
+
+```{r}
+f01 <- function(x) {
+  sin(1 / x ^ 2)
+}
+```
+
+anonymous function匿名函数
+
+```{r}
+lapply(mtcars, function(x) length(unique(x)))
+```
+
+将函数放在列表中
+
+```{r}
+funs <- list(
+  half = function(x) x / 2,
+  double = function(x) x * 2
+)
+funs$double(10)
+```
+
+在 R 中，你经常会看到称为 **闭包（closure）** 的函数。
+
+```{r}
+typeof(ggplot)
+```
+
+### 调用函数
+
+```{r}
+args <- list(1:10, na.rm = TRUE)  # 参数列表
+do.call(mean, args)
+```
+
+## 词法作用域
+
+Lexical scoping:
+
+1.  Name masking
+2.  Functions versus variables
+3.  A fresh start
+4.  Dynamic lookup
+
+### Name masking
+
+在函数内部定义的名称会掩盖在函数外部定义的名称。
+
+```{r}
+x <- 10
+y <- 20
+g02 <- function() {
+  x <- 1
+  y <- 2
+  c(x, y)
+}
+g02()
+```
+
+如果未在函数中定义名称，则 R 将向上查找。
+
+```{r}
+x <- 2
+g03 <- function() {
+  y <- 1
+  c(x, y)
+}
+g03()
+
+y
+
+```
+
+## 惰性求值
+
+Lazy evaluation 是一种将操作延迟到真正需要它的结果时才执行的优化技术。
+
+惰性求值由称为 promise 或thunk 的数据结构提供支持。
+
+### promise
+
+一个表达式，调用函数的环境，一个值
+
+```{r}
+double <- function(x) { 
+  message("Calculating...")
+  x * 2
+}
+
+h03 <- function(x) {
+  c(x, x)
+}
+
+h03(double(20))
+```
+
+### 默认参数
+
+```{r}
+h04 <- function(x = 1, y = x * 2, z = a + b) {
+  a <- 10
+  b <- 100
+  
+  c(x, y, z)
+}
+
+h04()
+```
+
+### 缺失参数
+
+```{r}
+h06 <- function(x = 10) {
+  list(missing(x), x)
+}
+str(h06())
+
+str(h06(10))
+```
+
+## 特殊参数`...`
+
+variable arguments，有了它，函数可以接受任意数量的附加参数。还可以将附加参数传递给另一个函数
+
+```{r}
+i01 <- function(y, z) {
+  list(y = y, z = z)
+}
+
+i02 <- function(x, ...) {
+  i01(...)
+}
+str(i02(x = 1, y = 2, z = 3))
+```
+
+特殊形式 `..N`，按位置引用参数
+
+```{r}
+i03 <- function(...) {
+  list(first = ..1, third = ..3)
+}
+str(i03(1, 2, 3))
+```
+
+`list(...)`计算参数并将它们存储在列表中
+
+```{r}
+i04 <- function(...) {
+  list(...)
+}
+str(i04(a = 1, b = 2))
+```
+
+## 退出函数
+
+返回一个对象，或者，错误
+
+### 隐式返回值
+
+最后计算的表达式是返回值
+
+```{r}
+j01 <- function(x) {
+  if (x < 10) {
+    0
+  } else {
+    10
+  }
+}
+j01(5)
+
+j01(15)
+```
+
+### 显示返回值
+
+调用`return()`
+
+```{r}
+j02 <- function(x) {
+  if (x < 10) {
+    return(0)
+  } else {
+    return(10)
+  }
+}
+```
+
+### 不可见值
+
+大多数函数都以可见方式返回：在交互式上下文中调用函数会自动打印结果
+
+```{r}
+j03 <- function() 1
+j03()
+```
+
+通过应用`invisible()`于最后一个值来阻止自动打印：
+
+```{r}
+j04 <- function() invisible(1)
+j04()
+```
+
+若要验证此值是否确实存在，可以显式打印它或将其括在括号中,或者使用返回值和可见性标志：`withVisible()`
+
+```{r}
+print(j04())
+
+
+(j04())
+
+withVisible(j04())
+```
+
+不可见返回的最常见函数是：`<-`
+
+```{r}
+a <- 2
+(a <- 2)
+
+a <- b <- c <- d <- 2
+```
+
+### Errors
+
+如果函数无法完成其分配的任务，则应抛出错误，并立即终止函数的执行。
+
+```{r}
+j05 <- function() {
+  stop("I'm an error")
+  return(10)
+}
+j05()
+```
+
+### 退出处理程序
+
+```{r}
+j06 <- function(x) {
+  cat("Hello\n")
+  on.exit(cat("Goodbye!\n"), add = TRUE) # 使用  add = TRUE 时始终设置
+  
+  if (x) {
+    return(10)
+  } else {
+    stop("Error")
+  }
+}
+
+j06(TRUE)
+
+
+j06(FALSE)
+
+```
+
+## 函数形式
+
+-   prefix： `foofy(a, b, c)`
+-   infix： `x + y`
+-   replacement：`names(df) <- c("a", "b", "c")`
+-   special：`[[`, `if` ,`for`
+
+```{r}
+x + y
+`+`(x, y)
+
+names(df) <- c("x", "y", "z")
+`names<-`(df, c("x", "y", "z"))
+
+for(i in 1:10) print(i)
+`for`(i, 1:10, print(i))
+```
+
+### 前缀形式
+
+是 R 代码中最常见的形式，参数按确切名称匹配，然后与唯一前缀匹配，最后按位置匹配。
+
+```{r}
+k01 <- function(abcdef, bcde1, bcde2) {
+  list(a = abcdef, b1 = bcde1, b2 = bcde2)
+}
+str(k01(2, 3, abcdef = 1))
+str(k01(2, 3, a = 1))  # 部分匹配
+options(warnPartialMatchArgs = TRUE)
+x <- k01(a = 1, 2, 3)
+```
+
+### 中缀形式
+
+```{r}
+`%+%` <- function(a, b) paste0(a, b)
+"new " %+% "string"
+```
+
+### 替换形式
+
+```{r}
+`second<-` <- function(x, value) {
+  x[2] <- value
+  x
+}
+x <- 1:10
+second(x) <- 5L
+x
+```
+
+### 特殊形式
+
+所有特殊形式都作为Primitive functions @sec-Primitive_functions 实现（即在 C 中），这意味着打印这些函数没有信息。
+
+```{r}
+`for`
+formals(`for`)
+```
+
+## 构造函数
+
+### 向量式函数
+
+### 数据框式函数
+
+```{r}
+
+grouped_mean <- function(df, group_var, mean_var) {
+  df |> 
+    group_by({{ group_var }}) |> #embracing拥抱 {{}}
+    summarize(mean=mean({{ mean_var }}))   
+    #拥抱变量会告诉 dplyr使用存储在参数中的值，而不是将参数作为文本变量名称
+}
+df <- tibble(
+  mean_var = c(1,2),
+  group_var = c("g","h"),
+  group = c(1,1),
+  x = c(10,100),
+  y = c(100,200)
+)
+df
+grouped_mean(df,group, x)
+```
+
+#### 何时使用`{{}}`
+
+Data-masking: arrange()filter()summarize() compute with variables
+
+Tidy-selection：select()relocate()rename() select variables
+
+```{r}
+
+# 
+summary6 <- function(data, var) {
+  data |> summarize(
+    min = min({{ var }}, na.rm = TRUE),
+    mean = mean({{ var }}, na.rm = TRUE),
+    median = median({{ var }}, na.rm = TRUE),
+    max = max({{ var }}, na.rm = TRUE),
+    n = n(),
+    n_miss = sum(is.na({{ var }})),
+    .groups = "drop"
+  )
+}
+diamonds |> 
+  group_by(cut) |> 
+  summary6(carat)
+
+
+# 
+count_prop <- function(df, var, sort = FALSE) {
+  df |>
+    dplyr::count({{ var }}, sort = sort) |>
+    mutate(prop = n / sum(n))
+}
+diamonds |> count_prop(clarity)
+
+#
+unique_where <- function(df, condition, var) {
+  df |> 
+    dplyr::filter({{ condition }}) |> 
+    distinct({{ var }}) |> 
+    arrange({{ var }})
+}
+mtcars|> unique_where(cyl==4, mpg)
+
+
+# Data-masking vs. tidy-selection
+count_missing <- function(df, group_vars, x_var) {
+  df |> 
+    group_by({{ group_vars }}) |> #select variables inside a function that uses data-masking
+    summarize(
+      n_miss = sum(is.na({{ x_var }})),
+      .groups = "drop"
+    )
+}
+mtcars|> 
+  count_missing(c(cyl,am), mpg)
+
+count_missing <- function(df, group_vars, x_var) {
+  df |>      #pick()
+    group_by(pick({{ group_vars }})) |> #use tidy-selection inside data-masking functions
+    summarize(                          
+      n_miss = sum(is.na({{ x_var }})),
+      .groups = "drop"
+  )
+}
+
+mtcars|> 
+  count_missing(c(cyl,am), mpg)
+```
+
+### 图形函数
+
+```{r}
+histogram <- function(df, var, binwidth = NULL) {
+  df |> 
+    ggplot(aes(x = {{ var }})) + 
+    geom_histogram(binwidth = binwidth)
+}
+
+diamonds |> histogram(carat, 0.1)
+
+sorted_bars <- function(df, var) {
+  df |>               # walrus operator   :=
+    mutate({{ var }} := fct_rev(fct_infreq({{ var }})))  |>
+    ggplot(aes(y = {{ var }})) +
+    geom_bar()
+}
+
+diamonds |> sorted_bars(clarity)
+
+```
