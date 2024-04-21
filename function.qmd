@@ -9,7 +9,6 @@ knitr:
     collapse: TRUE
 ---
 
-
 # 函数
 
 ## 函数组件
@@ -29,6 +28,8 @@ f02 <- function(x, y) {
 formals(f02)
 body(f02)
 environment(f02)
+
+attributes(f02)
 ```
 
 ## Primitive functions {#sec-Primitive_functions}
@@ -372,5 +373,3 @@ x
 `for`
 formals(`for`)
 ```
-
-
