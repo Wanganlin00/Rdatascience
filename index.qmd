@@ -22,8 +22,6 @@
 
 -   [data.table](https://rdatatable.gitlab.io/data.table/)
 
--   
-
 -   [R Packages(2e)](https://r-pkgs.org/)
 
 -   [arrow.apache.org](https://arrow.apache.org/docs/r/)

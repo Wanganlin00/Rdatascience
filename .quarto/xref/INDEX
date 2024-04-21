@@ -16,5 +16,14 @@
   },
   "function_programming.qmd": {
     "function_programming.html": "c0ae423d"
+  },
+  "function.qmd": {
+    "function.html": "f39f92c7"
+  },
+  "efficient.qmd": {
+    "efficient.html": "b5a1dd19"
+  },
+  "functional_programming.qmd": {
+    "functional_programming.html": "8cb0cb2e"
   }
 }
