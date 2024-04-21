@@ -31,8 +31,9 @@ execute:
 # include: false运行代码，但不会在最终文档中显示代码或结果。
 # echo: false阻止代码，但不会阻止结果出现在完成的文件中
 toc: true
-toc-depth: 3
+toc-depth: 4
 number-sections: true
+number-depth: 4
 
 code-fold: true
 code-tools: true
