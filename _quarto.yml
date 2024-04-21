@@ -7,10 +7,17 @@ book:
   reader-mode: true
   chapters:
     - index.qmd
-    - basic_data_type_class.qmd
-    - I-O.qmd
-    - base_data_processing.qmd
-    - function_programming.qmd
+    part: "Programming"
+    chapters: 
+      - basic_data_type_class.qmd
+      - function.qmd
+    
+    
+    part: "Data science"
+      - I-O.qmd
+      - base_data_processing.qmd
+      - functional_programming.qmd
+
  
 execute:
   cache: true
