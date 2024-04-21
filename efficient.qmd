@@ -1,5 +1,6 @@
-
 # 高效
+
+## 向量化编程
 
 ## 稀疏矩阵
 
@@ -35,7 +36,7 @@ no_of_cores
 
 `makeCluster()`此函数指定要使用的处理器数量
 
-```{r}
+```{r eval=FALSE}
 library("parallel")
 
 

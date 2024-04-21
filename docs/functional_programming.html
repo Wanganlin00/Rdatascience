@@ -209,13 +209,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#%E5%90%91%E9%87%8F%E5%BC%8F%E5%87%BD%E6%95%B0" id="toc-向量式函数" class="nav-link active" data-scroll-target="#%E5%90%91%E9%87%8F%E5%BC%8F%E5%87%BD%E6%95%B0"><span class="header-section-number">6.1</span> 向量式函数</a></li>
   <li>
 <a href="#%E6%95%B0%E6%8D%AE%E6%A1%86%E5%BC%8F%E5%87%BD%E6%95%B0" id="toc-数据框式函数" class="nav-link" data-scroll-target="#%E6%95%B0%E6%8D%AE%E6%A1%86%E5%BC%8F%E5%87%BD%E6%95%B0"><span class="header-section-number">6.2</span> 数据框式函数</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8" id="toc-何时使用" class="nav-link" data-scroll-target="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8"><span class="header-section-number">6.2.1</span> 何时使用<code>{{}}</code></a></li>
   </ul>
 </li>
   <li>
 <a href="#%E5%9B%BE%E5%BD%A2%E5%87%BD%E6%95%B0" id="toc-图形函数" class="nav-link" data-scroll-target="#%E5%9B%BE%E5%BD%A2%E5%87%BD%E6%95%B0"><span class="header-section-number">6.3</span> 图形函数</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8-1" id="toc-何时使用-1" class="nav-link" data-scroll-target="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8-1"><span class="header-section-number">6.3.1</span> 何时使用<code>{{}}</code></a></li>
   </ul>
 </li>
@@ -394,7 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co"># </span></span>
 <span><span class="va">count_prop</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span>, <span class="va">var</span>, <span class="va">sort</span> <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="va">df</span> <span class="op">|&gt;</span></span>
-<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/count.html">count</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span>, sort <span class="op">=</span> <span class="va">sort</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span>, sort <span class="op">=</span> <span class="va">sort</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>        <span class="fu">mutate</span><span class="op">(</span>prop <span class="op">=</span> <span class="va">n</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="va">diamonds</span> <span class="op">|&gt;</span> <span class="fu">count_prop</span><span class="op">(</span><span class="va">clarity</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -455,7 +455,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#</span></span>
 <span><span class="va">unique_where</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span>, <span class="va">condition</span>, <span class="va">var</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="va">df</span> <span class="op">|&gt;</span> </span>
-<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">condition</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">condition</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>        <span class="fu">distinct</span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>        <span class="fu">arrange</span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -704,7 +704,7 @@ grouped_mean(df,group, x)</code></pre>
 <span><span class="co"># </span></span>
 <span><span class="va">count_prop</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span>, <span class="va">var</span>, <span class="va">sort</span> <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="va">df</span> <span class="op">|&gt;</span></span>
-<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/count.html">count</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span>, sort <span class="op">=</span> <span class="va">sort</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span>, sort <span class="op">=</span> <span class="va">sort</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>        <span class="fu">mutate</span><span class="op">(</span>prop <span class="op">=</span> <span class="va">n</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="va">diamonds</span> <span class="op">|&gt;</span> <span class="fu">count_prop</span><span class="op">(</span><span class="va">clarity</span><span class="op">)</span></span>
@@ -712,7 +712,7 @@ grouped_mean(df,group, x)</code></pre>
 <span><span class="co">#</span></span>
 <span><span class="va">unique_where</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span>, <span class="va">condition</span>, <span class="va">var</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="va">df</span> <span class="op">|&gt;</span> </span>
-<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">condition</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">condition</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>        <span class="fu">distinct</span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>        <span class="fu">arrange</span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
