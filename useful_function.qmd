@@ -1,6 +1,4 @@
----
-title: "基本数据处理"
----
+# 实用函数
 
 ## subsetting operators
 
@@ -234,7 +232,6 @@ mapply for applying a function to multiple arguments,
 rapply for a recursive version of lapply()
 
 eapply for applying a function to each entry in an environment.
-
 
 ## 概率函数
 

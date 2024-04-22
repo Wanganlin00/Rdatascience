@@ -25,5 +25,11 @@
   },
   "functional_programming.qmd": {
     "functional_programming.html": "8cb0cb2e"
+  },
+  "control_structure.qmd": {
+    "control_structure.html": "9218d359"
+  },
+  "useful_function.qmd": {
+    "useful_function.html": "976028e9"
   }
 }

@@ -1,79 +1,178 @@
-# 图形语法 {#sec-ggplot2}
+# ggplot2 Graphics {#sec-ggplot2}
 
 [ggplot2：用于数据分析的优雅图形](https://ggplot2-book.org/mastery)
 
-# `ggplot2::`
+gg 为 grammar of graphics 的缩写。
+
+## `ggplot(data =  ,mapping = aes(x,y,…))`
+
+### data
+
+数据应使用数据框格式，例如ggplot2包自动的数据集mpg，其中发动机排量 `displ`，油耗 `cty`，发动机驱动方式 `drv`，
 
 ```{r}
 data(mpg,package = "ggplot2")
 mpg
-
-```
-
-## `ggplot(data =  ,mapping = aes(x,y,…))`
-
-```{r}
-ggplot(data = mpg) ->p
-p
 ```
 
 ### aesthetics mapping
 
 `mapping=aes(x,y,z,..,color,fill,shape,linetype,alpha,size,group,linewidth)`
 
-## geom\_<geometry>
-
-#### 统计变换 statistical transformations
-
-| `Geometry`{=html} | `default stat_transform`{=html} |
-|-------------------|---------------------------------|
-
-`stat="count"` , `"identity"`, `"summary"` , `""`
-
 ```{r}
-ggplot(diamonds) + 
-  stat_summary(
-    aes(x = cut, y = depth),
-    geom = "errorbar",
-    fun.min = min,
-    fun.max = max,
-    fun = median
-  )
+mpg %>% 
+  distinct(class)  # 7种汽车类型
+
+ggplot(mpg, aes(x = displ, y = hwy, color = class)) +#颜色 名义型变量
+  geom_point(shape=".") #像素点
+
+ggplot(mpg, aes(x = displ, y = hwy, shape = class)) + #形状最多可以映射6个
+  geom_point()
+ggplot(mpg, aes(x = displ, y = hwy, size = class)) +#大小 有序型变量
+  geom_point()
+ggplot(mpg, aes(x = displ, y = hwy, alpha = class)) +#透明度 有序型变量
+  geom_point(color="red") #更改外观
+ggplot(mpg, aes(x = displ, y = hwy, linetype = drv)) + #线条类型
+  geom_smooth()
+
+ggplot(mpg, aes(x = displ, y = hwy, linewidth = drv)) + #线条粗细
+  geom_smooth()
 ```
 
-#### 位置调整 position adjustments
+## geometry
 
-`position ="identity"` , `"stack"` , `"dodge"` , `"fill"` ,.....
+-   Graphical primitives:
 
-```{r}
-ggplot(mpg, aes(x = drv, fill = class)) + 
-  geom_bar(alpha = 1/5, position = "identity")|
+    -   `geom_blank()`: display nothing. Most useful for adjusting axes limits using data.
 
-ggplot(mpg, aes(x = drv, color = class)) + 
-  geom_bar(fill = NA, position = "identity")
+    -   `geom_point()`: points.
+
+    -   `geom_path()`: paths.
+
+    -   `geom_ribbon()`: ribbons, a path with vertical thickness.
+
+    -   `geom_segment()`: a line segment, specified by start and end position.
+
+    -   `geom_rect()`: rectangles.
+
+    -   `geom_polygon()`: filled polygons.
+
+    -   `geom_text()`: text.
+
+```{=html}
+<!-- -->
 ```
+-   One variable:
+
+    -   Discrete:
+
+        -   `geom_bar()`: display distribution of discrete variable.
+
+    -   Continuous:
+
+        -   `geom_histogram()`: bin and count continuous variable, display with bars.
+
+        -   `geom_density()`: smoothed density estimate.
+
+        -   `geom_dotplot()`: stack individual points into a dot plot.
+
+        -   `geom_freqpoly()`: bin and count continuous variable, display with lines.
+
+-   Two variables:
+
+    -   Both continuous:
+
+        -   `geom_point()`: scatterplot.
+
+        -   `geom_quantile()`: smoothed quantile regression.
+
+        -   `geom_rug()`: marginal rug plots.
+
+        -   `geom_smooth()`: smoothed line of best fit.
+
+        -   `geom_text()`: text labels.
+
+    -   Show distribution:
+
+        -   `geom_bin2d()`: bin into rectangles and count.
+
+        -   `geom_density2d()`: smoothed 2d density estimate.
+
+        -   `geom_hex()`: bin into hexagons and count.
+
+    -   At least one discrete:
+
+        -   `geom_count()`: count number of point at distinct locations
+
+        -   `geom_jitter()`: randomly jitter overlapping points.
+
+    -   One continuous, one discrete:
+
+        -   `geom_bar(stat = "identity")`: a bar chart of precomputed summaries.
+
+        -   `geom_boxplot()`: boxplots.
+
+        -   `geom_violin()`: show density of values in each group.
+
+    -   One time, one continuous:
+
+        -   `geom_area()`: area plot.
+
+        -   `geom_line()`: line plot.
+
+        -   `geom_step()`: step plot.
+
+    -   Display uncertainty:
+
+        -   `geom_crossbar()`: vertical bar with center.
+
+        -   `geom_errorbar()`: error bars.
+
+        -   `geom_linerange()`: vertical line.
+
+        -   `geom_pointrange()`: vertical line with center.
+
+    -   Spatial:
+
+        -   `geom_map()`: fast version of for map data.`geom_polygon()`
+
+-   Three variables:
+
+    -   `geom_contour()`: contours.
+
+    -   `geom_tile()`: tile the plane with rectangles.
+
+    -   `geom_raster()`: fast version of for equal sized tiles.`geom_tile()`
 
 ```{r}
-ggplot(mpg, aes(x = drv, fill = class)) + 
-  geom_bar(position = "fill")|
+df <- data.frame(
+  x = c(3, 1, 5), 
+  y = c(2, 4, 6), 
+  label = c("a","b","c")
+)
 
-ggplot(mpg, aes(x = drv, fill = class)) + 
-  geom_bar(position = "dodge")
+p <- ggplot(df, aes(x, y, label = label)) + 
+  labs(x = NULL, y = NULL) + # Hide axis label
+  theme(plot.title = element_text(size = 12)) # Shrink plot title
+p + geom_point() + ggtitle("point")|
+p + geom_text() + ggtitle("text")+
+p + geom_bar(stat = "identity") + ggtitle("bar")|
+p + geom_tile() + ggtitle("raster")
 
-```
-
-```{r}
-
-ggplot(mpg, aes(x = displ, y = hwy)) + 
-  geom_point(position = "jitter")|
-    
-ggplot(mpg, aes(x = displ, y = hwy)) + 
-  geom_point(position = "identity")
+p + geom_line() + ggtitle("line")|
+p + geom_area() + ggtitle("area")+
+p + geom_path() + ggtitle("path")|
+p + geom_polygon() + ggtitle("polygon")
 ```
 
 ### X=连续型变量
 
-#### geom_point / geom_smooth
+```{r}
+p <- ggplot(data = mpg,aes(x=displ))
+p
+```
+
+#### geom_point
 
 ```{r}
 p + geom_point(mapping = aes(x=displ,y=hwy),
@@ -83,16 +182,70 @@ p + geom_point(mapping = aes(x=displ,y=hwy),
                 method = "lm", se =T)
 ```
 
+```{r}
+ggplot(mpg, aes(displ,hwy)) +
+    geom_point() |
+    
+    ggplot(mpg, aes(displ,hwy)) +
+    geom_point(aes(size = displ/10)) + 
+    scale_size_area(name="displ/10")
+```
+
+#### geom_line
+
+```{r}
+
+```
+
+#### geom_smooth geom_ribbon
+
+```{r}
+q <- ggplot(mpg, aes(displ, hwy)) +
+    geom_point()
+
+q+geom_smooth(method = "loess",span = 0.2) # loess 平滑局部回归   small n
+                                   #span 0非常摆动，1不那么摆动
+
+q+ geom_smooth(span = 1)  #不很摆动
+
+library(MASS)
+q+geom_smooth(method = "rlm")   # robust linear model  稳健线性模型
+
+library(mgcv)
+q+ geom_smooth(method = "gam", formula = y ~ s(x)) #gam 广义相加模型   n>1000
+```
+
 #### geom_histogram
 
 ```{r}
+p <- ggplot(data = mpg)
 p + geom_histogram(aes(x=displ,y=after_stat(density)),
                    stat = "bin",position = "stack",
                    binwidth = 0.5
                    ) +
     scale_y_continuous(labels=scales::dollar) +
     geom_density(aes(x=displ,y=after_stat(density)),
-                 color="red", size=1)
+                 color="red", linewidth=1)
+
+ggplot(mpg, aes(hwy)) + geom_histogram(binwidth = 2.5)
+
+```
+
+加权
+
+```{r}
+ggplot(mpg, aes(hwy)) +
+  geom_histogram(binwidth = 1) |
+
+ggplot(mpg, aes(hwy)) +
+  geom_histogram(aes(weight = displ), binwidth = 1) 
+```
+
+#### geom_freqpoly
+
+```{r}
+ggplot(mpg, aes(hwy)) + 
+  geom_freqpoly(binwidth = 2.5)
 ```
 
 #### geom_density
@@ -140,7 +293,27 @@ ggplot(data = mpg) +
              position = "stack")
 ```
 
-#### geom_errorbar
+有序条形图
+
+```{r}
+ggplot(mpg, aes(x = fct_infreq(class))) +  #降序条形图
+  geom_bar()
+```
+
+#### geom_errorbar geom_linerange geom_crossbar geom_pointrange
+
+```{r}
+y <- c(18, 11, 16)
+df <- data.frame(x = 1:3, y = y, se = c(1.2, 0.5, 1.0))
+
+base <- ggplot(df, aes(x, y, ymin = y - se, ymax = y + se))
+(base + geom_errorbar()|
+base + geom_linerange()|
+base + geom_ribbon())/
+(base + geom_crossbar()|
+base + geom_pointrange()|
+base + geom_smooth(stat = "identity"))
+```
 
 ```{r}
 read_csv("data/g.csv") |> 
@@ -182,7 +355,229 @@ p + geom_violin(mapping = aes(x=drv,y=hwy),
              stat = "ydensity",position = "dodge")
 ```
 
-## 文本标签注释
+### 统计变换 statistical transformations
+
+stat_bin(): ,geom_bar()geom_freqpoly()geom_histogram() stat_bin2d():geom_bin2d() stat_bindot():geom_dotplot() stat_binhex():geom_hex() stat_boxplot():geom_boxplot() stat_contour():geom_contour() stat_quantile():geom_quantile() stat_smooth():geom_smooth() stat_sum():geom_count() stat_ecdf()：计算经验累积分布图。 stat_function()：根据 x 值的函数计算 y 值。 stat_summary()：将 Y 值汇总到不同的 X 值。 stat_summary2d()， ：汇总分箱值。stat_summary_hex() stat_qq()：对分位数-分位数图执行计算。 stat_spoke()：将角度和半径转换为位置。 stat_unique()：删除重复的行。
+
+```{r}
+ggplot(diamonds) + 
+  stat_summary(
+    aes(x = cut, y = depth),
+    geom = "errorbar",
+    fun.min = min,
+    fun.max = max,
+    fun = mean
+  )
+
+ggplot(mpg, aes(trans, cty)) + 
+    geom_point() + 
+    stat_summary(geom = "point", fun = "mean", colour = "red", size = 4)
+```
+
+### 位置调整 position adjustments
+
+#### 条
+
+```{r}
+ggplot(mpg, aes(x = drv, fill = class)) + 
+  geom_bar(alpha = 1/5, position = "identity")|
+
+ggplot(mpg, aes(x = drv, color = class)) + 
+  geom_bar(fill = NA, position = "identity")
+
+ggplot(mpg, aes(x = drv, fill = class)) + 
+  geom_bar(position = "fill")|
+
+ggplot(mpg, aes(x = drv, fill = class)) + 
+  geom_bar(position = "dodge")
+```
+
+#### 点
+
+position_nudge()：按固定偏移量移动点。 position_jitter()：为每个位置添加一点随机噪音。 position_jitterdodge()：躲避组内的点，然后添加一点随机噪音。
+
+```{r}
+ggplot(mpg, aes(x = factor(cyl), y = hwy)) + 
+  geom_point(position = "identity") |
+ggplot(mpg, aes(x = factor(cyl), y = hwy)) + 
+  geom_point(position = "jitter")
+
+ggplot(mpg, aes(x = factor(cyl), y = hwy)) + 
+  geom_point(position =position_nudge(x=0.1,y=0))|
+ggplot(mpg, aes(x = factor(cyl), y = hwy,color=factor(cyl))) + 
+  geom_point(position = position_jitterdodge())
+
+```
+
+## 坐标系 coordinate
+
+默认坐标系是笛卡尔坐标系
+
+```{r}
+bar <- ggplot(data = diamonds) + 
+  geom_bar(
+    mapping = aes(x = clarity, fill = clarity), 
+    show.legend = FALSE,
+    width = 1
+  ) + 
+  theme(aspect.ratio = 1)
+bar|
+bar + coord_flip()| #水平条形图
+bar + coord_polar()#极坐标
+```
+
+```{r}
+library(maps)
+world <- map_data("world")
+
+ggplot(world, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill = "white", color = "black")|
+
+ggplot(world, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill = "white", color = "black") +
+  coord_quickmap() #正确设置地理地图的纵横比
+```
+
+## 坐标轴 axis
+
+### 变换
+
+```{r}
+
+ggplot(mpg, aes(log10(cty),hwy)) +
+    geom_point()+
+    scale_x_log10()
+
+```
+
+### limits
+
+```{r}
+ggplot(mpg, aes(displ, hwy)) +
+    geom_point(na.rm = TRUE) | 
+ggplot(mpg, aes(displ, hwy)) +
+    geom_point(na.rm = TRUE) +
+    xlim(5, 6) +
+    ylim(10, 25)
+
+ggplot(mpg, aes(drv, hwy)) +
+    geom_jitter(width = 0.25, na.rm = TRUE) +
+    xlim("f", "r") +
+    ylim(25, NA)
+```
+
+```{r}
+# filter
+mpg |>
+  dplyr::filter(displ >= 5 & displ <= 6 & hwy >= 10 & hwy <= 25) |>
+  ggplot(aes(x = displ, y = hwy)) +
+  geom_point(aes(color = drv)) +
+  geom_smooth(na.rm=TRUE)|
+# limits
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(color = drv)) +
+  geom_smooth(na.rm=TRUE) +
+  scale_x_continuous(limits = c(5, 6)) +    #取子集
+  scale_y_continuous(limits = c(10, 25))  
+```
+
+### zooming
+
+调整绘制的数据,在每个刻度中设置`coord_cartesian(xlim= ,ylim= )`
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(color = drv)) +
+  geom_smooth() +
+  coord_cartesian(xlim = c(5, 6), ylim = c(10, 25))   #放大局部
+```
+
+### 共享
+
+坐标轴需要
+
+```{r}
+x_scale <- scale_x_continuous(limits = range(mpg$displ))
+y_scale <- scale_y_continuous(limits = range(mpg$hwy))
+col_scale <- scale_color_discrete(limits = unique(mpg$drv))
+ggplot(mpg[mpg$class=="suv",], aes(x = displ, y = hwy, color = drv)) +
+  geom_point() +
+  x_scale +
+  y_scale +
+  col_scale|
+ggplot(mpg[mpg$class=="compact",], aes(x = displ, y = hwy, color = drv)) +
+  geom_point() +
+  x_scale +
+  y_scale +
+  col_scale
+```
+
+## 标题 labels
+
+```{r}
+ggplot(mpg, aes(cty, hwy)) +
+    geom_point(alpha = 1 / 3) +
+    xlab("city driving (mpg)") +
+    ylab("highway driving (mpg)")+
+    ggtitle("主标题")
+
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    x = "Engine displacement (L)",
+    y = "Highway fuel economy (mpg)",
+    color = "Car type", # 图例 美学映射color
+    title = "Fuel efficiency generally decreases with engine size",
+    subtitle = "Two seaters (sports cars) are an 
+    exception because of their light weight",
+    caption = "Data from fueleconomy.gov"
+  )
+```
+
+## 注释 annotation
+
+### 文本 text
+
+```{r}
+# 字体
+df <- data.frame(x = 1, y = 3:1, family = c("sans", "serif", "mono"))
+ggplot(df, aes(x, y)) + 
+  geom_text(aes(label = family, family = family))
+
+# 样式
+df <- data.frame(x = 1, y = 3:1, face = c("plain", "bold", "italic"))
+ggplot(df, aes(x, y)) + 
+  geom_text(aes(label = face, fontface = face))
+
+# 位置
+df <- data.frame(
+  x = c(1, 1, 2, 2, 1.5),
+  y = c(1, 2, 1, 2, 1.5),
+  text = c(
+    "bottom-left", "top-left",  
+    "bottom-right", "top-right", "center"
+  )
+)
+ggplot(df, aes(x, y)) +
+  geom_text(aes(label = text))|
+ggplot(df, aes(x, y)) +
+  geom_text(aes(label = text), vjust = "inward", hjust = "inward")
+
+
+# 自定义
+df <- data.frame(
+  treatment = c("a", "b", "c"), 
+  response = c(1.2, 3.4, 2.5)
+)
+ggplot(df, aes(treatment, response)) + 
+  geom_point() + 
+  geom_text(
+    mapping = aes(label = paste0("(", response, ")")), 
+    nudge_x = -0.3,
+    nudge_y=.2
+  ) 
+```
 
 ```{r}
 mtcars |>
@@ -243,6 +638,19 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   )
 ```
 
+### markdown
+
+```{r}
+df <- data.frame(x = 1:3, y = 1:3)
+base <- ggplot(df, aes(x, y)) + 
+  geom_point() + 
+  labs(x = "Axis title with *italics* and **boldface**")
+base |
+base + theme(axis.title.x = ggtext::element_markdown())  #ggtext::element_markdown
+```
+
+### 数学表达式
+
 ```{r}
 tibble(
   x = 1:10,
@@ -253,35 +661,61 @@ tibble(
     x = quote(x[i]),
     y = quote(sum(x[i] ^ 2, i == 1, n)) #数学方程式
   )
+
+values <- seq(from = -2, to = 2, by = .01)
+df <- data.frame(x = values, y = values ^ 3)
+ggplot(df, aes(x, y)) + 
+  geom_path() + 
+  labs(y = quote(f(x) == x^3))         #数学表达式   ？plotmath
 ```
 
-## 坐标系
+### 线
 
-默认坐标系是笛卡尔坐标系
+geom_hline()
+
+geom_vline()
+
+geom_abline
+
+geom_segment() arrow
 
 ```{r}
-bar <- ggplot(data = diamonds) + 
-  geom_bar(
-    mapping = aes(x = clarity, fill = clarity), 
-    show.legend = FALSE,
-    width = 1
-  ) + 
-  theme(aspect.ratio = 1)
-bar|
-bar + coord_flip()| #水平条形图
-bar + coord_polar()#极坐标
+trend_text <- "Larger engine sizes tend to have lower fuel economy." |>
+  str_wrap(width = 30)
+trend_text
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  annotate(
+    geom = "label", x = 3.5, y = 38,
+    label = trend_text,
+    hjust = "left", color = "red"
+  ) +
+  annotate(
+    geom = "segment",
+    x = 3, y = 35, xend = 5, yend = 25, color = "red",
+    arrow = arrow(type = "closed")
+  )
 ```
 
 ```{r}
-library(maps)
-world <- map_data("world")
+p <- ggplot(mpg, aes(displ, hwy)) +
+  geom_point(
+    data = dplyr::filter(mpg, manufacturer == "subaru"), 
+    colour = "orange",
+    size = 3
+  ) +
+  geom_point() 
+p|p + 
+  annotate(geom = "point", x = 5.5, y = 40, colour = "orange", size = 3) + 
+  annotate(geom = "point", x = 5.5, y = 40) + 
+  annotate(geom = "text", x = 5.6, y = 40, label = "subaru", hjust = "left")|
+p + 
+  annotate(
+    geom = "curve", x = 4, y = 35, xend = 2.65, yend = 27, 
+    curvature = .3, arrow = arrow(length = unit(2, "mm"))
+  ) +
+  annotate(geom = "text", x = 4.1, y = 35, label = "subaru", hjust = "left")
 
-ggplot(world, aes(x = long, y = lat, group = group)) +
-  geom_polygon(fill = "white", color = "black")|
-
-ggplot(world, aes(x = long, y = lat, group = group)) +
-  geom_polygon(fill = "white", color = "black") +
-  coord_quickmap()
 ```
 
 ## scale
@@ -300,6 +734,18 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
                      minor_breaks = seq(10, 35, 1), 
                      limits = c(10, 35)) +          
   labs(title = "Fuel efficiency by car weight")
+
+
+```
+
+```{r}
+ggplot(diamonds, aes(x = price, y = cut)) +
+  geom_boxplot(alpha = 0.05) +
+  scale_x_continuous(labels = scales::label_dollar(scale = 1/1000, suffix = "K"))
+
+ggplot(diamonds, aes(x = cut, fill = clarity)) +
+  geom_bar(position = "fill") +
+  scale_y_continuous(name = "Percentage", labels = scales::label_percent())
 ```
 
 ### x/y_discrete
@@ -316,6 +762,12 @@ p | p + scale_x_discrete(name = "drv",
 ### color
 
 ```{r}
+RColorBrewer::display.brewer.all()
+```
+
+```{r}
+
+
 p <- ggplot(mtcars, aes(x=wt, y=mpg, color=disp)) +
   geom_point(shape=19, size=3) 
 
@@ -333,6 +785,30 @@ p + scale_color_steps2(low="red", mid="white", high="blue",
 p + scale_color_viridis_c(direction = -1) +    # viridis_c,d,b
   ggtitle("F. Viridis color gradient")
 
+```
+
+```{r}
+df <- tibble(
+  x = rnorm(10000),
+  y = rnorm(10000)
+)
+
+ggplot(df, aes(x, y)) +
+  geom_hex() +
+  coord_fixed() +
+  labs(title = "Default, continuous", x = NULL, y = NULL)
+
+ggplot(df, aes(x, y)) +
+  geom_hex() +
+  coord_fixed() +
+  scale_fill_viridis_c() +
+  labs(title = "Viridis, continuous", x = NULL, y = NULL)
+
+ggplot(df, aes(x, y)) +
+  geom_hex() +
+  coord_fixed() +
+  scale_fill_viridis_b() +
+  labs(title = "Viridis, binned", x = NULL, y = NULL)
 ```
 
 ### fill
@@ -360,12 +836,21 @@ q <- ggplot(mpg,aes(x=displ))+
 
 # 一个分类变量
 q + facet_wrap(~drv,nrow = 3)
-q + facet_wrap(~drv,ncol = 3)  # 
+q + facet_wrap(~drv,ncol = 3)  #
 
 # 多个分类变量
 q + facet_grid(drv~class)
 q + facet_grid(drv~.)
 q + facet_grid(.~drv)   #
+```
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  facet_grid(drv ~ cyl) |
+ggplot(mpg, aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  facet_grid(drv ~ cyl, scales = "free_y")
 ```
 
 ## 主题
@@ -414,11 +899,24 @@ ggplot(mpg, aes(x=drv, y=hwy, fill=drv)) +
 
 ```
 
-### ggthemes
-
 ### 图例
 
 ```{r}
+# 位置和布局
+base <- ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(color = class))
+
+base + theme(legend.position = "right") # the default
+base + theme(legend.position = "left")
+base + 
+  theme(legend.position = "top") +
+  guides(color = guide_legend(nrow = 3))
+base + 
+  theme(legend.position = "bottom") +
+  guides(color = guide_legend(nrow = 2, override.aes = list(size = 4)))
+
+# 文本
+
 ggplot(mtcars, aes(wt, mpg, color = factor(cyl))) +
   geom_point(size=3) +
   scale_color_discrete(name="Cylinders") +
@@ -432,6 +930,24 @@ ggplot(mtcars, aes(wt, mpg, color = factor(cyl))) +
                                          linewidth = 1),
         legend.key = element_blank(),
         legend.direction = "horizontal")
+```
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point() +
+  labs(
+    title = "Larger engine sizes tend to have lower fuel economy",
+    caption = "Source: https://fueleconomy.gov."
+  ) +
+  theme(
+    legend.position = c(0.8, 0.9),
+    legend.direction = "horizontal",
+    legend.box.background = element_rect(color = "blue"),
+    plot.title = element_text(face = "bold",hjust = 0.5),
+    plot.title.position = "plot",
+    plot.caption.position = "plot",
+    plot.caption = element_text(hjust = 1)
+  )
 ```
 
 ### 绘图区
@@ -457,238 +973,174 @@ ggplot(data=mtcars, aes(x = disp, y = mpg)) +
         legend.key = element_blank())
 ```
 
-## patchwork
+## 图形布局patchwork
+
+### 布局方式
 
 ```{r}
-p1 <- ggplot(mtcars, aes(disp, mpg)) +                
-  geom_point() 
+p1 <- ggplot(mpg, aes(x = drv, y = cty, color = drv)) + 
+  geom_boxplot(show.legend = FALSE) + 
+  labs(title = "Plot 1")
 
-p2 <- ggplot(mtcars, aes(factor(cyl), mpg)) +
-  geom_boxplot() 
+p2 <- ggplot(mpg, aes(x = drv, y = hwy, color = drv)) + 
+  geom_boxplot(show.legend = FALSE) + 
+  labs(title = "Plot 2")
 
-p3 <- ggplot(mtcars, aes(mpg)) +
-  geom_histogram(bins=8, fill="darkgrey", color="white") 
+p3 <- ggplot(mpg, aes(x = cty, color = drv, fill = drv)) + 
+  geom_density(alpha = 0.5) + 
+  labs(title = "Plot 3")
 
+p4 <- ggplot(mpg, aes(x = hwy, color = drv, fill = drv)) + 
+  geom_density(alpha = 0.5) + 
+  labs(title = "Plot 4")
 
-p1+p2
-p1|p2
+p5 <- ggplot(mpg, aes(x = cty, y = hwy, color = drv)) + 
+  geom_point(show.legend = FALSE) + 
+  facet_wrap(~drv) +
+  labs(title = "Plot 5")
 
-p1+p2/p3
+```
 
-p1/(p2+p3)
+```{r}
+p1 + p2
+```
 
+```{r}
+p1 + p2 + p3 + p4
+```
+
+```{r}
+p1 + p2 + p3 + plot_layout(ncol = 2)
+```
+
+```{r}
+p1 / p2
+p3 | p4
+```
+
+```{r}
+p3 | (p2 / (p1 | p4))
+```
+
+```{r}
+ layout <- "
+AAB
+C#B
+CDD
+"
+  p1 + p2 + p3 + p4 + plot_layout(design = layout)
+```
+
+```{r}
+p1 + p2 + p3 + plot_layout(ncol = 2, guides = "collect")
+```
+
+### 修改子图
+
+```{r}
+  p12 <- p1 + p2
+  p12[[2]] <- p12[[2]] + theme_light()
+  p12
+  p1 + p4 & theme_minimal()
+  p1 + p4 & scale_y_continuous(limits = c(10, 45))
+```
+
+### 添加注释
+
+```{r}
 (p1 | p2) / p3 +                                      
-  plot_annotation(title = 'Fuel Efficiency Data') &
-  theme_minimal() +
-  theme(axis.title = element_text(size=8),
-        axis.text = element_text(size=8))
+  plot_annotation(title = '主标题',caption = "脚注",
+                  theme = theme_gray(base_family = "mono")) &theme_minimal()+
+   theme(axis.title = element_text(size=8),
+        axis.text = element_text(size=8)
+        )
+
+(guide_area() / (p1 + p2) / (p3 + p4) / p5) +
+  plot_annotation(
+    title = "City and highway mileage for cars with different drive trains",
+    caption = "Source: https://fueleconomy.gov."
+  ) +
+  plot_layout(
+    guides = "collect",
+    heights = c(1, 3, 2, 4)
+  ) &
+  theme(legend.position = "top",
+        plot.title = element_text(hjust = 0.5))
 ```
 
-# 拓展包
-
-## 热图
-
-## 相关图 {#sec-correlogram}
+### 图形编号
 
 ```{r}
-library(ggcorrplot)
+p123 <- p1 | (p2 / p3)
+p123 + plot_annotation(tag_levels = "I") # Uppercase roman numerics i
+
+
+p123 + plot_annotation(tag_levels = "a") # lowercase letters A
+p123 + plot_annotation(tag_levels = "1") #  numbers
+  
+p123[[2]] 
+p123[[2]] <- p123[[2]] + plot_layout(tag_level = "new")
+p123 + plot_annotation(tag_levels = c("I","a"))
 ```
 
-## ggpubr
-
-ggplot2 with Publication Ready Graphics in R
-
-<https://rpkgs.datanovia.com/ggpubr/>
-
-<https://www.datanovia.com/en/blog/tag/ggpubr/>
-
-### ggboxplot
+### 图形插入
 
 ```{r}
-library(ggpubr)
-data("ToothGrowth")
-df <- ToothGrowth
-p <- ggboxplot(data = df,
-               x = "dose",
-               y = "len",
-               color = "dose",
-               palette = "lancet",
-               add = "jitter",
-               shape ="dose",
-               bxp.errorbar = TRUE,
-               bxp.errorbar.width = 0.1,
-               )
+  p1 + inset_element(p2, left = 0.5, bottom = 0.4, right = 0.9, top = 0.95)
+  p24 <- p2 / p4 + plot_layout(guides = "collect")
+  p1 + inset_element(p24, left = 0.5, bottom = 0.05, right = 0.95, top = 0.9)
+  p12 <- p1 + inset_element(p2, left = 0.5, bottom = 0.5, right = 0.9, top = 0.95)
+  p12 & theme_bw()
+  p12 + plot_annotation(tag_levels = "A")
+```
+
+## ggplot2 的内部结构
+
+```{r}
+p <- ggplot(mpg, aes(displ, hwy, color = drv)) + 
+  geom_point(position = "jitter") +
+  geom_smooth(method = "lm", formula = y ~ x) + 
+  facet_wrap(vars(year)) + 
+  ggtitle("A plot for expository purposes")
 p
-my_compare <- list(c("0.5","1"),c("1","2"),c("0.5","2"))
-p+stat_compare_means(comparisons = my_compare,method = "t.test")
 ```
 
-### ggbarplot
-
 ```{r}
-ggbarplot(data = df,
-               x = "dose",
-               y = "len",
-            color = "supp", # fill
-               palette = "lancet",# "lancet", "jco","npg",
-          add = c("mean_se","dotplot"), #  mean_sd, mean_ci
-          error.plot = "errorbar", # upper_errorbar,"lower_errorbar",pointrange,"linerange", "crossbar",
-        
-              label = TRUE,
-              lab.pos = "in",
-          position = position_dodge(),
-              orientation="vertical",
-              order = c("0.5","2","1"),
-          )
+ggprint <- function(x) {
+  data <- ggplot_build(x)
+  gtable <- ggplot_gtable(data)
+  grid::grid.newpage()
+  grid::grid.draw(gtable)
+  return(invisible(x))
+}
+ggprint(p)
 ```
 
-### Grouped bar plots + significance
+```{r}
+p_built <- ggplot_build(p)
 
-<https://www.datanovia.com/en/blog/how-to-add-p-values-onto-a-grouped-ggplot-using-the-ggpubr-r-package/>
+p_built $data
+p_built $layout
+p_built $plot
+
+p_gtable <- ggplot_gtable(p_built)
+p_gtable
+
+```
 
 ```{r}
-ToothGrowth$dose <- as.factor(ToothGrowth$dose)
-# Comparisons against reference
-stat.test <- compare_means(
-  len ~ dose, data = ToothGrowth, group.by = "supp",
-  method = "t.test", ref.group = "0.5"
+grid::grid.newpage()
+grid::grid.draw(p_gtable)
+```
+
+## **ggproto对象**
+
+```{r}
+NewObject <- ggproto(
+  `_class` = NULL,     # 类
+  `_inherits` = NULL   # 继承
 )
-stat.test
-bp <- ggbarplot(ToothGrowth, x = "supp", y = "len",
-                fill = "dose", palette = "jco",
-                add = "mean_sd", add.params = list(group = "dose"),
-                position = position_dodge(0.8))
-bp
-bp + stat_pvalue_manual(
-  stat.test, x = "supp", y.position = 33,
-  label = "p={p.format}",
-  position = position_dodge(0.8)
-)
+NewObject 
 ```
 
-### ggpubr::ggdotchart Cleveland's Dot Plots
-
-### ggpubr::ggdotplot Dot plot
-
-## ggrepel
-
-```{r}
-library(ggrepel)
-ggplot(data = mtcars, aes(x= wt, y = mpg)) +
-  geom_point(color = "steelblue") +
-  geom_hline(yintercept = median(mtcars$mpg),                     
-             linetype = "dashed",
-             color = "steelblue") +
-  geom_label(x = 5.2, y = 20.5,                                      
-             label = "median MPG", 
-             color = "white", 
-             fill = "steelblue",
-             size = 3) +
-  geom_text_repel(label = row.names(mtcars), size = 3)
-```
-
-## 山脊图
-
-```{r}
-library(ggridges)
-ggplot(mpg, aes(x = hwy, y = drv, fill = drv, color = drv)) +
-  geom_density_ridges(alpha = 0.5, show.legend = FALSE)
-```
-
-## plotly
-
-Converting a ggplot2 graph to an interactive plotly graph
-
-```{r}
-library(plotly)
-mtcars$cyl <- factor(mtcars$cyl)
-mtcars$name <- row.names(mtcars)
-
-p <- ggplot(mtcars, aes(x = disp, y= mpg, color = cyl)) +
-  geom_point()
-ggplotly(p)
-
-```
-
-```{r}
-# Customizing the plotly tooltip
-p <- ggplot(mtcars,
-            aes(x = disp, y=mpg, color=cyl,
-                text = paste(name, "\n",
-                             "mpg:", mpg, "\n",
-                             "disp:", disp, "\n",
-                             "cyl:", cyl, "\n",
-                             "gear:", gear))) +
-  geom_point()
-```
-
-## Marginal Histogram / Boxplot
-
-```{r}
-library(ggExtra)
-```
-
-## 森林图
-
-```{r}
-```
-
-## ggpie
-
-```{r}
-                           
-if(!require(remotes)) install.packages("remotes")
-devtools::install_github("rkabacoff/ggpie")
-
-library(ggplot2)
-library(ggpie)
-ggpie(mpg, class)
-
-ggpie(mpg, class, legend=FALSE, offset=1.3, 
-      title="Automobiles by Car Class")
-
-ggpie(mpg, class, year, 
-      legend=FALSE, offset=1.3, title="Car Class by Year")
-```
-
-## geom_treemap
-
-```{r}
-library(ggplot2)
-library(dplyr)
-library(treemapify)
-
-plotdata <- mpg %>% count(manufacturer)
-
-ggplot(plotdata,
-       aes(fill = manufacturer,
-           area = n,
-           label = manufacturer)) +
-  geom_treemap() +
-  geom_treemap_text() +
-  theme(legend.position = "none")
-
-# Tree Map with Subgrouping
-plotdata <- mpg %>%  
-  count(manufacturer, drv)
-plotdata$drv <- factor(plotdata$drv, 
-                       levels=c("4", "f", "r"),
-                       labels=c("4-wheel", "front-wheel", "rear"))
-
-ggplot(plotdata,
-       aes(fill = manufacturer, 
-           area = n,
-           label = manufacturer,
-           subgroup=drv)) +
-  geom_treemap() + 
-  geom_treemap_subgroup_border() +
-  geom_treemap_subgroup_text(
-    place = "middle",
-    colour = "black",
-    alpha = 0.5,
-    grow = FALSE) +
-  geom_treemap_text(colour = "white", 
-                    place = "centre",
-                    grow=FALSE) +
-  theme(legend.position = "none")
-```
+创建新类，子类继承

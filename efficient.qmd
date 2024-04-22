@@ -18,7 +18,9 @@ object.size(sp)
 
 ```
 
-## 并行计算
+## 并行化
+
+parallelization
 
 Parallel computing
 

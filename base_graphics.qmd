@@ -12,10 +12,10 @@ knitr:
 ### par()
 
 ```{r}
-#| eval: false
 par()     #返回当前设置，一个list
 opar<-par(no.readonly = TRUE)
-par(opar)  #恢复默认设置
+
+
 par(pch=22) #空心=0、1、2、5、6,  黑色=15:20,  col边界色  bg= 21-25填充
 par(lty=1)  # 1=实线 2:6=虚线
 par(cex.main=2,font.main=4,col.main="black")#font字体样式  4=粗斜体
@@ -27,7 +27,7 @@ par(bg="white")  #背景色
 par(pin=c(4,3))        #宽×高 1英寸=1.7
 par(mar=c(5,4,4,2)+0.1)    #默认值，边距
 
-par(opar) 
+par(opar) #恢复默认设置
 ```
 
 ### 颜色
@@ -85,13 +85,16 @@ par(opar)
 ```{r}
 x<-c(1:10)
 y<-x
-z<-10/x
+
 par(mar=c(5,4,4,4))
 par(mfrow=c(1,2))
 plot(x,y)
 plot(x,y,axes=FALSE)#禁用坐标轴框架、刻度
 plot(x,y,axes=FALSE,frame.plot = TRUE)#禁用刻度
+```
 
+```{r}
+z<-10/x
 plot(x,y,type="b",pch=21,col="red",bg="black",
      xaxt="n",yaxt="n",lty=1  #xaxt、yaxt 禁用X、Y坐标轴刻度
      )
@@ -114,25 +117,26 @@ axis(side=4,at=z,labels=round(z,digits=3),col.axis="blue",las=2,tck=-.05)
 par(lwd=2,cex=1,font.lab=2)
 legend("top",inset=0.05,title="函数",c("Y=X","Y=10/x"),text.col = "green",
        lty=c(3,2),pch=c(21,22),col=c("red","blue",bg=c("black","green")))
-```
 
-## 添加文本
+# 文本
 
-```{r}
 #mtext("text",side,line=,)
 mtext("Y=10/X",side=4,line=3,cex.lab=1,las=2,col="blue")  #边界文本
 title(main="my graphics",
       sub="subtitle",
       xlab="X values",
       ylab="Y=X")
-abline(h=c(1,2,3,4),lty=2,col="red")  ###添加水平辅助线 
-abline(v=c(8,9,10),lty=4,col="blue")  ###添加垂直辅助线 
+abline(h=c(1,4),lty=2,col="red")  ###添加水平辅助线 
+abline(v=c(8,10),lty=4,col="blue")  ###添加垂直辅助线 
 
 
 # text(x,y,"text",pos=)  1=下，2=左，3=上，4=右
 text(5,5,"文本1",pos=4,adj=0,cex=2,col="green")
-text(locator[1],"文本",pos=4,adj=0,cex=2,col="green")######鼠标点击确定位置
+
+#text(locator[1],"文本",pos=4,adj=0,cex=2,col="green")#鼠标点击确定位置
 ```
+
+## 添加文本
 
 ```{r}
 #标注点的信息

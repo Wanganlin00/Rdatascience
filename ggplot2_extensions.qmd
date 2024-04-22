@@ -1,0 +1,154 @@
+# ggplot2 extensions
+
+<https://exts.ggplot2.tidyverse.org/gallery/>
+
+## ggpubr
+
+ggplot2 with Publication Ready Graphics in R
+
+<https://rpkgs.datanovia.com/ggpubr/>
+
+<https://www.datanovia.com/en/blog/tag/ggpubr/>
+
+### ggboxplot
+
+```{r}
+library(ggpubr)
+data("ToothGrowth")
+df <- ToothGrowth
+p <- ggboxplot(data = df,
+               x = "dose",
+               y = "len",
+               color = "dose",
+               palette = "lancet",
+               add = "jitter",
+               shape ="dose",
+               bxp.errorbar = TRUE,
+               bxp.errorbar.width = 0.1,
+               )
+p
+my_compare <- list(c("0.5","1"),c("1","2"),c("0.5","2"))
+p+stat_compare_means(comparisons = my_compare,method = "t.test")
+```
+
+### ggbarplot
+
+```{r}
+p <- ggbarplot(data = df,
+               x = "dose",
+               y = "len",
+            color = "supp", # fill
+               palette = "lancet",# "lancet", "jco","npg",
+          add = c("mean_se","dotplot"), #  mean_sd, mean_ci
+          error.plot = "errorbar", # upper_errorbar,"lower_errorbar",pointrange,"linerange", "crossbar",
+        
+              label = TRUE,
+              lab.pos = "in",
+          position = position_dodge(),
+              orientation="vertical",
+              order = c("0.5","2","1"),
+          )
+p
+x <- ggplot_build(p)
+
+x$data
+```
+
+### Grouped bar plots + significance
+
+<https://www.datanovia.com/en/blog/how-to-add-p-values-onto-a-grouped-ggplot-using-the-ggpubr-r-package/>
+
+```{r}
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+# Comparisons against reference
+stat.test <- compare_means(
+  len ~ dose, data = ToothGrowth, group.by = "supp",
+  method = "t.test", ref.group = "0.5"
+)
+stat.test
+bp <- ggbarplot(ToothGrowth, x = "supp", y = "len",
+                fill = "dose", palette = "jco",
+                add = "mean_sd", add.params = list(group = "dose"),
+                position = position_dodge(0.8))
+bp
+bp + stat_pvalue_manual(
+  stat.test, x = "supp", y.position = 33,
+  label = "p={p.format}",
+  position = position_dodge(0.8)
+)
+```
+
+### ggpubr::ggdotchart Cleveland's Dot Plots
+
+### ggpubr::ggdotplot Dot plot
+
+## ggrepel
+
+```{r}
+library(ggrepel)
+ggplot(data = mtcars, aes(x= wt, y = mpg)) +
+  geom_point(color = "steelblue") +
+  geom_hline(yintercept = median(mtcars$mpg),                     
+             linetype = "dashed",
+             color = "steelblue") +
+  geom_label(x = 5.2, y = 20.5,                                      
+             label = "median MPG", 
+             color = "white", 
+             fill = "steelblue",
+             size = 3) +
+  geom_text_repel(label = row.names(mtcars), size = 3)
+```
+
+## 热图
+
+## 相关图 {#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram}
+
+```{r}
+library(ggcorrplot)
+```
+
+## 山脊图
+
+```{r}
+library(ggridges)
+ggplot(mpg, aes(x = hwy, y = drv, fill = drv, color = drv)) +
+  geom_density_ridges(alpha = 0.5, show.legend = FALSE)
+```
+
+## plotly
+
+Converting a ggplot2 graph to an interactive plotly graph
+
+```{r}
+library(plotly)
+mtcars$cyl <- factor(mtcars$cyl)
+mtcars$name <- row.names(mtcars)
+
+p <- ggplot(mtcars, aes(x = disp, y= mpg, color = cyl)) +
+  geom_point()
+ggplotly(p)
+
+```
+
+```{r}
+# Customizing the plotly tooltip
+p <- ggplot(mtcars,
+            aes(x = disp, y=mpg, color=cyl,
+                text = paste(name, "\n",
+                             "mpg:", mpg, "\n",
+                             "disp:", disp, "\n",
+                             "cyl:", cyl, "\n",
+                             "gear:", gear))) +
+  geom_point()
+```
+
+## Marginal Histogram / Boxplot
+
+```{r}
+library(ggExtra)
+```
+
+## 森林图
+
+```{r}
+```

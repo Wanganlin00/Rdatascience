@@ -9,22 +9,25 @@ book:
     - index.qmd
     - part: "Programming"
       chapters: 
-      - basic_data_type_class.qmd
-      - function.qmd
-      - efficient.qmd
-    
+        - basic_data_type_class.qmd
+        - control_structure.qmd
+        - function.qmd
+        - efficient.qmd
+        - functional_programming.qmd    
     
     - part: "Data science"
       chapters: 
         - I-O.qmd
-        - base_data_processing.qmd
-        - functional_programming.qmd
+        - useful_function.qmd
+        - base_graphics.qmd
+        - ggplot2_graphics.qmd
+        - ggplot2_extensions.qmd
 
 
- 
+
+
 execute:
   cache: true
-  error: true
   message: false #阻止消息或警告出现在完成的文件中
   warning: false
 # eval: false阻止对代码进行评估。（显然，如果不运行代码，则不会生成任何结果）

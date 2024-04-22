@@ -4,6 +4,12 @@ title: "数据类型和数据结构"
 
 ## 数据类型 {style="color:red"}
 
+原子向量（atomic vector）和泛型向量（generic vector）。
+
+原子向量是单个数据类型（实数、字符、逻辑型、复数、原始型）的数组。
+
+泛型向量是原子向量的集合，即列表`list`。
+
 强制类型转换：字符 \> 双精度 \> 整数 \> 逻辑
 
 ### numeric -- 数值型
@@ -310,7 +316,7 @@ attributes(units_1)
 
 ### matrix
 
-矩阵，所有元素必须是同一类型。
+矩阵是一个具有维度属性（dim）的原子向量，所有元素必须是同一类型。
 
 `matrix(data= ,nrow=1  ,ncol=1  ,byrow=FALSE ,dimnames=list(rnames,cnames) ,...)`
 
@@ -329,7 +335,7 @@ colnames(m)
 
 ### array
 
-数组，所有元素必须是同一类型。
+数组也是一个具有维度属性（dim）的原子向量，所有元素必须是同一类型。
 
 `array(data,dim_numeric_vector=c(...),dimnames = list(dim1,dim2,...),...)`
 
@@ -377,9 +383,7 @@ names(mylist)
 
 ![](images/summary-tree-s3-df_tbl.png){fig-align="center" width="30%"}
 
-数据框是列向量具有 names，row.names ，class"data.frame" 属性的命名列表。
-
-与常规列表相比，数据框每个向量的长度必须相同。这为数据框提供了矩形结构，并解释了为什么它们共享矩阵和列表的属性
+数据框是列向量具有 names，row.names ，class"data.frame" 属性的命名列表，是一种特殊的列表，每个原子向量的长度必须相同。
 
 ```{r}
 id<-c(001231,001241,001413,001244) 
