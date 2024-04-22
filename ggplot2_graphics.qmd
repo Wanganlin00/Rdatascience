@@ -193,6 +193,11 @@ ggplot(mpg, aes(displ,hwy)) +
 #### geom_line
 
 ```{r}
+economics
+
+ggplot(economics,aes(date,pop))+
+    geom_line()+
+    scale_x_date()
 
 ```
 
@@ -299,7 +304,9 @@ ggplot(mpg, aes(x = fct_infreq(class))) +  #降序条形图
   geom_bar()
 ```
 
-#### geom_errorbar geom_linerange geom_crossbar geom_pointrange
+#### geom_errorbar  errorbarh
+
+geom_linerange geom_crossbar geom_pointrange
 
 ```{r}
 y <- c(18, 11, 16)
@@ -353,6 +360,37 @@ p + geom_boxplot(mapping = aes(x=drv,y=hwy),
 p + geom_violin(mapping = aes(x=drv,y=hwy),
              stat = "ydensity",position = "dodge")
 ```
+
+#### geom_tile
+
+```{r}
+# 设置随机数种子以确保结果的可重复性  
+set.seed(10)  
+  
+# 生成随机数据集  
+mydata <- tibble(  
+  year = 2000:2024,  
+  lung = runif(25),  
+  liver = runif(25), 
+  bone = runif(25),  
+  luk = runif(25),  
+  eso = runif(25),  
+  gas = runif(25),   
+  eye = runif(25),  
+  brain = runif(25),  
+  pan = runif(25),  
+  kidney = runif(25),  
+  breast= runif(25),  
+)  |> pivot_longer(cols = -1,
+                   names_to = "cancer",
+                   values_to = "morbidity")
+
+ggplot(mydata, aes(year, cancer)) +  
+  geom_tile(aes(fill =morbidity)) +  
+  scale_fill_gradient(low = "white", high = "red")
+
+```
+
 
 ### 统计变换 statistical transformations
 
