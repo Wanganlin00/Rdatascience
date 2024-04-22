@@ -59,9 +59,8 @@ ggplot(mpg, aes(x = displ, y = hwy, linewidth = drv)) + #线条粗细
 
     -   `geom_text()`: text.
 
-```{=html}
 <!-- -->
-```
+
 -   One variable:
 
     -   Discrete:
@@ -605,7 +604,7 @@ label_info <- mpg |>
         drv == "r" ~ "rear-wheel drive",
         drv == "4" ~ "4-wheel drive")
         )|>
-    select(displ, hwy, drv, drive_type)
+    dplyr::select(displ, hwy, drv, drive_type)
 
 p <-ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
     geom_point(alpha = 0.3) +
@@ -669,7 +668,7 @@ ggplot(df, aes(x, y)) +
   labs(y = quote(f(x) == x^3))         #数学表达式   ？plotmath
 ```
 
-### 线
+### 线段 直线 箭头
 
 geom_hline()
 
@@ -871,7 +870,7 @@ findfont <- function(x){
   suppressMessages(require(showtext))
   suppressMessages(require(dplyr))
   dplyr::filter(font_files(), grepl(x, family, ignore.case=TRUE)) |> 
-    select(path, file, family, face)
+    dplyr::select(path, file, family, face)
 }
 
 findfont("comic")

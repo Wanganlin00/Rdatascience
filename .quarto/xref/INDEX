@@ -31,5 +31,14 @@
   },
   "useful_function.qmd": {
     "useful_function.html": "976028e9"
+  },
+  "ggplot2_extensions.qmd": {
+    "ggplot2_extensions.html": "33382753"
+  },
+  "base_graphics.qmd": {
+    "base_graphics.html": "67edef21"
+  },
+  "ggplot2_graphics.qmd": {
+    "ggplot2_graphics.html": "2f29fcae"
   }
 }

@@ -1,8 +1,6 @@
-
 # 函数式编程
 
 ## 向量式函数
-
 
 ## 数据框式函数
 
@@ -78,7 +76,7 @@ count_missing <- function(df, group_vars, x_var) {
         )
 }
 mtcars|> 
-    count_missing(c(cyl,am), mpg)
+    count_missing(c(cyl), mpg)
 
 count_missing <- function(df, group_vars, x_var) {
     df |>      #pick()
@@ -114,5 +112,5 @@ sorted_bars <- function(df, var) {
 diamonds |> sorted_bars(clarity)
 
 ```
-```
 
+\`\`\`
