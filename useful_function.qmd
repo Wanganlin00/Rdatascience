@@ -25,7 +25,7 @@ x[]
 x[0]
 ```
 
-### `$` `[[]]`
+### `$`, `[[ ]]`
 
 `$`是一个简写运算符, `x$y`大致相当于 `x[["y"]]` ,从左到右部分匹配
 
@@ -39,14 +39,14 @@ options(warnPartialMatchDollar = TRUE)
 x$a
 ```
 
-### `subset()`,`sample()`
+### `subset()`, `sample()`
 
 ```{r eval=FALSE}
 subset()
 sample()
 ```
 
-### 逻辑子集
+## 逻辑函数
 
 ```{r}
 x<-c(2,3,5,1,4)
@@ -175,14 +175,14 @@ tolower("aaAGEErg")         #小写转换
 
 ## apply函数簇
 
-#### `apply()`
+### `apply()`
 
 ```{r}
 apply(X = mtcars, MARGIN = 2, FUN = mean)
 
 ```
 
-#### `aggregate()`
+### `aggregate()`
 
 ```{r}
 aggregate(x = mtcars,
@@ -196,7 +196,7 @@ aggregate(mpg~am+cyl,
           FUN = summary)
 ```
 
-#### `by()`, `tapply()`
+### `by()`, `tapply()`
 
 `by()`是应用于数据框的tapply的面向对象包装器。
 
@@ -214,7 +214,7 @@ tapply(X = mtcars[,1:3],
        FUN = summary)
 ```
 
-#### `lapply()`, `sapply()`
+### `lapply()`, `sapply()`
 
 `lapply()` returns a list of the same length as X,
 

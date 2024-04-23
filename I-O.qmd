@@ -18,7 +18,9 @@ fix(df)
 
 常用的分隔符如逗号`,` ，制表符`\t`，分号`;`，空格`space`，...... 等。
 
-#### `utils::` utilities,a piece of computer software that performs a particular task
+#### `utils::`
+
+utilities,a piece of computer software that performs a particular task
 
 `read.table()` `read.csv()` `read.csv2`
 
@@ -163,8 +165,9 @@ sink(NULL)
 
 ### 图片输出
 
-```{r}
-#|eval: false 
+Rstudio 直接 Export save as Image/PDF，copy to clipboard
+
+```{r eval=FALSE}
 pdf(file = "data/pdf_output.pdf")       # bmp,jpeg,png，SVG
 plot(1:25,1:25,pch=1:25,col="green",bg="red",type = "b")
 while(!is.null(dev.list()))  dev.off() 

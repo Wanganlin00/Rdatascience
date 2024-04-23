@@ -2,8 +2,8 @@
     "sortOrder": [
         {
             "columnIndex": 2,
-            "ascending": true
+            "ascending": false
         }
     ],
-    "path": "F:/GitHub/Bioinformatics_notes/bioinformatics"
+    "path": "F:/GitHub/R_notes"
 }
