@@ -1,0 +1,419 @@
+# 环境
+
+环境是支持作用域的数据结构。
+
+**Lexical scoping**
+
+1.  Name masking
+2.  Functions versus variables
+3.  A fresh start principle
+4.  Dynamic scoping
+
+**Namespaces**
+
+**R6 classes**
+
+## 基础知识
+
+-   每个环境名称都必须是唯一的。
+
+-   环境中的名称不按顺序排列。
+
+-   环境有其父级。
+
+-   修改时不会复制环境。
+
+### 创建环境
+
+环境的工作是将一组名称关联或**绑定（bind）**到一组值。
+
+```{r}
+library(rlang)
+
+# name-value pairs
+e1 <- rlang::env(
+  a = FALSE,
+  b = "a",
+  c = 2.3,
+  d = 1:3,
+)
+
+
+# 绑定自身
+e1$d <- e1
+
+# 只显示内存地址
+e1 
+
+# 
+env_print(e1)
+env_names(e1)
+names(e1)
+
+```
+
+[`new.env()`](https://rdrr.io/r/base/environment.html) 也可用于创建新环境。 `hash size`
+
+```{r}
+my_env <- base::new.env(parent = emptyenv())
+my_env$a <- 1
+```
+
+### [`current_env()`](https://rlang.r-lib.org/reference/caller_env.html) [`global_env()`](https://rlang.r-lib.org/reference/search_envs.html)
+
+```{r error=TRUE}
+identical(global_env(), current_env())
+
+# 环境不是向量
+global_env() == current_env() 
+```
+
+```{r}
+# 访问全局环境
+globalenv()
+
+# 访问当前环境
+environment()
+```
+
+### 父环境
+
+每个环境都有一个父环境（parent）。父级是用于实现词法作用域的：如果在环境中找不到名称，则 R 将在其父级中查找（依此类推）。可以通过向 `env()` 提供未命名的参数来设置父环境。如果不提供它，它将默认为当前环境。
+
+```{r}
+e2a <- env(d = 4, e = 5)
+e2b <- env(e2a, a = 1, b = 2, c = 3)
+```
+
+![](images/parent_environment.png){fig-align="center" width="50%"}
+
+`e2a` 是 `e2b` 的父级。
+
+```{r}
+# 查看父级
+e2a
+env_parent(e2b)
+env_parent(e2a)
+```
+
+只有一个环境没有父环境：**空(** empty**)**环境。
+
+```{r}
+e2c <- env(empty_env(), d = 4, e = 5)
+e2d <- env(e2c, a = 1, b = 2, c = 3)
+```
+
+![](images/parents-empty.png){fig-align="center" width="50%"}
+
+每个环境的父级最终都会随着空环境而终止。
+
+```{r}
+# 查看所有父级
+env_parents(e2d)
+e2c
+env_parents(e2c)
+```
+
+默认情况下，当到达全局环境时停止。如果覆盖默认行为，则可以看到全局环境的父级包括每个加载的包。
+
+```{r}
+e2a
+env_parents(e2b)
+env_parents(e2b, last = empty_env())
+```
+
+### 超级赋值 `<<-`
+
+常规赋值 `<-` 始终在当前环境中创建绑定一个变量
+
+超级赋值 `<<-` ，重新绑定当前环境的父级中的现有名称
+
+```{r}
+x <- 0
+f <- function() {
+  x <<- 1
+}
+f()
+x
+```
+
+### 访问对象
+
+```{r error=TRUE}
+# 
+names(e1)
+e1$a
+e1[["a"]]
+
+# error  无顺序，不能用数字索引
+e1[[1]]
+
+e1$zxc  # NULL
+
+env_get(e1, "zxc")
+env_get(e1, "zxc", default = NA)
+```
+
+### 绑定对象
+
+```{r}
+
+# 单个
+env_poke(e1, "e", 100)
+e1$e
+
+# 多个
+env_bind(e1, x = 10, y = 20)
+env_names(e1)
+```
+
+### 解绑定对象
+
+```{r}
+e1$x <- NULL  # 不能删除
+env_has(e1, "x")
+env_unbind(e1, "x") # 解绑定
+env_has(e1, "x")
+```
+
+### 高级绑定
+
+**delayed bindings** [`autoload()`](https://rdrr.io/r/base/autoload.html)允许 R 包提供行为类似于加载内存中的数据集
+
+```{r}
+# 延迟绑定会创建 promise
+env_bind_lazy(current_env(), b = {Sys.sleep(1); 1})
+system.time(print(b))
+
+system.time(print(b))
+```
+
+![](images/delayed_bindings_promise.png) **active bindings** 每次访问它们时都会重新计算，主要用于实现 R6 的活动字段
+
+```{r}
+env_bind_active(current_env(), z1 = function(val) runif(1))
+z1
+z1
+```
+
+## 在环境中递归（recurse）
+
+### 递归
+
+```{r eval=FALSE}
+f_recur <- function(..., env = caller_env()) {
+  if (identical(env, empty_env())) {
+    # base case
+  } else if (success) {
+    # success case
+  } else {
+    # recursive case
+    f(..., env = env_parent(env))
+  }
+}
+```
+
+```{r}
+where <- function(name, env = caller_env()) {
+  if (identical(env, empty_env())) {
+    # Base case
+    stop("Can't find ", name, call. = FALSE)
+  } else if (env_has(env, name)) {
+    # Success case
+    env
+  } else {
+    # Recursive case
+    where(name, env_parent(env))
+  }
+}
+```
+
+```{r}
+e3a <- env(empty_env(), a = 1, b = 2)
+e3b <- env(e3a, x = 10, a = 11)
+```
+
+![](images/where-ex.png){fig-align="center" width="50%"}
+
+```{r error=TRUE}
+where("a", e3b)
+
+where("b", e3b)
+e3a
+
+where("c", e3b)
+```
+
+### 迭代iteration
+
+```{r eval=FALSE}
+f_iter <- function(..., env = caller_env()) {
+  while (!identical(env, empty_env())) {
+    if (success) {
+      # success case
+      return()
+    }
+    # inspect parent
+    env <- env_parent(env)
+  }
+
+  # base case
+}
+```
+
+## 特殊环境
+
+大多数环境是由 R 创建的
+
+### 软件包环境和搜索路径
+
+![](images/search-path.png){fig-align="center" width="60%"}
+
+搜索路径：`R_EmptyEnv`→pkgs→`R_GlobalENV`
+
+```{r}
+base::search()
+rlang::search_envs()
+```
+
+搜索路径上的最后两个环境始终相同：
+
+-   环境`Autoloads`使用延迟绑定来节省内存，仅通过需要时加载包对象（如大型数据集）节省内存 。
+
+-   基本环境`package:base`，是 base package 的环，它能够引导所有其他包的加载。访问`base_env()`
+
+请注意，当您附加另一个包时，全局环境的父环境会发生变化：
+
+![](images/search-path-2.png){fig-align="center" width="50%"}
+
+### 函数环境
+
+函数在创建时绑定当前环境，称为**函数环境**，用于词法作用域。在计算机语言中，捕获（或封闭）其环境的函数被称为闭包 closures 。
+
+访问函数环境
+
+```{r}
+y <- 1
+f <- function(x) x + y
+fn_env(f)
+```
+
+![](images/function_environment.png){fig-align="center" width="30%"}
+
+```{r}
+e <- env()  # 绑定当前环境为父级
+env_parent(e)
+
+e$g <- function() 1  # g绑定在e中
+```
+
+### 命名空间
+
+**命名空间** （namespaces） 的目标是确保以不同的顺序加载包，包将找到相同的功能，并且无论用户附加什么包，每个包的工作方式都相同。
+
+```{r}
+sd
+```
+
+包中的每个函数都与一对环境相关联：前面的包环境和命名空间环境。
+
+-   包环境是包的外部接口。
+-   命名空间环境是包的内部接口。
+
+包环境控制我们如何找到函数;命名空间控制函数查找其变量的方式。
+
+包环境中的每个绑定也可以在命名空间环境中找到。
+
+每个命名空间都有一个**import**环境，**import**环境的父级是**base namespace**，基本命名空间的父级是全局环境。
+
+![](images/namespace.png){fig-align="center" width="50%"}
+
+### 执行环境
+
+执行环境是函数环境的子级，由函数的创建位置决定。
+
+```{r}
+g <- function(x) {
+  if (!env_has(current_env(), "a")) {
+    message("Defining a")
+    a <- 1
+  } else {
+    a <- a + 1
+  }
+  a
+}
+
+```
+
+```{r}
+# A fresh start principle
+g(10)
+g(10)
+```
+
+每次调用函数时，都会创建一个新环境来托管执行。这称为执行环境（**execution environment**），其父级是函数环境 @fig-execution 。
+
+```{r}
+h <- function(x) {
+  # 1.
+  a <- 2 # 2.
+  x + a
+}
+y <- h(1) # 3.
+```
+
+![](images/execution.png){#fig-execution fig-align="center" width="35%"}
+
+执行环境通常是短暂的;函数完成后，环境将被垃圾回收（*garbage collected*）。
+
+## Call stacks
+
+caller environment
+
+`rlang::caller_env()` 提供了调用函数的环境。
+
+调用栈（**call stacks**）由 **frames** 组成。调用栈是由调用函数的位置创建的。
+
+```{r}
+f <- function(x) {
+  g(x = 2)
+}
+g <- function(x) {
+  h(x = 3)
+}
+h <- function(x) {
+  stop()
+}
+```
+
+在 R 中最常查看调用栈的方式是查看错误发生后的情况：traceback()
+
+```{r error=TRUE}
+f(x = 1)
+traceback()
+```
+
+使用 `lobstr::cst()`从头开始 来理解调用栈, **c**all **s**tack **t**ree @fig-frame
+
+```{r}
+h <- function(x) {
+  lobstr::cst()
+}
+f(x = 1)
+```
+
+### frames
+
+调用栈的每个元素都是一个**frame**，也称为 **evaluation context**。Frames 是一个极其重要的内部数据结构，R 代码只能访问它的一小部分，因为篡改它会破坏 R。
+
+frame 有三个关键组件：
+
+-   给出函数调用的表达式（标有`expr` ）
+-   环境（标记为`env` ）
+-   父级，调用栈中的上一个调用（由灰色箭头显示）
+
+![](images/calling_stack_frame.png){#fig-frame fig-align="center" width="45%"}
+
+### Dynamic scope
+
+在调用栈中而不是在封闭环境中查找变量称为**dynamic scoping** 。

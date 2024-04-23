@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.553">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>R data science - 10&nbsp; ggplot2 extensions</title>
+<title>R data science - 11&nbsp; ggplot2 extensions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./I-O.html">Data science</a></li><li class="breadcrumb-item"><a href="./ggplot2_extensions.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./I-O.html">Data science</a></li><li class="breadcrumb-item"><a href="./ggplot2_extensions.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -170,14 +170,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">环境</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./efficient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">高效</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">高效</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./functional_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
   </div>
 </li>
       </ul>
@@ -194,31 +200,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./I-O.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">读入和写出</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">读入和写出</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./useful_function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./base_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">basic graphics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">basic graphics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ggplot2_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ggplot2_extensions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></span></a>
   </div>
 </li>
       </ul>
@@ -231,29 +237,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li>
-<a href="#ggpubr" id="toc-ggpubr" class="nav-link active" data-scroll-target="#ggpubr"><span class="header-section-number">10.1</span> ggpubr</a>
+<li><a href="#ggsci" id="toc-ggsci" class="nav-link active" data-scroll-target="#ggsci"><span class="header-section-number">11.1</span> ggsci</a></li>
+  <li>
+<a href="#ggpubr" id="toc-ggpubr" class="nav-link" data-scroll-target="#ggpubr"><span class="header-section-number">11.2</span> ggpubr</a>
   <ul>
-<li><a href="#ggboxplot" id="toc-ggboxplot" class="nav-link" data-scroll-target="#ggboxplot"><span class="header-section-number">10.1.1</span> ggboxplot</a></li>
-  <li><a href="#ggbarplot" id="toc-ggbarplot" class="nav-link" data-scroll-target="#ggbarplot"><span class="header-section-number">10.1.2</span> ggbarplot</a></li>
-  <li><a href="#grouped-bar-plots-significance" id="toc-grouped-bar-plots-significance" class="nav-link" data-scroll-target="#grouped-bar-plots-significance"><span class="header-section-number">10.1.3</span> Grouped bar plots + significance</a></li>
-  <li><a href="#ggpubrggdotchart-clevelands-dot-plots" id="toc-ggpubrggdotchart-clevelands-dot-plots" class="nav-link" data-scroll-target="#ggpubrggdotchart-clevelands-dot-plots"><span class="header-section-number">10.1.4</span> ggpubr::ggdotchart Cleveland’s Dot Plots</a></li>
-  <li><a href="#ggpubrggdotplot-dot-plot" id="toc-ggpubrggdotplot-dot-plot" class="nav-link" data-scroll-target="#ggpubrggdotplot-dot-plot"><span class="header-section-number">10.1.5</span> ggpubr::ggdotplot Dot plot</a></li>
+<li><a href="#ggboxplot" id="toc-ggboxplot" class="nav-link" data-scroll-target="#ggboxplot"><span class="header-section-number">11.2.1</span> ggboxplot</a></li>
+  <li><a href="#ggviolin" id="toc-ggviolin" class="nav-link" data-scroll-target="#ggviolin"><span class="header-section-number">11.2.2</span> ggviolin</a></li>
+  <li><a href="#ggbarplot" id="toc-ggbarplot" class="nav-link" data-scroll-target="#ggbarplot"><span class="header-section-number">11.2.3</span> ggbarplot</a></li>
+  <li>
+<a href="#grouped-bar-plots-significance" id="toc-grouped-bar-plots-significance" class="nav-link" data-scroll-target="#grouped-bar-plots-significance"><span class="header-section-number">11.2.4</span> Grouped bar plots + significance</a>
+  <ul class="collapse">
+<li><a href="#%E5%88%86%E7%BB%84%E5%B9%B6%E5%88%97%E7%BB%84%E5%86%85%E7%BB%84%E9%97%B4%E6%98%BE%E8%91%97%E6%80%A7p%E5%80%BC" id="toc-分组并列组内组间显著性p值" class="nav-link" data-scroll-target="#%E5%88%86%E7%BB%84%E5%B9%B6%E5%88%97%E7%BB%84%E5%86%85%E7%BB%84%E9%97%B4%E6%98%BE%E8%91%97%E6%80%A7p%E5%80%BC"><span class="header-section-number">11.2.4.1</span> 分组并列，组内组间显著性p值</a></li>
   </ul>
 </li>
-  <li><a href="#ggrepel" id="toc-ggrepel" class="nav-link" data-scroll-target="#ggrepel"><span class="header-section-number">10.2</span> ggrepel</a></li>
-  <li><a href="#%E7%83%AD%E5%9B%BE" id="toc-热图" class="nav-link" data-scroll-target="#%E7%83%AD%E5%9B%BE"><span class="header-section-number">10.3</span> 热图</a></li>
-  <li><a href="#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" id="toc-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" class="nav-link" data-scroll-target="#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram"><span class="header-section-number">10.4</span> 相关图</a></li>
-  <li><a href="#%E5%B1%B1%E8%84%8A%E5%9B%BE" id="toc-山脊图" class="nav-link" data-scroll-target="#%E5%B1%B1%E8%84%8A%E5%9B%BE"><span class="header-section-number">10.5</span> 山脊图</a></li>
-  <li><a href="#plotly" id="toc-plotly" class="nav-link" data-scroll-target="#plotly"><span class="header-section-number">10.6</span> plotly</a></li>
-  <li><a href="#marginal-histogram-boxplot" id="toc-marginal-histogram-boxplot" class="nav-link" data-scroll-target="#marginal-histogram-boxplot"><span class="header-section-number">10.7</span> Marginal Histogram / Boxplot</a></li>
-  <li><a href="#%E6%A3%AE%E6%9E%97%E5%9B%BE" id="toc-森林图" class="nav-link" data-scroll-target="#%E6%A3%AE%E6%9E%97%E5%9B%BE"><span class="header-section-number">10.8</span> 森林图</a></li>
+  <li><a href="#ggdotchart-clevelands-dot-plots" id="toc-ggdotchart-clevelands-dot-plots" class="nav-link" data-scroll-target="#ggdotchart-clevelands-dot-plots"><span class="header-section-number">11.2.5</span> ggdotchart Cleveland’s Dot Plots</a></li>
+  <li><a href="#ggdotplot" id="toc-ggdotplot" class="nav-link" data-scroll-target="#ggdotplot"><span class="header-section-number">11.2.6</span> ggdotplot</a></li>
+  </ul>
+</li>
+  <li><a href="#ggrepel" id="toc-ggrepel" class="nav-link" data-scroll-target="#ggrepel"><span class="header-section-number">11.3</span> ggrepel</a></li>
+  <li><a href="#%E7%83%AD%E5%9B%BE" id="toc-热图" class="nav-link" data-scroll-target="#%E7%83%AD%E5%9B%BE"><span class="header-section-number">11.4</span> 热图</a></li>
+  <li><a href="#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" id="toc-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" class="nav-link" data-scroll-target="#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram"><span class="header-section-number">11.5</span> 相关图</a></li>
+  <li><a href="#%E5%B1%B1%E8%84%8A%E5%9B%BE" id="toc-山脊图" class="nav-link" data-scroll-target="#%E5%B1%B1%E8%84%8A%E5%9B%BE"><span class="header-section-number">11.6</span> 山脊图</a></li>
+  <li><a href="#plotly" id="toc-plotly" class="nav-link" data-scroll-target="#plotly"><span class="header-section-number">11.7</span> plotly</a></li>
+  <li><a href="#marginal-histogram-boxplot" id="toc-marginal-histogram-boxplot" class="nav-link" data-scroll-target="#marginal-histogram-boxplot"><span class="header-section-number">11.8</span> Marginal Histogram / Boxplot</a></li>
+  <li><a href="#%E6%A3%AE%E6%9E%97%E5%9B%BE" id="toc-森林图" class="nav-link" data-scroll-target="#%E6%A3%AE%E6%9E%97%E5%9B%BE"><span class="header-section-number">11.9</span> 森林图</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./I-O.html">Data science</a></li><li class="breadcrumb-item"><a href="./ggplot2_extensions.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./I-O.html">Data science</a></li><li class="breadcrumb-item"><a href="./ggplot2_extensions.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span>
+<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -269,22 +282,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><p><a href="https://exts.ggplot2.tidyverse.org/gallery/" class="uri">https://exts.ggplot2.tidyverse.org/gallery/</a></p>
-<section id="ggpubr" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="ggpubr">
-<span class="header-section-number">10.1</span> ggpubr</h2>
+<section id="ggsci" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="ggsci">
+<span class="header-section-number">11.1</span> ggsci</h2>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://nanx.me/ggsci/">ggsci</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>lancet</p>
+<p>jco</p>
+<p>nejm</p>
+<p>gsea</p>
+</section><section id="ggpubr" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="ggpubr">
+<span class="header-section-number">11.2</span> ggpubr</h2>
 <p>ggplot2 with Publication Ready Graphics in R</p>
 <p><a href="https://rpkgs.datanovia.com/ggpubr/" class="uri">https://rpkgs.datanovia.com/ggpubr/</a></p>
 <p><a href="https://www.datanovia.com/en/blog/tag/ggpubr/" class="uri">https://www.datanovia.com/en/blog/tag/ggpubr/</a></p>
-<section id="ggboxplot" class="level3" data-number="10.1.1"><h3 data-number="10.1.1" class="anchored" data-anchor-id="ggboxplot">
-<span class="header-section-number">10.1.1</span> ggboxplot</h3>
+<section id="ggboxplot" class="level3" data-number="11.2.1"><h3 data-number="11.2.1" class="anchored" data-anchor-id="ggboxplot">
+<span class="header-section-number">11.2.1</span> ggboxplot</h3>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"ToothGrowth"</span><span class="op">)</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">ToothGrowth</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html">ggboxplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
 <span>               x <span class="op">=</span> <span class="st">"dose"</span>,</span>
 <span>               y <span class="op">=</span> <span class="st">"len"</span>,</span>
 <span>               color <span class="op">=</span> <span class="st">"dose"</span>,</span>
-<span>               palette <span class="op">=</span> <span class="st">"lancet"</span>,</span>
+<span>               palette <span class="op">=</span> <span class="st">"gsea"</span>,</span>
+<span>               </span>
 <span>               add <span class="op">=</span> <span class="st">"jitter"</span>,</span>
 <span>               shape <span class="op">=</span><span class="st">"dose"</span>,</span>
 <span>               bxp.errorbar <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -293,224 +317,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_compare</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.5"</span>,<span class="st">"1"</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>,<span class="st">"2"</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.5"</span>,<span class="st">"2"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">p</span><span class="op">+</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>comparisons <span class="op">=</span> <span class="va">my_compare</span>,method <span class="op">=</span> <span class="st">"t.test"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="ggbarplot" class="level3" data-number="10.1.2"><h3 data-number="10.1.2" class="anchored" data-anchor-id="ggbarplot">
-<span class="header-section-number">10.1.2</span> ggbarplot</h3>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
-<span>               x <span class="op">=</span> <span class="st">"dose"</span>,</span>
-<span>               y <span class="op">=</span> <span class="st">"len"</span>,</span>
-<span>            color <span class="op">=</span> <span class="st">"supp"</span>, <span class="co"># fill</span></span>
-<span>               palette <span class="op">=</span> <span class="st">"lancet"</span>,<span class="co"># "lancet", "jco","npg",</span></span>
-<span>          add <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mean_se"</span>,<span class="st">"dotplot"</span><span class="op">)</span>, <span class="co">#  mean_sd, mean_ci</span></span>
-<span>          error.plot <span class="op">=</span> <span class="st">"errorbar"</span>, <span class="co"># upper_errorbar,"lower_errorbar",pointrange,"linerange", "crossbar",</span></span>
-<span>        </span>
-<span>              label <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>              lab.pos <span class="op">=</span> <span class="st">"in"</span>,</span>
-<span>          position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>              orientation<span class="op">=</span><span class="st">"vertical"</span>,</span>
-<span>              order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.5"</span>,<span class="st">"2"</span>,<span class="st">"1"</span><span class="op">)</span>,</span>
-<span>          <span class="op">)</span></span>
-<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<div>
 <figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot_build.html">ggplot_build</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">x</span><span class="op">$</span><span class="va">data</span></span>
-<span><span class="co">#&gt; [[1]]</span></span>
-<span><span class="co">#&gt;      colour      x     y PANEL group flipped_aes ymin  ymax   xmin   xmax  fill</span></span>
-<span><span class="co">#&gt; 1 #00468BFF 0.7625 13.23     1     1       FALSE    0 13.23 0.5875 0.9375 white</span></span>
-<span><span class="co">#&gt; 2 #ED0000FF 1.2375  7.98     1     4       FALSE    0  7.98 1.0625 1.4125 white</span></span>
-<span><span class="co">#&gt; 3 #00468BFF 1.7625 26.06     1     2       FALSE    0 26.06 1.5875 1.9375 white</span></span>
-<span><span class="co">#&gt; 4 #ED0000FF 2.2375 26.14     1     5       FALSE    0 26.14 2.0625 2.4125 white</span></span>
-<span><span class="co">#&gt; 5 #00468BFF 2.7625 22.70     1     3       FALSE    0 22.70 2.5875 2.9375 white</span></span>
-<span><span class="co">#&gt; 6 #ED0000FF 3.2375 16.77     1     6       FALSE    0 16.77 3.0625 3.4125 white</span></span>
-<span><span class="co">#&gt;   linewidth linetype alpha</span></span>
-<span><span class="co">#&gt; 1       0.5        1    NA</span></span>
-<span><span class="co">#&gt; 2       0.5        1    NA</span></span>
-<span><span class="co">#&gt; 3       0.5        1    NA</span></span>
-<span><span class="co">#&gt; 4       0.5        1    NA</span></span>
-<span><span class="co">#&gt; 5       0.5        1    NA</span></span>
-<span><span class="co">#&gt; 6       0.5        1    NA</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[2]]</span></span>
-<span><span class="co">#&gt;       colour     y binwidth count    ncount      x PANEL group width countidx</span></span>
-<span><span class="co">#&gt; 1  #00468BFF  8.20     0.99     1 0.2500000 0.7625     1     1   0.9        1</span></span>
-<span><span class="co">#&gt; 2  #00468BFF  9.70     0.99     4 1.0000000 0.7625     1     1   0.9        1</span></span>
-<span><span class="co">#&gt; 3  #00468BFF  9.70     0.99     4 1.0000000 0.7625     1     1   0.9        2</span></span>
-<span><span class="co">#&gt; 4  #00468BFF  9.70     0.99     4 1.0000000 0.7625     1     1   0.9        3</span></span>
-<span><span class="co">#&gt; 5  #00468BFF  9.70     0.99     4 1.0000000 0.7625     1     1   0.9        4</span></span>
-<span><span class="co">#&gt; 6  #00468BFF 14.85     0.99     2 0.5000000 0.7625     1     1   0.9        1</span></span>
-<span><span class="co">#&gt; 7  #00468BFF 14.85     0.99     2 0.5000000 0.7625     1     1   0.9        2</span></span>
-<span><span class="co">#&gt; 8  #00468BFF 16.50     0.99     1 0.2500000 0.7625     1     1   0.9        1</span></span>
-<span><span class="co">#&gt; 9  #00468BFF 17.60     0.99     1 0.2500000 0.7625     1     1   0.9        1</span></span>
-<span><span class="co">#&gt; 10 #00468BFF 21.50     0.99     1 0.2500000 0.7625     1     1   0.9        1</span></span>
-<span><span class="co">#&gt; 11 #00468BFF 22.70     0.99     2 0.6666667 1.7625     1     2   0.9        1</span></span>
-<span><span class="co">#&gt; 12 #00468BFF 22.70     0.99     2 0.6666667 1.7625     1     2   0.9        2</span></span>
-<span><span class="co">#&gt; 13 #00468BFF 24.65     0.99     2 0.6666667 1.7625     1     2   0.9        1</span></span>
-<span><span class="co">#&gt; 14 #00468BFF 24.65     0.99     2 0.6666667 1.7625     1     2   0.9        2</span></span>
-<span><span class="co">#&gt; 15 #00468BFF 25.95     0.99     3 1.0000000 1.7625     1     2   0.9        1</span></span>
-<span><span class="co">#&gt; 16 #00468BFF 25.95     0.99     3 1.0000000 1.7625     1     2   0.9        2</span></span>
-<span><span class="co">#&gt; 17 #00468BFF 25.95     0.99     3 1.0000000 1.7625     1     2   0.9        3</span></span>
-<span><span class="co">#&gt; 18 #00468BFF 27.30     0.99     1 0.3333333 1.7625     1     2   0.9        1</span></span>
-<span><span class="co">#&gt; 19 #00468BFF 29.40     0.99     1 0.3333333 1.7625     1     2   0.9        1</span></span>
-<span><span class="co">#&gt; 20 #00468BFF 30.90     0.99     1 0.3333333 1.7625     1     2   0.9        1</span></span>
-<span><span class="co">#&gt; 21 #00468BFF 14.50     0.99     1 0.5000000 2.7625     1     3   0.9        1</span></span>
-<span><span class="co">#&gt; 22 #00468BFF 19.85     0.99     2 1.0000000 2.7625     1     3   0.9        1</span></span>
-<span><span class="co">#&gt; 23 #00468BFF 19.85     0.99     2 1.0000000 2.7625     1     3   0.9        2</span></span>
-<span><span class="co">#&gt; 24 #00468BFF 21.20     0.99     1 0.5000000 2.7625     1     3   0.9        1</span></span>
-<span><span class="co">#&gt; 25 #00468BFF 23.45     0.99     2 1.0000000 2.7625     1     3   0.9        1</span></span>
-<span><span class="co">#&gt; 26 #00468BFF 23.45     0.99     2 1.0000000 2.7625     1     3   0.9        2</span></span>
-<span><span class="co">#&gt; 27 #00468BFF 25.50     0.99     2 1.0000000 2.7625     1     3   0.9        1</span></span>
-<span><span class="co">#&gt; 28 #00468BFF 25.50     0.99     2 1.0000000 2.7625     1     3   0.9        2</span></span>
-<span><span class="co">#&gt; 29 #00468BFF 26.85     0.99     2 1.0000000 2.7625     1     3   0.9        1</span></span>
-<span><span class="co">#&gt; 30 #00468BFF 26.85     0.99     2 1.0000000 2.7625     1     3   0.9        2</span></span>
-<span><span class="co">#&gt; 31 #ED0000FF  4.20     0.99     1 0.3333333 1.2375     1     4   0.9        1</span></span>
-<span><span class="co">#&gt; 32 #ED0000FF  5.50     0.99     2 0.6666667 1.2375     1     4   0.9        1</span></span>
-<span><span class="co">#&gt; 33 #ED0000FF  5.50     0.99     2 0.6666667 1.2375     1     4   0.9        2</span></span>
-<span><span class="co">#&gt; 34 #ED0000FF  6.85     0.99     3 1.0000000 1.2375     1     4   0.9        1</span></span>
-<span><span class="co">#&gt; 35 #ED0000FF  6.85     0.99     3 1.0000000 1.2375     1     4   0.9        2</span></span>
-<span><span class="co">#&gt; 36 #ED0000FF  6.85     0.99     3 1.0000000 1.2375     1     4   0.9        3</span></span>
-<span><span class="co">#&gt; 37 #ED0000FF 10.00     0.99     1 0.3333333 1.2375     1     4   0.9        1</span></span>
-<span><span class="co">#&gt; 38 #ED0000FF 11.35     0.99     3 1.0000000 1.2375     1     4   0.9        1</span></span>
-<span><span class="co">#&gt; 39 #ED0000FF 11.35     0.99     3 1.0000000 1.2375     1     4   0.9        2</span></span>
-<span><span class="co">#&gt; 40 #ED0000FF 11.35     0.99     3 1.0000000 1.2375     1     4   0.9        3</span></span>
-<span><span class="co">#&gt; 41 #ED0000FF 18.50     0.99     1 0.5000000 2.2375     1     5   0.9        1</span></span>
-<span><span class="co">#&gt; 42 #ED0000FF 21.50     0.99     1 0.5000000 2.2375     1     5   0.9        1</span></span>
-<span><span class="co">#&gt; 43 #ED0000FF 23.45     0.99     2 1.0000000 2.2375     1     5   0.9        1</span></span>
-<span><span class="co">#&gt; 44 #ED0000FF 23.45     0.99     2 1.0000000 2.2375     1     5   0.9        2</span></span>
-<span><span class="co">#&gt; 45 #ED0000FF 25.95     0.99     2 1.0000000 2.2375     1     5   0.9        1</span></span>
-<span><span class="co">#&gt; 46 #ED0000FF 25.95     0.99     2 1.0000000 2.2375     1     5   0.9        2</span></span>
-<span><span class="co">#&gt; 47 #ED0000FF 26.70     0.99     1 0.5000000 2.2375     1     5   0.9        1</span></span>
-<span><span class="co">#&gt; 48 #ED0000FF 29.50     0.99     1 0.5000000 2.2375     1     5   0.9        1</span></span>
-<span><span class="co">#&gt; 49 #ED0000FF 32.50     0.99     1 0.5000000 2.2375     1     5   0.9        1</span></span>
-<span><span class="co">#&gt; 50 #ED0000FF 33.90     0.99     1 0.5000000 2.2375     1     5   0.9        1</span></span>
-<span><span class="co">#&gt; 51 #ED0000FF 14.05     0.99     2 0.5000000 3.2375     1     6   0.9        1</span></span>
-<span><span class="co">#&gt; 52 #ED0000FF 14.05     0.99     2 0.5000000 3.2375     1     6   0.9        2</span></span>
-<span><span class="co">#&gt; 53 #ED0000FF 15.35     0.99     2 0.5000000 3.2375     1     6   0.9        1</span></span>
-<span><span class="co">#&gt; 54 #ED0000FF 15.35     0.99     2 0.5000000 3.2375     1     6   0.9        2</span></span>
-<span><span class="co">#&gt; 55 #ED0000FF 16.90     0.99     4 1.0000000 3.2375     1     6   0.9        1</span></span>
-<span><span class="co">#&gt; 56 #ED0000FF 16.90     0.99     4 1.0000000 3.2375     1     6   0.9        2</span></span>
-<span><span class="co">#&gt; 57 #ED0000FF 16.90     0.99     4 1.0000000 3.2375     1     6   0.9        3</span></span>
-<span><span class="co">#&gt; 58 #ED0000FF 16.90     0.99     4 1.0000000 3.2375     1     6   0.9        4</span></span>
-<span><span class="co">#&gt; 59 #ED0000FF 18.80     0.99     1 0.2500000 3.2375     1     6   0.9        1</span></span>
-<span><span class="co">#&gt; 60 #ED0000FF 22.50     0.99     1 0.2500000 3.2375     1     6   0.9        1</span></span>
-<span><span class="co">#&gt;    stackpos   ymin   ymax   xmin   xmax  fill alpha stroke linetype weight</span></span>
-<span><span class="co">#&gt; 1       0.0  7.705 21.995 0.5375 0.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 2      -1.5  7.705 21.995 0.5375 0.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 3      -0.5  7.705 21.995 0.5375 0.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 4       0.5  7.705 21.995 0.5375 0.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 5       1.5  7.705 21.995 0.5375 0.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 6      -0.5  7.705 21.995 0.5375 0.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 7       0.5  7.705 21.995 0.5375 0.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 8       0.0  7.705 21.995 0.5375 0.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 9       0.0  7.705 21.995 0.5375 0.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 10      0.0  7.705 21.995 0.5375 0.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 11     -0.5 22.205 31.395 1.5375 1.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 12      0.5 22.205 31.395 1.5375 1.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 13     -0.5 22.205 31.395 1.5375 1.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 14      0.5 22.205 31.395 1.5375 1.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 15     -1.0 22.205 31.395 1.5375 1.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 16      0.0 22.205 31.395 1.5375 1.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 17      1.0 22.205 31.395 1.5375 1.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 18      0.0 22.205 31.395 1.5375 1.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 19      0.0 22.205 31.395 1.5375 1.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 20      0.0 22.205 31.395 1.5375 1.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 21      0.0 14.005 27.345 2.5375 2.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 22     -0.5 14.005 27.345 2.5375 2.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 23      0.5 14.005 27.345 2.5375 2.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 24      0.0 14.005 27.345 2.5375 2.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 25     -0.5 14.005 27.345 2.5375 2.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 26      0.5 14.005 27.345 2.5375 2.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 27     -0.5 14.005 27.345 2.5375 2.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 28      0.5 14.005 27.345 2.5375 2.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 29     -0.5 14.005 27.345 2.5375 2.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 30      0.5 14.005 27.345 2.5375 2.9875 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 31      0.0  3.705 11.845 1.0125 1.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 32     -0.5  3.705 11.845 1.0125 1.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 33      0.5  3.705 11.845 1.0125 1.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 34     -1.0  3.705 11.845 1.0125 1.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 35      0.0  3.705 11.845 1.0125 1.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 36      1.0  3.705 11.845 1.0125 1.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 37      0.0  3.705 11.845 1.0125 1.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 38     -1.0  3.705 11.845 1.0125 1.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 39      0.0  3.705 11.845 1.0125 1.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 40      1.0  3.705 11.845 1.0125 1.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 41      0.0 18.005 34.395 2.0125 2.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 42      0.0 18.005 34.395 2.0125 2.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 43     -0.5 18.005 34.395 2.0125 2.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 44      0.5 18.005 34.395 2.0125 2.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 45     -0.5 18.005 34.395 2.0125 2.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 46      0.5 18.005 34.395 2.0125 2.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 47      0.0 18.005 34.395 2.0125 2.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 48      0.0 18.005 34.395 2.0125 2.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 49      0.0 18.005 34.395 2.0125 2.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 50      0.0 18.005 34.395 2.0125 2.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 51     -0.5 13.555 22.995 3.0125 3.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 52      0.5 13.555 22.995 3.0125 3.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 53     -0.5 13.555 22.995 3.0125 3.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 54      0.5 13.555 22.995 3.0125 3.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 55     -1.5 13.555 22.995 3.0125 3.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 56     -0.5 13.555 22.995 3.0125 3.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 57      0.5 13.555 22.995 3.0125 3.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 58      1.5 13.555 22.995 3.0125 3.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 59      0.0 13.555 22.995 3.0125 3.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; 60      0.0 13.555 22.995 3.0125 3.4625 white     1      1    solid      1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[3]]</span></span>
-<span><span class="co">#&gt;      colour      x group     y      ymin      ymax PANEL flipped_aes   xmin</span></span>
-<span><span class="co">#&gt; 1 #00468BFF 0.7625     1 13.23 11.819716 14.640284     1       FALSE 0.7375</span></span>
-<span><span class="co">#&gt; 2 #00468BFF 1.7625     1 26.06 25.220397 26.899603     1       FALSE 1.7375</span></span>
-<span><span class="co">#&gt; 3 #00468BFF 2.7625     1 22.70 21.463248 23.936752     1       FALSE 2.7375</span></span>
-<span><span class="co">#&gt; 4 #ED0000FF 1.2375     2  7.98  7.111438  8.848562     1       FALSE 1.2125</span></span>
-<span><span class="co">#&gt; 5 #ED0000FF 2.2375     2 26.14 24.622824 27.657176     1       FALSE 2.2125</span></span>
-<span><span class="co">#&gt; 6 #ED0000FF 3.2375     2 16.77 15.974590 17.565410     1       FALSE 3.2125</span></span>
-<span><span class="co">#&gt;     xmax linewidth linetype width alpha</span></span>
-<span><span class="co">#&gt; 1 0.7875       0.5        1   0.1    NA</span></span>
-<span><span class="co">#&gt; 2 1.7875       0.5        1   0.1    NA</span></span>
-<span><span class="co">#&gt; 3 2.7875       0.5        1   0.1    NA</span></span>
-<span><span class="co">#&gt; 4 1.2625       0.5        1   0.1    NA</span></span>
-<span><span class="co">#&gt; 5 2.2625       0.5        1   0.1    NA</span></span>
-<span><span class="co">#&gt; 6 3.2625       0.5        1   0.1    NA</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[4]]</span></span>
-<span><span class="co">#&gt;   label group      x     y PANEL  xmin  xmax  ymax colour size angle hjust</span></span>
-<span><span class="co">#&gt; 1  7.98     2 1.2375  7.98     1 1.000 1.475  7.98  black    4     0   0.5</span></span>
-<span><span class="co">#&gt; 2 13.23     1 0.7625 13.23     1 0.525 1.000 13.23  black    4     0   0.5</span></span>
-<span><span class="co">#&gt; 3 26.14     2 2.2375 26.14     1 2.000 2.475 26.14  black    4     0   0.5</span></span>
-<span><span class="co">#&gt; 4 26.06     1 1.7625 26.06     1 1.525 2.000 26.06  black    4     0   0.5</span></span>
-<span><span class="co">#&gt; 5 16.77     2 3.2375 16.77     1 3.000 3.475 16.77  black    4     0   0.5</span></span>
-<span><span class="co">#&gt; 6 22.70     1 2.7625 22.70     1 2.525 3.000 22.70  black    4     0   0.5</span></span>
-<span><span class="co">#&gt;   vjust alpha family fontface lineheight</span></span>
-<span><span class="co">#&gt; 1     2    NA           plain        1.2</span></span>
-<span><span class="co">#&gt; 2     2    NA           plain        1.2</span></span>
-<span><span class="co">#&gt; 3     2    NA           plain        1.2</span></span>
-<span><span class="co">#&gt; 4     2    NA           plain        1.2</span></span>
-<span><span class="co">#&gt; 5     2    NA           plain        1.2</span></span>
-<span><span class="co">#&gt; 6     2    NA           plain        1.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_compare</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.5"</span>,<span class="st">"1"</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>,<span class="st">"2"</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.5"</span>,<span class="st">"2"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">p</span><span class="op">+</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>comparisons <span class="op">=</span> <span class="va">my_compare</span>,method <span class="op">=</span> <span class="st">"t.test"</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>label.y <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>  <span class="co"># 总体p值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-</section><section id="grouped-bar-plots-significance" class="level3" data-number="10.1.3"><h3 data-number="10.1.3" class="anchored" data-anchor-id="grouped-bar-plots-significance">
-<span class="header-section-number">10.1.3</span> Grouped bar plots + significance</h3>
+</div>
+</div>
+</section><section id="ggviolin" class="level3" data-number="11.2.2"><h3 data-number="11.2.2" class="anchored" data-anchor-id="ggviolin">
+<span class="header-section-number">11.2.2</span> ggviolin</h3>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html">ggviolin</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>               x <span class="op">=</span> <span class="st">"dose"</span>,</span>
+<span>               y <span class="op">=</span> <span class="st">"len"</span>,</span>
+<span>               fill <span class="op">=</span> <span class="st">"dose"</span>,</span>
+<span>               palette <span class="op">=</span> <span class="st">"gsea"</span>,</span>
+<span>               </span>
+<span>               add <span class="op">=</span> <span class="st">"boxplot"</span>,</span>
+<span>               add.params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fill<span class="op">=</span><span class="st">"white"</span><span class="op">)</span>,</span>
+<span>               <span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>comparisons <span class="op">=</span> <span class="va">my_compare</span>,</span>
+<span>                       label <span class="op">=</span> <span class="st">"p.signif"</span>,</span>
+<span>                       method <span class="op">=</span> <span class="st">"t.test"</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>label.y <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>  <span class="co"># 总体p值</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="ggbarplot" class="level3" data-number="11.2.3"><h3 data-number="11.2.3" class="anchored" data-anchor-id="ggbarplot">
+<span class="header-section-number">11.2.3</span> ggbarplot</h3>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"dose"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"len"</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"supp"</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span></span>
+<span>    palette <span class="op">=</span> <span class="st">"lancet"</span>,</span>
+<span>    add <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mean_se"</span><span class="op">)</span>,</span>
+<span>    <span class="co">#  mean_sd, mean_ci</span></span>
+<span>    </span>
+<span>    error.plot <span class="op">=</span> <span class="st">"errorbar"</span>,</span>
+<span>    <span class="co"># upper_errorbar,"lower_errorbar",pointrange,"linerange", "crossbar",</span></span>
+<span>  </span>
+<span>    label <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    lab.pos <span class="op">=</span> <span class="st">"in"</span>,</span>
+<span>    position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    orientation <span class="op">=</span> <span class="st">"vertical"</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.5"</span>, <span class="st">"2"</span>, <span class="st">"1"</span><span class="op">)</span>,</span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="grouped-bar-plots-significance" class="level3" data-number="11.2.4"><h3 data-number="11.2.4" class="anchored" data-anchor-id="grouped-bar-plots-significance">
+<span class="header-section-number">11.2.4</span> Grouped bar plots + significance</h3>
 <p><a href="https://www.datanovia.com/en/blog/how-to-add-p-values-onto-a-grouped-ggplot-using-the-ggpubr-r-package/" class="uri">https://www.datanovia.com/en/blog/how-to-add-p-values-onto-a-grouped-ggplot-using-the-ggpubr-r-package/</a></p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ToothGrowth</span><span class="op">$</span><span class="va">dose</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">ToothGrowth</span><span class="op">$</span><span class="va">dose</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ToothGrowth</span><span class="op">$</span><span class="va">dose</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">ToothGrowth</span><span class="op">$</span><span class="va">dose</span><span class="op">)</span></span>
 <span><span class="co"># Comparisons against reference</span></span>
 <span><span class="va">stat.test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/compare_means.html">compare_means</a></span><span class="op">(</span></span>
 <span>  <span class="va">len</span> <span class="op">~</span> <span class="va">dose</span>, data <span class="op">=</span> <span class="va">ToothGrowth</span>, group.by <span class="op">=</span> <span class="st">"supp"</span>,</span>
@@ -591,37 +469,267 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span><span class="va">ToothGrowth</span>, x <span class="op">=</span> <span class="st">"supp"</span>, y <span class="op">=</span> <span class="st">"len"</span>,</span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span><span class="va">ToothGrowth</span>, x <span class="op">=</span> <span class="st">"supp"</span>, y <span class="op">=</span> <span class="st">"len"</span>,</span>
 <span>                fill <span class="op">=</span> <span class="st">"dose"</span>, palette <span class="op">=</span> <span class="st">"jco"</span>,</span>
 <span>                add <span class="op">=</span> <span class="st">"mean_sd"</span>, add.params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>group <span class="op">=</span> <span class="st">"dose"</span><span class="op">)</span>,</span>
 <span>                position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="fl">0.8</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">bp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bp</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_pvalue_manual.html">stat_pvalue_manual</a></span><span class="op">(</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bp</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_pvalue_manual.html">stat_pvalue_manual</a></span><span class="op">(</span></span>
 <span>  <span class="va">stat.test</span>, x <span class="op">=</span> <span class="st">"supp"</span>, y.position <span class="op">=</span> <span class="fl">33</span>,</span>
 <span>  label <span class="op">=</span> <span class="st">"p={p.format}"</span>,</span>
 <span>  position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="fl">0.8</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="ggpubrggdotchart-clevelands-dot-plots" class="level3" data-number="10.1.4"><h3 data-number="10.1.4" class="anchored" data-anchor-id="ggpubrggdotchart-clevelands-dot-plots">
-<span class="header-section-number">10.1.4</span> ggpubr::ggdotchart Cleveland’s Dot Plots</h3>
-</section><section id="ggpubrggdotplot-dot-plot" class="level3" data-number="10.1.5"><h3 data-number="10.1.5" class="anchored" data-anchor-id="ggpubrggdotplot-dot-plot">
-<span class="header-section-number">10.1.5</span> ggpubr::ggdotplot Dot plot</h3>
-</section></section><section id="ggrepel" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="ggrepel">
-<span class="header-section-number">10.2</span> ggrepel</h2>
+<section id="分组并列组内组间显著性p值" class="level4" data-number="11.2.4.1"><h4 data-number="11.2.4.1" class="anchored" data-anchor-id="分组并列组内组间显著性p值">
+<span class="header-section-number">11.2.4.1</span> 分组并列，组内组间显著性p值</h4>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggrepel.slowkow.com/">ggrepel</a></span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/rstatix/">rstatix</a></span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">ToothGrowth</span></span>
+<span><span class="va">df</span><span class="op">$</span><span class="va">dose</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">dose</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="va">bp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span></span>
+<span>    <span class="va">df</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"dose"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"len"</span>,</span>
+<span>    add <span class="op">=</span> <span class="st">"mean_sd"</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"supp"</span>,</span>
+<span>    palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span><span class="op">)</span>,</span>
+<span>    position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="fl">0.8</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># 统计检验</span></span>
+<span><span class="va">stat.test</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">dose</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span><span class="va">len</span> <span class="op">~</span> <span class="va">supp</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/adjust_pvalue.html">adjust_pvalue</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/add_significance.html">add_significance</a></span><span class="op">(</span><span class="st">"p.adj"</span><span class="op">)</span></span>
+<span><span class="va">stat.test</span> <span class="op">&lt;-</span> <span class="va">stat.test</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/get_pvalue_position.html">add_xy_position</a></span><span class="op">(</span>fun <span class="op">=</span> <span class="st">"mean_sd"</span>, x <span class="op">=</span> <span class="st">"dose"</span>, dodge <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">stat.test2</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span><span class="va">len</span> <span class="op">~</span> <span class="va">dose</span>, p.adjust.method <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span></span>
+<span><span class="va">stat.test2</span> <span class="op">&lt;-</span> <span class="va">stat.test2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/get_pvalue_position.html">add_xy_position</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"dose"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">pwc</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">supp</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/t_test.html">t_test</a></span><span class="op">(</span><span class="va">len</span> <span class="op">~</span> <span class="va">dose</span>, p.adjust.method <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span></span>
+<span><span class="va">pwc</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 16%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">supp</th>
+<th style="text-align: left;">.y.</th>
+<th style="text-align: left;">group1</th>
+<th style="text-align: left;">group2</th>
+<th style="text-align: right;">n1</th>
+<th style="text-align: right;">n2</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">p</th>
+<th style="text-align: right;">p.adj</th>
+<th style="text-align: left;">p.adj.signif</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">OJ</td>
+<td style="text-align: left;">len</td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">-5.048635</td>
+<td style="text-align: right;">17.69835</td>
+<td style="text-align: right;">8.78e-05</td>
+<td style="text-align: right;">2.63e-04</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OJ</td>
+<td style="text-align: left;">len</td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">-7.817021</td>
+<td style="text-align: right;">14.66780</td>
+<td style="text-align: right;">1.30e-06</td>
+<td style="text-align: right;">4.00e-06</td>
+<td style="text-align: left;">****</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OJ</td>
+<td style="text-align: left;">len</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">-2.247761</td>
+<td style="text-align: right;">15.84238</td>
+<td style="text-align: right;">3.90e-02</td>
+<td style="text-align: right;">1.18e-01</td>
+<td style="text-align: left;">ns</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VC</td>
+<td style="text-align: left;">len</td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">-7.463430</td>
+<td style="text-align: right;">17.86244</td>
+<td style="text-align: right;">7.00e-07</td>
+<td style="text-align: right;">2.00e-06</td>
+<td style="text-align: left;">****</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">VC</td>
+<td style="text-align: left;">len</td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">-10.387795</td>
+<td style="text-align: right;">14.32712</td>
+<td style="text-align: right;">0.00e+00</td>
+<td style="text-align: right;">1.00e-07</td>
+<td style="text-align: left;">****</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VC</td>
+<td style="text-align: left;">len</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">-5.469814</td>
+<td style="text-align: right;">13.59996</td>
+<td style="text-align: right;">9.16e-05</td>
+<td style="text-align: right;">2.75e-04</td>
+<td style="text-align: left;">***</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pwc</span> <span class="op">&lt;-</span> <span class="va">pwc</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/get_pvalue_position.html">add_xy_position</a></span><span class="op">(</span></span>
+<span>        x <span class="op">=</span> <span class="st">"dose"</span>,</span>
+<span>        fun <span class="op">=</span> <span class="st">"mean_sd"</span>,</span>
+<span>        group <span class="op">=</span> <span class="st">"supp"</span>,</span>
+<span>        dodge <span class="op">=</span> <span class="fl">0.8</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 组间组内复合</span></span>
+<span></span>
+<span></span>
+<span><span class="va">bp</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_pvalue_manual.html">stat_pvalue_manual</a></span><span class="op">(</span><span class="va">stat.test</span>,  label <span class="op">=</span> <span class="st">"p.adj.signif"</span>, tip.length <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_pvalue_manual.html">stat_pvalue_manual</a></span><span class="op">(</span></span>
+<span>        <span class="va">stat.test2</span>,</span>
+<span>        label <span class="op">=</span> <span class="st">"p"</span>,</span>
+<span>        tip.length <span class="op">=</span> <span class="fl">0.02</span>,</span>
+<span>        step.increase <span class="op">=</span> <span class="fl">0.05</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_pvalue_manual.html">stat_pvalue_manual</a></span><span class="op">(</span></span>
+<span>        <span class="va">pwc</span>,</span>
+<span>        color <span class="op">=</span> <span class="st">"supp"</span>,</span>
+<span>        step.group.by <span class="op">=</span> <span class="st">"supp"</span>,</span>
+<span>        tip.length <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        step.increase <span class="op">=</span> <span class="fl">0.1</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="ggdotchart-clevelands-dot-plots" class="level3" data-number="11.2.5"><h3 data-number="11.2.5" class="anchored" data-anchor-id="ggdotchart-clevelands-dot-plots">
+<span class="header-section-number">11.2.5</span> ggdotchart Cleveland’s Dot Plots</h3>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 滑珠图</span></span>
+<span><span class="va">mtcars</span> <span class="op">|&gt;</span> <span class="fu">rownames_to_column</span><span class="op">(</span>var <span class="op">=</span> <span class="st">"name"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>        cyl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotchart.html">ggdotchart</a></span><span class="op">(</span></span>
+<span>        x <span class="op">=</span> <span class="st">"name"</span>,</span>
+<span>        y <span class="op">=</span> <span class="st">"mpg"</span>,</span>
+<span>        color <span class="op">=</span> <span class="st">"cyl"</span>,</span>
+<span>        palette <span class="op">=</span> <span class="st">"jco"</span>,</span>
+<span></span>
+<span>        sorting <span class="op">=</span> <span class="st">"ascending"</span>,</span>
+<span>        add <span class="op">=</span> <span class="st">"segments"</span>,</span>
+<span>        ggtheme <span class="op">=</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">theme_pubr</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">|</span></span>
+<span><span class="co">#克利夫兰点图</span></span>
+<span><span class="va">mtcars</span> <span class="op">|&gt;</span> <span class="fu">rownames_to_column</span><span class="op">(</span>var <span class="op">=</span> <span class="st">"name"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>        cyl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotchart.html">ggdotchart</a></span><span class="op">(</span></span>
+<span>        x <span class="op">=</span> <span class="st">"name"</span>,</span>
+<span>        y <span class="op">=</span> <span class="st">"mpg"</span>,</span>
+<span>        color <span class="op">=</span> <span class="st">"cyl"</span>,</span>
+<span>        palette <span class="op">=</span> <span class="st">"jco"</span>,</span>
+<span></span>
+<span>        sorting <span class="op">=</span> <span class="st">"descending"</span>,</span>
+<span>        add <span class="op">=</span> <span class="st">"segments"</span>,</span>
+<span>        </span>
+<span>        rotate <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>        group <span class="op">=</span> <span class="st">"cyl"</span>,</span>
+<span>        dot.size <span class="op">=</span> <span class="fl">6</span>,</span>
+<span>        label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span>,</span>
+<span>        font.label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">"white"</span>,size<span class="op">=</span><span class="fl">9</span>,vjust<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span>,</span>
+<span>        ggtheme <span class="op">=</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">theme_pubr</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="ggdotplot" class="level3" data-number="11.2.6"><h3 data-number="11.2.6" class="anchored" data-anchor-id="ggdotplot">
+<span class="header-section-number">11.2.6</span> ggdotplot</h3>
+</section></section><section id="ggrepel" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="ggrepel">
+<span class="header-section-number">11.3</span> ggrepel</h2>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggrepel.slowkow.com/">ggrepel</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span> <span class="va">wt</span>, y <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span>,                     </span>
@@ -635,37 +743,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://ggrepel.slowkow.com/reference/geom_text_repel.html">geom_text_repel</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-</div>
-</section><section id="热图" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="热图">
-<span class="header-section-number">10.3</span> 热图</h2>
-</section><section id="ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram">
-<span class="header-section-number">10.4</span> 相关图</h2>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2">ggcorrplot</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
+<span><span class="co"># geom_label_repel 带白底外框</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="山脊图" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="山脊图">
-<span class="header-section-number">10.5</span> 山脊图</h2>
+</section><section id="热图" class="level2" data-number="11.4"><h2 data-number="11.4" class="anchored" data-anchor-id="热图">
+<span class="header-section-number">11.4</span> 热图</h2>
+</section><section id="ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" class="level2" data-number="11.5"><h2 data-number="11.5" class="anchored" data-anchor-id="ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram">
+<span class="header-section-number">11.5</span> 相关图</h2>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggridges/">ggridges</a></span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2">ggcorrplot</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="山脊图" class="level2" data-number="11.6"><h2 data-number="11.6" class="anchored" data-anchor-id="山脊图">
+<span class="header-section-number">11.6</span> 山脊图</h2>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggridges/">ggridges</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span>, y <span class="op">=</span> <span class="va">drv</span>, fill <span class="op">=</span> <span class="va">drv</span>, color <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/ggridges/man/geom_density_ridges.html">geom_density_ridges</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="ggplot2_extensions_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="plotly" class="level2" data-number="10.6"><h2 data-number="10.6" class="anchored" data-anchor-id="plotly">
-<span class="header-section-number">10.6</span> plotly</h2>
+</section><section id="plotly" class="level2" data-number="11.7"><h2 data-number="11.7" class="anchored" data-anchor-id="plotly">
+<span class="header-section-number">11.7</span> plotly</h2>
 <p>Converting a ggplot2 graph to an interactive plotly graph</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span>
 <span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span></span>
 <span><span class="va">mtcars</span><span class="op">$</span><span class="va">name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
 <span></span>
@@ -673,12 +784,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/plotly/man/ggplotly.html">ggplotly</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-996b3dc3409f4ad94ffa" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-996b3dc3409f4ad94ffa">{"x":{"data":[{"x":[108,146.69999999999999,140.80000000000001,78.700000000000003,75.700000000000003,71.099999999999994,120.09999999999999,79,120.3,95.099999999999994,121],"y":[22.800000000000001,24.399999999999999,22.800000000000001,32.399999999999999,30.399999999999999,33.899999999999999,21.5,27.300000000000001,26,30.399999999999999,21.399999999999999],"text":["disp: 108.0<br />mpg: 22.8<br />cyl: 4","disp: 146.7<br />mpg: 24.4<br />cyl: 4","disp: 140.8<br />mpg: 22.8<br />cyl: 4","disp:  78.7<br />mpg: 32.4<br />cyl: 4","disp:  75.7<br />mpg: 30.4<br />cyl: 4","disp:  71.1<br />mpg: 33.9<br />cyl: 4","disp: 120.1<br />mpg: 21.5<br />cyl: 4","disp:  79.0<br />mpg: 27.3<br />cyl: 4","disp: 120.3<br />mpg: 26.0<br />cyl: 4","disp:  95.1<br />mpg: 30.4<br />cyl: 4","disp: 121.0<br />mpg: 21.4<br />cyl: 4"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"4","legendgroup":"4","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[160,160,258,225,167.59999999999999,167.59999999999999,145],"y":[21,21,21.399999999999999,18.100000000000001,19.199999999999999,17.800000000000001,19.699999999999999],"text":["disp: 160.0<br />mpg: 21.0<br />cyl: 6","disp: 160.0<br />mpg: 21.0<br />cyl: 6","disp: 258.0<br />mpg: 21.4<br />cyl: 6","disp: 225.0<br />mpg: 18.1<br />cyl: 6","disp: 167.6<br />mpg: 19.2<br />cyl: 6","disp: 167.6<br />mpg: 17.8<br />cyl: 6","disp: 145.0<br />mpg: 19.7<br />cyl: 6"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,186,56,1)"}},"hoveron":"points","name":"6","legendgroup":"6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[360,360,275.80000000000001,275.80000000000001,275.80000000000001,472,460,440,318,304,350,400,351,301],"y":[18.699999999999999,14.300000000000001,16.399999999999999,17.300000000000001,15.199999999999999,10.4,10.4,14.699999999999999,15.5,15.199999999999999,13.300000000000001,19.199999999999999,15.800000000000001,15],"text":["disp: 360.0<br />mpg: 18.7<br />cyl: 8","disp: 360.0<br />mpg: 14.3<br />cyl: 8","disp: 275.8<br />mpg: 16.4<br />cyl: 8","disp: 275.8<br />mpg: 17.3<br />cyl: 8","disp: 275.8<br />mpg: 15.2<br />cyl: 8","disp: 472.0<br />mpg: 10.4<br />cyl: 8","disp: 460.0<br />mpg: 10.4<br />cyl: 8","disp: 440.0<br />mpg: 14.7<br />cyl: 8","disp: 318.0<br />mpg: 15.5<br />cyl: 8","disp: 304.0<br />mpg: 15.2<br />cyl: 8","disp: 350.0<br />mpg: 13.3<br />cyl: 8","disp: 400.0<br />mpg: 19.2<br />cyl: 8","disp: 351.0<br />mpg: 15.8<br />cyl: 8","disp: 301.0<br />mpg: 15.0<br />cyl: 8"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(97,156,255,1)"}},"hoveron":"points","name":"8","legendgroup":"8","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.228310502283104,"r":7.3059360730593621,"b":40.182648401826491,"l":37.260273972602747},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[51.054999999999993,492.04500000000002],"tickmode":"array","ticktext":["100","200","300","400"],"tickvals":[100,200,300,400],"categoryorder":"array","categoryarray":["100","200","300","400"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"disp","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[9.2249999999999996,35.074999999999996],"tickmode":"array","ticktext":["10","15","20","25","30","35"],"tickvals":[10,15,20,25,30,35],"categoryorder":"array","categoryarray":["10","15","20","25","30","35"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"mpg","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"cyl","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"a347a784044":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"a347a784044","visdat":{"a347a784044":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-dde305bdab3c889b27a1" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-dde305bdab3c889b27a1">{"x":{"data":[{"x":[108,146.69999999999999,140.80000000000001,78.700000000000003,75.700000000000003,71.099999999999994,120.09999999999999,79,120.3,95.099999999999994,121],"y":[22.800000000000001,24.399999999999999,22.800000000000001,32.399999999999999,30.399999999999999,33.899999999999999,21.5,27.300000000000001,26,30.399999999999999,21.399999999999999],"text":["disp: 108.0<br />mpg: 22.8<br />cyl: 4","disp: 146.7<br />mpg: 24.4<br />cyl: 4","disp: 140.8<br />mpg: 22.8<br />cyl: 4","disp:  78.7<br />mpg: 32.4<br />cyl: 4","disp:  75.7<br />mpg: 30.4<br />cyl: 4","disp:  71.1<br />mpg: 33.9<br />cyl: 4","disp: 120.1<br />mpg: 21.5<br />cyl: 4","disp:  79.0<br />mpg: 27.3<br />cyl: 4","disp: 120.3<br />mpg: 26.0<br />cyl: 4","disp:  95.1<br />mpg: 30.4<br />cyl: 4","disp: 121.0<br />mpg: 21.4<br />cyl: 4"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"4","legendgroup":"4","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[160,160,258,225,167.59999999999999,167.59999999999999,145],"y":[21,21,21.399999999999999,18.100000000000001,19.199999999999999,17.800000000000001,19.699999999999999],"text":["disp: 160.0<br />mpg: 21.0<br />cyl: 6","disp: 160.0<br />mpg: 21.0<br />cyl: 6","disp: 258.0<br />mpg: 21.4<br />cyl: 6","disp: 225.0<br />mpg: 18.1<br />cyl: 6","disp: 167.6<br />mpg: 19.2<br />cyl: 6","disp: 167.6<br />mpg: 17.8<br />cyl: 6","disp: 145.0<br />mpg: 19.7<br />cyl: 6"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,186,56,1)"}},"hoveron":"points","name":"6","legendgroup":"6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[360,360,275.80000000000001,275.80000000000001,275.80000000000001,472,460,440,318,304,350,400,351,301],"y":[18.699999999999999,14.300000000000001,16.399999999999999,17.300000000000001,15.199999999999999,10.4,10.4,14.699999999999999,15.5,15.199999999999999,13.300000000000001,19.199999999999999,15.800000000000001,15],"text":["disp: 360.0<br />mpg: 18.7<br />cyl: 8","disp: 360.0<br />mpg: 14.3<br />cyl: 8","disp: 275.8<br />mpg: 16.4<br />cyl: 8","disp: 275.8<br />mpg: 17.3<br />cyl: 8","disp: 275.8<br />mpg: 15.2<br />cyl: 8","disp: 472.0<br />mpg: 10.4<br />cyl: 8","disp: 460.0<br />mpg: 10.4<br />cyl: 8","disp: 440.0<br />mpg: 14.7<br />cyl: 8","disp: 318.0<br />mpg: 15.5<br />cyl: 8","disp: 304.0<br />mpg: 15.2<br />cyl: 8","disp: 350.0<br />mpg: 13.3<br />cyl: 8","disp: 400.0<br />mpg: 19.2<br />cyl: 8","disp: 351.0<br />mpg: 15.8<br />cyl: 8","disp: 301.0<br />mpg: 15.0<br />cyl: 8"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(97,156,255,1)"}},"hoveron":"points","name":"8","legendgroup":"8","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.228310502283104,"r":7.3059360730593621,"b":40.182648401826491,"l":37.260273972602747},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[51.054999999999993,492.04500000000002],"tickmode":"array","ticktext":["100","200","300","400"],"tickvals":[100,200,300,400],"categoryorder":"array","categoryarray":["100","200","300","400"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"disp","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[9.2249999999999996,35.074999999999996],"tickmode":"array","ticktext":["10","15","20","25","30","35"],"tickvals":[10,15,20,25,30,35],"categoryorder":"array","categoryarray":["10","15","20","25","30","35"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"mpg","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"cyl","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"29606a512b1b":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"29606a512b1b","visdat":{"29606a512b1b":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Customizing the plotly tooltip</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Customizing the plotly tooltip</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>,</span>
 <span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">disp</span>, y<span class="op">=</span><span class="va">mpg</span>, color<span class="op">=</span><span class="va">cyl</span>,</span>
 <span>                text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">name</span>, <span class="st">"\n"</span>,</span>
@@ -689,14 +800,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="marginal-histogram-boxplot" class="level2" data-number="10.7"><h2 data-number="10.7" class="anchored" data-anchor-id="marginal-histogram-boxplot">
-<span class="header-section-number">10.7</span> Marginal Histogram / Boxplot</h2>
+</section><section id="marginal-histogram-boxplot" class="level2" data-number="11.8"><h2 data-number="11.8" class="anchored" data-anchor-id="marginal-histogram-boxplot">
+<span class="header-section-number">11.8</span> Marginal Histogram / Boxplot</h2>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/daattali/ggExtra">ggExtra</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/daattali/ggExtra">ggExtra</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="森林图" class="level2" data-number="10.8"><h2 data-number="10.8" class="anchored" data-anchor-id="森林图">
-<span class="header-section-number">10.8</span> 森林图</h2>
+</section><section id="森林图" class="level2" data-number="11.9"><h2 data-number="11.9" class="anchored" data-anchor-id="森林图">
+<span class="header-section-number">11.9</span> 森林图</h2>
 
 
 <!-- -->
@@ -1162,166 +1273,316 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./ggplot2_graphics.html" class="pagination-link" aria-label="ggplot2 Graphics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># ggplot2 extensions</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://exts.ggplot2.tidyverse.org/gallery/&gt;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## ggpubr</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>ggplot2 with Publication Ready Graphics in R</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://rpkgs.datanovia.com/ggpubr/&gt;</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://www.datanovia.com/en/blog/tag/ggpubr/&gt;</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggboxplot</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"ToothGrowth"</span>)</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> ToothGrowth</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggboxplot</span>(<span class="at">data =</span> df,</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> <span class="st">"dose"</span>,</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="st">"len"</span>,</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"dose"</span>,</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>               <span class="at">palette =</span> <span class="st">"lancet"</span>,</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">add =</span> <span class="st">"jitter"</span>,</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>               <span class="at">shape =</span><span class="st">"dose"</span>,</span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">bxp.errorbar =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>               <span class="at">bxp.errorbar.width =</span> <span class="fl">0.1</span>,</span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>               )</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>my_compare <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"0.5"</span>,<span class="st">"1"</span>),<span class="fu">c</span>(<span class="st">"1"</span>,<span class="st">"2"</span>),<span class="fu">c</span>(<span class="st">"0.5"</span>,<span class="st">"2"</span>))</span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>p<span class="sc">+</span><span class="fu">stat_compare_means</span>(<span class="at">comparisons =</span> my_compare,<span class="at">method =</span> <span class="st">"t.test"</span>)</span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggbarplot</span></span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggbarplot</span>(<span class="at">data =</span> df,</span>
-<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> <span class="st">"dose"</span>,</span>
-<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="st">"len"</span>,</span>
-<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"supp"</span>, <span class="co"># fill</span></span>
-<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>               <span class="at">palette =</span> <span class="st">"lancet"</span>,<span class="co"># "lancet", "jco","npg",</span></span>
-<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>          <span class="at">add =</span> <span class="fu">c</span>(<span class="st">"mean_se"</span>,<span class="st">"dotplot"</span>), <span class="co">#  mean_sd, mean_ci</span></span>
-<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>          <span class="at">error.plot =</span> <span class="st">"errorbar"</span>, <span class="co"># upper_errorbar,"lower_errorbar",pointrange,"linerange", "crossbar",</span></span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>              <span class="at">lab.pos =</span> <span class="st">"in"</span>,</span>
-<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">position =</span> <span class="fu">position_dodge</span>(),</span>
-<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>              <span class="at">orientation=</span><span class="st">"vertical"</span>,</span>
-<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>              <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"0.5"</span>,<span class="st">"2"</span>,<span class="st">"1"</span>),</span>
-<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a>          )</span>
-<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">ggplot_build</span>(p)</span>
-<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>data</span>
-<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### Grouped bar plots + significance</span></span>
-<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://www.datanovia.com/en/blog/how-to-add-p-values-onto-a-grouped-ggplot-using-the-ggpubr-r-package/&gt;</span></span>
-<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>ToothGrowth<span class="sc">$</span>dose <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ToothGrowth<span class="sc">$</span>dose)</span>
-<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparisons against reference</span></span>
-<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a>stat.test <span class="ot">&lt;-</span> <span class="fu">compare_means</span>(</span>
-<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>  len <span class="sc">~</span> dose, <span class="at">data =</span> ToothGrowth, <span class="at">group.by =</span> <span class="st">"supp"</span>,</span>
-<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"t.test"</span>, <span class="at">ref.group =</span> <span class="st">"0.5"</span></span>
-<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a>stat.test</span>
-<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>bp <span class="ot">&lt;-</span> <span class="fu">ggbarplot</span>(ToothGrowth, <span class="at">x =</span> <span class="st">"supp"</span>, <span class="at">y =</span> <span class="st">"len"</span>,</span>
-<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>                <span class="at">fill =</span> <span class="st">"dose"</span>, <span class="at">palette =</span> <span class="st">"jco"</span>,</span>
-<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>                <span class="at">add =</span> <span class="st">"mean_sd"</span>, <span class="at">add.params =</span> <span class="fu">list</span>(<span class="at">group =</span> <span class="st">"dose"</span>),</span>
-<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>))</span>
-<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>bp</span>
-<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>bp <span class="sc">+</span> <span class="fu">stat_pvalue_manual</span>(</span>
-<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>  stat.test, <span class="at">x =</span> <span class="st">"supp"</span>, <span class="at">y.position =</span> <span class="dv">33</span>,</span>
-<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="st">"p={p.format}"</span>,</span>
-<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>  <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>)</span>
-<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggpubr::ggdotchart Cleveland's Dot Plots</span></span>
-<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggpubr::ggdotplot Dot plot</span></span>
-<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a><span class="fu">## ggrepel</span></span>
-<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mtcars, <span class="fu">aes</span>(<span class="at">x=</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
-<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">median</span>(mtcars<span class="sc">$</span>mpg),                     </span>
-<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">x =</span> <span class="fl">5.2</span>, <span class="at">y =</span> <span class="fl">20.5</span>,                                      </span>
-<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"median MPG"</span>, </span>
-<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"white"</span>, </span>
-<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"steelblue"</span>,</span>
-<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">label =</span> <span class="fu">row.names</span>(mtcars), <span class="at">size =</span> <span class="dv">3</span>)</span>
-<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a><span class="fu">## 热图</span></span>
-<span id="cb14-111"><a href="#cb14-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## 相关图 {#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram}</span></span>
-<span id="cb14-113"><a href="#cb14-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
-<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## 山脊图</span></span>
-<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-125"><a href="#cb14-125" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb14-126"><a href="#cb14-126" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> hwy, <span class="at">y =</span> drv, <span class="at">fill =</span> drv, <span class="at">color =</span> drv)) <span class="sc">+</span></span>
-<span id="cb14-127"><a href="#cb14-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-128"><a href="#cb14-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-129"><a href="#cb14-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-130"><a href="#cb14-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## plotly</span></span>
-<span id="cb14-131"><a href="#cb14-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-132"><a href="#cb14-132" aria-hidden="true" tabindex="-1"></a>Converting a ggplot2 graph to an interactive plotly graph</span>
-<span id="cb14-133"><a href="#cb14-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb14-138"><a href="#cb14-138" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>cyl <span class="ot">&lt;-</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>cyl)</span>
-<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>name <span class="ot">&lt;-</span> <span class="fu">row.names</span>(mtcars)</span>
-<span id="cb14-140"><a href="#cb14-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-141"><a href="#cb14-141" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y=</span> mpg, <span class="at">color =</span> cyl)) <span class="sc">+</span></span>
-<span id="cb14-142"><a href="#cb14-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb14-143"><a href="#cb14-143" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p)</span>
-<span id="cb14-144"><a href="#cb14-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-145"><a href="#cb14-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-146"><a href="#cb14-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-149"><a href="#cb14-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-150"><a href="#cb14-150" aria-hidden="true" tabindex="-1"></a><span class="co"># Customizing the plotly tooltip</span></span>
-<span id="cb14-151"><a href="#cb14-151" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars,</span>
-<span id="cb14-152"><a href="#cb14-152" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y=</span>mpg, <span class="at">color=</span>cyl,</span>
-<span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a>                <span class="at">text =</span> <span class="fu">paste</span>(name, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"mpg:"</span>, mpg, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"disp:"</span>, disp, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"cyl:"</span>, cyl, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"gear:"</span>, gear))) <span class="sc">+</span></span>
-<span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## Marginal Histogram / Boxplot</span></span>
-<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-165"><a href="#cb14-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
-<span id="cb14-167"><a href="#cb14-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a><span class="fu">## 森林图</span></span>
-<span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-173"><a href="#cb14-173" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-174"><a href="#cb14-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb19" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># ggplot2 extensions</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://exts.ggplot2.tidyverse.org/gallery/&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## ggsci</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>lancet</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>jco</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>nejm</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>gsea</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## ggpubr</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>ggplot2 with Publication Ready Graphics in R</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://rpkgs.datanovia.com/ggpubr/&gt;</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://www.datanovia.com/en/blog/tag/ggpubr/&gt;</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggboxplot</span></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"ToothGrowth"</span>)</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> ToothGrowth</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggboxplot</span>(<span class="at">data =</span> df,</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> <span class="st">"dose"</span>,</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="st">"len"</span>,</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"dose"</span>,</span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>               <span class="at">palette =</span> <span class="st">"gsea"</span>,</span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>               <span class="at">add =</span> <span class="st">"jitter"</span>,</span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>               <span class="at">shape =</span><span class="st">"dose"</span>,</span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">bxp.errorbar =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>               <span class="at">bxp.errorbar.width =</span> <span class="fl">0.1</span>,</span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>               )</span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>my_compare <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"0.5"</span>,<span class="st">"1"</span>),<span class="fu">c</span>(<span class="st">"1"</span>,<span class="st">"2"</span>),<span class="fu">c</span>(<span class="st">"0.5"</span>,<span class="st">"2"</span>))</span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>p<span class="sc">+</span><span class="fu">stat_compare_means</span>(<span class="at">comparisons =</span> my_compare,<span class="at">method =</span> <span class="st">"t.test"</span>)<span class="sc">+</span></span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_compare_means</span>(<span class="at">label.y =</span> <span class="dv">50</span>)  <span class="co"># 总体p值</span></span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggviolin</span></span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a><span class="fu">ggviolin</span>(<span class="at">data =</span> df,</span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> <span class="st">"dose"</span>,</span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="st">"len"</span>,</span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">"dose"</span>,</span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>               <span class="at">palette =</span> <span class="st">"gsea"</span>,</span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>               <span class="at">add =</span> <span class="st">"boxplot"</span>,</span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>               <span class="at">add.params =</span> <span class="fu">list</span>(<span class="at">fill=</span><span class="st">"white"</span>),</span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>               )<span class="sc">+</span></span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_compare_means</span>(<span class="at">comparisons =</span> my_compare,</span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a>                       <span class="at">label =</span> <span class="st">"p.signif"</span>,</span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a>                       <span class="at">method =</span> <span class="st">"t.test"</span>)<span class="sc">+</span></span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_compare_means</span>(<span class="at">label.y =</span> <span class="dv">50</span>)  <span class="co"># 总体p值</span></span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggbarplot</span></span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbarplot</span>(</span>
+<span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> df,</span>
+<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"dose"</span>,</span>
+<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"len"</span>,</span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"supp"</span>,</span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">palette =</span> <span class="st">"lancet"</span>,</span>
+<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">add =</span> <span class="fu">c</span>(<span class="st">"mean_se"</span>),</span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a>    <span class="co">#  mean_sd, mean_ci</span></span>
+<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a>    <span class="at">error.plot =</span> <span class="st">"errorbar"</span>,</span>
+<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a>    <span class="co"># upper_errorbar,"lower_errorbar",pointrange,"linerange", "crossbar",</span></span>
+<span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">lab.pos =</span> <span class="st">"in"</span>,</span>
+<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(),</span>
+<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a>    <span class="at">orientation =</span> <span class="st">"vertical"</span>,</span>
+<span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a>    <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"0.5"</span>, <span class="st">"2"</span>, <span class="st">"1"</span>),</span>
+<span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-101"><a href="#cb19-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### Grouped bar plots + significance</span></span>
+<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://www.datanovia.com/en/blog/how-to-add-p-values-onto-a-grouped-ggplot-using-the-ggpubr-r-package/&gt;</span></span>
+<span id="cb19-106"><a href="#cb19-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-109"><a href="#cb19-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-110"><a href="#cb19-110" aria-hidden="true" tabindex="-1"></a>ToothGrowth<span class="sc">$</span>dose <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ToothGrowth<span class="sc">$</span>dose)</span>
+<span id="cb19-111"><a href="#cb19-111" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparisons against reference</span></span>
+<span id="cb19-112"><a href="#cb19-112" aria-hidden="true" tabindex="-1"></a>stat.test <span class="ot">&lt;-</span> <span class="fu">compare_means</span>(</span>
+<span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a>  len <span class="sc">~</span> dose, <span class="at">data =</span> ToothGrowth, <span class="at">group.by =</span> <span class="st">"supp"</span>,</span>
+<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"t.test"</span>, <span class="at">ref.group =</span> <span class="st">"0.5"</span></span>
+<span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-116"><a href="#cb19-116" aria-hidden="true" tabindex="-1"></a>stat.test</span>
+<span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a>bp <span class="ot">&lt;-</span> <span class="fu">ggbarplot</span>(ToothGrowth, <span class="at">x =</span> <span class="st">"supp"</span>, <span class="at">y =</span> <span class="st">"len"</span>,</span>
+<span id="cb19-118"><a href="#cb19-118" aria-hidden="true" tabindex="-1"></a>                <span class="at">fill =</span> <span class="st">"dose"</span>, <span class="at">palette =</span> <span class="st">"jco"</span>,</span>
+<span id="cb19-119"><a href="#cb19-119" aria-hidden="true" tabindex="-1"></a>                <span class="at">add =</span> <span class="st">"mean_sd"</span>, <span class="at">add.params =</span> <span class="fu">list</span>(<span class="at">group =</span> <span class="st">"dose"</span>),</span>
+<span id="cb19-120"><a href="#cb19-120" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>))</span>
+<span id="cb19-121"><a href="#cb19-121" aria-hidden="true" tabindex="-1"></a>bp</span>
+<span id="cb19-122"><a href="#cb19-122" aria-hidden="true" tabindex="-1"></a>bp <span class="sc">+</span> <span class="fu">stat_pvalue_manual</span>(</span>
+<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a>  stat.test, <span class="at">x =</span> <span class="st">"supp"</span>, <span class="at">y.position =</span> <span class="dv">33</span>,</span>
+<span id="cb19-124"><a href="#cb19-124" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="st">"p={p.format}"</span>,</span>
+<span id="cb19-125"><a href="#cb19-125" aria-hidden="true" tabindex="-1"></a>  <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>)</span>
+<span id="cb19-126"><a href="#cb19-126" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-127"><a href="#cb19-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-128"><a href="#cb19-128" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 分组并列，组内组间显著性p值</span></span>
+<span id="cb19-129"><a href="#cb19-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-132"><a href="#cb19-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-133"><a href="#cb19-133" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb19-134"><a href="#cb19-134" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb19-135"><a href="#cb19-135" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> ToothGrowth</span>
+<span id="cb19-136"><a href="#cb19-136" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>dose <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df<span class="sc">$</span>dose)</span>
+<span id="cb19-137"><a href="#cb19-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-138"><a href="#cb19-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-139"><a href="#cb19-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-140"><a href="#cb19-140" aria-hidden="true" tabindex="-1"></a>bp <span class="ot">&lt;-</span> <span class="fu">ggbarplot</span>(</span>
+<span id="cb19-141"><a href="#cb19-141" aria-hidden="true" tabindex="-1"></a>    df,</span>
+<span id="cb19-142"><a href="#cb19-142" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"dose"</span>,</span>
+<span id="cb19-143"><a href="#cb19-143" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"len"</span>,</span>
+<span id="cb19-144"><a href="#cb19-144" aria-hidden="true" tabindex="-1"></a>    <span class="at">add =</span> <span class="st">"mean_sd"</span>,</span>
+<span id="cb19-145"><a href="#cb19-145" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"supp"</span>,</span>
+<span id="cb19-146"><a href="#cb19-146" aria-hidden="true" tabindex="-1"></a>    <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>),</span>
+<span id="cb19-147"><a href="#cb19-147" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>)</span>
+<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-149"><a href="#cb19-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a><span class="co"># 统计检验</span></span>
+<span id="cb19-152"><a href="#cb19-152" aria-hidden="true" tabindex="-1"></a>stat.test <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb19-153"><a href="#cb19-153" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(dose) <span class="sc">%&gt;%</span></span>
+<span id="cb19-154"><a href="#cb19-154" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t_test</span>(len <span class="sc">~</span> supp) <span class="sc">%&gt;%</span></span>
+<span id="cb19-155"><a href="#cb19-155" aria-hidden="true" tabindex="-1"></a>    <span class="fu">adjust_pvalue</span>(<span class="at">method =</span> <span class="st">"bonferroni"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-156"><a href="#cb19-156" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_significance</span>(<span class="st">"p.adj"</span>)</span>
+<span id="cb19-157"><a href="#cb19-157" aria-hidden="true" tabindex="-1"></a>stat.test <span class="ot">&lt;-</span> stat.test <span class="sc">%&gt;%</span></span>
+<span id="cb19-158"><a href="#cb19-158" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_xy_position</span>(<span class="at">fun =</span> <span class="st">"mean_sd"</span>, <span class="at">x =</span> <span class="st">"dose"</span>, <span class="at">dodge =</span> <span class="fl">0.8</span>)</span>
+<span id="cb19-159"><a href="#cb19-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-160"><a href="#cb19-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-161"><a href="#cb19-161" aria-hidden="true" tabindex="-1"></a>stat.test2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb19-162"><a href="#cb19-162" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t_test</span>(len <span class="sc">~</span> dose, <span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span>)</span>
+<span id="cb19-163"><a href="#cb19-163" aria-hidden="true" tabindex="-1"></a>stat.test2 <span class="ot">&lt;-</span> stat.test2 <span class="sc">%&gt;%</span></span>
+<span id="cb19-164"><a href="#cb19-164" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_xy_position</span>(<span class="at">x =</span> <span class="st">"dose"</span>)</span>
+<span id="cb19-165"><a href="#cb19-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-166"><a href="#cb19-166" aria-hidden="true" tabindex="-1"></a>pwc <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb19-167"><a href="#cb19-167" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(supp) <span class="sc">%&gt;%</span></span>
+<span id="cb19-168"><a href="#cb19-168" aria-hidden="true" tabindex="-1"></a>    <span class="fu">t_test</span>(len <span class="sc">~</span> dose, <span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span>)</span>
+<span id="cb19-169"><a href="#cb19-169" aria-hidden="true" tabindex="-1"></a>pwc</span>
+<span id="cb19-170"><a href="#cb19-170" aria-hidden="true" tabindex="-1"></a>pwc <span class="ot">&lt;-</span> pwc <span class="sc">%&gt;%</span></span>
+<span id="cb19-171"><a href="#cb19-171" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_xy_position</span>(</span>
+<span id="cb19-172"><a href="#cb19-172" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"dose"</span>,</span>
+<span id="cb19-173"><a href="#cb19-173" aria-hidden="true" tabindex="-1"></a>        <span class="at">fun =</span> <span class="st">"mean_sd"</span>,</span>
+<span id="cb19-174"><a href="#cb19-174" aria-hidden="true" tabindex="-1"></a>        <span class="at">group =</span> <span class="st">"supp"</span>,</span>
+<span id="cb19-175"><a href="#cb19-175" aria-hidden="true" tabindex="-1"></a>        <span class="at">dodge =</span> <span class="fl">0.8</span></span>
+<span id="cb19-176"><a href="#cb19-176" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-177"><a href="#cb19-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-178"><a href="#cb19-178" aria-hidden="true" tabindex="-1"></a><span class="co"># 组间组内复合</span></span>
+<span id="cb19-179"><a href="#cb19-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-180"><a href="#cb19-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-181"><a href="#cb19-181" aria-hidden="true" tabindex="-1"></a>bp <span class="sc">+</span></span>
+<span id="cb19-182"><a href="#cb19-182" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_pvalue_manual</span>(stat.test,  <span class="at">label =</span> <span class="st">"p.adj.signif"</span>, <span class="at">tip.length =</span> <span class="fl">0.01</span>) <span class="sc">+</span></span>
+<span id="cb19-183"><a href="#cb19-183" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_pvalue_manual</span>(</span>
+<span id="cb19-184"><a href="#cb19-184" aria-hidden="true" tabindex="-1"></a>        stat.test2,</span>
+<span id="cb19-185"><a href="#cb19-185" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"p"</span>,</span>
+<span id="cb19-186"><a href="#cb19-186" aria-hidden="true" tabindex="-1"></a>        <span class="at">tip.length =</span> <span class="fl">0.02</span>,</span>
+<span id="cb19-187"><a href="#cb19-187" aria-hidden="true" tabindex="-1"></a>        <span class="at">step.increase =</span> <span class="fl">0.05</span></span>
+<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
+<span id="cb19-190"><a href="#cb19-190" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_pvalue_manual</span>(</span>
+<span id="cb19-191"><a href="#cb19-191" aria-hidden="true" tabindex="-1"></a>        pwc,</span>
+<span id="cb19-192"><a href="#cb19-192" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"supp"</span>,</span>
+<span id="cb19-193"><a href="#cb19-193" aria-hidden="true" tabindex="-1"></a>        <span class="at">step.group.by =</span> <span class="st">"supp"</span>,</span>
+<span id="cb19-194"><a href="#cb19-194" aria-hidden="true" tabindex="-1"></a>        <span class="at">tip.length =</span> <span class="dv">0</span>,</span>
+<span id="cb19-195"><a href="#cb19-195" aria-hidden="true" tabindex="-1"></a>        <span class="at">step.increase =</span> <span class="fl">0.1</span></span>
+<span id="cb19-196"><a href="#cb19-196" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-197"><a href="#cb19-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-198"><a href="#cb19-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggdotchart Cleveland's Dot Plots</span></span>
+<span id="cb19-201"><a href="#cb19-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-204"><a href="#cb19-204" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-205"><a href="#cb19-205" aria-hidden="true" tabindex="-1"></a><span class="co"># 滑珠图</span></span>
+<span id="cb19-206"><a href="#cb19-206" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"name"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-207"><a href="#cb19-207" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb19-208"><a href="#cb19-208" aria-hidden="true" tabindex="-1"></a>        <span class="at">cyl=</span><span class="fu">factor</span>(cyl)</span>
+<span id="cb19-209"><a href="#cb19-209" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb19-210"><a href="#cb19-210" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggdotchart</span>(</span>
+<span id="cb19-211"><a href="#cb19-211" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"name"</span>,</span>
+<span id="cb19-212"><a href="#cb19-212" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"mpg"</span>,</span>
+<span id="cb19-213"><a href="#cb19-213" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"cyl"</span>,</span>
+<span id="cb19-214"><a href="#cb19-214" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"jco"</span>,</span>
+<span id="cb19-215"><a href="#cb19-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-216"><a href="#cb19-216" aria-hidden="true" tabindex="-1"></a>        <span class="at">sorting =</span> <span class="st">"ascending"</span>,</span>
+<span id="cb19-217"><a href="#cb19-217" aria-hidden="true" tabindex="-1"></a>        <span class="at">add =</span> <span class="st">"segments"</span>,</span>
+<span id="cb19-218"><a href="#cb19-218" aria-hidden="true" tabindex="-1"></a>        <span class="at">ggtheme =</span> <span class="fu">theme_pubr</span>()</span>
+<span id="cb19-219"><a href="#cb19-219" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|</span></span>
+<span id="cb19-220"><a href="#cb19-220" aria-hidden="true" tabindex="-1"></a><span class="co">#克利夫兰点图</span></span>
+<span id="cb19-221"><a href="#cb19-221" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"name"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-222"><a href="#cb19-222" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb19-223"><a href="#cb19-223" aria-hidden="true" tabindex="-1"></a>        <span class="at">cyl=</span><span class="fu">factor</span>(cyl)</span>
+<span id="cb19-224"><a href="#cb19-224" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb19-225"><a href="#cb19-225" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggdotchart</span>(</span>
+<span id="cb19-226"><a href="#cb19-226" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"name"</span>,</span>
+<span id="cb19-227"><a href="#cb19-227" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"mpg"</span>,</span>
+<span id="cb19-228"><a href="#cb19-228" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"cyl"</span>,</span>
+<span id="cb19-229"><a href="#cb19-229" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">"jco"</span>,</span>
+<span id="cb19-230"><a href="#cb19-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-231"><a href="#cb19-231" aria-hidden="true" tabindex="-1"></a>        <span class="at">sorting =</span> <span class="st">"descending"</span>,</span>
+<span id="cb19-232"><a href="#cb19-232" aria-hidden="true" tabindex="-1"></a>        <span class="at">add =</span> <span class="st">"segments"</span>,</span>
+<span id="cb19-233"><a href="#cb19-233" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb19-234"><a href="#cb19-234" aria-hidden="true" tabindex="-1"></a>        <span class="at">rotate =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-235"><a href="#cb19-235" aria-hidden="true" tabindex="-1"></a>        <span class="at">group =</span> <span class="st">"cyl"</span>,</span>
+<span id="cb19-236"><a href="#cb19-236" aria-hidden="true" tabindex="-1"></a>        <span class="at">dot.size =</span> <span class="dv">6</span>,</span>
+<span id="cb19-237"><a href="#cb19-237" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="fu">round</span>(mtcars<span class="sc">$</span>mpg),</span>
+<span id="cb19-238"><a href="#cb19-238" aria-hidden="true" tabindex="-1"></a>        <span class="at">font.label =</span> <span class="fu">list</span>(<span class="at">color=</span><span class="st">"white"</span>,<span class="at">size=</span><span class="dv">9</span>,<span class="at">vjust=</span><span class="fl">0.5</span>),</span>
+<span id="cb19-239"><a href="#cb19-239" aria-hidden="true" tabindex="-1"></a>        <span class="at">ggtheme =</span> <span class="fu">theme_pubr</span>()</span>
+<span id="cb19-240"><a href="#cb19-240" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-241"><a href="#cb19-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-242"><a href="#cb19-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-243"><a href="#cb19-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-244"><a href="#cb19-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-245"><a href="#cb19-245" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggdotplot</span></span>
+<span id="cb19-246"><a href="#cb19-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-247"><a href="#cb19-247" aria-hidden="true" tabindex="-1"></a><span class="fu">## ggrepel</span></span>
+<span id="cb19-248"><a href="#cb19-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-251"><a href="#cb19-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-252"><a href="#cb19-252" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb19-253"><a href="#cb19-253" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mtcars, <span class="fu">aes</span>(<span class="at">x=</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb19-254"><a href="#cb19-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb19-255"><a href="#cb19-255" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">median</span>(mtcars<span class="sc">$</span>mpg),                     </span>
+<span id="cb19-256"><a href="#cb19-256" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb19-257"><a href="#cb19-257" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb19-258"><a href="#cb19-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">x =</span> <span class="fl">5.2</span>, <span class="at">y =</span> <span class="fl">20.5</span>,                                      </span>
+<span id="cb19-259"><a href="#cb19-259" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"median MPG"</span>, </span>
+<span id="cb19-260"><a href="#cb19-260" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"white"</span>, </span>
+<span id="cb19-261"><a href="#cb19-261" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb19-262"><a href="#cb19-262" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb19-263"><a href="#cb19-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">label =</span> <span class="fu">row.names</span>(mtcars), <span class="at">size =</span> <span class="dv">3</span>)</span>
+<span id="cb19-264"><a href="#cb19-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-265"><a href="#cb19-265" aria-hidden="true" tabindex="-1"></a><span class="co"># geom_label_repel 带白底外框</span></span>
+<span id="cb19-266"><a href="#cb19-266" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-267"><a href="#cb19-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-268"><a href="#cb19-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## 热图</span></span>
+<span id="cb19-269"><a href="#cb19-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-270"><a href="#cb19-270" aria-hidden="true" tabindex="-1"></a><span class="fu">## 相关图 {#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram}</span></span>
+<span id="cb19-271"><a href="#cb19-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-274"><a href="#cb19-274" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-275"><a href="#cb19-275" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb19-276"><a href="#cb19-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-277"><a href="#cb19-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-278"><a href="#cb19-278" aria-hidden="true" tabindex="-1"></a><span class="fu">## 山脊图</span></span>
+<span id="cb19-279"><a href="#cb19-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-282"><a href="#cb19-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-283"><a href="#cb19-283" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb19-284"><a href="#cb19-284" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> hwy, <span class="at">y =</span> drv, <span class="at">fill =</span> drv, <span class="at">color =</span> drv)) <span class="sc">+</span></span>
+<span id="cb19-285"><a href="#cb19-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-286"><a href="#cb19-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-287"><a href="#cb19-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-288"><a href="#cb19-288" aria-hidden="true" tabindex="-1"></a><span class="fu">## plotly</span></span>
+<span id="cb19-289"><a href="#cb19-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-290"><a href="#cb19-290" aria-hidden="true" tabindex="-1"></a>Converting a ggplot2 graph to an interactive plotly graph</span>
+<span id="cb19-291"><a href="#cb19-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-294"><a href="#cb19-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-295"><a href="#cb19-295" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb19-296"><a href="#cb19-296" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>cyl <span class="ot">&lt;-</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>cyl)</span>
+<span id="cb19-297"><a href="#cb19-297" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>name <span class="ot">&lt;-</span> <span class="fu">row.names</span>(mtcars)</span>
+<span id="cb19-298"><a href="#cb19-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-299"><a href="#cb19-299" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y=</span> mpg, <span class="at">color =</span> cyl)) <span class="sc">+</span></span>
+<span id="cb19-300"><a href="#cb19-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb19-301"><a href="#cb19-301" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p)</span>
+<span id="cb19-302"><a href="#cb19-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-303"><a href="#cb19-303" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-304"><a href="#cb19-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-307"><a href="#cb19-307" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-308"><a href="#cb19-308" aria-hidden="true" tabindex="-1"></a><span class="co"># Customizing the plotly tooltip</span></span>
+<span id="cb19-309"><a href="#cb19-309" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars,</span>
+<span id="cb19-310"><a href="#cb19-310" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y=</span>mpg, <span class="at">color=</span>cyl,</span>
+<span id="cb19-311"><a href="#cb19-311" aria-hidden="true" tabindex="-1"></a>                <span class="at">text =</span> <span class="fu">paste</span>(name, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb19-312"><a href="#cb19-312" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"mpg:"</span>, mpg, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb19-313"><a href="#cb19-313" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"disp:"</span>, disp, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb19-314"><a href="#cb19-314" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"cyl:"</span>, cyl, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb19-315"><a href="#cb19-315" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"gear:"</span>, gear))) <span class="sc">+</span></span>
+<span id="cb19-316"><a href="#cb19-316" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb19-317"><a href="#cb19-317" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-318"><a href="#cb19-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-319"><a href="#cb19-319" aria-hidden="true" tabindex="-1"></a><span class="fu">## Marginal Histogram / Boxplot</span></span>
+<span id="cb19-320"><a href="#cb19-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-323"><a href="#cb19-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-324"><a href="#cb19-324" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
+<span id="cb19-325"><a href="#cb19-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-326"><a href="#cb19-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-327"><a href="#cb19-327" aria-hidden="true" tabindex="-1"></a><span class="fu">## 森林图</span></span>
+<span id="cb19-328"><a href="#cb19-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-331"><a href="#cb19-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-332"><a href="#cb19-332" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

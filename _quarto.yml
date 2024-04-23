@@ -12,6 +12,7 @@ book:
         - basic_data_type_class.qmd
         - control_structure.qmd
         - function.qmd
+        - environments.qmd
         - efficient.qmd
         - functional_programming.qmd    
     
