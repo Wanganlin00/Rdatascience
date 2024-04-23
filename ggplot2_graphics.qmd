@@ -12,7 +12,7 @@ gg 为 grammar of graphics 的缩写。
 
 ```{r}
 data(mpg,package = "ggplot2")
-mpg
+head(mpg)
 ```
 
 ### aesthetics mapping
@@ -193,7 +193,7 @@ ggplot(mpg, aes(displ,hwy)) +
 #### geom_line
 
 ```{r}
-economics
+economics |> head()
 
 ggplot(economics,aes(date,pop))+
     geom_line()+
@@ -304,7 +304,7 @@ ggplot(mpg, aes(x = fct_infreq(class))) +  #降序条形图
   geom_bar()
 ```
 
-#### geom_errorbar  errorbarh
+#### geom_errorbar errorbarh
 
 geom_linerange geom_crossbar geom_pointrange
 
@@ -391,10 +391,41 @@ ggplot(mydata, aes(year, cancer)) +
 
 ```
 
-
 ### 统计变换 statistical transformations
 
-stat_bin(): ,geom_bar()geom_freqpoly()geom_histogram() stat_bin2d():geom_bin2d() stat_bindot():geom_dotplot() stat_binhex():geom_hex() stat_boxplot():geom_boxplot() stat_contour():geom_contour() stat_quantile():geom_quantile() stat_smooth():geom_smooth() stat_sum():geom_count() stat_ecdf()：计算经验累积分布图。 stat_function()：根据 x 值的函数计算 y 值。 stat_summary()：将 Y 值汇总到不同的 X 值。 stat_summary2d()， ：汇总分箱值。stat_summary_hex() stat_qq()：对分位数-分位数图执行计算。 stat_spoke()：将角度和半径转换为位置。 stat_unique()：删除重复的行。
+stat_bin()：geom_bar()，geom_freqpoly()，geom_histogram()
+
+stat_bin2d()：geom_bin2d()
+
+stat_bindot()：geom_dotplot()
+
+stat_binhex()：geom_hex()
+
+stat_boxplot()：geom_boxplot()
+
+stat_contour()：geom_contour()
+
+stat_quantile()：geom_quantile()
+
+stat_smooth()：geom_smooth()
+
+stat_sum()：geom_count()
+
+stat_ecdf()：计算经验累积分布图。
+
+stat_function()：根据 x 值的函数计算 y 值。
+
+stat_summary()：将 Y 值汇总到不同的 X 值。
+
+stat_summary2d() ：汇总分箱值。
+
+stat_summary_hex()
+
+stat_qq()：对分位数-分位数图执行计算。
+
+stat_spoke()：将角度和半径转换为位置。
+
+stat_unique()：删除重复的行。
 
 ```{r}
 ggplot(diamonds) + 
@@ -431,7 +462,11 @@ ggplot(mpg, aes(x = drv, fill = class)) +
 
 #### 点
 
-position_nudge()：按固定偏移量移动点。 position_jitter()：为每个位置添加一点随机噪音。 position_jitterdodge()：躲避组内的点，然后添加一点随机噪音。
+position_nudge()：按固定偏移量移动点。
+
+position_jitter()：为每个位置添加一点随机噪音。
+
+position_jitterdodge()：躲避组内的点，然后添加一点随机噪音。
 
 ```{r}
 ggplot(mpg, aes(x = factor(cyl), y = hwy)) + 
@@ -531,7 +566,9 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
 
 ### 共享
 
-坐标轴需要
+shared
+
+坐标轴相同
 
 ```{r}
 x_scale <- scale_x_continuous(limits = range(mpg$displ))

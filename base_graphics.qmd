@@ -298,7 +298,7 @@ text(mtcars$wt,mtcars$mpg,row.names(mtcars),cex=.6)
 ### 折线图
 
 ```{r}
-Orange
+head(Orange)
 t1<-subset(Orange,Tree==1)
 plot(t1$age,t1$circumference,type="p")
 plot(t1$age,t1$circumference,type="b")
