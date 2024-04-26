@@ -5,7 +5,7 @@ knitr:
     collapse: true
 ---
 
-# basic graphics
+# base graphics
 
 ## 图形参数
 
