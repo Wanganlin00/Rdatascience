@@ -159,7 +159,7 @@ diff(x,lag = 2,difference=2) ## 隔1个值后位减前位，进行2次
 # 正则表达式
 substr(x="qwertyyuio",start = 2,stop=4)            #子串
 sub(pattern = " ",replacement = ".",
-    x="hello world",ignore.case = FALSE,fixed = FALSE)  #查找替换
+    x="hello world !",ignore.case = FALSE,fixed = FALSE)  #查找替换
 grep(pattern = "v",x=c("a","v","D","A","f","J"),ignore.case = FALSE,fixed = FALSE)   # 查找,返回下标
 strsplit(x="a.fa.fag",split = "\\.",fixed = FALSE)  # 分隔，\\转义字符
 
