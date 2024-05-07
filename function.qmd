@@ -15,13 +15,11 @@ knitr:
 
 1.  `formals()` 控制如何调用函数的参数列表
 2.  `body()` 函数内部的代码
-3.  `environment()` 确定函数如何查找与名称相关联的值的数据结构
-
-source reference 即 `srcref`属性，指向用于创建函数的源代码
+3.  `environment()` 确定函数如何查找与名称相关联的值的数据结构，俗称环境
 
 ```{r}
 f02 <- function(x, y) {
-  # A comment
+  # 注释
   x + y
 }
 
@@ -29,14 +27,35 @@ formals(f02)
 body(f02)
 environment(f02)
 
+
+```
+
+属性 `srcref`（source reference ），指向函数的源代码
+
+```{r}
 attributes(f02)
 ```
 
 ## Primitive functions {#sec-Primitive_functions}
 
-函数有三个组件的规则有一个例外，Primitive functions ( 如`sum()`) 直接调用C code。
+但在R中，primitive functions 不具备上述三个组件。
 
-Primitive functions有内置builtin 和 特殊special 类型。
+```{r}
+formals(sum)
+body(sum)
+environment(sum)
+attributes(sum)
+```
+
+原语函数（primitive functions）是R语言的核心组成部分，它们具有以下特点：
+
+-   内置优化：原语函数通常是用C语言编写的，这意味着它们执行起来非常快，因为不需要R解释器的额外开销。
+-   直接调用：原语函数可以直接调用C语言代码，这使得它们在执行时不需要通过R的函数调用机制。
+-   性能：由于直接调用C语言编写的底层代码，原语函数的性能通常比普通的R函数要好。
+
+`sum()` 函数就是一个典型的原语函数，它用于计算向量元素的总和。当你在R中调用 sum() 函数时，实际上是在调用一个高效的C语言实现的函数，而不是一个R语言层面的函数。
+
+原语函数有**内置函数（builtin）** 和 **特殊函数（special ）**两种类型。
 
 ```{r}
 sum
@@ -47,7 +66,7 @@ typeof(`[`)
 
 ```
 
-这些函数主要存在于 C 中，而不是 R 中。Primitive functions仅在 base package 找到。
+这些函数主要存在于 C 中，而不是 R 中。Primitive functions仅存在于 *base package*。
 
 ```{r}
 formals(sum)
@@ -57,19 +76,79 @@ environment(sum)
 
 ## First-class functions
 
-```{r}
-f01 <- function(x) {
-  sin(1 / x ^ 2)
-}
-```
+在编程语言中，"First-class functions"（一级函数或函数作为一等公民）是函数式编程的一个核心概念，它意味着函数可以像任何其他类型的数据（如数字、字符串和对象）一样被传递和操作。具体来说，一级函数具有以下几个关键特性：
 
-### 匿名函数
+1.  **可赋值**：可以给函数分配一个变量。
 
-anonymous function
+2.  **可传递**：可以作为参数传递给其他函数。
 
-```{r}
-lapply(mtcars, function(x) length(unique(x)))
-```
+3.  **可返回**：可以从其他函数中作为返回值。
+
+4.  **可创建**：可以在运行时创建新函数。
+
+这些特性使得一级函数非常灵活，并且允许编程者以声明式的方式构建复杂的逻辑。
+
+R语言是一种支持函数式编程的语言，它自然地支持一级函数。以下是R语言中一级函数的一些应用示例：
+
+1.  **将函数赋值给变量**：
+
+    ```{r}
+    f01 <- function(x) {
+      sin(1 / x ^ 2)
+    }
+    ```
+
+2.  **将函数作为参数传递**：
+
+    ```{r}
+    apply_func <- function(x, f) {
+      f(x)
+    }
+    result <- apply_func(10, add) # 将add函数作为参数传递
+    ```
+
+3.  **从函数中返回函数**：
+
+    ```{r}
+    create_multiplier <- function(n) {
+      function(x) {
+        x * n
+      }
+    }
+
+    double <- create_multiplier(2)
+    result <- double(10) # 返回20
+    ```
+
+4.  **匿名函数** anonymous function**（Lambda函数）**：
+
+    ```{r}
+    sapply(c(1,2,3,4,5), function(x) x*2)
+    ```
+
+5.  **函数的高阶特性**：
+
+    ```{r}
+    map_values <- function(x, f) {
+      vapply(x, f, FUN.VALUE = double(x))
+    }
+
+    result <- map_values(c(1,2,3,4,5), function(x) x ^ 2)
+    ```
+
+    在R中，`vapply`、`sapply`、`lapply`、`mapply` 等函数都是高阶函数的例子，它们可以接受另一个函数作为参数，并对数据集执行操作。
+
+### 一级函数的优势：
+
+-   **代码复用**：通过将函数作为参数，可以编写更通用、更可重用的代码。
+
+-   **模块化**：一级函数有助于将程序分解为更小、更易于管理的部分。
+
+-   **抽象**：它们允许开发者创建更高级别的抽象，简化复杂逻辑的表达。
+
+-   **灵活性**：一级函数提供了编写灵活和动态代码的能力。
+
+函数式编程和一级函数是现代编程范式的重要组成部分，它们在数据处理和统计计算中尤其有用，这也是R语言作为统计计算语言的一个强大特性。
 
 ### 函数列表
 
