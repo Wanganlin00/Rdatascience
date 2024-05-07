@@ -3,28 +3,28 @@ project:
   output-dir: docs
 
 book:
-  title: "R data science"
+  title: "R数据科学与泛函式编程"
   reader-mode: true
   chapters:
     - index.qmd
-    - part: "Programming"
-      chapters: 
-        - basic_data_type_class.qmd
-        - control_structure.qmd
-        - function.qmd
-        - environments.qmd
-        - efficient.qmd
-        - functional_programming.qmd    
+
     
     - part: "Data science"
       chapters: 
+        - type_class.qmd
         - I-O.qmd
         - useful_function.qmd
         - base_graphics.qmd
         - ggplot2_graphics.qmd
         - ggplot2_extensions.qmd
+        - df_functional_programming.qmd    
 
-
+    - part: "Functional Programming"
+      chapters: 
+        - control_structure.qmd
+        - functions.qmd
+        - environments.qmd
+        - efficient.qmd
 
 
 execute:
