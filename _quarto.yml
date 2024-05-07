@@ -17,7 +17,7 @@ book:
         - base_graphics.qmd
         - ggplot2_graphics.qmd
         - ggplot2_extensions.qmd
-        - df_functional_programming.qmd    
+        - custom_functions.qmd    
 
     - part: "Functional Programming"
       chapters: 
@@ -25,12 +25,14 @@ book:
         - functions.qmd
         - environments.qmd
         - efficient.qmd
+        - functionals.qmd
 
 
 execute:
   cache: true
-  message: false #阻止消息或警告出现在完成的文件中
-  warning: false
+  message: false 
+  warning: false  #阻止消息或警告出现在完成的文件中
+  
 # eval: false阻止对代码进行评估。（显然，如果不运行代码，则不会生成任何结果）
 # include: false运行代码，但不会在最终文档中显示代码或结果。
 # echo: false阻止代码，但不会阻止结果出现在完成的文件中
@@ -53,8 +55,6 @@ format:
     theme: cosmo
     df-print: kable
 
-    html-math-method: katex
-    callout-appearance: simple
 editor: visual
 
 

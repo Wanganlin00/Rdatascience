@@ -43,5 +43,17 @@
   },
   "environments.qmd": {
     "environments.html": "32dbd705"
+  },
+  "type_class.qmd": {
+    "type_class.html": "0f774114"
+  },
+  "custom_functions.qmd": {
+    "custom_functions.html": "ac878df9"
+  },
+  "functions.qmd": {
+    "functions.html": "60073d3e"
+  },
+  "functionals.qmd": {
+    "functionals.html": "31cb3665"
   }
 }

@@ -94,7 +94,7 @@ R语言是一种支持函数式编程的语言，它自然地支持一级函数�
 
     ```{r}
     f01 <- function(x) {
-      sin(1 / x ^ 2)
+      x^2
     }
     ```
 
@@ -104,7 +104,7 @@ R语言是一种支持函数式编程的语言，它自然地支持一级函数�
     apply_func <- function(x, f) {
       f(x)
     }
-    result <- apply_func(10, add) # 将add函数作为参数传递
+    result <- apply_func(10, f01) # 将函数f01()作为参数传递
     ```
 
 3.  **从函数中返回函数**：
@@ -120,13 +120,19 @@ R语言是一种支持函数式编程的语言，它自然地支持一级函数�
     result <- double(10) # 返回20
     ```
 
-4.  **匿名函数** anonymous function**（Lambda函数）**：
+4.  **匿名函数** anonymous function：
 
     ```{r}
     sapply(c(1,2,3,4,5), function(x) x*2)
     ```
 
-5.  **函数的高阶特性**：
+5.  **Lambda函数**：在较新版本的R中，可以使用`~`来定义Lambda函数，是一种简洁的匿名函数定义方式。
+
+    ```{r}
+map_dbl(1:5, ~.x * 2)
+    ```
+
+6.  **函数的高阶特性**：
 
     ```{r}
     map_values <- function(x, f) {

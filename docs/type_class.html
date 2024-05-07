@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.553">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>R data science - 1&nbsp; 数据类型和数据结构</title>
+<title>R数据科学与泛函式编程 - 1&nbsp; 数据类型和数据结构</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./control_structure.html" rel="next">
+<link href="./I-O.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basic_data_type_class.html">Programming</a></li><li class="breadcrumb-item"><a href="./basic_data_type_class.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">Data science</a></li><li class="breadcrumb-item"><a href="./type_class.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R data science</a> 
+      <a href="./">R数据科学与泛函式编程</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -142,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Programming</span></a>
+ <span class="menu-text">Data science</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -150,38 +150,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./basic_data_type_class.html" class="sidebar-item-text sidebar-link active">
+  <a href="./type_class.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
+  <a href="./I-O.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">读入和写出</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">函数</span></span></a>
+  <a href="./useful_function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">环境</span></span></a>
+  <a href="./base_graphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">base graphics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./efficient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">高效</span></span></a>
+  <a href="./ggplot2_graphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functional_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
+  <a href="./ggplot2_extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./custom_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
   </div>
 </li>
       </ul>
@@ -189,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Data science</span></a>
+ <span class="menu-text">Functional Programming</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -197,32 +203,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-O.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">读入和写出</span></span></a>
+  <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./useful_function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">函数</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./base_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">basic graphics</span></span></a>
+  <a href="./environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">环境</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot2_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span></a>
+  <a href="./efficient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">高效</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot2_extensions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></span></a>
+  <a href="./functionals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">泛函</span></span></a>
   </div>
 </li>
       </ul>
@@ -287,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basic_data_type_class.html">Programming</a></li><li class="breadcrumb-item"><a href="./basic_data_type_class.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">Data science</a></li><li class="breadcrumb-item"><a href="./type_class.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
 <span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
@@ -304,11 +310,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="数据类型" class="level2" style="color:red" data-number="1.1"><h2 style="color:red" data-number="1.1" class="anchored" data-anchor-id="数据类型">
-<span class="header-section-number">1.1</span> 数据类型</h2>
-<p>原子向量（atomic vector）和泛型向量（generic vector）。</p>
-<p>原子向量是单个数据类型（实数、字符、逻辑型、复数、原始型）的数组。</p>
+</header><p>原子向量（atomic vector）和泛型向量（generic vector）。</p>
+<p>原子向量是单个数据类型（实数型、字符型、逻辑型、复数型、原始型）的数组。</p>
 <p>泛型向量是原子向量的集合，即列表<code>list</code>。</p>
+<section id="数据类型" class="level2" style="color:red" data-number="1.1"><h2 style="color:red" data-number="1.1" class="anchored" data-anchor-id="数据类型">
+<span class="header-section-number">1.1</span> 数据类型</h2>
 <p>强制类型转换：字符 &gt; 双精度 &gt; 整数 &gt; 逻辑</p>
 <section id="numeric-数值型" class="level3" data-number="1.1.1"><h3 data-number="1.1.1" class="anchored" data-anchor-id="numeric-数值型">
 <span class="header-section-number">1.1.1</span> numeric – 数值型</h3>
@@ -331,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>浮点标准定义的特殊值</p>
 <ul>
-<li>无穷大</li>
+<li>Infinity 无穷大</li>
 <li>Not a Number</li>
 </ul>
 <div class="cell">
@@ -454,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">l1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="fig-list" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" width="50%">
+<div id="fig-list" class="quarto-figure quarto-figure-center quarto-float anchored" width="50%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-list-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/list.png" id="fig-list" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:50.0%">
 </div>
@@ -667,7 +673,7 @@ Figure&nbsp;1.1
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">today</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">today</span></span>
-<span><span class="co">#&gt; [1] "2024-04-22"</span></span>
+<span><span class="co">#&gt; [1] "2024-05-07"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">today</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "double"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html">attributes</a></span><span class="op">(</span><span class="va">today</span><span class="op">)</span></span>
@@ -679,7 +685,7 @@ Figure&nbsp;1.1
 <span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"02 14-2002"</span>,<span class="st">"01 04-2013"</span><span class="op">)</span>,<span class="st">"%m %d-%Y"</span><span class="op">)</span> <span class="co">#以"%m %d-%Y"格式读入</span></span>
 <span><span class="co">#&gt; [1] "2002-02-14" "2013-01-04"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">"%Y/%m/%d"</span><span class="op">)</span> <span class="co">#以"%Y/%m/%d"格式输出</span></span>
-<span><span class="co">#&gt; [1] "2024/04/22"</span></span>
+<span><span class="co">#&gt; [1] "2024/05/07"</span></span>
 <span></span>
 <span></span>
 <span><span class="co"># 双精度值（通过剥离类来查看）表示自 1970 年 1 月 1 日以来的天数</span></span>
@@ -1703,496 +1709,494 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./control_structure.html" class="pagination-link" aria-label="控制结构">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">控制结构</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./I-O.html" class="pagination-link" aria-label="读入和写出">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">读入和写出</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb33" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "数据类型和数据结构"</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="sourceCode" id="cb33" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 数据类型和数据结构</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>原子向量（atomic vector）和泛型向量（generic vector）。</span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 数据类型 {style="color:red"}</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>原子向量是单个数据类型（实数型、字符型、逻辑型、复数型、原始型）的数组。</span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>原子向量（atomic vector）和泛型向量（generic vector）。</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>泛型向量是原子向量的集合，即列表<span class="in">`list`</span>。</span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>原子向量是单个数据类型（实数、字符、逻辑型、复数、原始型）的数组。</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## 数据类型 {style="color:red"}</span></span>
 <span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>泛型向量是原子向量的集合，即列表<span class="in">`list`</span>。</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>强制类型转换：字符 <span class="sc">\&gt;</span> 双精度 <span class="sc">\&gt;</span> 整数 <span class="sc">\&gt;</span> 逻辑</span>
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>强制类型转换：字符 <span class="sc">\&gt;</span> 双精度 <span class="sc">\&gt;</span> 整数 <span class="sc">\&gt;</span> 逻辑</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="fu">### numeric -- 数值型</span></span>
 <span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### numeric -- 数值型</span></span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">3</span>L, <span class="dv">4</span>))</span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">2</span>), <span class="fu">c</span>(<span class="dv">3</span>L, <span class="dv">4</span>))</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="fu">#### double -- 双精度</span></span>
 <span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="fu">#### double -- 双精度</span></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>十进制<span class="in">`decimal ()`</span>，科学计数法<span class="in">`scientific ()`</span> ，十六进制<span class="in">`hexadecimal ()`</span></span>
 <span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>十进制<span class="in">`decimal ()`</span>，科学计数法<span class="in">`scientific ()`</span> ，十六进制<span class="in">`hexadecimal ()`</span></span>
-<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a><span class="fl">0.1234</span></span>
-<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a><span class="fl">1.23e4</span></span>
-<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a><span class="dv">0x111</span>   <span class="co"># 16^2×1+ 16^1×1 + 16^0×1</span></span>
-<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="fl">0.1234</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a><span class="fl">1.23e4</span></span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a><span class="dv">0x111</span>   <span class="co"># 16^2×1+ 16^1×1 + 16^0×1</span></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>浮点标准定义的特殊值</span>
 <span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>浮点标准定义的特殊值</span>
-<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>无穷大</span>
-<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Not a Number</span>
-<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a><span class="cn">Inf</span></span>
-<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="cn">Inf</span></span>
-<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a><span class="cn">NaN</span></span>
-<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span>
-<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a><span class="fu">is.nan</span>(<span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>)</span>
-<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Infinity 无穷大</span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Not a Number</span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a><span class="cn">Inf</span></span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="cn">Inf</span></span>
+<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a><span class="cn">NaN</span></span>
+<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span>
+<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a><span class="fu">is.nan</span>(<span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>)</span>
+<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a><span class="fu">#### integer --整型</span></span>
 <span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a><span class="fu">#### integer --整型</span></span>
-<span id="cb33-51"><a href="#cb33-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">128</span>L)</span>
-<span id="cb33-56"><a href="#cb33-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-52"><a href="#cb33-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-53"><a href="#cb33-53" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">128</span>L)</span>
+<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-56"><a href="#cb33-56" aria-hidden="true" tabindex="-1"></a><span class="fu">### character -- 字符型</span></span>
 <span id="cb33-57"><a href="#cb33-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### character -- 字符型</span></span>
-<span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-62"><a href="#cb33-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-63"><a href="#cb33-63" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="st">"c"</span>))</span>
-<span id="cb33-64"><a href="#cb33-64" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">"car"</span>)</span>
-<span id="cb33-65"><a href="#cb33-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-61"><a href="#cb33-61" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="st">"c"</span>))</span>
+<span id="cb33-62"><a href="#cb33-62" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">"car"</span>)</span>
+<span id="cb33-63"><a href="#cb33-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-64"><a href="#cb33-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-65"><a href="#cb33-65" aria-hidden="true" tabindex="-1"></a><span class="fu">### logical -- 逻辑型</span></span>
 <span id="cb33-66"><a href="#cb33-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-67"><a href="#cb33-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### logical -- 逻辑型</span></span>
-<span id="cb33-68"><a href="#cb33-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(T,<span class="cn">FALSE</span>))</span>
-<span id="cb33-73"><a href="#cb33-73" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>))</span>
-<span id="cb33-74"><a href="#cb33-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(T,<span class="cn">FALSE</span>))</span>
+<span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>))</span>
+<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-73"><a href="#cb33-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-74"><a href="#cb33-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### complex型</span></span>
 <span id="cb33-75"><a href="#cb33-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-76"><a href="#cb33-76" aria-hidden="true" tabindex="-1"></a><span class="fu">### complex型</span></span>
-<span id="cb33-77"><a href="#cb33-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-80"><a href="#cb33-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-81"><a href="#cb33-81" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">2</span>i,<span class="dv">3-4</span>i)) </span>
-<span id="cb33-82"><a href="#cb33-82" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">2</span>i,<span class="dv">3-4</span>i))</span>
-<span id="cb33-83"><a href="#cb33-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-78"><a href="#cb33-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-79"><a href="#cb33-79" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">2</span>i,<span class="dv">3-4</span>i)) </span>
+<span id="cb33-80"><a href="#cb33-80" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">2</span>i,<span class="dv">3-4</span>i))</span>
+<span id="cb33-81"><a href="#cb33-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-82"><a href="#cb33-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-83"><a href="#cb33-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### raw型</span></span>
 <span id="cb33-84"><a href="#cb33-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-85"><a href="#cb33-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### raw型</span></span>
-<span id="cb33-86"><a href="#cb33-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-89"><a href="#cb33-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-90"><a href="#cb33-90" aria-hidden="true" tabindex="-1"></a><span class="fu">charToRaw</span>(<span class="st">"abcde12345"</span>) <span class="co">#字符串中每个字符的原始存储格式（十六进制？）</span></span>
-<span id="cb33-91"><a href="#cb33-91" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">charToRaw</span>(<span class="st">"abcde12345"</span>)) </span>
-<span id="cb33-92"><a href="#cb33-92" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">charToRaw</span>(<span class="st">"abcde12345"</span>))</span>
-<span id="cb33-93"><a href="#cb33-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-87"><a href="#cb33-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-88"><a href="#cb33-88" aria-hidden="true" tabindex="-1"></a><span class="fu">charToRaw</span>(<span class="st">"abcde12345"</span>) <span class="co">#字符串中每个字符的原始存储格式（十六进制？）</span></span>
+<span id="cb33-89"><a href="#cb33-89" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">charToRaw</span>(<span class="st">"abcde12345"</span>)) </span>
+<span id="cb33-90"><a href="#cb33-90" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">charToRaw</span>(<span class="st">"abcde12345"</span>))</span>
+<span id="cb33-91"><a href="#cb33-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-92"><a href="#cb33-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-93"><a href="#cb33-93" aria-hidden="true" tabindex="-1"></a><span class="fu">### NA -- 缺失值</span></span>
 <span id="cb33-94"><a href="#cb33-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-95"><a href="#cb33-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### NA -- 缺失值</span></span>
+<span id="cb33-95"><a href="#cb33-95" aria-hidden="true" tabindex="-1"></a>从技术上讲，每种原子类型有一个缺失值：NA_logical、NA_integer、NA_double、NA_character。</span>
 <span id="cb33-96"><a href="#cb33-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-97"><a href="#cb33-97" aria-hidden="true" tabindex="-1"></a>从技术上讲，每种原子类型有一个缺失值：NA_logical、NA_integer、NA_double、NA_character。</span>
+<span id="cb33-97"><a href="#cb33-97" aria-hidden="true" tabindex="-1"></a>Not Available</span>
 <span id="cb33-98"><a href="#cb33-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-99"><a href="#cb33-99" aria-hidden="true" tabindex="-1"></a>Not Available</span>
-<span id="cb33-100"><a href="#cb33-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-103"><a href="#cb33-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-104"><a href="#cb33-104" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span></span>
-<span id="cb33-105"><a href="#cb33-105" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA</span>)</span>
-<span id="cb33-106"><a href="#cb33-106" aria-hidden="true" tabindex="-1"></a><span class="fu">anyNA</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="cn">NA</span>,<span class="dv">9</span>))</span>
-<span id="cb33-107"><a href="#cb33-107" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)</span>
-<span id="cb33-108"><a href="#cb33-108" aria-hidden="true" tabindex="-1"></a><span class="fu">na.omit</span>(x)</span>
-<span id="cb33-109"><a href="#cb33-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-101"><a href="#cb33-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-102"><a href="#cb33-102" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span></span>
+<span id="cb33-103"><a href="#cb33-103" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA</span>)</span>
+<span id="cb33-104"><a href="#cb33-104" aria-hidden="true" tabindex="-1"></a><span class="fu">anyNA</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="cn">NA</span>,<span class="dv">9</span>))</span>
+<span id="cb33-105"><a href="#cb33-105" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="cn">NA</span>,<span class="cn">NA</span>)</span>
+<span id="cb33-106"><a href="#cb33-106" aria-hidden="true" tabindex="-1"></a><span class="fu">na.omit</span>(x)</span>
+<span id="cb33-107"><a href="#cb33-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-108"><a href="#cb33-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-109"><a href="#cb33-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## 数据结构 {style="color:red"}</span></span>
 <span id="cb33-110"><a href="#cb33-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-111"><a href="#cb33-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## 数据结构 {style="color:red"}</span></span>
+<span id="cb33-111"><a href="#cb33-111" aria-hidden="true" tabindex="-1"></a>**class**：是一种基于***面向对象编程***的R的抽象类型划分，或者理解为一种数据结构。</span>
 <span id="cb33-112"><a href="#cb33-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-113"><a href="#cb33-113" aria-hidden="true" tabindex="-1"></a>**class**：是一种基于***面向对象编程***的R的抽象类型划分，或者理解为一种数据结构。</span>
+<span id="cb33-113"><a href="#cb33-113" aria-hidden="true" tabindex="-1"></a><span class="fu">### atomic vectors</span></span>
 <span id="cb33-114"><a href="#cb33-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-115"><a href="#cb33-115" aria-hidden="true" tabindex="-1"></a><span class="fu">### atomic vectors</span></span>
+<span id="cb33-115"><a href="#cb33-115" aria-hidden="true" tabindex="-1"></a>向量,同一类元素的集合。 <span class="in">`c()  Combine Values into a Vector or List`</span></span>
 <span id="cb33-116"><a href="#cb33-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-117"><a href="#cb33-117" aria-hidden="true" tabindex="-1"></a>向量,同一类元素的集合。 <span class="in">`c()  Combine Values into a Vector or List`</span></span>
+<span id="cb33-117"><a href="#cb33-117" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/summary-tree-atomic.png)</span>{fig-align="center" width="50%"}</span>
 <span id="cb33-118"><a href="#cb33-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-119"><a href="#cb33-119" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/summary-tree-atomic.png)</span>{fig-align="center" width="50%"}</span>
+<span id="cb33-119"><a href="#cb33-119" aria-hidden="true" tabindex="-1"></a>还有不常用的complex 和 raw。</span>
 <span id="cb33-120"><a href="#cb33-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-121"><a href="#cb33-121" aria-hidden="true" tabindex="-1"></a>还有不常用的complex 和 raw。</span>
+<span id="cb33-121"><a href="#cb33-121" aria-hidden="true" tabindex="-1"></a>| 每一种原子向量都有一种特殊的语法来创建单元素向量，也就是标量**scalar**。</span>
 <span id="cb33-122"><a href="#cb33-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-123"><a href="#cb33-123" aria-hidden="true" tabindex="-1"></a>| 每一种原子向量都有一种特殊的语法来创建单元素向量，也就是标量**scalar**。</span>
-<span id="cb33-124"><a href="#cb33-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-127"><a href="#cb33-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-128"><a href="#cb33-128" aria-hidden="true" tabindex="-1"></a><span class="co">#单元素向量</span></span>
-<span id="cb33-129"><a href="#cb33-129" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="fu">c</span>(<span class="dv">1</span>)</span>
-<span id="cb33-130"><a href="#cb33-130" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(<span class="dv">1</span>)</span>
-<span id="cb33-131"><a href="#cb33-131" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb33-132"><a href="#cb33-132" aria-hidden="true" tabindex="-1"></a><span class="st">"a"</span></span>
-<span id="cb33-133"><a href="#cb33-133" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(<span class="st">"a"</span>)</span>
+<span id="cb33-125"><a href="#cb33-125" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-126"><a href="#cb33-126" aria-hidden="true" tabindex="-1"></a><span class="co">#单元素向量</span></span>
+<span id="cb33-127"><a href="#cb33-127" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="fu">c</span>(<span class="dv">1</span>)</span>
+<span id="cb33-128"><a href="#cb33-128" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(<span class="dv">1</span>)</span>
+<span id="cb33-129"><a href="#cb33-129" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-130"><a href="#cb33-130" aria-hidden="true" tabindex="-1"></a><span class="st">"a"</span></span>
+<span id="cb33-131"><a href="#cb33-131" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(<span class="st">"a"</span>)</span>
+<span id="cb33-132"><a href="#cb33-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-133"><a href="#cb33-133" aria-hidden="true" tabindex="-1"></a><span class="co">#使用函数c()创建向量</span></span>
 <span id="cb33-134"><a href="#cb33-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-135"><a href="#cb33-135" aria-hidden="true" tabindex="-1"></a><span class="co">#使用函数c()创建向量</span></span>
-<span id="cb33-136"><a href="#cb33-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-137"><a href="#cb33-137" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>)</span>
-<span id="cb33-138"><a href="#cb33-138" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
-<span id="cb33-139"><a href="#cb33-139" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>)</span>
-<span id="cb33-140"><a href="#cb33-140" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">list</span>(<span class="dv">1</span>),<span class="fu">list</span>(T)) <span class="sc">|&gt;</span> <span class="fu">is.vector</span>()</span>
-<span id="cb33-141"><a href="#cb33-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-135"><a href="#cb33-135" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>)</span>
+<span id="cb33-136"><a href="#cb33-136" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb33-137"><a href="#cb33-137" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>)</span>
+<span id="cb33-138"><a href="#cb33-138" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">list</span>(<span class="dv">1</span>),<span class="fu">list</span>(T)) <span class="sc">|&gt;</span> <span class="fu">is.vector</span>()</span>
+<span id="cb33-139"><a href="#cb33-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-140"><a href="#cb33-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-141"><a href="#cb33-141" aria-hidden="true" tabindex="-1"></a>列表不存储值本身，而是存储对它们的引用：</span>
 <span id="cb33-142"><a href="#cb33-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-143"><a href="#cb33-143" aria-hidden="true" tabindex="-1"></a>列表不存储值本身，而是存储对它们的引用：</span>
-<span id="cb33-144"><a href="#cb33-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-147"><a href="#cb33-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-148"><a href="#cb33-148" aria-hidden="true" tabindex="-1"></a>l1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb33-149"><a href="#cb33-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-145"><a href="#cb33-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-146"><a href="#cb33-146" aria-hidden="true" tabindex="-1"></a>l1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb33-147"><a href="#cb33-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-148"><a href="#cb33-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-149"><a href="#cb33-149" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/list.png)</span>{#fig-list fig-align="center" width="50%"}</span>
 <span id="cb33-150"><a href="#cb33-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-151"><a href="#cb33-151" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/list.png)</span>{#fig-list fig-align="center" width="50%"}</span>
+<span id="cb33-151"><a href="#cb33-151" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 属性</span></span>
 <span id="cb33-152"><a href="#cb33-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-153"><a href="#cb33-153" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 属性</span></span>
-<span id="cb33-154"><a href="#cb33-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-157"><a href="#cb33-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-158"><a href="#cb33-158" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
-<span id="cb33-159"><a href="#cb33-159" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(a, <span class="st">"x"</span>) <span class="ot">&lt;-</span> <span class="st">"abcdef"</span></span>
-<span id="cb33-160"><a href="#cb33-160" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(a, <span class="st">"x"</span>)</span>
-<span id="cb33-161"><a href="#cb33-161" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(a, <span class="st">"y"</span>) <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb33-162"><a href="#cb33-162" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">attributes</span>(a))</span>
-<span id="cb33-163"><a href="#cb33-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-164"><a href="#cb33-164" aria-hidden="true" tabindex="-1"></a><span class="co"># 或者</span></span>
-<span id="cb33-165"><a href="#cb33-165" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">structure</span>(</span>
-<span id="cb33-166"><a href="#cb33-166" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
-<span id="cb33-167"><a href="#cb33-167" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">"abcdef"</span>,</span>
-<span id="cb33-168"><a href="#cb33-168" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb33-169"><a href="#cb33-169" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-170"><a href="#cb33-170" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">attributes</span>(a))</span>
-<span id="cb33-171"><a href="#cb33-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-155"><a href="#cb33-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-156"><a href="#cb33-156" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb33-157"><a href="#cb33-157" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(a, <span class="st">"x"</span>) <span class="ot">&lt;-</span> <span class="st">"abcdef"</span></span>
+<span id="cb33-158"><a href="#cb33-158" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(a, <span class="st">"x"</span>)</span>
+<span id="cb33-159"><a href="#cb33-159" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(a, <span class="st">"y"</span>) <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb33-160"><a href="#cb33-160" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">attributes</span>(a))</span>
+<span id="cb33-161"><a href="#cb33-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-162"><a href="#cb33-162" aria-hidden="true" tabindex="-1"></a><span class="co"># 或者</span></span>
+<span id="cb33-163"><a href="#cb33-163" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">structure</span>(</span>
+<span id="cb33-164"><a href="#cb33-164" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
+<span id="cb33-165"><a href="#cb33-165" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">"abcdef"</span>,</span>
+<span id="cb33-166"><a href="#cb33-166" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb33-167"><a href="#cb33-167" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-168"><a href="#cb33-168" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">attributes</span>(a))</span>
+<span id="cb33-169"><a href="#cb33-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-170"><a href="#cb33-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-171"><a href="#cb33-171" aria-hidden="true" tabindex="-1"></a>大多数操作都会丢失大多数属性。</span>
 <span id="cb33-172"><a href="#cb33-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-173"><a href="#cb33-173" aria-hidden="true" tabindex="-1"></a>大多数操作都会丢失大多数属性。</span>
+<span id="cb33-173"><a href="#cb33-173" aria-hidden="true" tabindex="-1"></a>只有两个属性是例行保留的：</span>
 <span id="cb33-174"><a href="#cb33-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-175"><a href="#cb33-175" aria-hidden="true" tabindex="-1"></a>只有两个属性是例行保留的：</span>
+<span id="cb33-175"><a href="#cb33-175" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>names，一个字符向量，为每个元素命名。</span>
 <span id="cb33-176"><a href="#cb33-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-177"><a href="#cb33-177" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>names，一个字符向量，为每个元素命名。</span>
-<span id="cb33-178"><a href="#cb33-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-179"><a href="#cb33-179" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{r}</span></span>
-<span id="cb33-180"><a href="#cb33-180" aria-hidden="true" tabindex="-1"></a><span class="in">    # When creating it: </span></span>
-<span id="cb33-181"><a href="#cb33-181" aria-hidden="true" tabindex="-1"></a><span class="in">    x &lt;- c(a = 1, b = 2, c = 3)</span></span>
-<span id="cb33-182"><a href="#cb33-182" aria-hidden="true" tabindex="-1"></a><span class="in">    attributes(x)</span></span>
-<span id="cb33-183"><a href="#cb33-183" aria-hidden="true" tabindex="-1"></a><span class="in">    names(x)</span></span>
-<span id="cb33-184"><a href="#cb33-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-185"><a href="#cb33-185" aria-hidden="true" tabindex="-1"></a><span class="in">    # By assigning a character vector to names()</span></span>
-<span id="cb33-186"><a href="#cb33-186" aria-hidden="true" tabindex="-1"></a><span class="in">    x &lt;- 1:3</span></span>
-<span id="cb33-187"><a href="#cb33-187" aria-hidden="true" tabindex="-1"></a><span class="in">    names(x) &lt;- c("a", "b", "c")</span></span>
-<span id="cb33-188"><a href="#cb33-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-189"><a href="#cb33-189" aria-hidden="true" tabindex="-1"></a><span class="in">    # Inline, with setNames():</span></span>
-<span id="cb33-190"><a href="#cb33-190" aria-hidden="true" tabindex="-1"></a><span class="in">    x &lt;- setNames(1:3, c("a", "b", "c"))</span></span>
-<span id="cb33-191"><a href="#cb33-191" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb33-177"><a href="#cb33-177" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{r}</span></span>
+<span id="cb33-178"><a href="#cb33-178" aria-hidden="true" tabindex="-1"></a><span class="in">    # When creating it: </span></span>
+<span id="cb33-179"><a href="#cb33-179" aria-hidden="true" tabindex="-1"></a><span class="in">    x &lt;- c(a = 1, b = 2, c = 3)</span></span>
+<span id="cb33-180"><a href="#cb33-180" aria-hidden="true" tabindex="-1"></a><span class="in">    attributes(x)</span></span>
+<span id="cb33-181"><a href="#cb33-181" aria-hidden="true" tabindex="-1"></a><span class="in">    names(x)</span></span>
+<span id="cb33-182"><a href="#cb33-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-183"><a href="#cb33-183" aria-hidden="true" tabindex="-1"></a><span class="in">    # By assigning a character vector to names()</span></span>
+<span id="cb33-184"><a href="#cb33-184" aria-hidden="true" tabindex="-1"></a><span class="in">    x &lt;- 1:3</span></span>
+<span id="cb33-185"><a href="#cb33-185" aria-hidden="true" tabindex="-1"></a><span class="in">    names(x) &lt;- c("a", "b", "c")</span></span>
+<span id="cb33-186"><a href="#cb33-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-187"><a href="#cb33-187" aria-hidden="true" tabindex="-1"></a><span class="in">    # Inline, with setNames():</span></span>
+<span id="cb33-188"><a href="#cb33-188" aria-hidden="true" tabindex="-1"></a><span class="in">    x &lt;- setNames(1:3, c("a", "b", "c"))</span></span>
+<span id="cb33-189"><a href="#cb33-189" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb33-190"><a href="#cb33-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-191"><a href="#cb33-191" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>dim，dimensions 的缩写，整数向量，用于将向量转换为矩阵或数组。</span>
 <span id="cb33-192"><a href="#cb33-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-193"><a href="#cb33-193" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>dim，dimensions 的缩写，整数向量，用于将向量转换为矩阵或数组。</span>
+<span id="cb33-193"><a href="#cb33-193" aria-hidden="true" tabindex="-1"></a>    对于原子向量，dimension 属性通常用于创建矩阵或数组。对于列表，dimension 属性可用于创建列表矩阵或列表数组：</span>
 <span id="cb33-194"><a href="#cb33-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-195"><a href="#cb33-195" aria-hidden="true" tabindex="-1"></a>    对于原子向量，dimension 属性通常用于创建矩阵或数组。对于列表，dimension 属性可用于创建列表矩阵或列表数组：</span>
-<span id="cb33-196"><a href="#cb33-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-197"><a href="#cb33-197" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{r}</span></span>
-<span id="cb33-198"><a href="#cb33-198" aria-hidden="true" tabindex="-1"></a><span class="in">    z &lt;- 1:6</span></span>
-<span id="cb33-199"><a href="#cb33-199" aria-hidden="true" tabindex="-1"></a><span class="in">    dim(z) &lt;- c(3, 2, 1)</span></span>
-<span id="cb33-200"><a href="#cb33-200" aria-hidden="true" tabindex="-1"></a><span class="in">    z</span></span>
-<span id="cb33-201"><a href="#cb33-201" aria-hidden="true" tabindex="-1"></a><span class="in">    attributes(z)</span></span>
-<span id="cb33-202"><a href="#cb33-202" aria-hidden="true" tabindex="-1"></a><span class="in">    dim(z)</span></span>
-<span id="cb33-203"><a href="#cb33-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-204"><a href="#cb33-204" aria-hidden="true" tabindex="-1"></a><span class="in">    l &lt;- list(1:3, "a", TRUE, 1.0)</span></span>
-<span id="cb33-205"><a href="#cb33-205" aria-hidden="true" tabindex="-1"></a><span class="in">    dim(l) &lt;- c(2, 2)</span></span>
-<span id="cb33-206"><a href="#cb33-206" aria-hidden="true" tabindex="-1"></a><span class="in">    l</span></span>
-<span id="cb33-207"><a href="#cb33-207" aria-hidden="true" tabindex="-1"></a><span class="in">    l[[1,2]]</span></span>
-<span id="cb33-208"><a href="#cb33-208" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
-<span id="cb33-209"><a href="#cb33-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-210"><a href="#cb33-210" aria-hidden="true" tabindex="-1"></a>    | 向量            | 矩阵                  | 数组           |</span>
-<span id="cb33-211"><a href="#cb33-211" aria-hidden="true" tabindex="-1"></a>    |-----------------|-----------------------|----------------|</span>
-<span id="cb33-212"><a href="#cb33-212" aria-hidden="true" tabindex="-1"></a>    | names()         | rownames(),colnames() | dimnames()     |</span>
-<span id="cb33-213"><a href="#cb33-213" aria-hidden="true" tabindex="-1"></a>    | length()        | nrow(),ncol()         | dim()          |</span>
-<span id="cb33-214"><a href="#cb33-214" aria-hidden="true" tabindex="-1"></a>    | c()             | rbind(),cbind()       | abind::abind() |</span>
-<span id="cb33-215"><a href="#cb33-215" aria-hidden="true" tabindex="-1"></a>    | ---             | t()                   | aperm()        |</span>
-<span id="cb33-216"><a href="#cb33-216" aria-hidden="true" tabindex="-1"></a>    | is.null(dim(x)) | is.matrix()           | is.array()     |</span>
+<span id="cb33-195"><a href="#cb33-195" aria-hidden="true" tabindex="-1"></a>    <span class="in">```{r}</span></span>
+<span id="cb33-196"><a href="#cb33-196" aria-hidden="true" tabindex="-1"></a><span class="in">    z &lt;- 1:6</span></span>
+<span id="cb33-197"><a href="#cb33-197" aria-hidden="true" tabindex="-1"></a><span class="in">    dim(z) &lt;- c(3, 2, 1)</span></span>
+<span id="cb33-198"><a href="#cb33-198" aria-hidden="true" tabindex="-1"></a><span class="in">    z</span></span>
+<span id="cb33-199"><a href="#cb33-199" aria-hidden="true" tabindex="-1"></a><span class="in">    attributes(z)</span></span>
+<span id="cb33-200"><a href="#cb33-200" aria-hidden="true" tabindex="-1"></a><span class="in">    dim(z)</span></span>
+<span id="cb33-201"><a href="#cb33-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-202"><a href="#cb33-202" aria-hidden="true" tabindex="-1"></a><span class="in">    l &lt;- list(1:3, "a", TRUE, 1.0)</span></span>
+<span id="cb33-203"><a href="#cb33-203" aria-hidden="true" tabindex="-1"></a><span class="in">    dim(l) &lt;- c(2, 2)</span></span>
+<span id="cb33-204"><a href="#cb33-204" aria-hidden="true" tabindex="-1"></a><span class="in">    l</span></span>
+<span id="cb33-205"><a href="#cb33-205" aria-hidden="true" tabindex="-1"></a><span class="in">    l[[1,2]]</span></span>
+<span id="cb33-206"><a href="#cb33-206" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb33-207"><a href="#cb33-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-208"><a href="#cb33-208" aria-hidden="true" tabindex="-1"></a>    | 向量            | 矩阵                  | 数组           |</span>
+<span id="cb33-209"><a href="#cb33-209" aria-hidden="true" tabindex="-1"></a>    |-----------------|-----------------------|----------------|</span>
+<span id="cb33-210"><a href="#cb33-210" aria-hidden="true" tabindex="-1"></a>    | names()         | rownames(),colnames() | dimnames()     |</span>
+<span id="cb33-211"><a href="#cb33-211" aria-hidden="true" tabindex="-1"></a>    | length()        | nrow(),ncol()         | dim()          |</span>
+<span id="cb33-212"><a href="#cb33-212" aria-hidden="true" tabindex="-1"></a>    | c()             | rbind(),cbind()       | abind::abind() |</span>
+<span id="cb33-213"><a href="#cb33-213" aria-hidden="true" tabindex="-1"></a>    | ---             | t()                   | aperm()        |</span>
+<span id="cb33-214"><a href="#cb33-214" aria-hidden="true" tabindex="-1"></a>    | is.null(dim(x)) | is.matrix()           | is.array()     |</span>
+<span id="cb33-215"><a href="#cb33-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-216"><a href="#cb33-216" aria-hidden="true" tabindex="-1"></a>要保留其他属性，需要创建S3 类。</span>
 <span id="cb33-217"><a href="#cb33-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-218"><a href="#cb33-218" aria-hidden="true" tabindex="-1"></a>要保留其他属性，需要创建S3 类。</span>
+<span id="cb33-218"><a href="#cb33-218" aria-hidden="true" tabindex="-1"></a><span class="fu">### S3原子向量</span></span>
 <span id="cb33-219"><a href="#cb33-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-220"><a href="#cb33-220" aria-hidden="true" tabindex="-1"></a><span class="fu">### S3原子向量</span></span>
+<span id="cb33-220"><a href="#cb33-220" aria-hidden="true" tabindex="-1"></a>base R 中使用的四个重要的 S3 向量：</span>
 <span id="cb33-221"><a href="#cb33-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-222"><a href="#cb33-222" aria-hidden="true" tabindex="-1"></a>base R 中使用的四个重要的 S3 向量：</span>
+<span id="cb33-222"><a href="#cb33-222" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>分类数据，其中值来自**factor**向量中记录的一组固定水平。</span>
 <span id="cb33-223"><a href="#cb33-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-224"><a href="#cb33-224" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>分类数据，其中值来自**factor**向量中记录的一组固定水平。</span>
+<span id="cb33-224"><a href="#cb33-224" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>日期（具有日期分辨率），记录在**Date**向量中。</span>
 <span id="cb33-225"><a href="#cb33-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-226"><a href="#cb33-226" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>日期（具有日期分辨率），记录在**Date**向量中。</span>
+<span id="cb33-226"><a href="#cb33-226" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>日期时间（具有秒或亚秒分辨率），存储在 **POSIXct** 向量中。</span>
 <span id="cb33-227"><a href="#cb33-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-228"><a href="#cb33-228" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>日期时间（具有秒或亚秒分辨率），存储在 **POSIXct** 向量中。</span>
+<span id="cb33-228"><a href="#cb33-228" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>持续时间，存储在**difftime**向量中。</span>
 <span id="cb33-229"><a href="#cb33-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-230"><a href="#cb33-230" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>持续时间，存储在**difftime**向量中。</span>
+<span id="cb33-230"><a href="#cb33-230" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/summary-tree-s3-baseR.png)</span>{fig-align="center" width="50%"}</span>
 <span id="cb33-231"><a href="#cb33-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-232"><a href="#cb33-232" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/summary-tree-s3-baseR.png)</span>{fig-align="center" width="50%"}</span>
+<span id="cb33-232"><a href="#cb33-232" aria-hidden="true" tabindex="-1"></a><span class="fu">#### factor</span></span>
 <span id="cb33-233"><a href="#cb33-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-234"><a href="#cb33-234" aria-hidden="true" tabindex="-1"></a><span class="fu">#### factor</span></span>
+<span id="cb33-234"><a href="#cb33-234" aria-hidden="true" tabindex="-1"></a>因子，分类变量，建立在具有两个属性（class，levels）的 **integer 向量**之上。</span>
 <span id="cb33-235"><a href="#cb33-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-236"><a href="#cb33-236" aria-hidden="true" tabindex="-1"></a>因子，分类变量，建立在具有两个属性（class，levels）的 **integer 向量**之上。</span>
+<span id="cb33-236"><a href="#cb33-236" aria-hidden="true" tabindex="-1"></a><span class="in">`factor(vector,ordered=FALSE,levels=c(v1,v2,…),labels= ,...)`</span> ，在内存中以整数向量<span class="in">`c(1,2,3,...,k)`</span>存储。</span>
 <span id="cb33-237"><a href="#cb33-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-238"><a href="#cb33-238" aria-hidden="true" tabindex="-1"></a><span class="in">`factor(vector,ordered=FALSE,levels=c(v1,v2,…),labels= ,...)`</span> ，在内存中以整数向量<span class="in">`c(1,2,3,...,k)`</span>存储。</span>
-<span id="cb33-239"><a href="#cb33-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-242"><a href="#cb33-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-243"><a href="#cb33-243" aria-hidden="true" tabindex="-1"></a><span class="co"># 存储形式</span></span>
-<span id="cb33-244"><a href="#cb33-244" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"b"</span>, <span class="st">"a"</span>))</span>
-<span id="cb33-245"><a href="#cb33-245" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb33-246"><a href="#cb33-246" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
-<span id="cb33-247"><a href="#cb33-247" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(x)</span>
-<span id="cb33-248"><a href="#cb33-248" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(x)</span>
-<span id="cb33-249"><a href="#cb33-249" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span>
-<span id="cb33-250"><a href="#cb33-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-251"><a href="#cb33-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-252"><a href="#cb33-252" aria-hidden="true" tabindex="-1"></a><span class="co"># 名义变量 nominal variable</span></span>
-<span id="cb33-253"><a href="#cb33-253" aria-hidden="true" tabindex="-1"></a>diabetes<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"t1"</span>,<span class="st">"t2"</span>,<span class="st">"t1"</span>,<span class="st">"t1"</span>) </span>
+<span id="cb33-240"><a href="#cb33-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-241"><a href="#cb33-241" aria-hidden="true" tabindex="-1"></a><span class="co"># 存储形式</span></span>
+<span id="cb33-242"><a href="#cb33-242" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"b"</span>, <span class="st">"a"</span>))</span>
+<span id="cb33-243"><a href="#cb33-243" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb33-244"><a href="#cb33-244" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span>
+<span id="cb33-245"><a href="#cb33-245" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(x)</span>
+<span id="cb33-246"><a href="#cb33-246" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(x)</span>
+<span id="cb33-247"><a href="#cb33-247" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span>
+<span id="cb33-248"><a href="#cb33-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-249"><a href="#cb33-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-250"><a href="#cb33-250" aria-hidden="true" tabindex="-1"></a><span class="co"># 名义变量 nominal variable</span></span>
+<span id="cb33-251"><a href="#cb33-251" aria-hidden="true" tabindex="-1"></a>diabetes<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"t1"</span>,<span class="st">"t2"</span>,<span class="st">"t1"</span>,<span class="st">"t1"</span>) </span>
+<span id="cb33-252"><a href="#cb33-252" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(diabetes)</span>
+<span id="cb33-253"><a href="#cb33-253" aria-hidden="true" tabindex="-1"></a>diabetes<span class="ot">&lt;-</span><span class="fu">factor</span>(diabetes)</span>
 <span id="cb33-254"><a href="#cb33-254" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(diabetes)</span>
-<span id="cb33-255"><a href="#cb33-255" aria-hidden="true" tabindex="-1"></a>diabetes<span class="ot">&lt;-</span><span class="fu">factor</span>(diabetes)</span>
-<span id="cb33-256"><a href="#cb33-256" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(diabetes)</span>
-<span id="cb33-257"><a href="#cb33-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-258"><a href="#cb33-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-259"><a href="#cb33-259" aria-hidden="true" tabindex="-1"></a><span class="co"># 顺序变量 ordinal variable     默认水平根据字母顺序而定</span></span>
-<span id="cb33-260"><a href="#cb33-260" aria-hidden="true" tabindex="-1"></a>status<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"poor"</span>,<span class="st">"better"</span>,<span class="st">"best"</span>,<span class="st">"poor"</span>)</span>
-<span id="cb33-261"><a href="#cb33-261" aria-hidden="true" tabindex="-1"></a>status<span class="ot">&lt;-</span><span class="fu">factor</span>(status,<span class="at">ordered =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb33-255"><a href="#cb33-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-256"><a href="#cb33-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-257"><a href="#cb33-257" aria-hidden="true" tabindex="-1"></a><span class="co"># 顺序变量 ordinal variable     默认水平根据字母顺序而定</span></span>
+<span id="cb33-258"><a href="#cb33-258" aria-hidden="true" tabindex="-1"></a>status<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"poor"</span>,<span class="st">"better"</span>,<span class="st">"best"</span>,<span class="st">"poor"</span>)</span>
+<span id="cb33-259"><a href="#cb33-259" aria-hidden="true" tabindex="-1"></a>status<span class="ot">&lt;-</span><span class="fu">factor</span>(status,<span class="at">ordered =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb33-260"><a href="#cb33-260" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(status) </span>
+<span id="cb33-261"><a href="#cb33-261" aria-hidden="true" tabindex="-1"></a>status<span class="ot">&lt;-</span><span class="fu">factor</span>(status,<span class="at">ordered =</span><span class="cn">TRUE</span>,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"poor"</span>,<span class="st">"better"</span>,<span class="st">"best"</span>)) </span>
 <span id="cb33-262"><a href="#cb33-262" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(status) </span>
-<span id="cb33-263"><a href="#cb33-263" aria-hidden="true" tabindex="-1"></a>status<span class="ot">&lt;-</span><span class="fu">factor</span>(status,<span class="at">ordered =</span><span class="cn">TRUE</span>,<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"poor"</span>,<span class="st">"better"</span>,<span class="st">"best"</span>)) </span>
-<span id="cb33-264"><a href="#cb33-264" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(status) </span>
-<span id="cb33-265"><a href="#cb33-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-266"><a href="#cb33-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-267"><a href="#cb33-267" aria-hidden="true" tabindex="-1"></a><span class="co">#改变外在标签</span></span>
-<span id="cb33-268"><a href="#cb33-268" aria-hidden="true" tabindex="-1"></a>sex<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb33-269"><a href="#cb33-269" aria-hidden="true" tabindex="-1"></a>sex</span>
-<span id="cb33-270"><a href="#cb33-270" aria-hidden="true" tabindex="-1"></a>sex<span class="ot">&lt;-</span><span class="fu">factor</span>(sex,<span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"男"</span>,<span class="st">"女"</span>)) </span>
-<span id="cb33-271"><a href="#cb33-271" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sex) </span>
-<span id="cb33-272"><a href="#cb33-272" aria-hidden="true" tabindex="-1"></a>sex</span>
-<span id="cb33-273"><a href="#cb33-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-274"><a href="#cb33-274" aria-hidden="true" tabindex="-1"></a>leadership <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/leadership.txt"</span>) <span class="sc">|&gt;</span> <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">"id"</span>)</span>
-<span id="cb33-275"><a href="#cb33-275" aria-hidden="true" tabindex="-1"></a><span class="co"># 连续型变量→因子</span></span>
-<span id="cb33-276"><a href="#cb33-276" aria-hidden="true" tabindex="-1"></a>leadership<span class="sc">$</span>agecat<span class="ot">&lt;-</span><span class="fu">cut</span>(leadership<span class="sc">$</span>age,</span>
-<span id="cb33-277"><a href="#cb33-277" aria-hidden="true" tabindex="-1"></a>                    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">18</span>,<span class="dv">45</span>,<span class="dv">65</span>,<span class="cn">Inf</span>),</span>
-<span id="cb33-278"><a href="#cb33-278" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"minor"</span>,<span class="st">"young"</span>,<span class="st">"middle_age"</span>,<span class="st">"elder"</span>),</span>
-<span id="cb33-279"><a href="#cb33-279" aria-hidden="true" tabindex="-1"></a>                    <span class="at">include.lowest =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb33-280"><a href="#cb33-280" aria-hidden="true" tabindex="-1"></a>                    <span class="at">right =</span> <span class="cn">TRUE</span></span>
-<span id="cb33-281"><a href="#cb33-281" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb33-282"><a href="#cb33-282" aria-hidden="true" tabindex="-1"></a>leadership<span class="sc">$</span>agecat</span>
-<span id="cb33-283"><a href="#cb33-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-263"><a href="#cb33-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-264"><a href="#cb33-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-265"><a href="#cb33-265" aria-hidden="true" tabindex="-1"></a><span class="co">#改变外在标签</span></span>
+<span id="cb33-266"><a href="#cb33-266" aria-hidden="true" tabindex="-1"></a>sex<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb33-267"><a href="#cb33-267" aria-hidden="true" tabindex="-1"></a>sex</span>
+<span id="cb33-268"><a href="#cb33-268" aria-hidden="true" tabindex="-1"></a>sex<span class="ot">&lt;-</span><span class="fu">factor</span>(sex,<span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"男"</span>,<span class="st">"女"</span>)) </span>
+<span id="cb33-269"><a href="#cb33-269" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sex) </span>
+<span id="cb33-270"><a href="#cb33-270" aria-hidden="true" tabindex="-1"></a>sex</span>
+<span id="cb33-271"><a href="#cb33-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-272"><a href="#cb33-272" aria-hidden="true" tabindex="-1"></a>leadership <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/leadership.txt"</span>) <span class="sc">|&gt;</span> <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">"id"</span>)</span>
+<span id="cb33-273"><a href="#cb33-273" aria-hidden="true" tabindex="-1"></a><span class="co"># 连续型变量→因子</span></span>
+<span id="cb33-274"><a href="#cb33-274" aria-hidden="true" tabindex="-1"></a>leadership<span class="sc">$</span>agecat<span class="ot">&lt;-</span><span class="fu">cut</span>(leadership<span class="sc">$</span>age,</span>
+<span id="cb33-275"><a href="#cb33-275" aria-hidden="true" tabindex="-1"></a>                    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">18</span>,<span class="dv">45</span>,<span class="dv">65</span>,<span class="cn">Inf</span>),</span>
+<span id="cb33-276"><a href="#cb33-276" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"minor"</span>,<span class="st">"young"</span>,<span class="st">"middle_age"</span>,<span class="st">"elder"</span>),</span>
+<span id="cb33-277"><a href="#cb33-277" aria-hidden="true" tabindex="-1"></a>                    <span class="at">include.lowest =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb33-278"><a href="#cb33-278" aria-hidden="true" tabindex="-1"></a>                    <span class="at">right =</span> <span class="cn">TRUE</span></span>
+<span id="cb33-279"><a href="#cb33-279" aria-hidden="true" tabindex="-1"></a>                    )</span>
+<span id="cb33-280"><a href="#cb33-280" aria-hidden="true" tabindex="-1"></a>leadership<span class="sc">$</span>agecat</span>
+<span id="cb33-281"><a href="#cb33-281" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-282"><a href="#cb33-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-283"><a href="#cb33-283" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Date</span></span>
 <span id="cb33-284"><a href="#cb33-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-285"><a href="#cb33-285" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Date</span></span>
+<span id="cb33-285"><a href="#cb33-285" aria-hidden="true" tabindex="-1"></a>日期向量建立在 **double 向量**之上，具有<span class="in">`class "Date"`</span>属性。</span>
 <span id="cb33-286"><a href="#cb33-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-287"><a href="#cb33-287" aria-hidden="true" tabindex="-1"></a>日期向量建立在 **double 向量**之上，具有<span class="in">`class "Date"`</span>属性。</span>
+<span id="cb33-287"><a href="#cb33-287" aria-hidden="true" tabindex="-1"></a>日期 默认格式：<span class="in">`"%Y-%m-%d" xxxx-xx-xx,例如：2023-03-15`</span></span>
 <span id="cb33-288"><a href="#cb33-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-289"><a href="#cb33-289" aria-hidden="true" tabindex="-1"></a>日期 默认格式：<span class="in">`"%Y-%m-%d" xxxx-xx-xx,例如：2023-03-15`</span></span>
-<span id="cb33-290"><a href="#cb33-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-293"><a href="#cb33-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-294"><a href="#cb33-294" aria-hidden="true" tabindex="-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
-<span id="cb33-295"><a href="#cb33-295" aria-hidden="true" tabindex="-1"></a>today</span>
-<span id="cb33-296"><a href="#cb33-296" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(today)</span>
-<span id="cb33-297"><a href="#cb33-297" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(today)</span>
-<span id="cb33-298"><a href="#cb33-298" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(today)</span>
-<span id="cb33-299"><a href="#cb33-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-300"><a href="#cb33-300" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"02 14-2002"</span>,<span class="st">"01 04-2013"</span>),<span class="st">"%m %d-%Y"</span>) <span class="co">#以"%m %d-%Y"格式读入</span></span>
-<span id="cb33-301"><a href="#cb33-301" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">Sys.Date</span>(),<span class="st">"%Y/%m/%d"</span>) <span class="co">#以"%Y/%m/%d"格式输出</span></span>
-<span id="cb33-302"><a href="#cb33-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-303"><a href="#cb33-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-304"><a href="#cb33-304" aria-hidden="true" tabindex="-1"></a><span class="co"># 双精度值（通过剥离类来查看）表示自 1970 年 1 月 1 日以来的天数</span></span>
-<span id="cb33-305"><a href="#cb33-305" aria-hidden="true" tabindex="-1"></a>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"1970-02-01"</span>)</span>
-<span id="cb33-306"><a href="#cb33-306" aria-hidden="true" tabindex="-1"></a><span class="fu">unclass</span>(date)</span>
-<span id="cb33-307"><a href="#cb33-307" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-291"><a href="#cb33-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-292"><a href="#cb33-292" aria-hidden="true" tabindex="-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb33-293"><a href="#cb33-293" aria-hidden="true" tabindex="-1"></a>today</span>
+<span id="cb33-294"><a href="#cb33-294" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(today)</span>
+<span id="cb33-295"><a href="#cb33-295" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(today)</span>
+<span id="cb33-296"><a href="#cb33-296" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(today)</span>
+<span id="cb33-297"><a href="#cb33-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-298"><a href="#cb33-298" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"02 14-2002"</span>,<span class="st">"01 04-2013"</span>),<span class="st">"%m %d-%Y"</span>) <span class="co">#以"%m %d-%Y"格式读入</span></span>
+<span id="cb33-299"><a href="#cb33-299" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">Sys.Date</span>(),<span class="st">"%Y/%m/%d"</span>) <span class="co">#以"%Y/%m/%d"格式输出</span></span>
+<span id="cb33-300"><a href="#cb33-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-301"><a href="#cb33-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-302"><a href="#cb33-302" aria-hidden="true" tabindex="-1"></a><span class="co"># 双精度值（通过剥离类来查看）表示自 1970 年 1 月 1 日以来的天数</span></span>
+<span id="cb33-303"><a href="#cb33-303" aria-hidden="true" tabindex="-1"></a>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"1970-02-01"</span>)</span>
+<span id="cb33-304"><a href="#cb33-304" aria-hidden="true" tabindex="-1"></a><span class="fu">unclass</span>(date)</span>
+<span id="cb33-305"><a href="#cb33-305" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-306"><a href="#cb33-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-307"><a href="#cb33-307" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Datetime</span></span>
 <span id="cb33-308"><a href="#cb33-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-309"><a href="#cb33-309" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Datetime</span></span>
+<span id="cb33-309"><a href="#cb33-309" aria-hidden="true" tabindex="-1"></a>POSIXct 和 POSIXlt</span>
 <span id="cb33-310"><a href="#cb33-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-311"><a href="#cb33-311" aria-hidden="true" tabindex="-1"></a>POSIXct 和 POSIXlt</span>
+<span id="cb33-311"><a href="#cb33-311" aria-hidden="true" tabindex="-1"></a>"POSIX"是可移植操作系统接口（ Portable Operating System Interface）的缩写，这是一个跨平台标准系列。"ct"代表calendar time（C 中的类型），"lt"代表local time（C 中的类型）。</span>
 <span id="cb33-312"><a href="#cb33-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-313"><a href="#cb33-313" aria-hidden="true" tabindex="-1"></a>"POSIX"是可移植操作系统接口（ Portable Operating System Interface）的缩写，这是一个跨平台标准系列。"ct"代表calendar time（C 中的类型），"lt"代表local time（C 中的类型）。</span>
+<span id="cb33-313"><a href="#cb33-313" aria-hidden="true" tabindex="-1"></a>POSIXct 向量建立在 **double 向量**之上，其中值表示自 1970-01-01 以来的秒数</span>
 <span id="cb33-314"><a href="#cb33-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-315"><a href="#cb33-315" aria-hidden="true" tabindex="-1"></a>POSIXct 向量建立在 **double 向量**之上，其中值表示自 1970-01-01 以来的秒数</span>
-<span id="cb33-316"><a href="#cb33-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-319"><a href="#cb33-319" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-320"><a href="#cb33-320" aria-hidden="true" tabindex="-1"></a>now_ct <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2024-04-20 15:45"</span>, <span class="at">tz =</span> <span class="st">"Asia/Shanghai"</span>)</span>
-<span id="cb33-321"><a href="#cb33-321" aria-hidden="true" tabindex="-1"></a>now_ct</span>
-<span id="cb33-322"><a href="#cb33-322" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(now_ct)</span>
-<span id="cb33-323"><a href="#cb33-323" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(now_ct)</span>
-<span id="cb33-324"><a href="#cb33-324" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(now_ct)</span>
-<span id="cb33-325"><a href="#cb33-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-317"><a href="#cb33-317" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-318"><a href="#cb33-318" aria-hidden="true" tabindex="-1"></a>now_ct <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">"2024-04-20 15:45"</span>, <span class="at">tz =</span> <span class="st">"Asia/Shanghai"</span>)</span>
+<span id="cb33-319"><a href="#cb33-319" aria-hidden="true" tabindex="-1"></a>now_ct</span>
+<span id="cb33-320"><a href="#cb33-320" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(now_ct)</span>
+<span id="cb33-321"><a href="#cb33-321" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(now_ct)</span>
+<span id="cb33-322"><a href="#cb33-322" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(now_ct)</span>
+<span id="cb33-323"><a href="#cb33-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-324"><a href="#cb33-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-325"><a href="#cb33-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb33-326"><a href="#cb33-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-327"><a href="#cb33-327" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-327"><a href="#cb33-327" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Durations</span></span>
 <span id="cb33-328"><a href="#cb33-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-329"><a href="#cb33-329" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Durations</span></span>
+<span id="cb33-329"><a href="#cb33-329" aria-hidden="true" tabindex="-1"></a>持续时间（表示日期对或日期时间对之间的时间量）存储在difftimes中。Difftimes 建立在 **double** 之上，并且具有确定整数应如何解释的属性。</span>
 <span id="cb33-330"><a href="#cb33-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-331"><a href="#cb33-331" aria-hidden="true" tabindex="-1"></a>持续时间（表示日期对或日期时间对之间的时间量）存储在difftimes中。Difftimes 建立在 **double** 之上，并且具有确定整数应如何解释的属性。</span>
-<span id="cb33-332"><a href="#cb33-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-335"><a href="#cb33-335" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-336"><a href="#cb33-336" aria-hidden="true" tabindex="-1"></a>units_1 <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="dv">1</span>, <span class="at">units =</span> <span class="st">"weeks"</span>)  <span class="co">#units = c("auto", "secs", "mins", "hours","days", "weeks"))</span></span>
-<span id="cb33-337"><a href="#cb33-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-338"><a href="#cb33-338" aria-hidden="true" tabindex="-1"></a>units_1</span>
-<span id="cb33-339"><a href="#cb33-339" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(units_1)</span>
-<span id="cb33-340"><a href="#cb33-340" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(units_1)</span>
-<span id="cb33-341"><a href="#cb33-341" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(units_1)</span>
-<span id="cb33-342"><a href="#cb33-342" aria-hidden="true" tabindex="-1"></a><span class="fu">units</span>(units_1)</span>
-<span id="cb33-343"><a href="#cb33-343" aria-hidden="true" tabindex="-1"></a><span class="fu">units</span>(units_1) <span class="ot">&lt;-</span> <span class="st">"days"</span></span>
-<span id="cb33-344"><a href="#cb33-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-345"><a href="#cb33-345" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(units_1)</span>
-<span id="cb33-346"><a href="#cb33-346" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-333"><a href="#cb33-333" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-334"><a href="#cb33-334" aria-hidden="true" tabindex="-1"></a>units_1 <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="dv">1</span>, <span class="at">units =</span> <span class="st">"weeks"</span>)  <span class="co">#units = c("auto", "secs", "mins", "hours","days", "weeks"))</span></span>
+<span id="cb33-335"><a href="#cb33-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-336"><a href="#cb33-336" aria-hidden="true" tabindex="-1"></a>units_1</span>
+<span id="cb33-337"><a href="#cb33-337" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(units_1)</span>
+<span id="cb33-338"><a href="#cb33-338" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(units_1)</span>
+<span id="cb33-339"><a href="#cb33-339" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(units_1)</span>
+<span id="cb33-340"><a href="#cb33-340" aria-hidden="true" tabindex="-1"></a><span class="fu">units</span>(units_1)</span>
+<span id="cb33-341"><a href="#cb33-341" aria-hidden="true" tabindex="-1"></a><span class="fu">units</span>(units_1) <span class="ot">&lt;-</span> <span class="st">"days"</span></span>
+<span id="cb33-342"><a href="#cb33-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-343"><a href="#cb33-343" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(units_1)</span>
+<span id="cb33-344"><a href="#cb33-344" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-345"><a href="#cb33-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-346"><a href="#cb33-346" aria-hidden="true" tabindex="-1"></a><span class="fu">### matrix</span></span>
 <span id="cb33-347"><a href="#cb33-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-348"><a href="#cb33-348" aria-hidden="true" tabindex="-1"></a><span class="fu">### matrix</span></span>
+<span id="cb33-348"><a href="#cb33-348" aria-hidden="true" tabindex="-1"></a>矩阵是一个具有维度属性（dim）的原子向量，所有元素必须是同一类型。</span>
 <span id="cb33-349"><a href="#cb33-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-350"><a href="#cb33-350" aria-hidden="true" tabindex="-1"></a>矩阵是一个具有维度属性（dim）的原子向量，所有元素必须是同一类型。</span>
+<span id="cb33-350"><a href="#cb33-350" aria-hidden="true" tabindex="-1"></a><span class="in">`matrix(data= ,nrow=1  ,ncol=1  ,byrow=FALSE ,dimnames=list(rnames,cnames) ,...)`</span></span>
 <span id="cb33-351"><a href="#cb33-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-352"><a href="#cb33-352" aria-hidden="true" tabindex="-1"></a><span class="in">`matrix(data= ,nrow=1  ,ncol=1  ,byrow=FALSE ,dimnames=list(rnames,cnames) ,...)`</span></span>
-<span id="cb33-353"><a href="#cb33-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-356"><a href="#cb33-356" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-357"><a href="#cb33-357" aria-hidden="true" tabindex="-1"></a>num<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">28</span>)</span>
-<span id="cb33-358"><a href="#cb33-358" aria-hidden="true" tabindex="-1"></a>rnames<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"R1"</span>,<span class="st">"R2"</span>)</span>
-<span id="cb33-359"><a href="#cb33-359" aria-hidden="true" tabindex="-1"></a>cnames<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"C1"</span>,<span class="st">"C2"</span>)</span>
-<span id="cb33-360"><a href="#cb33-360" aria-hidden="true" tabindex="-1"></a>m<span class="ot">&lt;-</span><span class="fu">matrix</span>(num,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>,<span class="at">dimnames=</span><span class="fu">list</span>(rnames,cnames))</span>
-<span id="cb33-361"><a href="#cb33-361" aria-hidden="true" tabindex="-1"></a>m</span>
-<span id="cb33-362"><a href="#cb33-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-363"><a href="#cb33-363" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(m)</span>
-<span id="cb33-364"><a href="#cb33-364" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(m)</span>
-<span id="cb33-365"><a href="#cb33-365" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(m)</span>
-<span id="cb33-366"><a href="#cb33-366" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(m)</span>
-<span id="cb33-367"><a href="#cb33-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-354"><a href="#cb33-354" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-355"><a href="#cb33-355" aria-hidden="true" tabindex="-1"></a>num<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">16</span>,<span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">28</span>)</span>
+<span id="cb33-356"><a href="#cb33-356" aria-hidden="true" tabindex="-1"></a>rnames<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"R1"</span>,<span class="st">"R2"</span>)</span>
+<span id="cb33-357"><a href="#cb33-357" aria-hidden="true" tabindex="-1"></a>cnames<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"C1"</span>,<span class="st">"C2"</span>)</span>
+<span id="cb33-358"><a href="#cb33-358" aria-hidden="true" tabindex="-1"></a>m<span class="ot">&lt;-</span><span class="fu">matrix</span>(num,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>,<span class="at">dimnames=</span><span class="fu">list</span>(rnames,cnames))</span>
+<span id="cb33-359"><a href="#cb33-359" aria-hidden="true" tabindex="-1"></a>m</span>
+<span id="cb33-360"><a href="#cb33-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-361"><a href="#cb33-361" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(m)</span>
+<span id="cb33-362"><a href="#cb33-362" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(m)</span>
+<span id="cb33-363"><a href="#cb33-363" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(m)</span>
+<span id="cb33-364"><a href="#cb33-364" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(m)</span>
+<span id="cb33-365"><a href="#cb33-365" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-366"><a href="#cb33-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-367"><a href="#cb33-367" aria-hidden="true" tabindex="-1"></a><span class="fu">### array</span></span>
 <span id="cb33-368"><a href="#cb33-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-369"><a href="#cb33-369" aria-hidden="true" tabindex="-1"></a><span class="fu">### array</span></span>
+<span id="cb33-369"><a href="#cb33-369" aria-hidden="true" tabindex="-1"></a>数组也是一个具有维度属性（dim）的原子向量，所有元素必须是同一类型。</span>
 <span id="cb33-370"><a href="#cb33-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-371"><a href="#cb33-371" aria-hidden="true" tabindex="-1"></a>数组也是一个具有维度属性（dim）的原子向量，所有元素必须是同一类型。</span>
+<span id="cb33-371"><a href="#cb33-371" aria-hidden="true" tabindex="-1"></a><span class="in">`array(data,dim_numeric_vector=c(...),dimnames = list(dim1,dim2,...),...)`</span></span>
 <span id="cb33-372"><a href="#cb33-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-373"><a href="#cb33-373" aria-hidden="true" tabindex="-1"></a><span class="in">`array(data,dim_numeric_vector=c(...),dimnames = list(dim1,dim2,...),...)`</span></span>
-<span id="cb33-374"><a href="#cb33-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-377"><a href="#cb33-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-378"><a href="#cb33-378" aria-hidden="true" tabindex="-1"></a>v<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">24</span> </span>
-<span id="cb33-379"><a href="#cb33-379" aria-hidden="true" tabindex="-1"></a>dim1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"A1"</span>,<span class="st">"A2"</span>,<span class="st">"A3"</span>) </span>
-<span id="cb33-380"><a href="#cb33-380" aria-hidden="true" tabindex="-1"></a>dim2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"B1"</span>,<span class="st">"B2"</span>,<span class="st">"B3"</span>,<span class="st">"B4"</span>)</span>
-<span id="cb33-381"><a href="#cb33-381" aria-hidden="true" tabindex="-1"></a>dim3<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"C1"</span>,<span class="st">"C2"</span>) </span>
-<span id="cb33-382"><a href="#cb33-382" aria-hidden="true" tabindex="-1"></a>array_3d<span class="ot">&lt;-</span><span class="fu">array</span>(v,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>),<span class="at">dimnames =</span> <span class="fu">list</span>(dim1,dim2,dim3)) </span>
-<span id="cb33-383"><a href="#cb33-383" aria-hidden="true" tabindex="-1"></a>array_3d</span>
-<span id="cb33-384"><a href="#cb33-384" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(array_3d)</span>
-<span id="cb33-385"><a href="#cb33-385" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(array_3d)</span>
-<span id="cb33-386"><a href="#cb33-386" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-375"><a href="#cb33-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-376"><a href="#cb33-376" aria-hidden="true" tabindex="-1"></a>v<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">24</span> </span>
+<span id="cb33-377"><a href="#cb33-377" aria-hidden="true" tabindex="-1"></a>dim1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"A1"</span>,<span class="st">"A2"</span>,<span class="st">"A3"</span>) </span>
+<span id="cb33-378"><a href="#cb33-378" aria-hidden="true" tabindex="-1"></a>dim2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"B1"</span>,<span class="st">"B2"</span>,<span class="st">"B3"</span>,<span class="st">"B4"</span>)</span>
+<span id="cb33-379"><a href="#cb33-379" aria-hidden="true" tabindex="-1"></a>dim3<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"C1"</span>,<span class="st">"C2"</span>) </span>
+<span id="cb33-380"><a href="#cb33-380" aria-hidden="true" tabindex="-1"></a>array_3d<span class="ot">&lt;-</span><span class="fu">array</span>(v,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>),<span class="at">dimnames =</span> <span class="fu">list</span>(dim1,dim2,dim3)) </span>
+<span id="cb33-381"><a href="#cb33-381" aria-hidden="true" tabindex="-1"></a>array_3d</span>
+<span id="cb33-382"><a href="#cb33-382" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(array_3d)</span>
+<span id="cb33-383"><a href="#cb33-383" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(array_3d)</span>
+<span id="cb33-384"><a href="#cb33-384" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-385"><a href="#cb33-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-386"><a href="#cb33-386" aria-hidden="true" tabindex="-1"></a><span class="fu">### list</span></span>
 <span id="cb33-387"><a href="#cb33-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-388"><a href="#cb33-388" aria-hidden="true" tabindex="-1"></a><span class="fu">### list</span></span>
+<span id="cb33-388"><a href="#cb33-388" aria-hidden="true" tabindex="-1"></a>从技术上讲，列表的每个元素实际上是相同的类型，因为每个元素实际上是对另一个对象的引用 @fig-list ，该对象可以是任何类型。</span>
 <span id="cb33-389"><a href="#cb33-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-390"><a href="#cb33-390" aria-hidden="true" tabindex="-1"></a>从技术上讲，列表的每个元素实际上是相同的类型，因为每个元素实际上是对另一个对象的引用 @fig-list ，该对象可以是任何类型。</span>
+<span id="cb33-390"><a href="#cb33-390" aria-hidden="true" tabindex="-1"></a>列表，<span class="in">`list(name1=object1,name2=object2,...)`</span></span>
 <span id="cb33-391"><a href="#cb33-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-392"><a href="#cb33-392" aria-hidden="true" tabindex="-1"></a>列表，<span class="in">`list(name1=object1,name2=object2,...)`</span></span>
-<span id="cb33-393"><a href="#cb33-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-396"><a href="#cb33-396" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-397"><a href="#cb33-397" aria-hidden="true" tabindex="-1"></a>mylist<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">title=</span><span class="st">"My list"</span>,</span>
-<span id="cb33-398"><a href="#cb33-398" aria-hidden="true" tabindex="-1"></a>             <span class="at">matr=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="st">"a1"</span>,<span class="st">"b1"</span>,<span class="st">"a2"</span>,<span class="st">"b2"</span>),<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>,</span>
-<span id="cb33-399"><a href="#cb33-399" aria-hidden="true" tabindex="-1"></a>                           <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"X1"</span>,<span class="st">"X2"</span>),<span class="fu">c</span>(<span class="st">"Y1"</span>,<span class="st">"Y2"</span>))</span>
-<span id="cb33-400"><a href="#cb33-400" aria-hidden="true" tabindex="-1"></a>                         ),</span>
-<span id="cb33-401"><a href="#cb33-401" aria-hidden="true" tabindex="-1"></a>             <span class="at">df=</span><span class="fu">data.frame</span>(<span class="at">id=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="st">"Lisa"</span>,<span class="st">"BOb"</span>,<span class="st">"John"</span>,<span class="st">"Jule"</span>),</span>
-<span id="cb33-402"><a href="#cb33-402" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">nrow=</span><span class="dv">4</span>,<span class="at">ncol=</span><span class="dv">1</span>,<span class="at">byrow=</span><span class="cn">TRUE</span></span>
-<span id="cb33-403"><a href="#cb33-403" aria-hidden="true" tabindex="-1"></a>                                     ),</span>
-<span id="cb33-404"><a href="#cb33-404" aria-hidden="true" tabindex="-1"></a>                           <span class="at">int=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>),</span>
-<span id="cb33-405"><a href="#cb33-405" aria-hidden="true" tabindex="-1"></a>                           <span class="at">TF=</span><span class="fu">c</span>(T,T,T,F)</span>
-<span id="cb33-406"><a href="#cb33-406" aria-hidden="true" tabindex="-1"></a>                           ),</span>
-<span id="cb33-407"><a href="#cb33-407" aria-hidden="true" tabindex="-1"></a>             <span class="at">list=</span><span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">b=</span><span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>))</span>
-<span id="cb33-408"><a href="#cb33-408" aria-hidden="true" tabindex="-1"></a>             )</span>
-<span id="cb33-409"><a href="#cb33-409" aria-hidden="true" tabindex="-1"></a>mylist</span>
-<span id="cb33-410"><a href="#cb33-410" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(mylist)</span>
-<span id="cb33-411"><a href="#cb33-411" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(mylist)</span>
-<span id="cb33-412"><a href="#cb33-412" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mylist)</span>
-<span id="cb33-413"><a href="#cb33-413" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mylist)</span>
+<span id="cb33-394"><a href="#cb33-394" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-395"><a href="#cb33-395" aria-hidden="true" tabindex="-1"></a>mylist<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">title=</span><span class="st">"My list"</span>,</span>
+<span id="cb33-396"><a href="#cb33-396" aria-hidden="true" tabindex="-1"></a>             <span class="at">matr=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="st">"a1"</span>,<span class="st">"b1"</span>,<span class="st">"a2"</span>,<span class="st">"b2"</span>),<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>,</span>
+<span id="cb33-397"><a href="#cb33-397" aria-hidden="true" tabindex="-1"></a>                           <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"X1"</span>,<span class="st">"X2"</span>),<span class="fu">c</span>(<span class="st">"Y1"</span>,<span class="st">"Y2"</span>))</span>
+<span id="cb33-398"><a href="#cb33-398" aria-hidden="true" tabindex="-1"></a>                         ),</span>
+<span id="cb33-399"><a href="#cb33-399" aria-hidden="true" tabindex="-1"></a>             <span class="at">df=</span><span class="fu">data.frame</span>(<span class="at">id=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="st">"Lisa"</span>,<span class="st">"BOb"</span>,<span class="st">"John"</span>,<span class="st">"Jule"</span>),</span>
+<span id="cb33-400"><a href="#cb33-400" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">nrow=</span><span class="dv">4</span>,<span class="at">ncol=</span><span class="dv">1</span>,<span class="at">byrow=</span><span class="cn">TRUE</span></span>
+<span id="cb33-401"><a href="#cb33-401" aria-hidden="true" tabindex="-1"></a>                                     ),</span>
+<span id="cb33-402"><a href="#cb33-402" aria-hidden="true" tabindex="-1"></a>                           <span class="at">int=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>),</span>
+<span id="cb33-403"><a href="#cb33-403" aria-hidden="true" tabindex="-1"></a>                           <span class="at">TF=</span><span class="fu">c</span>(T,T,T,F)</span>
+<span id="cb33-404"><a href="#cb33-404" aria-hidden="true" tabindex="-1"></a>                           ),</span>
+<span id="cb33-405"><a href="#cb33-405" aria-hidden="true" tabindex="-1"></a>             <span class="at">list=</span><span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">b=</span><span class="fu">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>))</span>
+<span id="cb33-406"><a href="#cb33-406" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb33-407"><a href="#cb33-407" aria-hidden="true" tabindex="-1"></a>mylist</span>
+<span id="cb33-408"><a href="#cb33-408" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(mylist)</span>
+<span id="cb33-409"><a href="#cb33-409" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(mylist)</span>
+<span id="cb33-410"><a href="#cb33-410" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mylist)</span>
+<span id="cb33-411"><a href="#cb33-411" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mylist)</span>
+<span id="cb33-412"><a href="#cb33-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-413"><a href="#cb33-413" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb33-414"><a href="#cb33-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-415"><a href="#cb33-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-415"><a href="#cb33-415" aria-hidden="true" tabindex="-1"></a><span class="fu">### data frame/tibble</span></span>
 <span id="cb33-416"><a href="#cb33-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-417"><a href="#cb33-417" aria-hidden="true" tabindex="-1"></a><span class="fu">### data frame/tibble</span></span>
+<span id="cb33-417"><a href="#cb33-417" aria-hidden="true" tabindex="-1"></a>建立在<span class="in">`"list"`</span>之上的两个最重要的 S3 向量是数据框和 tibble</span>
 <span id="cb33-418"><a href="#cb33-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-419"><a href="#cb33-419" aria-hidden="true" tabindex="-1"></a>建立在<span class="in">`"list"`</span>之上的两个最重要的 S3 向量是数据框和 tibble</span>
+<span id="cb33-419"><a href="#cb33-419" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/summary-tree-s3-df_tbl.png)</span>{fig-align="center" width="30%"}</span>
 <span id="cb33-420"><a href="#cb33-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-421"><a href="#cb33-421" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/summary-tree-s3-df_tbl.png)</span>{fig-align="center" width="30%"}</span>
+<span id="cb33-421"><a href="#cb33-421" aria-hidden="true" tabindex="-1"></a>数据框是列向量具有 names，row.names ，class"data.frame" 属性的命名列表，是一种特殊的列表，每个原子向量的长度必须相同。</span>
 <span id="cb33-422"><a href="#cb33-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-423"><a href="#cb33-423" aria-hidden="true" tabindex="-1"></a>数据框是列向量具有 names，row.names ，class"data.frame" 属性的命名列表，是一种特殊的列表，每个原子向量的长度必须相同。</span>
-<span id="cb33-424"><a href="#cb33-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-427"><a href="#cb33-427" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-428"><a href="#cb33-428" aria-hidden="true" tabindex="-1"></a>id<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">001231</span>,<span class="dv">001241</span>,<span class="dv">001413</span>,<span class="dv">001244</span>) </span>
-<span id="cb33-429"><a href="#cb33-429" aria-hidden="true" tabindex="-1"></a>age<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">21</span>,<span class="dv">14</span>,<span class="dv">52</span>,<span class="dv">15</span>) </span>
-<span id="cb33-430"><a href="#cb33-430" aria-hidden="true" tabindex="-1"></a>diabetes<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"t1"</span>,<span class="st">"t2"</span>,<span class="st">"t1"</span>,<span class="st">"t1"</span>) </span>
-<span id="cb33-431"><a href="#cb33-431" aria-hidden="true" tabindex="-1"></a>status<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"poor"</span>,<span class="st">"better"</span>,<span class="st">"best"</span>,<span class="st">"poor"</span>) </span>
-<span id="cb33-432"><a href="#cb33-432" aria-hidden="true" tabindex="-1"></a>df1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">patientID=</span>id,age,diabetes,status,<span class="at">row.names =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),</span>
-<span id="cb33-433"><a href="#cb33-433" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="co"># 4个列向量组成数据框 </span></span>
-<span id="cb33-434"><a href="#cb33-434" aria-hidden="true" tabindex="-1"></a>df1</span>
-<span id="cb33-435"><a href="#cb33-435" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(df1)</span>
-<span id="cb33-436"><a href="#cb33-436" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(df1)</span>
-<span id="cb33-437"><a href="#cb33-437" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df1)</span>
-<span id="cb33-438"><a href="#cb33-438" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df1)</span>
-<span id="cb33-439"><a href="#cb33-439" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df1)</span>
-<span id="cb33-440"><a href="#cb33-440" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(df1)</span>
-<span id="cb33-441"><a href="#cb33-441" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(df1)</span>
+<span id="cb33-425"><a href="#cb33-425" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-426"><a href="#cb33-426" aria-hidden="true" tabindex="-1"></a>id<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">001231</span>,<span class="dv">001241</span>,<span class="dv">001413</span>,<span class="dv">001244</span>) </span>
+<span id="cb33-427"><a href="#cb33-427" aria-hidden="true" tabindex="-1"></a>age<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">21</span>,<span class="dv">14</span>,<span class="dv">52</span>,<span class="dv">15</span>) </span>
+<span id="cb33-428"><a href="#cb33-428" aria-hidden="true" tabindex="-1"></a>diabetes<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"t1"</span>,<span class="st">"t2"</span>,<span class="st">"t1"</span>,<span class="st">"t1"</span>) </span>
+<span id="cb33-429"><a href="#cb33-429" aria-hidden="true" tabindex="-1"></a>status<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"poor"</span>,<span class="st">"better"</span>,<span class="st">"best"</span>,<span class="st">"poor"</span>) </span>
+<span id="cb33-430"><a href="#cb33-430" aria-hidden="true" tabindex="-1"></a>df1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">patientID=</span>id,age,diabetes,status,<span class="at">row.names =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),</span>
+<span id="cb33-431"><a href="#cb33-431" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="co"># 4个列向量组成数据框 </span></span>
+<span id="cb33-432"><a href="#cb33-432" aria-hidden="true" tabindex="-1"></a>df1</span>
+<span id="cb33-433"><a href="#cb33-433" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(df1)</span>
+<span id="cb33-434"><a href="#cb33-434" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(df1)</span>
+<span id="cb33-435"><a href="#cb33-435" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df1)</span>
+<span id="cb33-436"><a href="#cb33-436" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df1)</span>
+<span id="cb33-437"><a href="#cb33-437" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df1)</span>
+<span id="cb33-438"><a href="#cb33-438" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(df1)</span>
+<span id="cb33-439"><a href="#cb33-439" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(df1)</span>
+<span id="cb33-440"><a href="#cb33-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-441"><a href="#cb33-441" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb33-442"><a href="#cb33-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-443"><a href="#cb33-443" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-443"><a href="#cb33-443" aria-hidden="true" tabindex="-1"></a><span class="in">`tibblle`</span>与<span class="in">`data frame`</span>共享相同的结构。区别是<span class="in">`class`</span>属性更多,不会自动进行强制类型转换，不会自动转换非法名称（自动反引号非法名称）， tibbles 只能循环较短的长度为 1 的向量，允许引用在构造过程中创建的变量。</span>
 <span id="cb33-444"><a href="#cb33-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-445"><a href="#cb33-445" aria-hidden="true" tabindex="-1"></a><span class="in">`tibblle`</span>与<span class="in">`data frame`</span>共享相同的结构。区别是<span class="in">`class`</span>属性更多,不会自动进行强制类型转换，不会自动转换非法名称（自动反引号非法名称）， tibbles 只能循环较短的长度为 1 的向量，允许引用在构造过程中创建的变量。</span>
-<span id="cb33-446"><a href="#cb33-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-449"><a href="#cb33-449" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-450"><a href="#cb33-450" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb33-451"><a href="#cb33-451" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
-<span id="cb33-452"><a href="#cb33-452" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(df2)</span>
-<span id="cb33-453"><a href="#cb33-453" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(df2)</span>
-<span id="cb33-454"><a href="#cb33-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-447"><a href="#cb33-447" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-448"><a href="#cb33-448" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb33-449"><a href="#cb33-449" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
+<span id="cb33-450"><a href="#cb33-450" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(df2)</span>
+<span id="cb33-451"><a href="#cb33-451" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(df2)</span>
+<span id="cb33-452"><a href="#cb33-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-453"><a href="#cb33-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-454"><a href="#cb33-454" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">tibble</span>(<span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span>))</span>
 <span id="cb33-455"><a href="#cb33-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-456"><a href="#cb33-456" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">tibble</span>(<span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span>))</span>
-<span id="cb33-457"><a href="#cb33-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-458"><a href="#cb33-458" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span>)</span>
-<span id="cb33-459"><a href="#cb33-459" aria-hidden="true" tabindex="-1"></a><span class="co">#tibble(x = 1:4, y = 1:2)</span></span>
-<span id="cb33-460"><a href="#cb33-460" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in `tibble()`:</span></span>
-<span id="cb33-461"><a href="#cb33-461" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! Tibble columns must have compatible sizes.</span></span>
-<span id="cb33-462"><a href="#cb33-462" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Size 4: Existing data.</span></span>
-<span id="cb33-463"><a href="#cb33-463" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Size 2: Column `y`.</span></span>
-<span id="cb33-464"><a href="#cb33-464" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Only values of size one are recycled.</span></span>
-<span id="cb33-465"><a href="#cb33-465" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
-<span id="cb33-466"><a href="#cb33-466" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
-<span id="cb33-467"><a href="#cb33-467" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> x <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb33-468"><a href="#cb33-468" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-469"><a href="#cb33-469" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-456"><a href="#cb33-456" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span>)</span>
+<span id="cb33-457"><a href="#cb33-457" aria-hidden="true" tabindex="-1"></a><span class="co">#tibble(x = 1:4, y = 1:2)</span></span>
+<span id="cb33-458"><a href="#cb33-458" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in `tibble()`:</span></span>
+<span id="cb33-459"><a href="#cb33-459" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! Tibble columns must have compatible sizes.</span></span>
+<span id="cb33-460"><a href="#cb33-460" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Size 4: Existing data.</span></span>
+<span id="cb33-461"><a href="#cb33-461" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Size 2: Column `y`.</span></span>
+<span id="cb33-462"><a href="#cb33-462" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Only values of size one are recycled.</span></span>
+<span id="cb33-463"><a href="#cb33-463" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb33-464"><a href="#cb33-464" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb33-465"><a href="#cb33-465" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb33-466"><a href="#cb33-466" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-467"><a href="#cb33-467" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-468"><a href="#cb33-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-469"><a href="#cb33-469" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 行名→列</span></span>
 <span id="cb33-470"><a href="#cb33-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-471"><a href="#cb33-471" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 行名→列</span></span>
-<span id="cb33-472"><a href="#cb33-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-475"><a href="#cb33-475" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-476"><a href="#cb33-476" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb33-477"><a href="#cb33-477" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">27</span>, <span class="dv">18</span>),</span>
-<span id="cb33-478"><a href="#cb33-478" aria-hidden="true" tabindex="-1"></a>  <span class="at">hair =</span> <span class="fu">c</span>(<span class="st">"blond"</span>, <span class="st">"brown"</span>, <span class="st">"black"</span>),</span>
-<span id="cb33-479"><a href="#cb33-479" aria-hidden="true" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="fu">c</span>(<span class="st">"Bob"</span>, <span class="st">"Susan"</span>, <span class="st">"Sam"</span>)</span>
-<span id="cb33-480"><a href="#cb33-480" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-481"><a href="#cb33-481" aria-hidden="true" tabindex="-1"></a>df3 <span class="sc">|&gt;</span> <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"name"</span>)</span>
-<span id="cb33-482"><a href="#cb33-482" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(df3, <span class="at">rownames =</span> <span class="st">"name"</span>)</span>
-<span id="cb33-483"><a href="#cb33-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-484"><a href="#cb33-484" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-485"><a href="#cb33-485" aria-hidden="true" tabindex="-1"></a><span class="fu">is_tibble</span>(df2)</span>
-<span id="cb33-486"><a href="#cb33-486" aria-hidden="true" tabindex="-1"></a><span class="fu">is_tibble</span>(df3)</span>
-<span id="cb33-487"><a href="#cb33-487" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(df3)</span>
-<span id="cb33-488"><a href="#cb33-488" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-473"><a href="#cb33-473" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-474"><a href="#cb33-474" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb33-475"><a href="#cb33-475" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">27</span>, <span class="dv">18</span>),</span>
+<span id="cb33-476"><a href="#cb33-476" aria-hidden="true" tabindex="-1"></a>  <span class="at">hair =</span> <span class="fu">c</span>(<span class="st">"blond"</span>, <span class="st">"brown"</span>, <span class="st">"black"</span>),</span>
+<span id="cb33-477"><a href="#cb33-477" aria-hidden="true" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="fu">c</span>(<span class="st">"Bob"</span>, <span class="st">"Susan"</span>, <span class="st">"Sam"</span>)</span>
+<span id="cb33-478"><a href="#cb33-478" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-479"><a href="#cb33-479" aria-hidden="true" tabindex="-1"></a>df3 <span class="sc">|&gt;</span> <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"name"</span>)</span>
+<span id="cb33-480"><a href="#cb33-480" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(df3, <span class="at">rownames =</span> <span class="st">"name"</span>)</span>
+<span id="cb33-481"><a href="#cb33-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-482"><a href="#cb33-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-483"><a href="#cb33-483" aria-hidden="true" tabindex="-1"></a><span class="fu">is_tibble</span>(df2)</span>
+<span id="cb33-484"><a href="#cb33-484" aria-hidden="true" tabindex="-1"></a><span class="fu">is_tibble</span>(df3)</span>
+<span id="cb33-485"><a href="#cb33-485" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(df3)</span>
+<span id="cb33-486"><a href="#cb33-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-487"><a href="#cb33-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-488"><a href="#cb33-488" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 列表列</span></span>
 <span id="cb33-489"><a href="#cb33-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-490"><a href="#cb33-490" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 列表列</span></span>
-<span id="cb33-491"><a href="#cb33-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-494"><a href="#cb33-494" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-495"><a href="#cb33-495" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb33-496"><a href="#cb33-496" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
-<span id="cb33-497"><a href="#cb33-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-498"><a href="#cb33-498" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
-<span id="cb33-499"><a href="#cb33-499" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
-<span id="cb33-500"><a href="#cb33-500" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">I</span>(<span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>))</span>
-<span id="cb33-501"><a href="#cb33-501" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-502"><a href="#cb33-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-503"><a href="#cb33-503" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
-<span id="cb33-504"><a href="#cb33-504" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
-<span id="cb33-505"><a href="#cb33-505" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
-<span id="cb33-506"><a href="#cb33-506" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-507"><a href="#cb33-507" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-492"><a href="#cb33-492" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-493"><a href="#cb33-493" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb33-494"><a href="#cb33-494" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb33-495"><a href="#cb33-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-496"><a href="#cb33-496" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb33-497"><a href="#cb33-497" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
+<span id="cb33-498"><a href="#cb33-498" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">I</span>(<span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>))</span>
+<span id="cb33-499"><a href="#cb33-499" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-500"><a href="#cb33-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-501"><a href="#cb33-501" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb33-502"><a href="#cb33-502" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
+<span id="cb33-503"><a href="#cb33-503" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb33-504"><a href="#cb33-504" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-505"><a href="#cb33-505" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-506"><a href="#cb33-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-507"><a href="#cb33-507" aria-hidden="true" tabindex="-1"></a><span class="fu">### 矩阵和数据框列</span></span>
 <span id="cb33-508"><a href="#cb33-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-509"><a href="#cb33-509" aria-hidden="true" tabindex="-1"></a><span class="fu">### 矩阵和数据框列</span></span>
+<span id="cb33-509"><a href="#cb33-509" aria-hidden="true" tabindex="-1"></a>行数必须相等</span>
 <span id="cb33-510"><a href="#cb33-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-511"><a href="#cb33-511" aria-hidden="true" tabindex="-1"></a>行数必须相等</span>
-<span id="cb33-512"><a href="#cb33-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-515"><a href="#cb33-515" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-516"><a href="#cb33-516" aria-hidden="true" tabindex="-1"></a>dfm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb33-517"><a href="#cb33-517" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="sc">*</span> <span class="dv">10</span></span>
-<span id="cb33-518"><a href="#cb33-518" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-519"><a href="#cb33-519" aria-hidden="true" tabindex="-1"></a>dfm<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb33-520"><a href="#cb33-520" aria-hidden="true" tabindex="-1"></a>dfm<span class="sc">$</span>z <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">b =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb33-521"><a href="#cb33-521" aria-hidden="true" tabindex="-1"></a>dfm[<span class="dv">1</span>, ]</span>
-<span id="cb33-522"><a href="#cb33-522" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-513"><a href="#cb33-513" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-514"><a href="#cb33-514" aria-hidden="true" tabindex="-1"></a>dfm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb33-515"><a href="#cb33-515" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb33-516"><a href="#cb33-516" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-517"><a href="#cb33-517" aria-hidden="true" tabindex="-1"></a>dfm<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb33-518"><a href="#cb33-518" aria-hidden="true" tabindex="-1"></a>dfm<span class="sc">$</span>z <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">b =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb33-519"><a href="#cb33-519" aria-hidden="true" tabindex="-1"></a>dfm[<span class="dv">1</span>, ]</span>
+<span id="cb33-520"><a href="#cb33-520" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-521"><a href="#cb33-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-522"><a href="#cb33-522" aria-hidden="true" tabindex="-1"></a><span class="fu">## `NULL`</span></span>
 <span id="cb33-523"><a href="#cb33-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-524"><a href="#cb33-524" aria-hidden="true" tabindex="-1"></a><span class="fu">## `NULL`</span></span>
+<span id="cb33-524"><a href="#cb33-524" aria-hidden="true" tabindex="-1"></a>长度始终为零，并且没有属性。</span>
 <span id="cb33-525"><a href="#cb33-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-526"><a href="#cb33-526" aria-hidden="true" tabindex="-1"></a>长度始终为零，并且没有属性。</span>
-<span id="cb33-527"><a href="#cb33-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-530"><a href="#cb33-530" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-531"><a href="#cb33-531" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="cn">NULL</span>)</span>
-<span id="cb33-532"><a href="#cb33-532" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="cn">NULL</span>)</span>
-<span id="cb33-533"><a href="#cb33-533" aria-hidden="true" tabindex="-1"></a><span class="fu">is.null</span>(<span class="cn">NULL</span>)</span>
-<span id="cb33-534"><a href="#cb33-534" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>()</span>
-<span id="cb33-535"><a href="#cb33-535" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-528"><a href="#cb33-528" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-529"><a href="#cb33-529" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="cn">NULL</span>)</span>
+<span id="cb33-530"><a href="#cb33-530" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="cn">NULL</span>)</span>
+<span id="cb33-531"><a href="#cb33-531" aria-hidden="true" tabindex="-1"></a><span class="fu">is.null</span>(<span class="cn">NULL</span>)</span>
+<span id="cb33-532"><a href="#cb33-532" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>()</span>
+<span id="cb33-533"><a href="#cb33-533" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

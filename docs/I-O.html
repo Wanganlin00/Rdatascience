@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.553">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>R data science - 7&nbsp; 读入和写出</title>
+<title>R数据科学与泛函式编程 - 2&nbsp; 读入和写出</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,7 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./useful_function.html" rel="next">
-<link href="./functional_programming.html" rel="prev">
+<link href="./type_class.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./I-O.html">Data science</a></li><li class="breadcrumb-item"><a href="./I-O.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">读入和写出</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">Data science</a></li><li class="breadcrumb-item"><a href="./I-O.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">读入和写出</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R data science</a> 
+      <a href="./">R数据科学与泛函式编程</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -142,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Programming</span></a>
+ <span class="menu-text">Data science</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -150,38 +150,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./basic_data_type_class.html" class="sidebar-item-text sidebar-link">
+  <a href="./type_class.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
+  <a href="./I-O.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">读入和写出</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">函数</span></span></a>
+  <a href="./useful_function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">环境</span></span></a>
+  <a href="./base_graphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">base graphics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./efficient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">高效</span></span></a>
+  <a href="./ggplot2_graphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functional_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
+  <a href="./ggplot2_extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./custom_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
   </div>
 </li>
       </ul>
@@ -189,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Data science</span></a>
+ <span class="menu-text">Functional Programming</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -197,32 +203,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-O.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">读入和写出</span></span></a>
+  <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./useful_function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">函数</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./base_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">basic graphics</span></span></a>
+  <a href="./environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">环境</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot2_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span></a>
+  <a href="./efficient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">高效</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot2_extensions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></span></a>
+  <a href="./functionals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">泛函</span></span></a>
   </div>
 </li>
       </ul>
@@ -236,39 +242,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import"><span class="header-section-number">7.1</span> Import</a>
+<a href="#import" id="toc-import" class="nav-link active" data-scroll-target="#import"><span class="header-section-number">2.1</span> Import</a>
   <ul>
-<li><a href="#%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5" id="toc-键盘输入" class="nav-link" data-scroll-target="#%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5"><span class="header-section-number">7.1.1</span> 键盘输入</a></li>
+<li><a href="#%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5" id="toc-键盘输入" class="nav-link" data-scroll-target="#%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5"><span class="header-section-number">2.1.1</span> 键盘输入</a></li>
   <li>
-<a href="#%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6" id="toc-文本文件" class="nav-link" data-scroll-target="#%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="header-section-number">7.1.2</span> 文本文件</a>
+<a href="#%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6" id="toc-文本文件" class="nav-link" data-scroll-target="#%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="header-section-number">2.1.2</span> 文本文件</a>
   <ul class="collapse">
-<li><a href="#utils-utilitiesa-piece-of-computer-software-that-performs-a-particular-task" id="toc-utils-utilitiesa-piece-of-computer-software-that-performs-a-particular-task" class="nav-link" data-scroll-target="#utils-utilitiesa-piece-of-computer-software-that-performs-a-particular-task"><span class="header-section-number">7.1.2.1</span> <code>utils::</code> utilities,a piece of computer software that performs a particular task</a></li>
-  <li><a href="#readr" id="toc-readr" class="nav-link" data-scroll-target="#readr"><span class="header-section-number">7.1.2.2</span> <code>readr::</code></a></li>
+<li><a href="#utils" id="toc-utils" class="nav-link" data-scroll-target="#utils"><span class="header-section-number">2.1.2.1</span> <code>utils::</code></a></li>
+  <li><a href="#readr" id="toc-readr" class="nav-link" data-scroll-target="#readr"><span class="header-section-number">2.1.2.2</span> <code>readr::</code></a></li>
   </ul>
 </li>
-  <li><a href="#excel" id="toc-excel" class="nav-link" data-scroll-target="#excel"><span class="header-section-number">7.1.3</span> Excel</a></li>
-  <li><a href="#internet-datasets" id="toc-internet-datasets" class="nav-link" data-scroll-target="#internet-datasets"><span class="header-section-number">7.1.4</span> Internet datasets</a></li>
-  <li><a href="#library-datasets" id="toc-library-datasets" class="nav-link" data-scroll-target="#library-datasets"><span class="header-section-number">7.1.5</span> library datasets</a></li>
-  <li><a href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6" id="toc-二进制文件" class="nav-link" data-scroll-target="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6"><span class="header-section-number">7.1.6</span> 二进制文件</a></li>
-  <li><a href="#json" id="toc-json" class="nav-link" data-scroll-target="#json"><span class="header-section-number">7.1.7</span> JSON</a></li>
-  <li><a href="#spsssasstata-dta" id="toc-spsssasstata-dta" class="nav-link" data-scroll-target="#spsssasstata-dta"><span class="header-section-number">7.1.8</span> SPSS/SAS/stata DTA</a></li>
-  <li><a href="#database" id="toc-database" class="nav-link" data-scroll-target="#database"><span class="header-section-number">7.1.9</span> Database</a></li>
-  <li><a href="#%E8%84%9A%E6%9C%AC%E8%BD%BD%E5%85%A5" id="toc-脚本载入" class="nav-link" data-scroll-target="#%E8%84%9A%E6%9C%AC%E8%BD%BD%E5%85%A5"><span class="header-section-number">7.1.10</span> 脚本载入</a></li>
+  <li><a href="#excel" id="toc-excel" class="nav-link" data-scroll-target="#excel"><span class="header-section-number">2.1.3</span> Excel</a></li>
+  <li><a href="#internet-datasets" id="toc-internet-datasets" class="nav-link" data-scroll-target="#internet-datasets"><span class="header-section-number">2.1.4</span> Internet datasets</a></li>
+  <li><a href="#library-datasets" id="toc-library-datasets" class="nav-link" data-scroll-target="#library-datasets"><span class="header-section-number">2.1.5</span> library datasets</a></li>
+  <li><a href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6" id="toc-二进制文件" class="nav-link" data-scroll-target="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6"><span class="header-section-number">2.1.6</span> 二进制文件</a></li>
+  <li><a href="#json" id="toc-json" class="nav-link" data-scroll-target="#json"><span class="header-section-number">2.1.7</span> JSON</a></li>
+  <li><a href="#spsssasstata-dta" id="toc-spsssasstata-dta" class="nav-link" data-scroll-target="#spsssasstata-dta"><span class="header-section-number">2.1.8</span> SPSS/SAS/stata DTA</a></li>
+  <li><a href="#database" id="toc-database" class="nav-link" data-scroll-target="#database"><span class="header-section-number">2.1.9</span> Database</a></li>
+  <li><a href="#%E8%84%9A%E6%9C%AC%E8%BD%BD%E5%85%A5" id="toc-脚本载入" class="nav-link" data-scroll-target="#%E8%84%9A%E6%9C%AC%E8%BD%BD%E5%85%A5"><span class="header-section-number">2.1.10</span> 脚本载入</a></li>
   </ul>
 </li>
   <li>
-<a href="#write" id="toc-write" class="nav-link" data-scroll-target="#write"><span class="header-section-number">7.2</span> Write</a>
+<a href="#write" id="toc-write" class="nav-link" data-scroll-target="#write"><span class="header-section-number">2.2</span> Write</a>
   <ul>
-<li><a href="#%E6%96%87%E6%9C%AC%E8%BE%93%E5%87%BA" id="toc-文本输出" class="nav-link" data-scroll-target="#%E6%96%87%E6%9C%AC%E8%BE%93%E5%87%BA"><span class="header-section-number">7.2.1</span> 文本输出</a></li>
-  <li><a href="#%E5%9B%BE%E7%89%87%E8%BE%93%E5%87%BA" id="toc-图片输出" class="nav-link" data-scroll-target="#%E5%9B%BE%E7%89%87%E8%BE%93%E5%87%BA"><span class="header-section-number">7.2.2</span> 图片输出</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E8%BE%93%E5%87%BA" id="toc-文本输出" class="nav-link" data-scroll-target="#%E6%96%87%E6%9C%AC%E8%BE%93%E5%87%BA"><span class="header-section-number">2.2.1</span> 文本输出</a></li>
+  <li><a href="#%E5%9B%BE%E7%89%87%E8%BE%93%E5%87%BA" id="toc-图片输出" class="nav-link" data-scroll-target="#%E5%9B%BE%E7%89%87%E8%BE%93%E5%87%BA"><span class="header-section-number">2.2.2</span> 图片输出</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./I-O.html">Data science</a></li><li class="breadcrumb-item"><a href="./I-O.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">读入和写出</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">Data science</a></li><li class="breadcrumb-item"><a href="./I-O.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">读入和写出</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">读入和写出</span>
+<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">读入和写出</span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -283,10 +289,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="import" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="import">
-<span class="header-section-number">7.1</span> Import</h2>
-<section id="键盘输入" class="level3" data-number="7.1.1"><h3 data-number="7.1.1" class="anchored" data-anchor-id="键盘输入">
-<span class="header-section-number">7.1.1</span> 键盘输入</h3>
+</header><section id="import" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="import">
+<span class="header-section-number">2.1</span> Import</h2>
+<section id="键盘输入" class="level3" data-number="2.1.1"><h3 data-number="2.1.1" class="anchored" data-anchor-id="键盘输入">
+<span class="header-section-number">2.1.1</span> 键盘输入</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>id<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,age<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,sex<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/edit.html">edit</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
@@ -294,11 +300,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://rdrr.io/r/utils/fix.html">fix</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="文本文件" class="level3" data-number="7.1.2"><h3 data-number="7.1.2" class="anchored" data-anchor-id="文本文件">
-<span class="header-section-number">7.1.2</span> 文本文件</h3>
+</section><section id="文本文件" class="level3" data-number="2.1.2"><h3 data-number="2.1.2" class="anchored" data-anchor-id="文本文件">
+<span class="header-section-number">2.1.2</span> 文本文件</h3>
 <p>常用的分隔符如逗号<code>,</code> ，制表符<code>\t</code>，分号<code>;</code>，空格<code>space</code>，…… 等。</p>
-<section id="utils-utilitiesa-piece-of-computer-software-that-performs-a-particular-task" class="level4" data-number="7.1.2.1"><h4 data-number="7.1.2.1" class="anchored" data-anchor-id="utils-utilitiesa-piece-of-computer-software-that-performs-a-particular-task">
-<span class="header-section-number">7.1.2.1</span> <code>utils::</code> utilities,a piece of computer software that performs a particular task</h4>
+<section id="utils" class="level4" data-number="2.1.2.1"><h4 data-number="2.1.2.1" class="anchored" data-anchor-id="utils">
+<span class="header-section-number">2.1.2.1</span> <code>utils::</code>
+</h4>
+<p>utilities,a piece of computer software that performs a particular task</p>
 <p><code><a href="https://rdrr.io/r/utils/read.table.html">read.table()</a></code> <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code> <code>read.csv2</code></p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 列名(第1行),行标识符 (第1列)</span></span>
@@ -466,8 +474,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="readr" class="level4" data-number="7.1.2.2"><h4 data-number="7.1.2.2" class="anchored" data-anchor-id="readr">
-<span class="header-section-number">7.1.2.2</span> <code>readr::</code>
+</section><section id="readr" class="level4" data-number="2.1.2.2"><h4 data-number="2.1.2.2" class="anchored" data-anchor-id="readr">
+<span class="header-section-number">2.1.2.2</span> <code>readr::</code>
 </h4>
 <p><code><a href="https://rdrr.io/r/utils/read.table.html">read.csv2()</a></code> <code>read_tsv()</code> <code>read_delim()</code></p>
 <div class="cell">
@@ -475,8 +483,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>    <span class="fu">column_to_rownames</span><span class="op">(</span>var <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="excel" class="level3" data-number="7.1.3"><h3 data-number="7.1.3" class="anchored" data-anchor-id="excel">
-<span class="header-section-number">7.1.3</span> Excel</h3>
+</section></section><section id="excel" class="level3" data-number="2.1.3"><h3 data-number="2.1.3" class="anchored" data-anchor-id="excel">
+<span class="header-section-number">2.1.3</span> Excel</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
 <span><span class="co">#read_xls()</span></span>
@@ -596,8 +604,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="internet-datasets" class="level3" data-number="7.1.4"><h3 data-number="7.1.4" class="anchored" data-anchor-id="internet-datasets">
-<span class="header-section-number">7.1.4</span> Internet datasets</h3>
+</section><section id="internet-datasets" class="level3" data-number="2.1.4"><h3 data-number="2.1.4" class="anchored" data-anchor-id="internet-datasets">
+<span class="header-section-number">2.1.4</span> Internet datasets</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">=</span> <span class="st">"https://www.monetdb.org/sites/default/files/voc_tsvs.zip"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span><span class="va">url</span>, <span class="st">"voc_tsvs.zip"</span><span class="op">)</span> <span class="co"># download file</span></span>
@@ -609,8 +617,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">df_co2</span> <span class="op">=</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"extdata/co2.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="library-datasets" class="level3" data-number="7.1.5"><h3 data-number="7.1.5" class="anchored" data-anchor-id="library-datasets">
-<span class="header-section-number">7.1.5</span> library datasets</h3>
+</section><section id="library-datasets" class="level3" data-number="2.1.5"><h3 data-number="2.1.5" class="anchored" data-anchor-id="library-datasets">
+<span class="header-section-number">2.1.5</span> library datasets</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#|eval: false</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"dplyr"</span><span class="op">)</span></span>
@@ -623,8 +631,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; storms                         Storm tracks data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="二进制文件" class="level3" data-number="7.1.6"><h3 data-number="7.1.6" class="anchored" data-anchor-id="二进制文件">
-<span class="header-section-number">7.1.6</span> 二进制文件</h3>
+</section><section id="二进制文件" class="level3" data-number="2.1.6"><h3 data-number="2.1.6" class="anchored" data-anchor-id="二进制文件">
+<span class="header-section-number">2.1.6</span> 二进制文件</h3>
 <p>RDS,R’s custom binary format called RDS</p>
 <p><code>read_rds()</code></p>
 <div class="cell">
@@ -791,8 +799,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="json" class="level3" data-number="7.1.7"><h3 data-number="7.1.7" class="anchored" data-anchor-id="json">
-<span class="header-section-number">7.1.7</span> JSON</h3>
+</section><section id="json" class="level3" data-number="2.1.7"><h3 data-number="2.1.7" class="anchored" data-anchor-id="json">
+<span class="header-section-number">2.1.7</span> JSON</h3>
 <p><em>javascript object notation</em></p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://jeroen.r-universe.dev/jsonlite">jsonlite</a></span><span class="op">)</span></span>
@@ -861,8 +869,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="spsssasstata-dta" class="level3" data-number="7.1.8"><h3 data-number="7.1.8" class="anchored" data-anchor-id="spsssasstata-dta">
-<span class="header-section-number">7.1.8</span> SPSS/SAS/stata DTA</h3>
+</section><section id="spsssasstata-dta" class="level3" data-number="2.1.8"><h3 data-number="2.1.8" class="anchored" data-anchor-id="spsssasstata-dta">
+<span class="header-section-number">2.1.8</span> SPSS/SAS/stata DTA</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://haven.tidyverse.org/reference/read_spss.html">read_spss</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -874,15 +882,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://haven.tidyverse.org/reference/read_dta.html">read_stata</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="database" class="level3" data-number="7.1.9"><h3 data-number="7.1.9" class="anchored" data-anchor-id="database">
-<span class="header-section-number">7.1.9</span> Database</h3>
+</section><section id="database" class="level3" data-number="2.1.9"><h3 data-number="2.1.9" class="anchored" data-anchor-id="database">
+<span class="header-section-number">2.1.9</span> Database</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dbi.r-dbi.org">DBI</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dbplyr.tidyverse.org/">dbplyr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="脚本载入" class="level3" data-number="7.1.10"><h3 data-number="7.1.10" class="anchored" data-anchor-id="脚本载入">
-<span class="header-section-number">7.1.10</span> 脚本载入</h3>
+</section><section id="脚本载入" class="level3" data-number="2.1.10"><h3 data-number="2.1.10" class="anchored" data-anchor-id="脚本载入">
+<span class="header-section-number">2.1.10</span> 脚本载入</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"data/add_function.R"</span><span class="op">)</span></span>
 <span><span class="fu">add</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">24</span>,<span class="fl">4</span><span class="op">)</span>,<span class="fl">4</span><span class="op">)</span></span>
@@ -905,10 +913,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section></section><section id="write" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="write">
-<span class="header-section-number">7.2</span> Write</h2>
-<section id="文本输出" class="level3" data-number="7.2.1"><h3 data-number="7.2.1" class="anchored" data-anchor-id="文本输出">
-<span class="header-section-number">7.2.1</span> 文本输出</h3>
+</section></section><section id="write" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="write">
+<span class="header-section-number">2.2</span> Write</h2>
+<section id="文本输出" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="文本输出">
+<span class="header-section-number">2.2.1</span> 文本输出</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">write_csv</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu">write_xlsx</span><span class="op">(</span><span class="op">)</span></span>
@@ -924,11 +932,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://rdrr.io/r/base/sink.html">sink</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="图片输出" class="level3" data-number="7.2.2"><h3 data-number="7.2.2" class="anchored" data-anchor-id="图片输出">
-<span class="header-section-number">7.2.2</span> 图片输出</h3>
+</section><section id="图片输出" class="level3" data-number="2.2.2"><h3 data-number="2.2.2" class="anchored" data-anchor-id="图片输出">
+<span class="header-section-number">2.2.2</span> 图片输出</h3>
+<p>Rstudio 直接 Export save as Image/PDF，copy to clipboard</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#|eval: false </span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"data/pdf_output.pdf"</span><span class="op">)</span>       <span class="co"># bmp,jpeg,png，SVG</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"data/pdf_output.pdf"</span><span class="op">)</span>       <span class="co"># bmp,jpeg,png，SVG</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">25</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">25</span>,pch<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">25</span>,col<span class="op">=</span><span class="st">"green"</span>,bg<span class="op">=</span><span class="st">"red"</span>,type <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span></span>
 <span><span class="kw">while</span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.list</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>  <span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1397,13 +1405,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./functional_programming.html" class="pagination-link" aria-label="函数式编程">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">函数式编程</span></span>
+      <a href="./type_class.html" class="pagination-link" aria-label="数据类型和数据结构">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./useful_function.html" class="pagination-link" aria-label="实用函数">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">实用函数</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">实用函数</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1427,157 +1435,160 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>常用的分隔符如逗号<span class="in">`,`</span> ，制表符<span class="in">`\t`</span>，分号<span class="in">`;`</span>，空格<span class="in">`space`</span>，...... 等。</span>
 <span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `utils::` utilities,a piece of computer software that performs a particular task</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `utils::`</span></span>
 <span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="in">`read.table()`</span> <span class="in">`read.csv()`</span> <span class="in">`read.csv2`</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>utilities,a piece of computer software that performs a particular task</span>
 <span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 列名(第1行),行标识符 (第1列)</span></span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">read.table</span>(<span class="st">"data/leadership.txt"</span>,<span class="at">header =</span> <span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">","</span>,<span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/leadership.txt"</span>,<span class="at">header =</span> <span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">","</span>,<span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="fu">read.table</span>(<span class="st">"data/leadership.txt"</span>,<span class="at">header =</span> <span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">","</span>,<span class="at">row.names =</span> <span class="st">"id"</span>) </span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `readr::`</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="in">`read.table()`</span> <span class="in">`read.csv()`</span> <span class="in">`read.csv2`</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 列名(第1行),行标识符 (第1列)</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">read.table</span>(<span class="st">"data/leadership.txt"</span>,<span class="at">header =</span> <span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">","</span>,<span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/leadership.txt"</span>,<span class="at">header =</span> <span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">","</span>,<span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="fu">read.table</span>(<span class="st">"data/leadership.txt"</span>,<span class="at">header =</span> <span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">","</span>,<span class="at">row.names =</span> <span class="st">"id"</span>) </span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a><span class="in">`read.csv2()`</span> <span class="in">`read_tsv()`</span> <span class="in">`read_delim()`</span></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a><span class="fu">#### `readr::`</span></span>
 <span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/leadership.txt"</span>,<span class="at">col_names =</span> <span class="cn">TRUE</span>,<span class="at">id=</span><span class="st">"file_path"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">"id"</span>)</span>
-<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a><span class="fu">### Excel</span></span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="in">`read.csv2()`</span> <span class="in">`read_tsv()`</span> <span class="in">`read_delim()`</span></span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/leadership.txt"</span>,<span class="at">col_names =</span> <span class="cn">TRUE</span>,<span class="at">id=</span><span class="st">"file_path"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">"id"</span>)</span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a><span class="co">#read_xls()</span></span>
-<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a><span class="co">#read_xlsx()</span></span>
-<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">"data/example.xlsx"</span>,<span class="at">sheet =</span> <span class="dv">1</span>,<span class="at">range =</span> <span class="st">"A1:D11"</span>)</span>
-<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">"data/example.xlsx"</span>,<span class="dv">2</span>)</span>
-<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Internet datasets</span></span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### Excel</span></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a><span class="co">#read_xls()</span></span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a><span class="co">#read_xlsx()</span></span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">"data/example.xlsx"</span>,<span class="at">sheet =</span> <span class="dv">1</span>,<span class="at">range =</span> <span class="st">"A1:D11"</span>)</span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">"data/example.xlsx"</span>,<span class="dv">2</span>)</span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>url <span class="ot">=</span> <span class="st">"https://www.monetdb.org/sites/default/files/voc_tsvs.zip"</span></span>
-<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">"voc_tsvs.zip"</span>) <span class="co"># download file</span></span>
-<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"voc_tsvs.zip"</span>, <span class="at">exdir =</span> <span class="st">"data"</span>) <span class="co"># unzip files</span></span>
-<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a><span class="fu">file.remove</span>(<span class="st">"voc_tsvs.zip"</span>) <span class="co"># tidy up by removing the zip file</span></span>
-<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>url <span class="ot">=</span> <span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/datasets/co2.csv"</span></span>
-<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">"extdata/co2.csv"</span>)</span>
-<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>df_co2 <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"extdata/co2.csv"</span>)</span>
-<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a><span class="fu">### library datasets</span></span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a><span class="fu">### Internet datasets</span></span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>url <span class="ot">=</span> <span class="st">"https://www.monetdb.org/sites/default/files/voc_tsvs.zip"</span></span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">"voc_tsvs.zip"</span>) <span class="co"># download file</span></span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"voc_tsvs.zip"</span>, <span class="at">exdir =</span> <span class="st">"data"</span>) <span class="co"># unzip files</span></span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a><span class="fu">file.remove</span>(<span class="st">"voc_tsvs.zip"</span>) <span class="co"># tidy up by removing the zip file</span></span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>url <span class="ot">=</span> <span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/datasets/co2.csv"</span></span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, <span class="st">"extdata/co2.csv"</span>)</span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a>df_co2 <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"extdata/co2.csv"</span>)</span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval: false</span></span>
-<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">"dplyr"</span>)</span>
-<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data sets in package ‘dplyr’:</span></span>
-<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; band_instruments               Band membership</span></span>
-<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; band_instruments2              Band membership</span></span>
-<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; band_members                   Band membership</span></span>
-<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; starwars                       Starwars characters</span></span>
-<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; storms                         Storm tracks data</span></span>
-<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### 二进制文件</span></span>
+<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a><span class="fu">### library datasets</span></span>
+<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval: false</span></span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">"dplyr"</span>)</span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data sets in package ‘dplyr’:</span></span>
+<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; band_instruments               Band membership</span></span>
+<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; band_instruments2              Band membership</span></span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; band_members                   Band membership</span></span>
+<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; starwars                       Starwars characters</span></span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; storms                         Storm tracks data</span></span>
+<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a>RDS,R's custom binary format called RDS</span>
+<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a><span class="fu">### 二进制文件</span></span>
 <span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a><span class="in">`read_rds()`</span></span>
+<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a>RDS,R's custom binary format called RDS</span>
 <span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-101"><a href="#cb19-101" aria-hidden="true" tabindex="-1"></a><span class="fu">write_rds</span>(x,<span class="at">file =</span> <span class="st">"data/leadership.parquet"</span>)</span>
-<span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a><span class="fu">read_rds</span>(<span class="st">"data/leadership.rds"</span>)</span>
-<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a>Parquet,a fast binary and columnar storage file format(列式存储文件)</span>
+<span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a><span class="in">`read_rds()`</span></span>
+<span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a><span class="fu">write_rds</span>(x,<span class="at">file =</span> <span class="st">"data/leadership.parquet"</span>)</span>
+<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a><span class="fu">read_rds</span>(<span class="st">"data/leadership.rds"</span>)</span>
+<span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-106"><a href="#cb19-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-109"><a href="#cb19-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-110"><a href="#cb19-110" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb19-111"><a href="#cb19-111" aria-hidden="true" tabindex="-1"></a><span class="fu">write_parquet</span>(x,<span class="at">sink =</span> <span class="st">"data/leadership.parquet"</span>)</span>
-<span id="cb19-112"><a href="#cb19-112" aria-hidden="true" tabindex="-1"></a><span class="fu">read_parquet</span>(<span class="at">file =</span> <span class="st">"data/leadership.parquet"</span> )</span>
-<span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON</span></span>
+<span id="cb19-107"><a href="#cb19-107" aria-hidden="true" tabindex="-1"></a>Parquet,a fast binary and columnar storage file format(列式存储文件)</span>
+<span id="cb19-108"><a href="#cb19-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-111"><a href="#cb19-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-112"><a href="#cb19-112" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a><span class="fu">write_parquet</span>(x,<span class="at">sink =</span> <span class="st">"data/leadership.parquet"</span>)</span>
+<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a><span class="fu">read_parquet</span>(<span class="at">file =</span> <span class="st">"data/leadership.parquet"</span> )</span>
+<span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-116"><a href="#cb19-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a>*javascript object notation*</span>
+<span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### JSON</span></span>
 <span id="cb19-118"><a href="#cb19-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-121"><a href="#cb19-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-122"><a href="#cb19-122" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a><span class="fu">read_json</span>(<span class="at">path =</span> <span class="st">"data/3龙门币3赤金.json"</span>,<span class="at">simplifyVector =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-124"><a href="#cb19-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-125"><a href="#cb19-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-126"><a href="#cb19-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### SPSS/SAS/stata DTA</span></span>
+<span id="cb19-119"><a href="#cb19-119" aria-hidden="true" tabindex="-1"></a>*javascript object notation*</span>
+<span id="cb19-120"><a href="#cb19-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-124"><a href="#cb19-124" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb19-125"><a href="#cb19-125" aria-hidden="true" tabindex="-1"></a><span class="fu">read_json</span>(<span class="at">path =</span> <span class="st">"data/3龙门币3赤金.json"</span>,<span class="at">simplifyVector =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-126"><a href="#cb19-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-127"><a href="#cb19-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-130"><a href="#cb19-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-131"><a href="#cb19-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb19-132"><a href="#cb19-132" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb19-133"><a href="#cb19-133" aria-hidden="true" tabindex="-1"></a><span class="fu">read_spss</span>()</span>
-<span id="cb19-134"><a href="#cb19-134" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sav</span>()</span>
-<span id="cb19-135"><a href="#cb19-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-136"><a href="#cb19-136" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sas</span>()</span>
+<span id="cb19-128"><a href="#cb19-128" aria-hidden="true" tabindex="-1"></a><span class="fu">### SPSS/SAS/stata DTA</span></span>
+<span id="cb19-129"><a href="#cb19-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-132"><a href="#cb19-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-133"><a href="#cb19-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb19-134"><a href="#cb19-134" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb19-135"><a href="#cb19-135" aria-hidden="true" tabindex="-1"></a><span class="fu">read_spss</span>()</span>
+<span id="cb19-136"><a href="#cb19-136" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sav</span>()</span>
 <span id="cb19-137"><a href="#cb19-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-138"><a href="#cb19-138" aria-hidden="true" tabindex="-1"></a><span class="fu">read_dta</span>()</span>
-<span id="cb19-139"><a href="#cb19-139" aria-hidden="true" tabindex="-1"></a><span class="fu">read_stata</span>()</span>
-<span id="cb19-140"><a href="#cb19-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-141"><a href="#cb19-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-142"><a href="#cb19-142" aria-hidden="true" tabindex="-1"></a><span class="fu">### Database</span></span>
+<span id="cb19-138"><a href="#cb19-138" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sas</span>()</span>
+<span id="cb19-139"><a href="#cb19-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-140"><a href="#cb19-140" aria-hidden="true" tabindex="-1"></a><span class="fu">read_dta</span>()</span>
+<span id="cb19-141"><a href="#cb19-141" aria-hidden="true" tabindex="-1"></a><span class="fu">read_stata</span>()</span>
+<span id="cb19-142"><a href="#cb19-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-143"><a href="#cb19-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-146"><a href="#cb19-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-147"><a href="#cb19-147" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb19-149"><a href="#cb19-149" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
-<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-152"><a href="#cb19-152" aria-hidden="true" tabindex="-1"></a><span class="fu">### 脚本载入</span></span>
+<span id="cb19-144"><a href="#cb19-144" aria-hidden="true" tabindex="-1"></a><span class="fu">### Database</span></span>
+<span id="cb19-145"><a href="#cb19-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-149"><a href="#cb19-149" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
+<span id="cb19-152"><a href="#cb19-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-153"><a href="#cb19-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-156"><a href="#cb19-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-157"><a href="#cb19-157" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"data/add_function.R"</span>)</span>
-<span id="cb19-158"><a href="#cb19-158" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">24</span>,<span class="dv">4</span>),<span class="dv">4</span>)</span>
-<span id="cb19-159"><a href="#cb19-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-160"><a href="#cb19-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-161"><a href="#cb19-161" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb19-162"><a href="#cb19-162" aria-hidden="true" tabindex="-1"></a>add_function</span>
-<span id="cb19-163"><a href="#cb19-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-166"><a href="#cb19-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-167"><a href="#cb19-167" aria-hidden="true" tabindex="-1"></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){</span>
-<span id="cb19-168"><a href="#cb19-168" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x<span class="sc">+</span>y)</span>
-<span id="cb19-169"><a href="#cb19-169" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb19-170"><a href="#cb19-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-171"><a href="#cb19-171" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb19-172"><a href="#cb19-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-173"><a href="#cb19-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Write</span></span>
+<span id="cb19-154"><a href="#cb19-154" aria-hidden="true" tabindex="-1"></a><span class="fu">### 脚本载入</span></span>
+<span id="cb19-155"><a href="#cb19-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-158"><a href="#cb19-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-159"><a href="#cb19-159" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"data/add_function.R"</span>)</span>
+<span id="cb19-160"><a href="#cb19-160" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">24</span>,<span class="dv">4</span>),<span class="dv">4</span>)</span>
+<span id="cb19-161"><a href="#cb19-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-162"><a href="#cb19-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-163"><a href="#cb19-163" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb19-164"><a href="#cb19-164" aria-hidden="true" tabindex="-1"></a>add_function</span>
+<span id="cb19-165"><a href="#cb19-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-168"><a href="#cb19-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-169"><a href="#cb19-169" aria-hidden="true" tabindex="-1"></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){</span>
+<span id="cb19-170"><a href="#cb19-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x<span class="sc">+</span>y)</span>
+<span id="cb19-171"><a href="#cb19-171" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-172"><a href="#cb19-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-173"><a href="#cb19-173" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb19-174"><a href="#cb19-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-175"><a href="#cb19-175" aria-hidden="true" tabindex="-1"></a><span class="fu">### 文本输出</span></span>
+<span id="cb19-175"><a href="#cb19-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## Write</span></span>
 <span id="cb19-176"><a href="#cb19-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-177"><a href="#cb19-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb19-178"><a href="#cb19-178" aria-hidden="true" tabindex="-1"></a><span class="in">write_csv()</span></span>
-<span id="cb19-179"><a href="#cb19-179" aria-hidden="true" tabindex="-1"></a><span class="in">write_xlsx()</span></span>
-<span id="cb19-180"><a href="#cb19-180" aria-hidden="true" tabindex="-1"></a><span class="in">write_rds()</span></span>
-<span id="cb19-181"><a href="#cb19-181" aria-hidden="true" tabindex="-1"></a><span class="in">write_parquet()</span></span>
-<span id="cb19-182"><a href="#cb19-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-183"><a href="#cb19-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-186"><a href="#cb19-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-187"><a href="#cb19-187" aria-hidden="true" tabindex="-1"></a><span class="fu">sink</span>(<span class="st">"data/sink_output.txt"</span>,<span class="at">append =</span> F,<span class="at">split =</span> T)  <span class="co"># split =T 输出到控制台和文件</span></span>
-<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a>letters</span>
-<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a><span class="fu">sink</span>(<span class="cn">NULL</span>)</span>
-<span id="cb19-190"><a href="#cb19-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb19-191"><a href="#cb19-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-192"><a href="#cb19-192" aria-hidden="true" tabindex="-1"></a><span class="fu">### 图片输出</span></span>
+<span id="cb19-177"><a href="#cb19-177" aria-hidden="true" tabindex="-1"></a><span class="fu">### 文本输出</span></span>
+<span id="cb19-178"><a href="#cb19-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-179"><a href="#cb19-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb19-180"><a href="#cb19-180" aria-hidden="true" tabindex="-1"></a><span class="in">write_csv()</span></span>
+<span id="cb19-181"><a href="#cb19-181" aria-hidden="true" tabindex="-1"></a><span class="in">write_xlsx()</span></span>
+<span id="cb19-182"><a href="#cb19-182" aria-hidden="true" tabindex="-1"></a><span class="in">write_rds()</span></span>
+<span id="cb19-183"><a href="#cb19-183" aria-hidden="true" tabindex="-1"></a><span class="in">write_parquet()</span></span>
+<span id="cb19-184"><a href="#cb19-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-185"><a href="#cb19-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a><span class="fu">sink</span>(<span class="st">"data/sink_output.txt"</span>,<span class="at">append =</span> F,<span class="at">split =</span> T)  <span class="co"># split =T 输出到控制台和文件</span></span>
+<span id="cb19-190"><a href="#cb19-190" aria-hidden="true" tabindex="-1"></a>letters</span>
+<span id="cb19-191"><a href="#cb19-191" aria-hidden="true" tabindex="-1"></a><span class="fu">sink</span>(<span class="cn">NULL</span>)</span>
+<span id="cb19-192"><a href="#cb19-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb19-193"><a href="#cb19-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-196"><a href="#cb19-196" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-197"><a href="#cb19-197" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval: false </span></span>
-<span id="cb19-198"><a href="#cb19-198" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="at">file =</span> <span class="st">"data/pdf_output.pdf"</span>)       <span class="co"># bmp,jpeg,png，SVG</span></span>
-<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>,<span class="at">pch=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>,<span class="at">col=</span><span class="st">"green"</span>,<span class="at">bg=</span><span class="st">"red"</span>,<span class="at">type =</span> <span class="st">"b"</span>)</span>
-<span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(<span class="sc">!</span><span class="fu">is.null</span>(<span class="fu">dev.list</span>()))  <span class="fu">dev.off</span>() </span>
-<span id="cb19-201"><a href="#cb19-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-194"><a href="#cb19-194" aria-hidden="true" tabindex="-1"></a><span class="fu">### 图片输出</span></span>
+<span id="cb19-195"><a href="#cb19-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-196"><a href="#cb19-196" aria-hidden="true" tabindex="-1"></a>Rstudio 直接 Export save as Image/PDF，copy to clipboard</span>
+<span id="cb19-197"><a href="#cb19-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-198"><a href="#cb19-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a><span class="in">pdf(file = "data/pdf_output.pdf")       # bmp,jpeg,png，SVG</span></span>
+<span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a><span class="in">plot(1:25,1:25,pch=1:25,col="green",bg="red",type = "b")</span></span>
+<span id="cb19-201"><a href="#cb19-201" aria-hidden="true" tabindex="-1"></a><span class="in">while(!is.null(dev.list()))  dev.off() </span></span>
+<span id="cb19-202"><a href="#cb19-202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

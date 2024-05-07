@@ -227,6 +227,15 @@ lapply(X = x,FUN = quantile)
 sapply(x, quantile)
 ```
 
+### `vapply`
+
+```{r}
+by_cyl <- split(mtcars, mtcars$cyl)
+models <- lapply(by_cyl, function(data) lm(mpg ~ wt, data = data))
+models
+vapply(models, function(x) coef(x)[[2]], double(1))
+```
+
 mapply for applying a function to multiple arguments,
 
 rapply for a recursive version of lapply()

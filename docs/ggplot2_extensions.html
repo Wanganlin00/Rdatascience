@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.553">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>R data science - 11&nbsp; ggplot2 extensions</title>
+<title>R数据科学与泛函式编程 - 6&nbsp; ggplot2 extensions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./custom_functions.html" rel="next">
 <link href="./ggplot2_graphics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -107,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./I-O.html">Data science</a></li><li class="breadcrumb-item"><a href="./ggplot2_extensions.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">Data science</a></li><li class="breadcrumb-item"><a href="./ggplot2_extensions.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -118,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R data science</a> 
+      <a href="./">R数据科学与泛函式编程</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -144,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Programming</span></a>
+ <span class="menu-text">Data science</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -152,38 +153,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./basic_data_type_class.html" class="sidebar-item-text sidebar-link">
+  <a href="./type_class.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
+  <a href="./I-O.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">读入和写出</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">函数</span></span></a>
+  <a href="./useful_function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">环境</span></span></a>
+  <a href="./base_graphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">base graphics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./efficient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">高效</span></span></a>
+  <a href="./ggplot2_graphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functional_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
+  <a href="./ggplot2_extensions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./custom_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
   </div>
 </li>
       </ul>
@@ -191,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Data science</span></a>
+ <span class="menu-text">Functional Programming</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -199,32 +206,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-O.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">读入和写出</span></span></a>
+  <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./useful_function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">函数</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./base_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">basic graphics</span></span></a>
+  <a href="./environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">环境</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot2_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span></a>
+  <a href="./efficient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">高效</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot2_extensions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></span></a>
+  <a href="./functionals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">泛函</span></span></a>
   </div>
 </li>
       </ul>
@@ -237,36 +244,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#ggsci" id="toc-ggsci" class="nav-link active" data-scroll-target="#ggsci"><span class="header-section-number">11.1</span> ggsci</a></li>
+<li><a href="#ggsci" id="toc-ggsci" class="nav-link active" data-scroll-target="#ggsci"><span class="header-section-number">6.1</span> ggsci</a></li>
   <li>
-<a href="#ggpubr" id="toc-ggpubr" class="nav-link" data-scroll-target="#ggpubr"><span class="header-section-number">11.2</span> ggpubr</a>
+<a href="#ggpubr" id="toc-ggpubr" class="nav-link" data-scroll-target="#ggpubr"><span class="header-section-number">6.2</span> ggpubr</a>
   <ul>
-<li><a href="#ggboxplot" id="toc-ggboxplot" class="nav-link" data-scroll-target="#ggboxplot"><span class="header-section-number">11.2.1</span> ggboxplot</a></li>
-  <li><a href="#ggviolin" id="toc-ggviolin" class="nav-link" data-scroll-target="#ggviolin"><span class="header-section-number">11.2.2</span> ggviolin</a></li>
-  <li><a href="#ggbarplot" id="toc-ggbarplot" class="nav-link" data-scroll-target="#ggbarplot"><span class="header-section-number">11.2.3</span> ggbarplot</a></li>
+<li><a href="#ggboxplot" id="toc-ggboxplot" class="nav-link" data-scroll-target="#ggboxplot"><span class="header-section-number">6.2.1</span> ggboxplot</a></li>
+  <li><a href="#ggviolin" id="toc-ggviolin" class="nav-link" data-scroll-target="#ggviolin"><span class="header-section-number">6.2.2</span> ggviolin</a></li>
+  <li><a href="#ggbarplot" id="toc-ggbarplot" class="nav-link" data-scroll-target="#ggbarplot"><span class="header-section-number">6.2.3</span> ggbarplot</a></li>
   <li>
-<a href="#grouped-bar-plots-significance" id="toc-grouped-bar-plots-significance" class="nav-link" data-scroll-target="#grouped-bar-plots-significance"><span class="header-section-number">11.2.4</span> Grouped bar plots + significance</a>
+<a href="#grouped-bar-plots-significance" id="toc-grouped-bar-plots-significance" class="nav-link" data-scroll-target="#grouped-bar-plots-significance"><span class="header-section-number">6.2.4</span> Grouped bar plots + significance</a>
   <ul class="collapse">
-<li><a href="#%E5%88%86%E7%BB%84%E5%B9%B6%E5%88%97%E7%BB%84%E5%86%85%E7%BB%84%E9%97%B4%E6%98%BE%E8%91%97%E6%80%A7p%E5%80%BC" id="toc-分组并列组内组间显著性p值" class="nav-link" data-scroll-target="#%E5%88%86%E7%BB%84%E5%B9%B6%E5%88%97%E7%BB%84%E5%86%85%E7%BB%84%E9%97%B4%E6%98%BE%E8%91%97%E6%80%A7p%E5%80%BC"><span class="header-section-number">11.2.4.1</span> 分组并列，组内组间显著性p值</a></li>
+<li><a href="#%E5%88%86%E7%BB%84%E5%B9%B6%E5%88%97%E7%BB%84%E5%86%85%E7%BB%84%E9%97%B4%E6%98%BE%E8%91%97%E6%80%A7p%E5%80%BC" id="toc-分组并列组内组间显著性p值" class="nav-link" data-scroll-target="#%E5%88%86%E7%BB%84%E5%B9%B6%E5%88%97%E7%BB%84%E5%86%85%E7%BB%84%E9%97%B4%E6%98%BE%E8%91%97%E6%80%A7p%E5%80%BC"><span class="header-section-number">6.2.4.1</span> 分组并列，组内组间显著性p值</a></li>
   </ul>
 </li>
-  <li><a href="#ggdotchart-clevelands-dot-plots" id="toc-ggdotchart-clevelands-dot-plots" class="nav-link" data-scroll-target="#ggdotchart-clevelands-dot-plots"><span class="header-section-number">11.2.5</span> ggdotchart Cleveland’s Dot Plots</a></li>
-  <li><a href="#ggdotplot" id="toc-ggdotplot" class="nav-link" data-scroll-target="#ggdotplot"><span class="header-section-number">11.2.6</span> ggdotplot</a></li>
+  <li><a href="#ggdotchart-clevelands-dot-plots" id="toc-ggdotchart-clevelands-dot-plots" class="nav-link" data-scroll-target="#ggdotchart-clevelands-dot-plots"><span class="header-section-number">6.2.5</span> ggdotchart Cleveland’s Dot Plots</a></li>
+  <li><a href="#ggdotplot" id="toc-ggdotplot" class="nav-link" data-scroll-target="#ggdotplot"><span class="header-section-number">6.2.6</span> ggdotplot</a></li>
   </ul>
 </li>
-  <li><a href="#ggrepel" id="toc-ggrepel" class="nav-link" data-scroll-target="#ggrepel"><span class="header-section-number">11.3</span> ggrepel</a></li>
-  <li><a href="#%E7%83%AD%E5%9B%BE" id="toc-热图" class="nav-link" data-scroll-target="#%E7%83%AD%E5%9B%BE"><span class="header-section-number">11.4</span> 热图</a></li>
-  <li><a href="#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" id="toc-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" class="nav-link" data-scroll-target="#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram"><span class="header-section-number">11.5</span> 相关图</a></li>
-  <li><a href="#%E5%B1%B1%E8%84%8A%E5%9B%BE" id="toc-山脊图" class="nav-link" data-scroll-target="#%E5%B1%B1%E8%84%8A%E5%9B%BE"><span class="header-section-number">11.6</span> 山脊图</a></li>
-  <li><a href="#plotly" id="toc-plotly" class="nav-link" data-scroll-target="#plotly"><span class="header-section-number">11.7</span> plotly</a></li>
-  <li><a href="#marginal-histogram-boxplot" id="toc-marginal-histogram-boxplot" class="nav-link" data-scroll-target="#marginal-histogram-boxplot"><span class="header-section-number">11.8</span> Marginal Histogram / Boxplot</a></li>
-  <li><a href="#%E6%A3%AE%E6%9E%97%E5%9B%BE" id="toc-森林图" class="nav-link" data-scroll-target="#%E6%A3%AE%E6%9E%97%E5%9B%BE"><span class="header-section-number">11.9</span> 森林图</a></li>
+  <li><a href="#ggrepel" id="toc-ggrepel" class="nav-link" data-scroll-target="#ggrepel"><span class="header-section-number">6.3</span> ggrepel</a></li>
+  <li><a href="#%E7%83%AD%E5%9B%BE" id="toc-热图" class="nav-link" data-scroll-target="#%E7%83%AD%E5%9B%BE"><span class="header-section-number">6.4</span> 热图</a></li>
+  <li><a href="#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" id="toc-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" class="nav-link" data-scroll-target="#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram"><span class="header-section-number">6.5</span> 相关图</a></li>
+  <li><a href="#%E5%B1%B1%E8%84%8A%E5%9B%BE" id="toc-山脊图" class="nav-link" data-scroll-target="#%E5%B1%B1%E8%84%8A%E5%9B%BE"><span class="header-section-number">6.6</span> 山脊图</a></li>
+  <li><a href="#plotly" id="toc-plotly" class="nav-link" data-scroll-target="#plotly"><span class="header-section-number">6.7</span> plotly</a></li>
+  <li><a href="#marginal-histogram-boxplot" id="toc-marginal-histogram-boxplot" class="nav-link" data-scroll-target="#marginal-histogram-boxplot"><span class="header-section-number">6.8</span> Marginal Histogram / Boxplot</a></li>
+  <li><a href="#%E6%A3%AE%E6%9E%97%E5%9B%BE" id="toc-森林图" class="nav-link" data-scroll-target="#%E6%A3%AE%E6%9E%97%E5%9B%BE"><span class="header-section-number">6.9</span> 森林图</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./I-O.html">Data science</a></li><li class="breadcrumb-item"><a href="./ggplot2_extensions.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">Data science</a></li><li class="breadcrumb-item"><a href="./ggplot2_extensions.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span>
+<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2 extensions</span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -282,8 +289,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><p><a href="https://exts.ggplot2.tidyverse.org/gallery/" class="uri">https://exts.ggplot2.tidyverse.org/gallery/</a></p>
-<section id="ggsci" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="ggsci">
-<span class="header-section-number">11.1</span> ggsci</h2>
+<section id="ggsci" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="ggsci">
+<span class="header-section-number">6.1</span> ggsci</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://nanx.me/ggsci/">ggsci</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -292,13 +299,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>jco</p>
 <p>nejm</p>
 <p>gsea</p>
-</section><section id="ggpubr" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="ggpubr">
-<span class="header-section-number">11.2</span> ggpubr</h2>
+</section><section id="ggpubr" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="ggpubr">
+<span class="header-section-number">6.2</span> ggpubr</h2>
 <p>ggplot2 with Publication Ready Graphics in R</p>
 <p><a href="https://rpkgs.datanovia.com/ggpubr/" class="uri">https://rpkgs.datanovia.com/ggpubr/</a></p>
 <p><a href="https://www.datanovia.com/en/blog/tag/ggpubr/" class="uri">https://www.datanovia.com/en/blog/tag/ggpubr/</a></p>
-<section id="ggboxplot" class="level3" data-number="11.2.1"><h3 data-number="11.2.1" class="anchored" data-anchor-id="ggboxplot">
-<span class="header-section-number">11.2.1</span> ggboxplot</h3>
+<section id="ggboxplot" class="level3" data-number="6.2.1"><h3 data-number="6.2.1" class="anchored" data-anchor-id="ggboxplot">
+<span class="header-section-number">6.2.1</span> ggboxplot</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"ToothGrowth"</span><span class="op">)</span></span>
@@ -331,8 +338,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="ggviolin" class="level3" data-number="11.2.2"><h3 data-number="11.2.2" class="anchored" data-anchor-id="ggviolin">
-<span class="header-section-number">11.2.2</span> ggviolin</h3>
+</section><section id="ggviolin" class="level3" data-number="6.2.2"><h3 data-number="6.2.2" class="anchored" data-anchor-id="ggviolin">
+<span class="header-section-number">6.2.2</span> ggviolin</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html">ggviolin</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
 <span>               x <span class="op">=</span> <span class="st">"dose"</span>,</span>
@@ -354,8 +361,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="ggbarplot" class="level3" data-number="11.2.3"><h3 data-number="11.2.3" class="anchored" data-anchor-id="ggbarplot">
-<span class="header-section-number">11.2.3</span> ggbarplot</h3>
+</section><section id="ggbarplot" class="level3" data-number="6.2.3"><h3 data-number="6.2.3" class="anchored" data-anchor-id="ggbarplot">
+<span class="header-section-number">6.2.3</span> ggbarplot</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span></span>
 <span>    data <span class="op">=</span> <span class="va">df</span>,</span>
@@ -384,8 +391,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="grouped-bar-plots-significance" class="level3" data-number="11.2.4"><h3 data-number="11.2.4" class="anchored" data-anchor-id="grouped-bar-plots-significance">
-<span class="header-section-number">11.2.4</span> Grouped bar plots + significance</h3>
+</section><section id="grouped-bar-plots-significance" class="level3" data-number="6.2.4"><h3 data-number="6.2.4" class="anchored" data-anchor-id="grouped-bar-plots-significance">
+<span class="header-section-number">6.2.4</span> Grouped bar plots + significance</h3>
 <p><a href="https://www.datanovia.com/en/blog/how-to-add-p-values-onto-a-grouped-ggplot-using-the-ggpubr-r-package/" class="uri">https://www.datanovia.com/en/blog/how-to-add-p-values-onto-a-grouped-ggplot-using-the-ggpubr-r-package/</a></p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ToothGrowth</span><span class="op">$</span><span class="va">dose</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">ToothGrowth</span><span class="op">$</span><span class="va">dose</span><span class="op">)</span></span>
@@ -492,8 +499,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="分组并列组内组间显著性p值" class="level4" data-number="11.2.4.1"><h4 data-number="11.2.4.1" class="anchored" data-anchor-id="分组并列组内组间显著性p值">
-<span class="header-section-number">11.2.4.1</span> 分组并列，组内组间显著性p值</h4>
+<section id="分组并列组内组间显著性p值" class="level4" data-number="6.2.4.1"><h4 data-number="6.2.4.1" class="anchored" data-anchor-id="分组并列组内组间显著性p值">
+<span class="header-section-number">6.2.4.1</span> 分组并列，组内组间显著性p值</h4>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/rstatix/">rstatix</a></span><span class="op">)</span></span>
@@ -678,8 +685,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section></section><section id="ggdotchart-clevelands-dot-plots" class="level3" data-number="11.2.5"><h3 data-number="11.2.5" class="anchored" data-anchor-id="ggdotchart-clevelands-dot-plots">
-<span class="header-section-number">11.2.5</span> ggdotchart Cleveland’s Dot Plots</h3>
+</section></section><section id="ggdotchart-clevelands-dot-plots" class="level3" data-number="6.2.5"><h3 data-number="6.2.5" class="anchored" data-anchor-id="ggdotchart-clevelands-dot-plots">
+<span class="header-section-number">6.2.5</span> ggdotchart Cleveland’s Dot Plots</h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 滑珠图</span></span>
 <span><span class="va">mtcars</span> <span class="op">|&gt;</span> <span class="fu">rownames_to_column</span><span class="op">(</span>var <span class="op">=</span> <span class="st">"name"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -724,10 +731,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="ggdotplot" class="level3" data-number="11.2.6"><h3 data-number="11.2.6" class="anchored" data-anchor-id="ggdotplot">
-<span class="header-section-number">11.2.6</span> ggdotplot</h3>
-</section></section><section id="ggrepel" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="ggrepel">
-<span class="header-section-number">11.3</span> ggrepel</h2>
+</section><section id="ggdotplot" class="level3" data-number="6.2.6"><h3 data-number="6.2.6" class="anchored" data-anchor-id="ggdotplot">
+<span class="header-section-number">6.2.6</span> ggdotplot</h3>
+</section></section><section id="ggrepel" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="ggrepel">
+<span class="header-section-number">6.3</span> ggrepel</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggrepel.slowkow.com/">ggrepel</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span> <span class="va">wt</span>, y <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -751,16 +758,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co"># geom_label_repel 带白底外框</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="热图" class="level2" data-number="11.4"><h2 data-number="11.4" class="anchored" data-anchor-id="热图">
-<span class="header-section-number">11.4</span> 热图</h2>
-</section><section id="ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" class="level2" data-number="11.5"><h2 data-number="11.5" class="anchored" data-anchor-id="ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram">
-<span class="header-section-number">11.5</span> 相关图</h2>
+</section><section id="热图" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="热图">
+<span class="header-section-number">6.4</span> 热图</h2>
+</section><section id="ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram">
+<span class="header-section-number">6.5</span> 相关图</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2">ggcorrplot</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="山脊图" class="level2" data-number="11.6"><h2 data-number="11.6" class="anchored" data-anchor-id="山脊图">
-<span class="header-section-number">11.6</span> 山脊图</h2>
+</section><section id="山脊图" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="山脊图">
+<span class="header-section-number">6.6</span> 山脊图</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggridges/">ggridges</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span>, y <span class="op">=</span> <span class="va">drv</span>, fill <span class="op">=</span> <span class="va">drv</span>, color <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -772,8 +779,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="plotly" class="level2" data-number="11.7"><h2 data-number="11.7" class="anchored" data-anchor-id="plotly">
-<span class="header-section-number">11.7</span> plotly</h2>
+</section><section id="plotly" class="level2" data-number="6.7"><h2 data-number="6.7" class="anchored" data-anchor-id="plotly">
+<span class="header-section-number">6.7</span> plotly</h2>
 <p>Converting a ggplot2 graph to an interactive plotly graph</p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span>
@@ -800,14 +807,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="marginal-histogram-boxplot" class="level2" data-number="11.8"><h2 data-number="11.8" class="anchored" data-anchor-id="marginal-histogram-boxplot">
-<span class="header-section-number">11.8</span> Marginal Histogram / Boxplot</h2>
+</section><section id="marginal-histogram-boxplot" class="level2" data-number="6.8"><h2 data-number="6.8" class="anchored" data-anchor-id="marginal-histogram-boxplot">
+<span class="header-section-number">6.8</span> Marginal Histogram / Boxplot</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/daattali/ggExtra">ggExtra</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="森林图" class="level2" data-number="11.9"><h2 data-number="11.9" class="anchored" data-anchor-id="森林图">
-<span class="header-section-number">11.9</span> 森林图</h2>
+</section><section id="森林图" class="level2" data-number="6.9"><h2 data-number="6.9" class="anchored" data-anchor-id="森林图">
+<span class="header-section-number">6.9</span> 森林图</h2>
 
 
 <!-- -->
@@ -1273,10 +1280,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./ggplot2_graphics.html" class="pagination-link" aria-label="ggplot2 Graphics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ggplot2 Graphics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./custom_functions.html" class="pagination-link" aria-label="函数式编程">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">函数式编程</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb19" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># ggplot2 extensions</span></span>
