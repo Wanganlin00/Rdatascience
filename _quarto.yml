@@ -3,11 +3,10 @@ project:
   output-dir: docs
 
 book:
-  title: "R数据科学与泛函式编程"
+  title: "R数据科学与编程"
   reader-mode: true
   chapters:
     - index.qmd
-
     
     - part: "Data science"
       chapters: 
@@ -19,13 +18,14 @@ book:
         - ggplot2_extensions.qmd
         - custom_functions.qmd    
 
-    - part: "Functional Programming"
+    - part: "Programming"
       chapters: 
         - control_structure.qmd
         - functions.qmd
         - environments.qmd
         - efficient.qmd
         - functionals.qmd
+        - object_oriented_programming.qmd
 
 
 execute:

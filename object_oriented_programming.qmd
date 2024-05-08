@@ -1,0 +1,70 @@
+# 面向对象编程
+
+## OOP
+
+object-oriented programming，OOP
+
+-   多态polymorphism：将函数的接口与其实现分开考虑，对不同类型的输入使用相同的函数形式
+
+-   封装encapsulation：用户不需要担心对象的细节，因为它们被封装在标准接口后面
+
+-   继承inherit ：使用其父级的方法
+
+**OO 系统**
+
+1.  类 （class）定义对象是什么。
+
+2.  method方法描述该对象可以做什么
+
+3.  fields 字段即该类的每个实例（instance）所拥有的数据
+
+4.  method dispatch 在给定类的情况下查找正确方法的过程称为**方法调度**
+
+**面向对象编程有两种主要范式**
+
+1.  封装 OOP ：方法属于对象或类，对象封装了数据（字段）和 行为（方法）。`object.method(arg1, arg2)`
+
+2.  函数式 OOP： 方法属于泛型函数，函数调用，内部组件也是函数。`generic(object, arg2, arg3)`
+
+![](images/oo-venn.png){fig-align="center" width="50%"}
+
+### **R 中的 OOP**
+
+S3、S4、R6、prototypes
+
+"prototype"（原型）通常指的是一个对象的初始实例，它定义了一组属性和方法，其他对象可以基于这个原型进行创建。
+
+### base objects
+
+基本类型包括向量的基本类型（数值，字符，逻辑，复数等）、函数类型（闭包、内置、特殊）、环境等。
+
+基本对象来自 S
+
+```{r}
+# A base object:
+sloop::otype(1:10)
+is.object(1:10)
+
+# An OO object
+is.object(mtcars)
+sloop::otype(mtcars)
+```
+
+基本对象和 OO 对象之间的区别在于 OO 对象具有“类”属性
+
+```{r}
+attr(1:10, "class")
+attr(mtcars, "class")
+```
+
+基本类型包括向量的基本类型（数值，字符，逻辑，复数等）、函数类型（闭包、内置、特殊）、环境等。
+
+## S3类
+
+S3 对象是至少具有一个属性（其他属性可用于存储其他数据）的base类型。
+
+```{r}
+f <- factor(c("a", "b", "c"))
+typeof(f)
+attributes(f)
+```
