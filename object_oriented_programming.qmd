@@ -1,42 +1,40 @@
 # 面向对象编程
 
-## OOP
+**OOP**
 
-object-oriented programming，OOP
+面向对象编程（object-oriented programming，OOP）：编写表示现实世界中的事物和情景的**类（class）并**基于这些类创建**对象（object）。**在编写类时，你要定义所有对象都具备的通用行为（方法 method）。根据类创建对象称为**实例化**，**实例（instance）。**
+
+特点：
 
 -   多态polymorphism：将函数的接口与其实现分开考虑，对不同类型的输入使用相同的函数形式
 
--   封装encapsulation：用户不需要担心对象的细节，因为它们被封装在标准接口后面
+-   封装encapsulation：用户不需要担心对象的细节，因为它们被封装在标准接口（如参数，）后面
 
--   继承inherit ：使用其父级的方法
+-   继承**inheritance** ：使用其父级的方法。原有的类称为**父类（parent class）**或**超类（super class）**，新类称为**子类（child class）。**
 
 **OO 系统**
 
 1.  类 （class）定义对象是什么。
 
-2.  method方法描述该对象可以做什么
+2.  方法（method）描述该对象可以做什么
 
-3.  fields 字段即该类的每个实例（instance）所拥有的数据
+3.  字段（fields） 即该类的每个实例（instance）所拥有的数据
 
-4.  method dispatch 在给定类的情况下查找正确方法的过程称为**方法调度**
+4.  方法调度（method dispatch） 在给定类的情况下查找正确方法的过程称为**方法调度**
 
 **面向对象编程有两种主要范式**
 
-1.  封装 OOP ：方法属于对象或类，对象封装了数据（字段）和 行为（方法）。`object.method(arg1, arg2)`
+1.  函数式 OOP： 方法属于泛型函数，函数调用，内部组件也是函数。`generic(object, arg2, arg3)`，如S3类、S4类
 
-2.  函数式 OOP： 方法属于泛型函数，函数调用，内部组件也是函数。`generic(object, arg2, arg3)`
+2.  封装 OOP ：方法属于对象或类，对象封装了数据（字段）和 行为（方法）。`object.method(arg1, arg2)`，如R6类
+
+## **R 中的对象**
+
+R中存在的一切都是一个对象，包括 **base objects** 和 **OO objects** 。
 
 ![](images/oo-venn.png){fig-align="center" width="50%"}
 
-### **R 中的 OOP**
-
-S3、S4、R6、prototypes
-
-"prototype"（原型）通常指的是一个对象的初始实例，它定义了一组属性和方法，其他对象可以基于这个原型进行创建。
-
 ### base objects
-
-基本类型包括向量的基本类型（数值，字符，逻辑，复数等）、函数类型（闭包、内置、特殊）、环境等。
 
 基本对象来自 S
 
@@ -57,14 +55,520 @@ attr(1:10, "class")
 attr(mtcars, "class")
 ```
 
-基本类型包括向量的基本类型（数值，字符，逻辑，复数等）、函数类型（闭包、内置、特殊）、环境等。
+虽然只有 OO 对象具有类"class"属性，但每个对象都具有**基本类型（base type）**：
+
+```{r}
+typeof(1:10)
+typeof(mtcars)
+typeof(NULL)
+typeof(mean)
+typeof(`[`)
+typeof(sum) 
+typeof(globalenv())
+mle_obj <- stats4::mle(function(x = 1) (x - 2) ^ 2)
+typeof(mle_obj)
+```
+
+**基本类型**包括数据的基本类型（数值，字符，逻辑，复数等），函数类型（闭包、内置、特殊），环境，类，...... 等等。
+
+### OO objects
+
+-   **S3**：是 R 的第一个 OOP 系统，*Statistical Models in S*
+
+-   **S4**：是对 S3 的正式和严格的重写，*Programming with Data*，S4 在默认安装(`options()$defaultPackages`) ***methods*** 包中实现。***Bioconductor*** 项目使用的就是S4类。
+
+-   **R6**：构建在环境之上的封装OOP，具有引用语义，modified in-place 而非“修改时复制（copy-on-modify）”，在 ***R6*** 包中实现。
+
+-   **prototype**（原型）：模糊类和类（对象）的实例之间的区别，通常指的是一个对象的初始实例，它定义了一组属性和方法，其他对象可以基于这个原型进行创建。例如***ggplot2*** 包的***ggproto***类
 
 ## S3类
 
-S3 对象是至少具有一个属性（其他属性可用于存储其他数据）的base类型。
+S3 对象是至少具有一个属性（其他属性可用于存储其他数据）的**base type(** 有mode属性)。
 
 ```{r}
 f <- factor(c("a", "b", "c"))
+
+# 基本类型
 typeof(f)
+
+# 其他属性
 attributes(f)
+```
+
+剥离类属性，保留其他属性
+
+```{r}
+unclass(f)
+```
+
+查看方法调度，`generic.class()`
+
+```{r}
+library(sloop)
+s3_dispatch(print(f))
+```
+
+### 类的实例
+
+要使对象成为类的实例，您只需设置类属性即可。
+
+```{r}
+x <- structure(list(), class = "custom_class")
+
+# 或者
+x <- list()
+class(x) <- "custom_class"
+```
+
+```{r}
+class(x)
+
+inherits(x, "custom_class")
+```
+
+构造S3类的三原则
+
+-   命名 `new_myclass()`
+
+-   base object有一个参数，每个属性有一个参数。
+
+-   检查base object的类型和每个属性的类型
+
+例如 Date 类
+
+```{r}
+new_Date <- function(x = double()) {
+  stopifnot(is.double(x))
+  structure(x, class = "Date")
+}
+new_Date(c(-1, 0, 1))
+```
+
+difftime 类
+
+```{r}
+new_difftime <- function(x = double(), units = "secs") {
+  stopifnot(is.double(x))
+  units <- match.arg(units, c("secs", "mins", "hours", "days", "weeks"))
+
+  structure(x,
+    class = "difftime",
+    units = units
+  )
+}
+new_difftime(52, "weeks")
+```
+
+有效性验证
+
+```{r error=TRUE}
+new_factor <- function(x = integer(), levels = character()) {
+  stopifnot(is.integer(x))
+  stopifnot(is.character(levels))
+
+  structure(
+    x,
+    levels = levels,
+    class = "factor"
+  )
+}
+
+new_factor(1:5, "a")
+new_factor(0:1, "a")
+```
+
+```{r error=TRUE}
+validate_factor <- function(x) {
+  values <- unclass(x)
+  levels <- attr(x, "levels")
+
+  if (!all(!is.na(values) & values > 0)) {
+    stop(
+      "All `x` values must be non-missing and greater than zero",
+      call. = FALSE
+    )
+  }
+
+  if (length(levels) < max(values)) {
+    stop(
+      "There must be at least as many `levels` as possible values in `x`",
+      call. = FALSE
+    )
+  }
+
+  x
+}
+validate_factor(new_factor(1:5, "a"))
+validate_factor(new_factor(0:1, "a"))
+```
+
+如果希望用户从类中构造对象，还应该提供一个帮助程序方法
+
+-   强制类型转换
+
+```{r}
+difftime <- function(x = double(), units = "secs") {
+  x <- as.double(x)
+  new_difftime(x, units = units)
+}
+
+difftime(1:10)
+
+
+```
+
+-   复杂对象字符串表示
+
+```{r}
+factor <- function(x = character(), levels = unique(x)) {
+  ind <- match(x, levels)
+  validate_factor(new_factor(ind, levels))
+}
+
+factor(c("a", "a", "b"))
+```
+
+-   复杂对象由多个简单组件指定
+
+```{r}
+POSIXct <- function(year = integer(), 
+                    month = integer(), 
+                    day = integer(), 
+                    hour = 0L, 
+                    minute = 0L, 
+                    sec = 0, 
+                    tzone = "") {
+  ISOdatetime(year, month, day, hour, minute, sec, tz = tzone)
+}
+
+POSIXct(2020, 1, 1, tzone = "Asia/Shanghai")
+```
+
+### 泛型函数和方法调度
+
+泛型函数（generic function）
+
+```{r}
+my_new_generic <- function(x) {
+  UseMethod("my_new_generic")
+}
+
+```
+
+```{r}
+library("sloop")
+x <- matrix(1:10, nrow = 2)
+s3_dispatch(mean(x))
+```
+
+`=>`指示调用的方法
+
+[`*`](https://rdrr.io/r/base/Arithmetic.html)指示此处已定义但未调用的方法，“default”类是一个特殊的**伪类**。这不是一个真正的类，但包含它是为了可以定义一个标准回退，每当特定于类的方法不可用时，就会找到该回退。
+
+```{r}
+mean
+s3_methods_generic("mean")
+s3_methods_class("ordered")
+```
+
+## R6 类
+
+[R6::R6Class(classname = NULL，public = list)](https://r6.r-lib.org/reference/R6Class.html)
+
+UpperCamelCase，snake_case
+
+```{r}
+library(R6)
+```
+
+```{r}
+Accumulator <- R6Class("Accumulator", list(
+    # 字段，与python中的初始化属性类似
+    sum = 0,
+    
+    # 方法，与python中的方法相同
+    add = function(x = 1) {
+        self$sum <- self$sum + x
+        invisible(self)
+    }
+))
+Accumulator
+
+# 从类构造一个新对象
+x <- Accumulator$new()
+
+# 方法和字段
+x$add(4)
+x$sum
+
+# 方法链
+x$
+  add(10)$
+  add(10)$
+  sum
+```
+
+### 方法
+
+`self$` 方法访问当前对象的方法和字段
+
+`$initialize()`覆盖新对象的默认行为
+
+`$print()`覆盖默认打印行为
+
+`private=list()`创建从类内部访问的的私有字段和方法
+
+`private$`访问私有字段和方法
+
+`active=list()`定义动态字段
+
+```{r error=TRUE}
+Person <- R6Class(
+    "Person",
+    public = list(
+        name = NULL,
+        age = NA,
+        initialize = function(name, age = NA,height=NA,weight=NA) {
+            self$name <- name
+            self$age <- age
+            private$height <- height
+            private$weight <- weight
+        },
+        print = function(...) {
+            cat("Person: \n")
+            cat("  Name: ", self$name, "\n", sep = "")
+            cat("  Age:  ", self$age, "\n", sep = "")
+            cat("  Height: ", private$height, "\n", sep = "")
+            cat("  Weight:  ", private$weight, "\n", sep = "")
+            cat("  BMI:  ", private$BMI(), "\n", sep = "")
+            invisible(self)
+        }
+    ),
+    
+    private = list(
+        height = NA,
+        weight = NA,
+        BMI = function() {
+            private$weight / private$height ^ 2
+        }
+    ),
+    
+    active = list(
+        random_index = function(value) {
+            if (missing(value)) {
+                ceiling(runif(1,0,100))
+            } else {
+                stop("Can't set `$random_index`", call. = FALSE)
+            }
+        }
+    ), 
+)
+
+p1 <- Person$new(name = "Bob",age = 13,height = 1.50,weight = 45)
+# 打印
+p1
+p1$print()
+
+# 类和公有方法
+class(p1)
+names(p1)
+p1$random_index
+p1$random_index <- 33
+```
+
+创建类后再追加公有方法和字段
+
+```{r}
+Accumulator2 <- R6Class("Accumulator")
+Accumulator2$set("public", "sum", 0)
+Accumulator2$set("public", "add", function(x = 1) {
+  self$sum <- self$sum + x 
+  invisible(self)
+})
+Accumulator2
+```
+
+### 继承
+
+```{r}
+AccumulatorChatty <- R6Class("AccumulatorChatty", 
+  inherit = Accumulator,
+  public = list(
+    add = function(x = 1) {
+      cat("Adding ", x, "\n", sep = "")
+      super$add(x = x)
+    }
+  )
+)
+
+x2 <- AccumulatorChatty$new()
+x2$add(10)$add(1)$sum
+```
+
+### 引用语义
+
+引用语义的主要结果是对象在修改时不会被复制：
+
+```{r}
+y1 <- Accumulator$new() 
+y2 <- y1
+
+y1$add(10)
+c(y1 = y1$sum, y2 = y2$sum)
+```
+
+如果想要副本，则需要显式显示对象：`$clone()`
+
+```{r}
+y1 <- Accumulator$new() 
+y2 <- y1$clone()
+
+y1$add(10)
+c(y1 = y1$sum, y2 = y2$sum)
+```
+
+## S4类
+
+创建类 `setClass()` ，创建泛型函数 `setGeneric()` ，创建方法 `setMethod()`
+
+此外，S4 提供多重继承（即一个类可以有多个父级）和多重调度（即方法调度可以使用多个参数的类）
+
+S4 的一个重要新组件是 **slot**，它是对象的命名组件，使用专用子集运算符 `@`（发音为 at）进行访问。
+
+**accessor** functions \@
+
+[bioconductor S4类和方法](https://bioconductor.org/help/course-materials/2017/Zurich/S4-classes-and-methods.html)
+
+```{r}
+library(methods)
+```
+
+### 创建类、泛型和方法
+
+```{r}
+setClass(
+    #类名
+    "Person",
+    
+    # 名称和类的命名字符向量
+    slots = c(name = "character", age = "numeric"),
+    
+    # 默认值列表
+    prototype = list(name = NA_character_, age = NA_real_)
+)
+
+x <- new("Person", name = "XXX",age=24)
+
+str(x)
+
+x@name
+slot(x,"age")
+
+
+# 泛型
+
+setGeneric("age", function(x) standardGeneric("age"))
+setGeneric("age<-", function(x, value) standardGeneric("age<-"))
+
+# 方法
+
+setMethod("age", "Person", function(x) x@age)
+setMethod("age<-", "Person", function(x, value) {
+  x@age <- value
+  x
+})
+age(x)
+age(x) <- 13
+age(x)
+
+setMethod("show", "Person", function(object) {
+  cat(is(object)[[1]], "\n",
+      "  Name: ", object@name, "\n",
+      "  Age:  ", object@age, "\n",
+      sep = ""
+  )
+})
+sloop::otype(x)
+sloop::ftype(age)
+
+x
+
+setGeneric("name", function(x) standardGeneric("name"))
+setMethod("name", "Person", function(x) x@name)
+
+name(x)
+setGeneric("name<-", function(x, value) standardGeneric("name<-"))
+setMethod("name<-", "Person", function(x, value) {
+  x@name <- value
+  validObject(x)
+  x
+})
+
+name(x) <- "Lily"
+name(x)
+```
+
+### 继承
+
+```{r}
+setClass("Employee", 
+  contains = "Person", 
+  slots = c(
+    boss = "Person"
+  ),
+  prototype = list(
+    boss = new("Person")
+  )
+)
+
+str(new("Employee"))
+```
+
+```{r}
+is(x, "Person")
+is(new("Person"))
+is(new("Employee"))
+```
+
+### 多重继承和多重调度
+
+。。。
+
+## ggproto 类
+
+[参考 ggplot2-book.org/internals#sec-ggproto](https://ggplot2-book.org/internals#sec-ggproto)
+
+```{r }
+NewObject <- ggproto(
+  `_class` = NULL, 
+  `_inherits` = NULL
+)
+NewObject 
+```
+
+```{r}
+# 新类
+NewClass <- ggproto("NewClass", NULL,
+                    # fields     默认值 
+                    geom=NA,
+                    # methods
+                    
+                    )
+NewClass
+```
+
+```{r}
+# 实例
+instance <- ggproto(NULL, NewClass,
+                    # 字段赋值
+                    geom="point"
+                    )
+instance
+```
+
+
+```{r}
+# 继承
+NewSubClass <- ggproto("NewSubClass", NewClass)
+NewSubClass
 ```

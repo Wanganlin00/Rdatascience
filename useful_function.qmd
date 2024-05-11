@@ -164,8 +164,10 @@ grep(pattern = "v",x=c("a","v","D","A","f","J"),ignore.case = FALSE,fixed = FALS
 strsplit(x="a.fa.fag",split = "\\.",fixed = FALSE)  # 分隔，\\转义字符
 
 
-#
-paste("x",c("a","b"),sep="+")   #连接
+#连接
+paste("x",c("a","b"),sep="",collapse = "?")  
+paste0("x",c("A","B"),collapse="?")
+
 cat("hello","BOb","\b\n","\bIsn\' R","\t","GREAT?\n",sep = " " )
 
 #

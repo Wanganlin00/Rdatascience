@@ -22,6 +22,8 @@
 
 -   [data.table](https://rdatatable.gitlab.io/data.table/)
 
+-   [arrow.apache.R](https://arrow.apache.org/docs/r/)
+
 ## 编程
 
 -   [Advanced R](https://adv-r.hadley.nz/index.html#other-books)
@@ -29,7 +31,5 @@
 -   [Efficient R programming](https://csgillespie.github.io/efficientR/)
 
 -   [R Packages(2e)](https://r-pkgs.org/)
-
--   [arrow.apache.org](https://arrow.apache.org/docs/r/)
 
 -   [Pandoc](https://pandoc.org/)
