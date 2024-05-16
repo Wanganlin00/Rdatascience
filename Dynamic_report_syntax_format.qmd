@@ -1,0 +1,321 @@
+---
+title: "动态报告语法格式"
+execute:
+  warning: false
+  error: false
+  message: false
+
+toc: true
+toc-depth: 5
+number-sections: true
+number-depth: 4
+
+code-fold: show
+code-link: true
+code-tools: true
+
+knitr:
+  opts_chunk: 
+    comment: "#>" 
+    collapse: TRUE
+crossref: 
+  fig-title: 图
+  fig-prefix: 图
+  tbl-title: 表
+  tbl-prefix: 表
+  eq-title: 式
+  eq-prefix: 式
+  def-title: 定义
+  def-prefix: 定义
+  lem-title: 引理
+  lem-prefix: 引理
+  sec-prefix: 章节
+
+format:
+  html:
+    theme: cosmo
+editor: visual
+---
+
+## 基础
+
++---------------------------------------------------------+-----------------------------------------------------------+
+| output                                                  | syntax                                                    |
++---------------------------------------------------------+-----------------------------------------------------------+
+| `code`                                                  | \` code \`                                                |
++---------------------------------------------------------+-----------------------------------------------------------+
+| **粗体**                                                | `**粗体**`                                                |
++---------------------------------------------------------+-----------------------------------------------------------+
+| *斜体*                                                  | `*斜体*`                                                  |
++---------------------------------------------------------+-----------------------------------------------------------+
+| [下横线]{.underline}                                    | `[下横线]{.underline}`                                    |
++---------------------------------------------------------+-----------------------------------------------------------+
+| ~~删除线~~                                              | `~~删除线~~`                                              |
++---------------------------------------------------------+-----------------------------------------------------------+
+| 上标X^2^                                                | `X^2^`                                                    |
++---------------------------------------------------------+-----------------------------------------------------------+
+| 下标 X~1~                                               | `X~1~`                                                    |
++---------------------------------------------------------+-----------------------------------------------------------+
+| [SAMALL small caps]{.smallcaps}                         | 与小写字母同等高度的大写字母 `[small caps]{.smallcaps}`   |
++---------------------------------------------------------+-----------------------------------------------------------+
+| <https://r4ds.hadley.nz/>                               | `<https://r4ds.hadley.nz/>`                               |
++---------------------------------------------------------+-----------------------------------------------------------+
+| [quarto](https://quarto.org)                            | `[quarto](https://quarto.org)`                            |
++---------------------------------------------------------+-----------------------------------------------------------+
+| {{< video https://www.youtube.com/embed/wo9vZccmqwc >}} | `{{< video https://www.youtube.com/embed/wo9vZccmqwc >}}` |
++---------------------------------------------------------+-----------------------------------------------------------+
+| > Blockquote                                            | `> Blockquote`                                            |
++---------------------------------------------------------+-----------------------------------------------------------+
+
+任务列表
+
+-   [ ] x
+    -   [x] y
+-   [x] z
+    -   [ ] q
+        -   [ ] w
+
+### 图
+
+```{r}
+#| label: fig-plot
+#| fig-cap: "plot 点-线"
+#| fig-subcap:
+#|   - "点"
+#|   - "线"
+#| layout-ncol: 2
+#| column: page-right
+
+plot(1:25,1:25,pch=c(1:25))
+plot(1:25,c(1:25)^2,type="b",pch=c(1:25))
+```
+
+如左图 @fig-plot-1 所示，点有25种不同的形状，
+
+右图 @fig-plot-2 所示。
+
+#### 流程图
+
+```{mermaid}
+sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+    John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts <br/>prevail!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```
+
+```{dot}
+//| label: fig-simple
+//| fig-cap: "This is a simple graphviz graph."
+graph G {
+  layout=neato
+  run -- intr;
+  intr -- runbl;
+  runbl -- run;
+  run -- kernel;
+  kernel -- zombie;
+  kernel -- sleep;
+  kernel -- runmem;
+  sleep -- swap;
+  swap -- runswap;
+  runswap -- new;
+  runswap -- runmem;
+  new -- runmem;
+  sleep -- runmem;
+}
+```
+
+##### EDA {#sec-eda}
+
+引用章节： @sec-eda and @sec-formula
+
+引用图片 @fig-histogram shows two histograms displaying the distributions of `price` and `area` individually.
+
+```{r}
+#| label: fig-histogram
+#| code-summary: "直方图"
+#| fig-cap: "Histograms of mpg"
+#| fig-subcap:
+#|   - "Histogram of `cty`s"
+#|   - "Histogram of `hwy`s" 
+#| fig-alt: "What's this."
+#| layout-ncol: 2
+#| column: page-right
+
+ggplot(mpg, aes(cty)) +
+  geom_histogram() +
+  labs(title = "Histogram of cty")
+
+ggplot(mpg, aes(x =hwy)) +
+  geom_histogram() +
+  labs(title = "Histogram of hwy")
+```
+
+## 表格
+
+@tbl-stats displays basic summary statistics for these two variables.
+
+```{r}
+#| label: tbl-stats
+#| tbl-cap: "Table Summary statistics "
+
+mpg %>%
+  summarise(
+    mean_displ=mean(displ),
+    mean_hwy=mean(hwy),
+    mean_cty=mean(cty),
+    .by = cyl
+    ) %>%
+  knitr::kable(digits = c(0, 0, 0, 0, 2))
+```
+
+## 公式 {#sec-formula}
+
+Black-Scholes (@eq-black-scholes) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:
+
+$$ \frac{\partial \mathrm C}{ \partial \mathrm t } + \frac{1}{2}\sigma^{2} \mathrm S^{2} \frac{\partial^{2} \mathrm C}{\partial \mathrm C^2}   + \mathrm r \mathrm S \frac{\partial \mathrm C}{\partial \mathrm S}\ =   \mathrm r \mathrm C  $$ {#eq-black-scholes}
+
+We can fit a simple linear regression model of the form shown in @eq-slr.
+
+$$
+price = \hat{\beta}_0 + \hat{\beta}_1 \times area + \epsilon
+$$ {#eq-slr}
+
+## callouts
+
+-   `note`
+
+-   `warning`
+
+-   `important`
+
+-   `tip`
+
+-   `caution`
+
+::: callout-note
+This is a pretty incomplete analysis, but hopefully the document provides a good overview of some of the authoring features of Quarto!
+:::
+
+::: {#tip-example .callout-tip}
+### 交叉引用 a Tip
+
+Add an ID starting with `#tip-` to reference a tip.
+:::
+
+See @tip-example...
+
+| 标注类型    | 前缀    |
+|-------------|---------|
+| `note`      | `#nte-` |
+| `tip`       | `#tip-` |
+| `warning`   | `#wrn-` |
+| `important` | `#imp-` |
+| `caution`   | `#cau-` |
+
+## Blockquote
+
+> qwert
+
+> > > asfg
+
+## LaTex
+
+### 公式对齐
+
+$$\begin{aligned}
+  f(x) =& \sum_{k=0}^\infty \frac{1}{k!} x^k \\
+  =& e^x
+\end{aligned}$$
+
+### 括号等高
+
+$$\phi(x) = \frac{1}{\sqrt{2\pi}} \exp\left\{ \frac{1}{2} x^2 \right\} $$
+
+### 矩阵
+
+$$
+\begin{bmatrix}
+x_{11} & x_{12}&...&x_{1p} \\
+x_{21} & x_{22}&...&x_{2p} \\
+\vdots &\vdots &   &\vdots\\
+x_{n1} & x_{n2}&...&x_{np} \\
+\end{bmatrix}
+$$
+
+### 向量表示
+
+$$   \boldsymbol{v} = (v_1, v_2)^T $$
+
+## 定理类段落
+
+术语
+
+:   定义：三角形的内角和等于180°。
+
+或者
+
+引用[@thm-lebesgue01]。
+
+::: {#thm-lebesgue01 name="勒贝格定理"}
+一元函数黎曼可积， 当且仅当其不连续点的集合为零测集。
+:::
+
+| **环境名**  | **默认显示名** | **标签前缀** |
+|-------------|----------------|--------------|
+| theorem     | Theorem        | #thm-        |
+| lemma       | Lemma          | #lem-        |
+| corollary   | Corollary      | #cor-        |
+| proposition | Proposition    | #prp-        |
+| conjecture  | Conjecture     | #cnj-        |
+| definition  | Definition     | #def-        |
+| example     | Example        | #exm-        |
+| exercise    | Exercise       | #exr-        |
+
+## 代码块
+
+### syntax highlight
+
+```         
+1 + 1
+```
+
+``` python
+x = "abcde"
+```
+
+### raw content
+
+```{=html}
+<body>
+    
+<h>markdown_html</h>
+
+<p></p> <abbr title="Mister"> Mr. </abbr>  </p>
+<center>Center</center>
+
+<dl>Description List
+
+<dt>主题</dt>
+
+<dd>描述</dd>
+
+</dl>
+
+<mark>Text highlight</mark>
+
+<kbd>keyboard Ctrl+C</kbd>
+
+
+<small>Text</small>
+<body>
+```
+```{=latex}
+\renewcommand*{\labelitemi}{\textgreater}
+```

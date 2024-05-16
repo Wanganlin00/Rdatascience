@@ -24,7 +24,7 @@
     "href": "index.html#数据科学",
     "title": "R数据科学与编程",
     "section": "数据科学",
-    "text": "数据科学\n\nR for data science\ntidyverse.org\nbookdown.org\ndata.table",
+    "text": "数据科学\n\nR for data science\ntidyverse.org\nbookdown.org\ndata.table\narrow.apache.R",
     "crumbs": [
       "参考资料"
     ]
@@ -34,7 +34,7 @@
     "href": "index.html#编程",
     "title": "R数据科学与编程",
     "section": "编程",
-    "text": "编程\n\nAdvanced R\nEfficient R programming\nR Packages(2e)\narrow.apache.org\nPandoc",
+    "text": "编程\n\nAdvanced R\nEfficient R programming\nR Packages(2e)\nPandoc",
     "crumbs": [
       "参考资料"
     ]
@@ -867,67 +867,67 @@
   {
     "objectID": "efficient.html",
     "href": "efficient.html",
-    "title": "\n12  高效\n",
+    "title": "\n13  高效\n",
     "section": "",
-    "text": "12.1 向量化编程",
+    "text": "13.1 向量化编程",
     "crumbs": [
       "Programming",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>高效</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>高效</span>"
     ]
   },
   {
     "objectID": "efficient.html#稀疏矩阵",
     "href": "efficient.html#稀疏矩阵",
-    "title": "\n12  高效\n",
-    "section": "\n12.2 稀疏矩阵",
-    "text": "12.2 稀疏矩阵\n稀疏矩阵(Sparse matrices)对象仅存储非零元素，更节省内存\n\nCodelibrary(\"Matrix\")\nN = 100\n\nm = diag(1, N, N)\nsp = sparseMatrix(1:N, 1:N, x = 1)\n \nobject.size(m)\n#&gt; 80216 bytes\nobject.size(sp)\n#&gt; 3104 bytes",
+    "title": "\n13  高效\n",
+    "section": "\n13.4 稀疏矩阵",
+    "text": "13.4 稀疏矩阵\n稀疏矩阵(Sparse matrices)对象仅存储非零元素，更节省内存\n\nCodelibrary(\"Matrix\")\nN = 100\n\nm = diag(1, N, N)\nsp = sparseMatrix(1:N, 1:N, x = 1)\n \nobject.size(m)\n#&gt; 80216 bytes\nobject.size(sp)\n#&gt; 3104 bytes",
     "crumbs": [
       "Programming",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>高效</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>高效</span>"
     ]
   },
   {
     "objectID": "efficient.html#并行化",
     "href": "efficient.html#并行化",
-    "title": "\n12  高效\n",
-    "section": "\n12.3 并行化",
-    "text": "12.3 并行化\nparallelization\nParallel computing\n\nCodelibrary(\"parallel\")\nno_of_cores = detectCores()\nno_of_cores\n#&gt; [1] 8\n\n\nparLapply（cl， x， FUN， ...）\nparApply（cl = NULL， X， MARGIN， FUN， ...）\nparSapply（cl = NULL， X， FUN， ...， simplify = TRUE， USE.NAMES = TRUE)\nmakeCluster()此函数指定要使用的处理器数量\n\nCodelibrary(\"parallel\")\n\n\nN = 10^4\nsapply(1:N, sd)\n\ncl = makeCluster(4)\nparSapply(cl, 1:N, sd)\nstopCluster(cl)",
+    "title": "\n13  高效\n",
+    "section": "\n13.6 并行化",
+    "text": "13.6 并行化\nparallelization\nParallel computing\n\nCodelibrary(\"parallel\")\nno_of_cores = detectCores()\nno_of_cores\n#&gt; [1] 8\n\n\nparLapply（cl， x， FUN， ...）\nparApply（cl = NULL， X， MARGIN， FUN， ...）\nparSapply（cl = NULL， X， FUN， ...， simplify = TRUE， USE.NAMES = TRUE)\nmakeCluster()此函数指定要使用的处理器数量\n\nCodelibrary(\"parallel\")\n\n\nN = 10^4\nsapply(1:N, sd)\n\ncl = makeCluster(4)\nparSapply(cl, 1:N, sd)\nstopCluster(cl)",
     "crumbs": [
       "Programming",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>高效</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>高效</span>"
     ]
   },
   {
     "objectID": "efficient.html#rcpp",
     "href": "efficient.html#rcpp",
-    "title": "\n12  高效\n",
-    "section": "\n12.4 Rcpp",
-    "text": "12.4 Rcpp\nRcpp\nRcpp sugar\nNumericVector IntegerVector CharacterVector LogicalVector\nNumericMatrix IntegerMatrix CharacterMatrix LogicalMatrix\n\nCodelibrary(Rcpp)\nsourceCpp(\"function/add_cpp.cpp\")\n#&gt; \n#&gt; &gt; add_cpp(1, 2)\n#&gt; [1] 3\n\nadd_cpp(2,34.5)\n#&gt; [1] 36.5\n\nsourceCpp(\"function/mean_cpp.cpp\")\n#&gt; \n#&gt; &gt; x = c(1, 2, 3, 4, 5)\n#&gt; \n#&gt; &gt; mean_cpp(x)\n#&gt; [1] 3",
+    "title": "\n13  高效\n",
+    "section": "\n13.7 Rcpp",
+    "text": "13.7 Rcpp\nRcpp\nRcpp sugar\nNumericVector IntegerVector CharacterVector LogicalVector\nNumericMatrix IntegerMatrix CharacterMatrix LogicalMatrix\n\nCodelibrary(Rcpp)\nsourceCpp(\"function/add_cpp.cpp\")\n#&gt; \n#&gt; &gt; add_cpp(1, 2)\n#&gt; [1] 3\n\nadd_cpp(2,34.5)\n#&gt; [1] 36.5\n\nsourceCpp(\"function/mean_cpp.cpp\")\n#&gt; \n#&gt; &gt; x = c(1, 2, 3, 4, 5)\n#&gt; \n#&gt; &gt; mean_cpp(x)\n#&gt; [1] 3",
     "crumbs": [
       "Programming",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>高效</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>高效</span>"
     ]
   },
   {
     "objectID": "efficient.html#rcpp-sugar",
     "href": "efficient.html#rcpp-sugar",
-    "title": "\n12  高效\n",
-    "section": "\n12.5 Rcpp sugar",
-    "text": "12.5 Rcpp sugar",
+    "title": "\n13  高效\n",
+    "section": "\n13.8 Rcpp sugar",
+    "text": "13.8 Rcpp sugar",
     "crumbs": [
       "Programming",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>高效</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>高效</span>"
     ]
   },
   {
     "objectID": "efficient.html#硬件",
     "href": "efficient.html#硬件",
-    "title": "\n12  高效\n",
-    "section": "\n12.6 硬件",
-    "text": "12.6 硬件\n\nCodelibrary(\"benchmarkme\")\n\n\n1字节（byte）= 8位（bit） 二进制数 = 1个 ASCII 字符。\nInternational System of Units (SI)\n1 kilobyte (kB) =(2^{10}) bytes\n1 megabyte (MB) = (2{10}) kilobytes= (2{20}) bytes\n\nCode# 随机存取存储器 Random access memory,RAM\nbenchmarkme::get_ram()\n#&gt; 6.32 GB\n\n\nstandard hard disk drives (HDDs)\nSolid state drives (SSDs)\n\nCode# 操作系统 2^8\n.Machine$sizeof.pointer\n#&gt; [1] 8\n\n\n\nCode# CPU\nres = benchmark_std() \nplot(res)\n\n\n\n\n\n\n#&gt; Press return to get next plot\n\n\n\n\n\n\n#&gt; Press return to get next plot",
+    "title": "\n13  高效\n",
+    "section": "\n13.5 硬件",
+    "text": "13.5 硬件\n\nCodelibrary(\"benchmarkme\")\n\n\n1字节（byte）= 8位（bit） 二进制数 = 1个 ASCII 字符。\nInternational System of Units (SI)\n1 kilobyte (kB) =(2^{10}) bytes\n1 megabyte (MB) = (2{10}) kilobytes= (2{20}) bytes\n\nCode# 随机存取存储器 Random access memory,RAM\nbenchmarkme::get_ram()\n#&gt; 6.32 GB\n\n\nstandard hard disk drives (HDDs)\nSolid state drives (SSDs)\n\nCode# 操作系统 2^8\n.Machine$sizeof.pointer\n#&gt; [1] 8\n\n\n\nCode# CPU\nres = benchmark_std() \nplot(res)\n\n\n\n\n\n\n#&gt; Press return to get next plot\n\n\n\n\n\n\n#&gt; Press return to get next plot",
     "crumbs": [
       "Programming",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>高效</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>高效</span>"
     ]
   },
   {
@@ -1049,6 +1049,127 @@
     "crumbs": [
       "Programming",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>面向对象编程</span>"
+    ]
+  },
+  {
+    "objectID": "Dynamic_report_syntax_format.html",
+    "href": "Dynamic_report_syntax_format.html",
+    "title": "\n8  动态报告语法格式\n",
+    "section": "",
+    "text": "1 基础\n任务列表",
+    "crumbs": [
+      "Data science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>动态报告语法格式</span>"
+    ]
+  },
+  {
+    "objectID": "Dynamic_report_syntax_format.html#基础",
+    "href": "Dynamic_report_syntax_format.html#基础",
+    "title": "\n8  动态报告语法格式\n",
+    "section": "",
+    "text": "output\nsyntax\n\n\n\ncode\n` code `\n\n\n\n粗体\n**粗体**\n\n\n\n斜体\n*斜体*\n\n\n\n下横线\n[下横线]{.underline}\n\n\n\n删除线\n~~删除线~~\n\n\n\n上标X2\n\nX^2^\n\n\n\n下标 X1\n\nX~1~\n\n\n\nSAMALL small caps\n与小写字母同等高度的大写字母 [small caps]{.smallcaps}\n\n\n\n\nhttps://r4ds.hadley.nz/\n&lt;https://r4ds.hadley.nz/&gt;\n\n\n\nquarto\n[quarto](https://quarto.org)\n\n\n\n\n | \n\n\n\n\n\n\nBlockquote\n\n&gt; Blockquote\n\n\n\n\n\n\nx\n\ny\n\n\n\nz\n\n\nq\n\nw\n\n\n\n\n\n\n1.1 图\nCodeplot(1:25,1:25,pch=c(1:25))\nplot(1:25,c(1:25)^2,type=\"b\",pch=c(1:25))\n\n\n\n\n\n\n\n\n\n(a) 点\n\n\n\n\n\n\n\n\n\n(b) 线\n\n\n\n\n\n\n图 1: plot 点-线\n\n\n如左图 图 8.1 (a) 所示，点有25种不同的形状，\n右图 图 8.1 (b) 所示。\n\n1.1.1 流程图\n\n\n\n\n\nsequenceDiagram\n  participant Alice\n  participant Bob\n  Alice-&gt;&gt;John: Hello John, how are you?\n  loop Healthcheck\n    John-&gt;&gt;John: Fight against hypochondria\n  end\n  Note right of John: Rational thoughts &lt;br/&gt;prevail!\n  John--&gt;&gt;Alice: Great!\n  John-&gt;&gt;Bob: How about you?\n  Bob--&gt;&gt;John: Jolly good!\n\n\n\n\n\n\n\n\n\n\n\nG\nrun\nrunintr\nintrrun--intr\nkernel\nkernelrun--kernel\nrunbl\nrunblintr--runbl\nrunbl--run\nzombie\nzombiekernel--zombie\nsleep\nsleepkernel--sleep\nrunmem\nrunmemkernel--runmem\nsleep--runmem\nswap\nswapsleep--swap\nrunswap\nrunswapswap--runswap\nrunswap--runmem\nnew\nnewrunswap--new\nnew--runmem\n\n\n\n\n图 2: This is a simple graphviz graph.\n\n\n\n\nEDA\n引用章节： Section 8.1.1.1.1 and Section 8.3\n引用图片 图 8.3 shows two histograms displaying the distributions of price and area individually.\n直方图ggplot(mpg, aes(cty)) +\n  geom_histogram() +\n  labs(title = \"Histogram of cty\")\n\nggplot(mpg, aes(x =hwy)) +\n  geom_histogram() +\n  labs(title = \"Histogram of hwy\")\n\n\n\n\n\n\n\n\n\n(a) Histogram of ctys\n\n\n\n\n\n\n\n\n\n(b) Histogram of hwys\n\n\n\n\n\n\n图 3: Histograms of mpg",
+    "crumbs": [
+      "Data science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>动态报告语法格式</span>"
+    ]
+  },
+  {
+    "objectID": "Dynamic_report_syntax_format.html#表格",
+    "href": "Dynamic_report_syntax_format.html#表格",
+    "title": "\n8  动态报告语法格式\n",
+    "section": "\n2 表格",
+    "text": "2 表格\n表 8.1 displays basic summary statistics for these two variables.\n\nCodempg %&gt;%\n  summarise(\n    mean_displ=mean(displ),\n    mean_hwy=mean(hwy),\n    mean_cty=mean(cty),\n    .by = cyl\n    ) %&gt;%\n  knitr::kable(digits = c(0, 0, 0, 0, 2))\n\n\n表 1: Table Summary statistics\n\n\n\n\ncyl\nmean_displ\nmean_hwy\nmean_cty\n\n\n\n4\n2\n29\n21\n\n\n6\n3\n23\n16\n\n\n8\n5\n18\n13\n\n\n5\n2\n29\n20",
+    "crumbs": [
+      "Data science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>动态报告语法格式</span>"
+    ]
+  },
+  {
+    "objectID": "Dynamic_report_syntax_format.html#sec-formula",
+    "href": "Dynamic_report_syntax_format.html#sec-formula",
+    "title": "\n8  动态报告语法格式\n",
+    "section": "\n3 公式",
+    "text": "3 公式\nBlack-Scholes (式 8.1) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:\n\\[ \\frac{\\partial \\mathrm C}{ \\partial \\mathrm t } + \\frac{1}{2}\\sigma^{2} \\mathrm S^{2} \\frac{\\partial^{2} \\mathrm C}{\\partial \\mathrm C^2}   + \\mathrm r \\mathrm S \\frac{\\partial \\mathrm C}{\\partial \\mathrm S}\\ =   \\mathrm r \\mathrm C   \\tag{1}\\]\nWe can fit a simple linear regression model of the form shown in 式 8.2.\n\\[\nprice = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\times area + \\epsilon\n\\tag{2}\\]",
+    "crumbs": [
+      "Data science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>动态报告语法格式</span>"
+    ]
+  },
+  {
+    "objectID": "Dynamic_report_syntax_format.html#callouts",
+    "href": "Dynamic_report_syntax_format.html#callouts",
+    "title": "\n8  动态报告语法格式\n",
+    "section": "\n4 callouts",
+    "text": "4 callouts\n\nnote\nwarning\nimportant\ntip\ncaution\n\n\n\n\n\n\n\nNote\n\n\n\nThis is a pretty incomplete analysis, but hopefully the document provides a good overview of some of the authoring features of Quarto!\n\n\n\n\n\n\n\n\nTip 1: 交叉引用 a Tip\n\n\n\nAdd an ID starting with #tip- to reference a tip.\n\n\nSee Tip 8.1…\n\n\n标注类型\n前缀\n\n\n\nnote\n#nte-\n\n\ntip\n#tip-\n\n\nwarning\n#wrn-\n\n\nimportant\n#imp-\n\n\ncaution\n#cau-",
+    "crumbs": [
+      "Data science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>动态报告语法格式</span>"
+    ]
+  },
+  {
+    "objectID": "Dynamic_report_syntax_format.html#blockquote",
+    "href": "Dynamic_report_syntax_format.html#blockquote",
+    "title": "\n8  动态报告语法格式\n",
+    "section": "\n5 Blockquote",
+    "text": "5 Blockquote\n\nqwert\n\n\n\n\nasfg",
+    "crumbs": [
+      "Data science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>动态报告语法格式</span>"
+    ]
+  },
+  {
+    "objectID": "Dynamic_report_syntax_format.html#latex",
+    "href": "Dynamic_report_syntax_format.html#latex",
+    "title": "\n8  动态报告语法格式\n",
+    "section": "\n6 LaTex",
+    "text": "6 LaTex\n\n6.1 公式对齐\n\\[\\begin{aligned}\n  f(x) =& \\sum_{k=0}^\\infty \\frac{1}{k!} x^k \\\\\n  =& e^x\n\\end{aligned}\\]\n\n6.2 括号等高\n\\[\\phi(x) = \\frac{1}{\\sqrt{2\\pi}} \\exp\\left\\{ \\frac{1}{2} x^2 \\right\\} \\]\n\n6.3 矩阵\n\\[\n\\begin{bmatrix}\nx_{11} & x_{12}&...&x_{1p} \\\\\nx_{21} & x_{22}&...&x_{2p} \\\\\n\\vdots &\\vdots &   &\\vdots\\\\\nx_{n1} & x_{n2}&...&x_{np} \\\\\n\\end{bmatrix}\n\\]\n\n6.4 向量表示\n\\[   \\boldsymbol{v} = (v_1, v_2)^T \\]",
+    "crumbs": [
+      "Data science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>动态报告语法格式</span>"
+    ]
+  },
+  {
+    "objectID": "Dynamic_report_syntax_format.html#定理类段落",
+    "href": "Dynamic_report_syntax_format.html#定理类段落",
+    "title": "\n8  动态报告语法格式\n",
+    "section": "\n7 定理类段落",
+    "text": "7 定理类段落\n\n术语\n\n定义：三角形的内角和等于180°。\n\n\n或者\n引用Theorem 8.1。\n\nTheorem 1 (勒贝格定理) 一元函数黎曼可积， 当且仅当其不连续点的集合为零测集。\n\n\n\n环境名\n默认显示名\n标签前缀\n\n\n\ntheorem\nTheorem\n#thm-\n\n\nlemma\nLemma\n#lem-\n\n\ncorollary\nCorollary\n#cor-\n\n\nproposition\nProposition\n#prp-\n\n\nconjecture\nConjecture\n#cnj-\n\n\ndefinition\nDefinition\n#def-\n\n\nexample\nExample\n#exm-\n\n\nexercise\nExercise\n#exr-",
+    "crumbs": [
+      "Data science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>动态报告语法格式</span>"
+    ]
+  },
+  {
+    "objectID": "Dynamic_report_syntax_format.html#代码块",
+    "href": "Dynamic_report_syntax_format.html#代码块",
+    "title": "\n8  动态报告语法格式\n",
+    "section": "\n8 代码块",
+    "text": "8 代码块\n\n8.1 syntax highlight\n1 + 1\nx = \"abcde\"\n\n8.2 raw content\n\n    \nmarkdown_html  Mr.   \nCenter\n\nDescription List\n\n主题\n\n描述\n\n\nText highlightkeyboard Ctrl+C\n\n\nText",
+    "crumbs": [
+      "Data science",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>动态报告语法格式</span>"
+    ]
+  },
+  {
+    "objectID": "efficient.html#data.table",
+    "href": "efficient.html#data.table",
+    "title": "\n13  高效\n",
+    "section": "\n13.2 data.table",
+    "text": "13.2 data.table\n\ndata.table",
+    "crumbs": [
+      "Programming",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>高效</span>"
+    ]
+  },
+  {
+    "objectID": "efficient.html#arrow",
+    "href": "efficient.html#arrow",
+    "title": "\n13  高效\n",
+    "section": "\n13.3 arrow",
+    "text": "13.3 arrow\n\narrow.apache.R",
+    "crumbs": [
+      "Programming",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>高效</span>"
     ]
   }
 ]

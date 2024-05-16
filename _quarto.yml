@@ -16,7 +16,8 @@ book:
         - base_graphics.qmd
         - ggplot2_graphics.qmd
         - ggplot2_extensions.qmd
-        - custom_functions.qmd    
+        - custom_functions.qmd
+        - Dynamic_report_syntax_format.qmd
 
     - part: "Programming"
       chapters: 

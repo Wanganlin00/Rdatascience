@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.553">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>R数据科学与编程 - 12&nbsp; 高效</title>
+<title>R数据科学与编程 - 13&nbsp; 高效</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./control_structure.html">Programming</a></li><li class="breadcrumb-item"><a href="./efficient.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">高效</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./control_structure.html">Programming</a></li><li class="breadcrumb-item"><a href="./efficient.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">高效</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -190,6 +190,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Dynamic_report_syntax_format.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">动态报告语法格式</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -204,43 +210,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">函数</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">函数</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">环境</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">环境</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exception_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./efficient.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">高效</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">高效</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./functionals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">泛函</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">泛函</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./object_oriented_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
   </div>
 </li>
       </ul>
@@ -253,18 +259,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#%E5%90%91%E9%87%8F%E5%8C%96%E7%BC%96%E7%A8%8B" id="toc-向量化编程" class="nav-link active" data-scroll-target="#%E5%90%91%E9%87%8F%E5%8C%96%E7%BC%96%E7%A8%8B"><span class="header-section-number">12.1</span> 向量化编程</a></li>
-  <li><a href="#%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5" id="toc-稀疏矩阵" class="nav-link" data-scroll-target="#%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5"><span class="header-section-number">12.2</span> 稀疏矩阵</a></li>
-  <li><a href="#%E5%B9%B6%E8%A1%8C%E5%8C%96" id="toc-并行化" class="nav-link" data-scroll-target="#%E5%B9%B6%E8%A1%8C%E5%8C%96"><span class="header-section-number">12.3</span> 并行化</a></li>
-  <li><a href="#rcpp" id="toc-rcpp" class="nav-link" data-scroll-target="#rcpp"><span class="header-section-number">12.4</span> Rcpp</a></li>
-  <li><a href="#rcpp-sugar" id="toc-rcpp-sugar" class="nav-link" data-scroll-target="#rcpp-sugar"><span class="header-section-number">12.5</span> Rcpp sugar</a></li>
-  <li><a href="#%E7%A1%AC%E4%BB%B6" id="toc-硬件" class="nav-link" data-scroll-target="#%E7%A1%AC%E4%BB%B6"><span class="header-section-number">12.6</span> 硬件</a></li>
+<li><a href="#%E5%90%91%E9%87%8F%E5%8C%96%E7%BC%96%E7%A8%8B" id="toc-向量化编程" class="nav-link active" data-scroll-target="#%E5%90%91%E9%87%8F%E5%8C%96%E7%BC%96%E7%A8%8B"><span class="header-section-number">13.1</span> 向量化编程</a></li>
+  <li><a href="#data.table" id="toc-data.table" class="nav-link" data-scroll-target="#data.table"><span class="header-section-number">13.2</span> data.table</a></li>
+  <li><a href="#arrow" id="toc-arrow" class="nav-link" data-scroll-target="#arrow"><span class="header-section-number">13.3</span> arrow</a></li>
+  <li><a href="#%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5" id="toc-稀疏矩阵" class="nav-link" data-scroll-target="#%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5"><span class="header-section-number">13.4</span> 稀疏矩阵</a></li>
+  <li><a href="#%E7%A1%AC%E4%BB%B6" id="toc-硬件" class="nav-link" data-scroll-target="#%E7%A1%AC%E4%BB%B6"><span class="header-section-number">13.5</span> 硬件</a></li>
+  <li><a href="#%E5%B9%B6%E8%A1%8C%E5%8C%96" id="toc-并行化" class="nav-link" data-scroll-target="#%E5%B9%B6%E8%A1%8C%E5%8C%96"><span class="header-section-number">13.6</span> 并行化</a></li>
+  <li><a href="#rcpp" id="toc-rcpp" class="nav-link" data-scroll-target="#rcpp"><span class="header-section-number">13.7</span> Rcpp</a></li>
+  <li><a href="#rcpp-sugar" id="toc-rcpp-sugar" class="nav-link" data-scroll-target="#rcpp-sugar"><span class="header-section-number">13.8</span> Rcpp sugar</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./control_structure.html">Programming</a></li><li class="breadcrumb-item"><a href="./efficient.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">高效</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./control_structure.html">Programming</a></li><li class="breadcrumb-item"><a href="./efficient.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">高效</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">12</span>&nbsp; <span class="chapter-title">高效</span>
+<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">高效</span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -279,10 +287,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="向量化编程" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="向量化编程">
-<span class="header-section-number">12.1</span> 向量化编程</h2>
-</section><section id="稀疏矩阵" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="稀疏矩阵">
-<span class="header-section-number">12.2</span> 稀疏矩阵</h2>
+</header><section id="向量化编程" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="向量化编程">
+<span class="header-section-number">13.1</span> 向量化编程</h2>
+</section><section id="data.table" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="data.table">
+<span class="header-section-number">13.2</span> data.table</h2>
+<ul>
+<li><a href="https://rdatatable.gitlab.io/data.table/">data.table</a></li>
+</ul></section><section id="arrow" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="arrow">
+<span class="header-section-number">13.3</span> arrow</h2>
+<ul>
+<li><a href="https://arrow.apache.org/docs/r/">arrow.apache.R</a></li>
+</ul></section><section id="稀疏矩阵" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="稀疏矩阵">
+<span class="header-section-number">13.4</span> 稀疏矩阵</h2>
 <p>稀疏矩阵(Sparse matrices)对象仅存储非零元素，更节省内存</p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://Matrix.R-forge.R-project.org">"Matrix"</a></span><span class="op">)</span></span>
@@ -297,12 +313,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 3104 bytes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="并行化" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="并行化">
-<span class="header-section-number">12.3</span> 并行化</h2>
+</section><section id="硬件" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="硬件">
+<span class="header-section-number">13.5</span> 硬件</h2>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/csgillespie/benchmarkme">"benchmarkme"</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>1字节（byte）= 8位（bit） 二进制数 = 1个 ASCII 字符。</p>
+<p>International System of Units (SI)</p>
+<p>1 kilobyte (kB) =(2^{10}) bytes</p>
+<p>1 megabyte (MB) =&nbsp;(2<sup>{10})&nbsp;kilobytes=&nbsp;(2</sup>{20})&nbsp;bytes</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 随机存取存储器 Random access memory,RAM</span></span>
+<span><span class="fu">benchmarkme</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/benchmarkme/man/get_ram.html">get_ram</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 6.32 GB</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>standard hard disk drives (HDDs)</p>
+<p>Solid state drives (SSDs)</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 操作系统 2^8</span></span>
+<span><span class="va">.Machine</span><span class="op">$</span><span class="va">sizeof.pointer</span></span>
+<span><span class="co">#&gt; [1] 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># CPU</span></span>
+<span><span class="va">res</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/benchmarkme/man/benchmark_std.html">benchmark_std</a></span><span class="op">(</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="efficient_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<pre><code>#&gt; Press return to get next plot</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="efficient_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<pre><code>#&gt; Press return to get next plot</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="efficient_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="并行化" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="并行化">
+<span class="header-section-number">13.6</span> 并行化</h2>
 <p>parallelization</p>
 <p>Parallel computing</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"parallel"</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"parallel"</span><span class="op">)</span></span>
 <span><span class="va">no_of_cores</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html">detectCores</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">no_of_cores</span></span>
 <span><span class="co">#&gt; [1] 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -313,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>parSapply（cl = NULL， X， FUN， ...， simplify = TRUE， USE.NAMES = TRUE)</code></p>
 <p><code><a href="https://rdrr.io/r/parallel/makeCluster.html">makeCluster()</a></code>此函数指定要使用的处理器数量</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"parallel"</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"parallel"</span><span class="op">)</span></span>
 <span></span>
 <span></span>
 <span><span class="va">N</span> <span class="op">=</span> <span class="fl">10</span><span class="op">^</span><span class="fl">4</span></span>
@@ -324,14 +389,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://rdrr.io/r/parallel/makeCluster.html">stopCluster</a></span><span class="op">(</span><span class="va">cl</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="rcpp" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="rcpp">
-<span class="header-section-number">12.4</span> Rcpp</h2>
+</section><section id="rcpp" class="level2" data-number="13.7"><h2 data-number="13.7" class="anchored" data-anchor-id="rcpp">
+<span class="header-section-number">13.7</span> Rcpp</h2>
 <p><a href="http://www.rcpp.org/">Rcpp</a></p>
 <p>Rcpp sugar</p>
 <p><code>NumericVector</code> <code>IntegerVector</code> <code>CharacterVector</code> <code>LogicalVector</code></p>
 <p><code>NumericMatrix</code> <code>IntegerMatrix</code> <code>CharacterMatrix</code> <code>LogicalMatrix</code></p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.rcpp.org">Rcpp</a></span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.rcpp.org">Rcpp</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/Rcpp/man/sourceCpp.html">sourceCpp</a></span><span class="op">(</span><span class="st">"function/add_cpp.cpp"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; &gt; add_cpp(1, 2)</span></span>
@@ -348,57 +413,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="rcpp-sugar" class="level2" data-number="12.5"><h2 data-number="12.5" class="anchored" data-anchor-id="rcpp-sugar">
-<span class="header-section-number">12.5</span> Rcpp sugar</h2>
-</section><section id="硬件" class="level2" data-number="12.6"><h2 data-number="12.6" class="anchored" data-anchor-id="硬件">
-<span class="header-section-number">12.6</span> 硬件</h2>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/csgillespie/benchmarkme">"benchmarkme"</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>1字节（byte）= 8位（bit） 二进制数 = 1个 ASCII 字符。</p>
-<p>International System of Units (SI)</p>
-<p>1 kilobyte (kB) =(2^{10}) bytes</p>
-<p>1 megabyte (MB) =&nbsp;(2<sup>{10})&nbsp;kilobytes=&nbsp;(2</sup>{20})&nbsp;bytes</p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 随机存取存储器 Random access memory,RAM</span></span>
-<span><span class="fu">benchmarkme</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/benchmarkme/man/get_ram.html">get_ram</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 6.32 GB</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>standard hard disk drives (HDDs)</p>
-<p>Solid state drives (SSDs)</p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 操作系统 2^8</span></span>
-<span><span class="va">.Machine</span><span class="op">$</span><span class="va">sizeof.pointer</span></span>
-<span><span class="co">#&gt; [1] 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># CPU</span></span>
-<span><span class="va">res</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/benchmarkme/man/benchmark_std.html">benchmark_std</a></span><span class="op">(</span><span class="op">)</span> </span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="efficient_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<pre><code>#&gt; Press return to get next plot</code></pre>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="efficient_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<pre><code>#&gt; Press return to get next plot</code></pre>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="efficient_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+</section><section id="rcpp-sugar" class="level2" data-number="13.8"><h2 data-number="13.8" class="anchored" data-anchor-id="rcpp-sugar">
+<span class="header-section-number">13.8</span> Rcpp sugar</h2>
 
 
 <!-- -->
@@ -864,12 +880,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./exception_handling.html" class="pagination-link" aria-label="异常处理">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">异常处理</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">异常处理</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./functionals.html" class="pagination-link" aria-label="泛函">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">泛函</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">泛函</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -877,108 +893,116 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## 向量化编程</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 稀疏矩阵</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## data.table</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>稀疏矩阵(Sparse matrices)对象仅存储非零元素，更节省内存</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">data.table</span><span class="co">](https://rdatatable.gitlab.io/data.table/)</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"Matrix"</span>)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>N <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## arrow</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">arrow.apache.R</span><span class="co">](https://arrow.apache.org/docs/r/)</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## 稀疏矩阵</span></span>
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fu">diag</span>(<span class="dv">1</span>, N, N)</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">=</span> <span class="fu">sparseMatrix</span>(<span class="dv">1</span><span class="sc">:</span>N, <span class="dv">1</span><span class="sc">:</span>N, <span class="at">x =</span> <span class="dv">1</span>)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(m)</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(sp)</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>稀疏矩阵(Sparse matrices)对象仅存储非零元素，更节省内存</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"Matrix"</span>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>N <span class="ot">=</span> <span class="dv">100</span></span>
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## 并行化</span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>parallelization</span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>Parallel computing</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fu">diag</span>(<span class="dv">1</span>, N, N)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">=</span> <span class="fu">sparseMatrix</span>(<span class="dv">1</span><span class="sc">:</span>N, <span class="dv">1</span><span class="sc">:</span>N, <span class="at">x =</span> <span class="dv">1</span>)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(m)</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(sp)</span>
 <span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"parallel"</span>)</span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>no_of_cores <span class="ot">=</span> <span class="fu">detectCores</span>()</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>no_of_cores</span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="in">`parLapply（cl， x， FUN， ...）`</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## 硬件</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"benchmarkme"</span>)</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="in">`parApply（cl = NULL， X， MARGIN， FUN， ...）`</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>1字节（byte）= 8位（bit） 二进制数 = 1个 ASCII 字符。</span>
 <span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="in">`parSapply（cl = NULL， X， FUN， ...， simplify = TRUE， USE.NAMES = TRUE)`</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>International System of Units (SI)</span>
 <span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="in">`makeCluster()`</span>此函数指定要使用的处理器数量</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>1 kilobyte (kB) =(2\^{10}) bytes</span>
 <span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="in">library("parallel")</span></span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="in">N = 10^4</span></span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="in">sapply(1:N, sd)</span></span>
-<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a><span class="in">cl = makeCluster(4)</span></span>
-<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a><span class="in">parSapply(cl, 1:N, sd)</span></span>
-<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a><span class="in">stopCluster(cl)</span></span>
-<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rcpp</span></span>
-<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Rcpp</span><span class="co">](http://www.rcpp.org/)</span></span>
-<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>Rcpp sugar</span>
-<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="in">`NumericVector`</span> <span class="in">`IntegerVector`</span> <span class="in">`CharacterVector`</span> <span class="in">`LogicalVector`</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>1 megabyte (MB) =&nbsp;(2^{10})&nbsp;kilobytes=&nbsp;(2^{20})&nbsp;bytes</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 随机存取存储器 Random access memory,RAM</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>benchmarkme<span class="sc">::</span><span class="fu">get_ram</span>()</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>standard hard disk drives (HDDs)</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>Solid state drives (SSDs)</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="co"># 操作系统 2^8</span></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>sizeof.pointer</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a><span class="in">`NumericMatrix`</span> <span class="in">`IntegerMatrix`</span> <span class="in">`CharacterMatrix`</span> <span class="in">`LogicalMatrix`</span></span>
-<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rcpp)</span>
-<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="fu">sourceCpp</span>(<span class="st">"function/add_cpp.cpp"</span>)</span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a><span class="co"># CPU</span></span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fu">benchmark_std</span>() </span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(res)</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="fu">add_cpp</span>(<span class="dv">2</span>,<span class="fl">34.5</span>)</span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## 并行化</span></span>
 <span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a><span class="fu">sourceCpp</span>(<span class="st">"function/mean_cpp.cpp"</span>)</span>
-<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rcpp sugar</span></span>
-<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## 硬件</span></span>
-<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"benchmarkme"</span>)</span>
-<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>1字节（byte）= 8位（bit） 二进制数 = 1个 ASCII 字符。</span>
-<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a>International System of Units (SI)</span>
-<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a>1 kilobyte (kB) =(2\^{10}) bytes</span>
-<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>1 megabyte (MB) =&nbsp;(2^{10})&nbsp;kilobytes=&nbsp;(2^{20})&nbsp;bytes</span>
-<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="co"># 随机存取存储器 Random access memory,RAM</span></span>
-<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>benchmarkme<span class="sc">::</span><span class="fu">get_ram</span>()</span>
-<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>standard hard disk drives (HDDs)</span>
-<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>Solid state drives (SSDs)</span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>parallelization</span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a>Parallel computing</span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"parallel"</span>)</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a>no_of_cores <span class="ot">=</span> <span class="fu">detectCores</span>()</span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>no_of_cores</span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a><span class="in">`parLapply（cl， x， FUN， ...）`</span></span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a><span class="in">`parApply（cl = NULL， X， MARGIN， FUN， ...）`</span></span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="in">`parSapply（cl = NULL， X， FUN， ...， simplify = TRUE， USE.NAMES = TRUE)`</span></span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a><span class="in">`makeCluster()`</span>此函数指定要使用的处理器数量</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="in">library("parallel")</span></span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="in">N = 10^4</span></span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a><span class="in">sapply(1:N, sd)</span></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a><span class="in">cl = makeCluster(4)</span></span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a><span class="in">parSapply(cl, 1:N, sd)</span></span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a><span class="in">stopCluster(cl)</span></span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a><span class="co"># 操作系统 2^8</span></span>
-<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>sizeof.pointer</span>
-<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a><span class="co"># CPU</span></span>
-<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fu">benchmark_std</span>() </span>
-<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(res)</span>
-<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rcpp</span></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Rcpp</span><span class="co">](http://www.rcpp.org/)</span></span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>Rcpp sugar</span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a><span class="in">`NumericVector`</span> <span class="in">`IntegerVector`</span> <span class="in">`CharacterVector`</span> <span class="in">`LogicalVector`</span></span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a><span class="in">`NumericMatrix`</span> <span class="in">`IntegerMatrix`</span> <span class="in">`CharacterMatrix`</span> <span class="in">`LogicalMatrix`</span></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rcpp)</span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a><span class="fu">sourceCpp</span>(<span class="st">"function/add_cpp.cpp"</span>)</span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a><span class="fu">add_cpp</span>(<span class="dv">2</span>,<span class="fl">34.5</span>)</span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a><span class="fu">sourceCpp</span>(<span class="st">"function/mean_cpp.cpp"</span>)</span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rcpp sugar</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
