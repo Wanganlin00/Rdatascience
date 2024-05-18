@@ -1,6 +1,6 @@
 # 实用函数
 
-## subsetting operators
+## 子集运算
 
 `[`，`$`，`[[`
 
@@ -46,7 +46,7 @@ subset()
 sample()
 ```
 
-## 逻辑函数
+## 逻辑运算
 
 ```{r}
 x<-c(2,3,5,1,4)
@@ -56,17 +56,18 @@ which(x>2)
 which.max(x)
 which.min(x)
 mtcars[mtcars$gear == 5 & mtcars$cyl == 4, ]
-```
 
-## 布尔运算和集合运算
 
-```{r}
 (x1 <- 1:10 %% 2 == 0)
 (x2 <- which(x1))
 
 (y1 <- 1:10 %% 5 == 0)
 (y2 <- which(y1))
+```
 
+## 集合运算
+
+```{r}
 x1 & y1
 base::intersect(x2, y2)
 
