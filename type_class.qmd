@@ -1,6 +1,6 @@
 # 数据类型和数据结构
 
-在R中任何一个object都具有两个最基本的属性：**mode**和 **length**。对于这两种属性的查看都是直接调用对应的`mode()`（或`typeof()`）和`length()`函数，不能通过`attributes()`函数查看。
+在R中任何一个object都具有两个最基本的属性：数据类型 **mode**和 长度 **length**。对于这两种属性的查看都是直接调用对应的`mode()`（或`typeof()`）和`length()`函数，不能通过`attributes()`函数查看。
 
 ## 数据类型 {style="color:red"}
 
@@ -9,6 +9,8 @@ mode 是指数据最基本的存储格式。在R中有5 种最基本的数据存
 强制类型转换： 逻辑 -\> 整数 -\> 双精度浮点数 -\> 字符
 
 ### numeric -- 数值型
+
+数值型，包括整型、单精度实型、双精度实型等。
 
 1.  **double -- 双精度浮点数**
 
@@ -22,7 +24,7 @@ mode 是指数据最基本的存储格式。在R中有5 种最基本的数据存
     0x111   # 16^2×1+ 16^1×1 + 16^0×1
     ```
 
-    浮点标准定义的特殊值
+    [浮点标准定义的特殊值]{.underline}
 
 -   Infinity 无穷大
 
@@ -55,14 +57,48 @@ typeof("R language")
 
 ### logical
 
+比较运算符 `?Comparison`
+
+逻辑运算符`?Logic`
+
 ```{r}
 typeof(TRUE)
+x <- c(T,F,T)
+y <- c(T,T,F)
+
+# 非
+!x
+
+# 与
+x&y
+T&&F
+# 或
+x|y
+T||F
+
+# 异或  不同为TRUE 或 1
+xor(x,y)
+
 ```
 
 ### complex
 
 ```{r}
-typeof(2i) 
+z <- 2+3i
+typeof(z) 
+
+is.complex(z)
+# 获取实部
+Re(z)
+
+# 获取虚部
+Im(z)
+
+# 模
+Mod(z)
+
+# 共轭
+Conj(z)
 ```
 
 ### raw

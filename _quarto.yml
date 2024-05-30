@@ -8,7 +8,7 @@ book:
   chapters:
     - index.qmd
     
-    - part: "Data science"
+    - part: "Data Science"
       chapters: 
         - type_class.qmd
         - I-O.qmd
