@@ -1,6 +1,5 @@
 # ggplot2 extensions
 
-
 <https://exts.ggplot2.tidyverse.org/gallery/>
 
 ## ggsci
@@ -47,6 +46,7 @@ my_compare <- list(c("0.5","1"),c("1","2"),c("0.5","2"))
 p+stat_compare_means(comparisons = my_compare,method = "t.test")+
     stat_compare_means(label.y = 50)  # 总体p值
 ```
+
 ### ggviolin
 
 ```{r}
@@ -64,7 +64,6 @@ ggviolin(data = df,
                        method = "t.test")+
     stat_compare_means(label.y = 50)  # 总体p值
 ```
-
 
 ### ggbarplot
 
@@ -115,6 +114,7 @@ bp + stat_pvalue_manual(
   position = position_dodge(0.8)
 )
 ```
+
 #### 分组并列，组内组间显著性p值
 
 ```{r}
@@ -184,7 +184,6 @@ bp +
     )
 ```
 
-
 ### ggdotchart Cleveland's Dot Plots
 
 ```{r}
@@ -227,7 +226,6 @@ mtcars |> rownames_to_column(var = "name") |>
 
 ```
 
-
 ### ggdotplot
 
 ## ggrepel
@@ -248,8 +246,6 @@ ggplot(data = mtcars, aes(x= wt, y = mpg)) +
 
 # geom_label_repel 带白底外框
 ```
-
-## 热图
 
 ## 相关图 {#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram}
 
@@ -292,13 +288,12 @@ p <- ggplot(mtcars,
   geom_point()
 ```
 
-## Marginal Histogram / Boxplot
+## 边际图 Marginal Histogram / Boxplot
 
 ```{r}
 library(ggExtra)
 ```
 
-## 森林图
+## 热图
 
-```{r}
-```
+## 森林图
