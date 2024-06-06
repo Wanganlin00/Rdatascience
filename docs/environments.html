@@ -151,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./type_class.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">基本数据类型和数据结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -201,12 +201,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Programming</span></a>
+ <span class="menu-text">R &lt;—&gt; Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R-Python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R⬌Python</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Programming</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
@@ -353,11 +370,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span></span>
 <span><span class="co"># 只显示内存地址</span></span>
 <span><span class="va">e1</span> </span>
-<span><span class="co">#&gt; &lt;environment: 0x000001f9dd8d14a8&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: 0x00000191c9b659b0&gt;</span></span>
 <span></span>
 <span><span class="co"># </span></span>
 <span><span class="fu"><a href="https://rlang.r-lib.org/reference/env_print.html">env_print</a></span><span class="op">(</span><span class="va">e1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x000001f9dd8d14a8&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: 0x00000191c9b659b0&gt;</span></span>
 <span><span class="co">#&gt; Parent: &lt;environment: global&gt;</span></span>
 <span><span class="co">#&gt; Bindings:</span></span>
 <span><span class="co">#&gt; • a: &lt;lgl&gt;</span></span>
@@ -414,9 +431,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 查看父级</span></span>
 <span><span class="va">e2a</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x000001f9dd474460&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: 0x00000191ca5ac458&gt;</span></span>
 <span><span class="fu"><a href="https://rlang.r-lib.org/reference/env_parent.html">env_parent</a></span><span class="op">(</span><span class="va">e2b</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x000001f9dd474460&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: 0x00000191ca5ac458&gt;</span></span>
 <span><span class="fu"><a href="https://rlang.r-lib.org/reference/env_parent.html">env_parent</a></span><span class="op">(</span><span class="va">e2a</span><span class="op">)</span></span>
 <span><span class="co">#&gt; &lt;environment: R_GlobalEnv&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -435,10 +452,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 查看所有父级</span></span>
 <span><span class="fu"><a href="https://rlang.r-lib.org/reference/env_parent.html">env_parents</a></span><span class="op">(</span><span class="va">e2d</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [[1]]   &lt;env: 0x000001f9dc26c980&gt;</span></span>
+<span><span class="co">#&gt; [[1]]   &lt;env: 0x00000191c716bbc8&gt;</span></span>
 <span><span class="co">#&gt; [[2]] $ &lt;env: empty&gt;</span></span>
 <span><span class="va">e2c</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x000001f9dc26c980&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: 0x00000191c716bbc8&gt;</span></span>
 <span><span class="fu"><a href="https://rlang.r-lib.org/reference/env_parent.html">env_parents</a></span><span class="op">(</span><span class="va">e2c</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [[1]] $ &lt;env: empty&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -446,24 +463,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>默认情况下，当到达全局环境时停止。如果覆盖默认行为，则可以看到全局环境的父级包括每个加载的包。</p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">e2a</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x000001f9dd474460&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: 0x00000191ca5ac458&gt;</span></span>
 <span><span class="fu"><a href="https://rlang.r-lib.org/reference/env_parent.html">env_parents</a></span><span class="op">(</span><span class="va">e2b</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [[1]]   &lt;env: 0x000001f9dd474460&gt;</span></span>
+<span><span class="co">#&gt; [[1]]   &lt;env: 0x00000191ca5ac458&gt;</span></span>
 <span><span class="co">#&gt; [[2]] $ &lt;env: global&gt;</span></span>
 <span><span class="fu"><a href="https://rlang.r-lib.org/reference/env_parent.html">env_parents</a></span><span class="op">(</span><span class="va">e2b</span>, last <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/empty_env.html">empty_env</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [[1]]   &lt;env: 0x000001f9dd474460&gt;</span></span>
+<span><span class="co">#&gt;  [[1]]   &lt;env: 0x00000191ca5ac458&gt;</span></span>
 <span><span class="co">#&gt;  [[2]] $ &lt;env: global&gt;</span></span>
 <span><span class="co">#&gt;  [[3]] $ &lt;env: .conflicts&gt;</span></span>
 <span><span class="co">#&gt;  [[4]] $ &lt;env: package:rlang&gt;</span></span>
-<span><span class="co">#&gt;  [[5]] $ &lt;env: package:stats&gt;</span></span>
-<span><span class="co">#&gt;  [[6]] $ &lt;env: package:graphics&gt;</span></span>
-<span><span class="co">#&gt;  [[7]] $ &lt;env: package:grDevices&gt;</span></span>
-<span><span class="co">#&gt;  [[8]] $ &lt;env: package:utils&gt;</span></span>
-<span><span class="co">#&gt;  [[9]] $ &lt;env: package:datasets&gt;</span></span>
-<span><span class="co">#&gt; [[10]] $ &lt;env: package:writexl&gt;</span></span>
-<span><span class="co">#&gt; [[11]] $ &lt;env: package:readxl&gt;</span></span>
-<span><span class="co">#&gt; [[12]] $ &lt;env: package:BiocManager&gt;</span></span>
-<span><span class="co">#&gt; [[13]] $ &lt;env: package:patchwork&gt;</span></span>
+<span><span class="co">#&gt;  [[5]] $ &lt;env: package:writexl&gt;</span></span>
+<span><span class="co">#&gt;  [[6]] $ &lt;env: package:readxl&gt;</span></span>
+<span><span class="co">#&gt;  [[7]] $ &lt;env: package:patchwork&gt;</span></span>
+<span><span class="co">#&gt;  [[8]] $ &lt;env: package:stats&gt;</span></span>
+<span><span class="co">#&gt;  [[9]] $ &lt;env: package:graphics&gt;</span></span>
+<span><span class="co">#&gt; [[10]] $ &lt;env: package:grDevices&gt;</span></span>
+<span><span class="co">#&gt; [[11]] $ &lt;env: package:utils&gt;</span></span>
+<span><span class="co">#&gt; [[12]] $ &lt;env: package:datasets&gt;</span></span>
+<span><span class="co">#&gt; [[13]] $ &lt;env: package:BiocManager&gt;</span></span>
 <span><span class="co">#&gt; [[14]] $ &lt;env: package:lubridate&gt;</span></span>
 <span><span class="co">#&gt; [[15]] $ &lt;env: package:forcats&gt;</span></span>
 <span><span class="co">#&gt; [[16]] $ &lt;env: package:stringr&gt;</span></span>
@@ -551,7 +568,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1</span></span>
 <span><span class="co">#&gt;    user  system elapsed </span></span>
-<span><span class="co">#&gt;       0       0       1</span></span>
+<span><span class="co">#&gt;    0.00    0.00    1.02</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1</span></span>
@@ -563,9 +580,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rlang.r-lib.org/reference/env_bind.html">env_bind_active</a></span><span class="op">(</span><span class="fu"><a href="https://rlang.r-lib.org/reference/stack.html">current_env</a></span><span class="op">(</span><span class="op">)</span>, z1 <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">val</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">z1</span></span>
-<span><span class="co">#&gt; [1] 0.6443724</span></span>
+<span><span class="co">#&gt; [1] 0.04254753</span></span>
 <span><span class="va">z1</span></span>
-<span><span class="co">#&gt; [1] 0.1458717</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; [1] 0.4636537</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section></section><section id="在环境中递归recurse" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="在环境中递归recurse">
@@ -611,12 +628,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">where</span><span class="op">(</span><span class="st">"a"</span>, <span class="va">e3b</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x000001f9dcfb2418&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: 0x00000191c9bbec88&gt;</span></span>
 <span></span>
 <span><span class="fu">where</span><span class="op">(</span><span class="st">"b"</span>, <span class="va">e3b</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x000001f9dd0ce5b0&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: 0x00000191c9c69420&gt;</span></span>
 <span><span class="va">e3a</span></span>
-<span><span class="co">#&gt; &lt;environment: 0x000001f9dd0ce5b0&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: 0x00000191c9c69420&gt;</span></span>
 <span></span>
 <span><span class="fu">where</span><span class="op">(</span><span class="st">"c"</span>, <span class="va">e3b</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error: Can't find c</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -652,9 +669,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">base</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] ".GlobalEnv"          ".conflicts"          "package:rlang"      </span></span>
-<span><span class="co">#&gt;  [4] "package:stats"       "package:graphics"    "package:grDevices"  </span></span>
-<span><span class="co">#&gt;  [7] "package:utils"       "package:datasets"    "package:writexl"    </span></span>
-<span><span class="co">#&gt; [10] "package:readxl"      "package:BiocManager" "package:patchwork"  </span></span>
+<span><span class="co">#&gt;  [4] "package:writexl"     "package:readxl"      "package:patchwork"  </span></span>
+<span><span class="co">#&gt;  [7] "package:stats"       "package:graphics"    "package:grDevices"  </span></span>
+<span><span class="co">#&gt; [10] "package:utils"       "package:datasets"    "package:BiocManager"</span></span>
 <span><span class="co">#&gt; [13] "package:lubridate"   "package:forcats"     "package:stringr"    </span></span>
 <span><span class="co">#&gt; [16] "package:dplyr"       "package:purrr"       "package:readr"      </span></span>
 <span><span class="co">#&gt; [19] "package:tidyr"       "package:tibble"      "package:ggplot2"    </span></span>
@@ -664,15 +681,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt;  [[1]] $ &lt;env: global&gt;</span></span>
 <span><span class="co">#&gt;  [[2]] $ &lt;env: .conflicts&gt;</span></span>
 <span><span class="co">#&gt;  [[3]] $ &lt;env: package:rlang&gt;</span></span>
-<span><span class="co">#&gt;  [[4]] $ &lt;env: package:stats&gt;</span></span>
-<span><span class="co">#&gt;  [[5]] $ &lt;env: package:graphics&gt;</span></span>
-<span><span class="co">#&gt;  [[6]] $ &lt;env: package:grDevices&gt;</span></span>
-<span><span class="co">#&gt;  [[7]] $ &lt;env: package:utils&gt;</span></span>
-<span><span class="co">#&gt;  [[8]] $ &lt;env: package:datasets&gt;</span></span>
-<span><span class="co">#&gt;  [[9]] $ &lt;env: package:writexl&gt;</span></span>
-<span><span class="co">#&gt; [[10]] $ &lt;env: package:readxl&gt;</span></span>
-<span><span class="co">#&gt; [[11]] $ &lt;env: package:BiocManager&gt;</span></span>
-<span><span class="co">#&gt; [[12]] $ &lt;env: package:patchwork&gt;</span></span>
+<span><span class="co">#&gt;  [[4]] $ &lt;env: package:writexl&gt;</span></span>
+<span><span class="co">#&gt;  [[5]] $ &lt;env: package:readxl&gt;</span></span>
+<span><span class="co">#&gt;  [[6]] $ &lt;env: package:patchwork&gt;</span></span>
+<span><span class="co">#&gt;  [[7]] $ &lt;env: package:stats&gt;</span></span>
+<span><span class="co">#&gt;  [[8]] $ &lt;env: package:graphics&gt;</span></span>
+<span><span class="co">#&gt;  [[9]] $ &lt;env: package:grDevices&gt;</span></span>
+<span><span class="co">#&gt; [[10]] $ &lt;env: package:utils&gt;</span></span>
+<span><span class="co">#&gt; [[11]] $ &lt;env: package:datasets&gt;</span></span>
+<span><span class="co">#&gt; [[12]] $ &lt;env: package:BiocManager&gt;</span></span>
 <span><span class="co">#&gt; [[13]] $ &lt;env: package:lubridate&gt;</span></span>
 <span><span class="co">#&gt; [[14]] $ &lt;env: package:forcats&gt;</span></span>
 <span><span class="co">#&gt; [[15]] $ &lt;env: package:stringr&gt;</span></span>
@@ -725,7 +742,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; function (x, na.rm = FALSE) </span></span>
 <span><span class="co">#&gt; sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span></span>
 <span><span class="co">#&gt;     na.rm = na.rm))</span></span>
-<span><span class="co">#&gt; &lt;bytecode: 0x000001f9e23f5058&gt;</span></span>
+<span><span class="co">#&gt; &lt;bytecode: 0x00000191d043cca8&gt;</span></span>
 <span><span class="co">#&gt; &lt;environment: namespace:stats&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -774,7 +791,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu">h</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="co"># 3.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="fig-execution" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" width="35%">
+<div id="fig-execution" class="quarto-figure quarto-figure-center quarto-float anchored" width="35%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-execution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/execution.png" id="fig-execution" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:35.0%">
 </div>
@@ -830,7 +847,7 @@ Figure&nbsp;11.1
 <li>环境（标记为<code>env</code> ）</li>
 <li>父级，调用栈中的上一个调用（由灰色箭头显示）</li>
 </ul>
-<div id="fig-frame" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" width="45%">
+<div id="fig-frame" class="quarto-figure quarto-figure-center quarto-float anchored" width="45%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-frame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/calling_stack_frame.png" id="fig-frame" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:45.0%">
 </div>

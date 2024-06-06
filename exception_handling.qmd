@@ -2,6 +2,18 @@
 
 R中的条件（condition）系统提供了一组成对的工具，提示函数正在发生异常情况，并允许该函数的用户处理它
 
+提示信息
+
+```{r}
+print("Running...")
+
+message("Running...")
+
+cat("Running...\n")
+
+warning("Running...")
+```
+
 signals conditions
 
 -   `stop()` for errors
@@ -207,7 +219,6 @@ withCallingHandlers(
 )
 ```
 
-
 ```{r}
 tryCatch(
   message = function(cnd) cat("Caught a message!\n"), 
@@ -252,7 +263,6 @@ my_log <- function(x, base = exp(1)) {
 my_log(letters)
 my_log(1:10, base = letters)
 ```
-
 
 ```{r}
 abort_bad_argument <- function(arg, must, not = NULL) {
@@ -308,4 +318,3 @@ my_log <- function(x, base = exp(1)) {
 my_log(letters)
 my_log(letters)
 ```
-

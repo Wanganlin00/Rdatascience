@@ -261,7 +261,13 @@ ggplot(mpg, aes(x = hwy, y = drv, fill = drv, color = drv)) +
   geom_density_ridges(alpha = 0.5, show.legend = FALSE)
 ```
 
-## plotly
+## 交互式 plotly
+
+<https://github.com/plotly/plotly.R>
+
+<https://plotly-r.com/>
+
+<https://plotly.com/ggplot2/>
 
 Converting a ggplot2 graph to an interactive plotly graph
 

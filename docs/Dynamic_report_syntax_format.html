@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./control_structure.html" rel="next">
+<link href="./R-Python.html" rel="next">
 <link href="./custom_functions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -177,7 +177,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./type_class.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据类型和数据结构</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">基本数据类型和数据结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -227,12 +227,29 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Programming</span></a>
+ <span class="menu-text">R &lt;—&gt; Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R-Python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R⬌Python</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Programming</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
@@ -285,14 +302,15 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li>
-<a href="#%E5%9F%BA%E7%A1%80" id="toc-基础" class="nav-link active" data-scroll-target="#%E5%9F%BA%E7%A1%80"><span class="header-section-number">1</span> 基础</a>
+<li><a href="#%E5%9F%BA%E7%A1%80" id="toc-基础" class="nav-link active" data-scroll-target="#%E5%9F%BA%E7%A1%80"><span class="header-section-number">1</span> 基础</a></li>
+  <li>
+<a href="#execute-chunk" id="toc-execute-chunk" class="nav-link" data-scroll-target="#execute-chunk"><span class="header-section-number">2</span> Execute chunk</a>
   <ul>
 <li>
-<a href="#%E5%9B%BE" id="toc-图" class="nav-link" data-scroll-target="#%E5%9B%BE"><span class="header-section-number">1.1</span> 图</a>
+<a href="#%E5%9B%BE" id="toc-图" class="nav-link" data-scroll-target="#%E5%9B%BE"><span class="header-section-number">2.1</span> 图</a>
   <ul>
 <li>
-<a href="#%E6%B5%81%E7%A8%8B%E5%9B%BE" id="toc-流程图" class="nav-link" data-scroll-target="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="header-section-number">1.1.1</span> 流程图</a>
+<a href="#%E6%B5%81%E7%A8%8B%E5%9B%BE" id="toc-流程图" class="nav-link" data-scroll-target="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="header-section-number">2.1.1</span> 流程图</a>
   <ul class="collapse">
 <li><a href="#sec-eda" id="toc-sec-eda" class="nav-link" data-scroll-target="#sec-eda">EDA</a></li>
   </ul>
@@ -301,25 +319,33 @@ window.Quarto = {
 </li>
   </ul>
 </li>
-  <li><a href="#%E8%A1%A8%E6%A0%BC" id="toc-表格" class="nav-link" data-scroll-target="#%E8%A1%A8%E6%A0%BC"><span class="header-section-number">2</span> 表格</a></li>
-  <li><a href="#sec-formula" id="toc-sec-formula" class="nav-link" data-scroll-target="#sec-formula"><span class="header-section-number">3</span> 公式</a></li>
-  <li><a href="#callouts" id="toc-callouts" class="nav-link" data-scroll-target="#callouts"><span class="header-section-number">4</span> callouts</a></li>
-  <li><a href="#blockquote" id="toc-blockquote" class="nav-link" data-scroll-target="#blockquote"><span class="header-section-number">5</span> Blockquote</a></li>
+  <li><a href="#%E8%A1%A8%E6%A0%BC" id="toc-表格" class="nav-link" data-scroll-target="#%E8%A1%A8%E6%A0%BC"><span class="header-section-number">3</span> 表格</a></li>
+  <li><a href="#sec-formula" id="toc-sec-formula" class="nav-link" data-scroll-target="#sec-formula"><span class="header-section-number">4</span> 公式</a></li>
+  <li><a href="#callouts" id="toc-callouts" class="nav-link" data-scroll-target="#callouts"><span class="header-section-number">5</span> callouts</a></li>
+  <li><a href="#blockquote" id="toc-blockquote" class="nav-link" data-scroll-target="#blockquote"><span class="header-section-number">6</span> Blockquote</a></li>
   <li>
-<a href="#latex" id="toc-latex" class="nav-link" data-scroll-target="#latex"><span class="header-section-number">6</span> LaTex</a>
+<a href="#latex" id="toc-latex" class="nav-link" data-scroll-target="#latex"><span class="header-section-number">7</span> LaTex</a>
   <ul>
-<li><a href="#%E5%85%AC%E5%BC%8F%E5%AF%B9%E9%BD%90" id="toc-公式对齐" class="nav-link" data-scroll-target="#%E5%85%AC%E5%BC%8F%E5%AF%B9%E9%BD%90"><span class="header-section-number">6.1</span> 公式对齐</a></li>
-  <li><a href="#%E6%8B%AC%E5%8F%B7%E7%AD%89%E9%AB%98" id="toc-括号等高" class="nav-link" data-scroll-target="#%E6%8B%AC%E5%8F%B7%E7%AD%89%E9%AB%98"><span class="header-section-number">6.2</span> 括号等高</a></li>
-  <li><a href="#%E7%9F%A9%E9%98%B5" id="toc-矩阵" class="nav-link" data-scroll-target="#%E7%9F%A9%E9%98%B5"><span class="header-section-number">6.3</span> 矩阵</a></li>
-  <li><a href="#%E5%90%91%E9%87%8F%E8%A1%A8%E7%A4%BA" id="toc-向量表示" class="nav-link" data-scroll-target="#%E5%90%91%E9%87%8F%E8%A1%A8%E7%A4%BA"><span class="header-section-number">6.4</span> 向量表示</a></li>
+<li><a href="#%E5%85%AC%E5%BC%8F%E5%AF%B9%E9%BD%90" id="toc-公式对齐" class="nav-link" data-scroll-target="#%E5%85%AC%E5%BC%8F%E5%AF%B9%E9%BD%90"><span class="header-section-number">7.1</span> 公式对齐</a></li>
+  <li><a href="#%E6%8B%AC%E5%8F%B7%E7%AD%89%E9%AB%98" id="toc-括号等高" class="nav-link" data-scroll-target="#%E6%8B%AC%E5%8F%B7%E7%AD%89%E9%AB%98"><span class="header-section-number">7.2</span> 括号等高</a></li>
+  <li><a href="#%E7%9F%A9%E9%98%B5" id="toc-矩阵" class="nav-link" data-scroll-target="#%E7%9F%A9%E9%98%B5"><span class="header-section-number">7.3</span> 矩阵</a></li>
+  <li><a href="#%E5%90%91%E9%87%8F%E8%A1%A8%E7%A4%BA" id="toc-向量表示" class="nav-link" data-scroll-target="#%E5%90%91%E9%87%8F%E8%A1%A8%E7%A4%BA"><span class="header-section-number">7.4</span> 向量表示</a></li>
   </ul>
 </li>
-  <li><a href="#%E5%AE%9A%E7%90%86%E7%B1%BB%E6%AE%B5%E8%90%BD" id="toc-定理类段落" class="nav-link" data-scroll-target="#%E5%AE%9A%E7%90%86%E7%B1%BB%E6%AE%B5%E8%90%BD"><span class="header-section-number">7</span> 定理类段落</a></li>
+  <li><a href="#%E5%AE%9A%E7%90%86%E7%B1%BB%E6%AE%B5%E8%90%BD" id="toc-定理类段落" class="nav-link" data-scroll-target="#%E5%AE%9A%E7%90%86%E7%B1%BB%E6%AE%B5%E8%90%BD"><span class="header-section-number">8</span> 定理类段落</a></li>
   <li>
-<a href="#%E4%BB%A3%E7%A0%81%E5%9D%97" id="toc-代码块" class="nav-link" data-scroll-target="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="header-section-number">8</span> 代码块</a>
+<a href="#%E4%BB%A3%E7%A0%81%E5%9D%97" id="toc-代码块" class="nav-link" data-scroll-target="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="header-section-number">9</span> 代码块</a>
   <ul>
-<li><a href="#syntax-highlight" id="toc-syntax-highlight" class="nav-link" data-scroll-target="#syntax-highlight"><span class="header-section-number">8.1</span> syntax highlight</a></li>
-  <li><a href="#raw-content" id="toc-raw-content" class="nav-link" data-scroll-target="#raw-content"><span class="header-section-number">8.2</span> raw content</a></li>
+<li><a href="#syntax-highlight" id="toc-syntax-highlight" class="nav-link" data-scroll-target="#syntax-highlight"><span class="header-section-number">9.1</span> syntax highlight</a></li>
+  <li><a href="#raw-content" id="toc-raw-content" class="nav-link" data-scroll-target="#raw-content"><span class="header-section-number">9.2</span> raw content</a></li>
+  <li>
+<a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code"><span class="header-section-number">9.3</span> <strong>Inline Code</strong></a>
+  <ul>
+<li><a href="#knitr" id="toc-knitr" class="nav-link" data-scroll-target="#knitr"><span class="header-section-number">9.3.1</span> Knitr</a></li>
+  <li><a href="#jupyter" id="toc-jupyter" class="nav-link" data-scroll-target="#jupyter"><span class="header-section-number">9.3.2</span> Jupyter</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output"><span class="header-section-number">9.3.3</span> Output</a></li>
+  </ul>
+</li>
   </ul>
 </li>
   </ul></nav>
@@ -343,7 +369,7 @@ window.Quarto = {
 
 
 </header><p><a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a></p>
-<section id="基础" class="level2 page-columns page-full" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="基础">
+<section id="基础" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="基础">
 <span class="header-section-number">1</span> 基础</h2>
 <table class="table"><tbody>
 <tr class="odd">
@@ -438,9 +464,70 @@ window.Quarto = {
 </li>
 </ul>
 </li>
-</ul>
-<section id="图" class="level3 page-columns page-full" data-number="1.1"><h3 data-number="1.1" class="anchored" data-anchor-id="图">
-<span class="header-section-number">1.1</span> 图</h3>
+</ul></section><section id="execute-chunk" class="level2 page-columns page-full" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="execute-chunk">
+<span class="header-section-number">2</span> Execute chunk</h2>
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 71%">
+</colgroup>
+<thead><tr class="header">
+<th>Option</th>
+<th>Default</th>
+<th>Effects</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>echo</code></td>
+<td><code>true</code></td>
+<td><dl>
+<dt>
+<code>false</code>: hide code in output\</dt>
+<dd>
+include code cell syntax<code>fenced</code>
+</dd>
+</dl></td>
+</tr>
+<tr class="even">
+<td><code>eval</code></td>
+<td><code>true</code></td>
+<td>
+<code>false</code>: don’t run code</td>
+</tr>
+<tr class="odd">
+<td><code>include</code></td>
+<td><code>true</code></td>
+<td>
+<code>false</code>: don’t include code or results</td>
+</tr>
+<tr class="even">
+<td><code>output</code></td>
+<td><code>true</code></td>
+<td><dl>
+<dt>
+<code>false</code>: don’t include results\</dt>
+<dd>
+treat results as raw markdown<code>asis</code>
+</dd>
+</dl></td>
+</tr>
+<tr class="odd">
+<td><code>warning</code></td>
+<td><code>true</code></td>
+<td>
+<code>false</code>: don’t include warnings in output</td>
+</tr>
+<tr class="even">
+<td><code>error</code></td>
+<td><code>false</code></td>
+<td>
+<code>true</code>: include error in output and continue with render</td>
+</tr>
+</tbody>
+</table>
+<section id="图" class="level3 page-columns page-full" data-number="2.1"><h3 data-number="2.1" class="anchored" data-anchor-id="图">
+<span class="header-section-number">2.1</span> 图</h3>
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">25</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">25</span>,pch<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">25</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">25</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">25</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>,type<span class="op">=</span><span class="st">"b"</span>,pch<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">25</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div id="fig-plot" class="quarto-layout-panel page-columns page-full">
@@ -449,7 +536,7 @@ window.Quarto = {
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-plot" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-plot-1" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
 <figure class="quarto-float quarto-subfloat-fig figure page-columns page-full"><div aria-describedby="fig-plot-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="Dynamic_report_syntax_format_files/figure-html/fig-plot-1.png" class="img-fluid figure-img column-page-right" data-ref-parent="fig-plot" width="672">
+<img src="Dynamic_report_syntax_format_files/figure-html/fig-plot-1.svg" class="img-fluid figure-img column-page-right" data-ref-parent="fig-plot">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-plot-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) 点
@@ -459,7 +546,7 @@ window.Quarto = {
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-plot" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-plot-2" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
 <figure class="quarto-float quarto-subfloat-fig figure page-columns page-full"><div aria-describedby="fig-plot-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="Dynamic_report_syntax_format_files/figure-html/fig-plot-2.png" class="img-fluid figure-img column-page-right" data-ref-parent="fig-plot" width="672">
+<img src="Dynamic_report_syntax_format_files/figure-html/fig-plot-2.svg" class="img-fluid figure-img column-page-right" data-ref-parent="fig-plot">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-plot-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) 线
@@ -474,8 +561,8 @@ window.Quarto = {
 </div>
 <p>如左图 <a href="#fig-plot-1" class="quarto-xref">图&nbsp;<span>8.1 (a)</span></a> 所示，点有25种不同的形状，</p>
 <p>右图 <a href="#fig-plot-2" class="quarto-xref">图&nbsp;<span>8.1 (b)</span></a> 所示。</p>
-<section id="流程图" class="level4 page-columns page-full" data-number="1.1.1"><h4 data-number="1.1.1" class="anchored" data-anchor-id="流程图">
-<span class="header-section-number">1.1.1</span> 流程图</h4>
+<section id="流程图" class="level4 page-columns page-full" data-number="2.1.1"><h4 data-number="2.1.1" class="anchored" data-anchor-id="流程图">
+<span class="header-section-number">2.1.1</span> 流程图</h4>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -537,7 +624,7 @@ window.Quarto = {
 </div>
 </div>
 <section id="sec-eda" class="level5 page-columns page-full"><h5 class="anchored" data-anchor-id="sec-eda">EDA</h5>
-<p>引用章节： <a href="#sec-eda" class="quarto-xref"><span>Section 8.1.1.1.1</span></a> and <a href="#sec-formula" class="quarto-xref"><span>Section 8.3</span></a></p>
+<p>引用章节： <a href="#sec-eda" class="quarto-xref"><span>Section 8.2.1.1.1</span></a> and <a href="#sec-formula" class="quarto-xref"><span>Section 8.4</span></a></p>
 <p>引用图片 <a href="#fig-histogram" class="quarto-xref">图&nbsp;<span>8.3</span></a> shows two histograms displaying the distributions of <code>price</code> and <code>area</code> individually.</p>
 <details open="" class="code-fold"><summary>直方图</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">mpg</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -552,7 +639,7 @@ window.Quarto = {
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-histogram" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-histogram-1" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" alt="What's this.">
 <figure class="quarto-float quarto-subfloat-fig figure page-columns page-full"><div aria-describedby="fig-histogram-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="Dynamic_report_syntax_format_files/figure-html/fig-histogram-1.png" class="img-fluid figure-img column-page-right" data-ref-parent="fig-histogram" alt="What's this." width="672">
+<img src="Dynamic_report_syntax_format_files/figure-html/fig-histogram-1.svg" class="img-fluid figure-img column-page-right" data-ref-parent="fig-histogram" alt="What's this.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-histogram-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Histogram of <code>cty</code>s
@@ -562,7 +649,7 @@ window.Quarto = {
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-histogram" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-histogram-2" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" alt="What's this.">
 <figure class="quarto-float quarto-subfloat-fig figure page-columns page-full"><div aria-describedby="fig-histogram-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="Dynamic_report_syntax_format_files/figure-html/fig-histogram-2.png" class="img-fluid figure-img column-page-right" data-ref-parent="fig-histogram" alt="What's this." width="672">
+<img src="Dynamic_report_syntax_format_files/figure-html/fig-histogram-2.svg" class="img-fluid figure-img column-page-right" data-ref-parent="fig-histogram" alt="What's this.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-histogram-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Histogram of <code>hwy</code>s
@@ -575,8 +662,8 @@ window.Quarto = {
 图&nbsp;3: Histograms of mpg
 </figcaption></figure>
 </div>
-</section></section></section></section><section id="表格" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="表格">
-<span class="header-section-number">2</span> 表格</h2>
+</section></section></section></section><section id="表格" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="表格">
+<span class="header-section-number">3</span> 表格</h2>
 <p><a href="#tbl-stats" class="quarto-xref">表&nbsp;<span>8.1</span></a> displays basic summary statistics for these two variables.</p>
 <div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mpg</span> <span class="op">%&gt;%</span></span>
@@ -631,16 +718,16 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-</section><section id="sec-formula" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="sec-formula">
-<span class="header-section-number">3</span> 公式</h2>
+</section><section id="sec-formula" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="sec-formula">
+<span class="header-section-number">4</span> 公式</h2>
 <p>Black-Scholes (<a href="#eq-black-scholes" class="quarto-xref">式&nbsp;<span>8.1</span></a>) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:</p>
 <p><span id="eq-black-scholes"><span class="math display">\[ \frac{\partial \mathrm C}{ \partial \mathrm t } + \frac{1}{2}\sigma^{2} \mathrm S^{2} \frac{\partial^{2} \mathrm C}{\partial \mathrm C^2}   + \mathrm r \mathrm S \frac{\partial \mathrm C}{\partial \mathrm S}\ =   \mathrm r \mathrm C   \tag{1}\]</span></span></p>
 <p>We can fit a simple linear regression model of the form shown in <a href="#eq-slr" class="quarto-xref">式&nbsp;<span>8.2</span></a>.</p>
 <p><span id="eq-slr"><span class="math display">\[
 price = \hat{\beta}_0 + \hat{\beta}_1 \times area + \epsilon
 \tag{2}\]</span></span></p>
-</section><section id="callouts" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="callouts">
-<span class="header-section-number">4</span> callouts</h2>
+</section><section id="callouts" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="callouts">
+<span class="header-section-number">5</span> callouts</h2>
 <ul>
 <li><p><code>note</code></p></li>
 <li><p><code>warning</code></p></li>
@@ -702,8 +789,8 @@ Tip&nbsp;1: 交叉引用 a Tip
 <td><code>#cau-</code></td>
 </tr>
 </tbody>
-</table></section><section id="blockquote" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="blockquote">
-<span class="header-section-number">5</span> Blockquote</h2>
+</table></section><section id="blockquote" class="level2" data-number="6"><h2 data-number="6" class="anchored" data-anchor-id="blockquote">
+<span class="header-section-number">6</span> Blockquote</h2>
 <blockquote class="blockquote">
 <p>qwert</p>
 </blockquote>
@@ -714,19 +801,19 @@ Tip&nbsp;1: 交叉引用 a Tip
 </blockquote>
 </blockquote>
 </blockquote>
-</section><section id="latex" class="level2" data-number="6"><h2 data-number="6" class="anchored" data-anchor-id="latex">
-<span class="header-section-number">6</span> LaTex</h2>
-<section id="公式对齐" class="level3" data-number="6.1"><h3 data-number="6.1" class="anchored" data-anchor-id="公式对齐">
-<span class="header-section-number">6.1</span> 公式对齐</h3>
+</section><section id="latex" class="level2" data-number="7"><h2 data-number="7" class="anchored" data-anchor-id="latex">
+<span class="header-section-number">7</span> LaTex</h2>
+<section id="公式对齐" class="level3" data-number="7.1"><h3 data-number="7.1" class="anchored" data-anchor-id="公式对齐">
+<span class="header-section-number">7.1</span> 公式对齐</h3>
 <p><span class="math display">\[\begin{aligned}
   f(x) =&amp; \sum_{k=0}^\infty \frac{1}{k!} x^k \\
   =&amp; e^x
 \end{aligned}\]</span></p>
-</section><section id="括号等高" class="level3" data-number="6.2"><h3 data-number="6.2" class="anchored" data-anchor-id="括号等高">
-<span class="header-section-number">6.2</span> 括号等高</h3>
+</section><section id="括号等高" class="level3" data-number="7.2"><h3 data-number="7.2" class="anchored" data-anchor-id="括号等高">
+<span class="header-section-number">7.2</span> 括号等高</h3>
 <p><span class="math display">\[\phi(x) = \frac{1}{\sqrt{2\pi}} \exp\left\{ \frac{1}{2} x^2 \right\} \]</span></p>
-</section><section id="矩阵" class="level3" data-number="6.3"><h3 data-number="6.3" class="anchored" data-anchor-id="矩阵">
-<span class="header-section-number">6.3</span> 矩阵</h3>
+</section><section id="矩阵" class="level3" data-number="7.3"><h3 data-number="7.3" class="anchored" data-anchor-id="矩阵">
+<span class="header-section-number">7.3</span> 矩阵</h3>
 <p><span class="math display">\[
 \begin{bmatrix}
 x_{11} &amp; x_{12}&amp;...&amp;x_{1p} \\
@@ -735,11 +822,11 @@ x_{21} &amp; x_{22}&amp;...&amp;x_{2p} \\
 x_{n1} &amp; x_{n2}&amp;...&amp;x_{np} \\
 \end{bmatrix}
 \]</span></p>
-</section><section id="向量表示" class="level3" data-number="6.4"><h3 data-number="6.4" class="anchored" data-anchor-id="向量表示">
-<span class="header-section-number">6.4</span> 向量表示</h3>
+</section><section id="向量表示" class="level3" data-number="7.4"><h3 data-number="7.4" class="anchored" data-anchor-id="向量表示">
+<span class="header-section-number">7.4</span> 向量表示</h3>
 <p><span class="math display">\[   \boldsymbol{v} = (v_1, v_2)^T \]</span></p>
-</section></section><section id="定理类段落" class="level2" data-number="7"><h2 data-number="7" class="anchored" data-anchor-id="定理类段落">
-<span class="header-section-number">7</span> 定理类段落</h2>
+</section></section><section id="定理类段落" class="level2" data-number="8"><h2 data-number="8" class="anchored" data-anchor-id="定理类段落">
+<span class="header-section-number">8</span> 定理类段落</h2>
 <dl>
 <dt>术语</dt>
 <dd>
@@ -799,14 +886,14 @@ x_{n1} &amp; x_{n2}&amp;...&amp;x_{np} \\
 <td>#exr-</td>
 </tr>
 </tbody>
-</table></section><section id="代码块" class="level2" data-number="8"><h2 data-number="8" class="anchored" data-anchor-id="代码块">
-<span class="header-section-number">8</span> 代码块</h2>
-<section id="syntax-highlight" class="level3" data-number="8.1"><h3 data-number="8.1" class="anchored" data-anchor-id="syntax-highlight">
-<span class="header-section-number">8.1</span> syntax highlight</h3>
+</table></section><section id="代码块" class="level2" data-number="9"><h2 data-number="9" class="anchored" data-anchor-id="代码块">
+<span class="header-section-number">9</span> 代码块</h2>
+<section id="syntax-highlight" class="level3" data-number="9.1"><h3 data-number="9.1" class="anchored" data-anchor-id="syntax-highlight">
+<span class="header-section-number">9.1</span> syntax highlight</h3>
 <pre><code>1 + 1</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"abcde"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section><section id="raw-content" class="level3" data-number="8.2"><h3 data-number="8.2" class="anchored" data-anchor-id="raw-content">
-<span class="header-section-number">8.2</span> raw content</h3>
+</section><section id="raw-content" class="level3" data-number="9.2"><h3 data-number="9.2" class="anchored" data-anchor-id="raw-content">
+<span class="header-section-number">9.2</span> raw content</h3>
 
     
 <h>markdown_html</h><p></p> <abbr title="Mister"> Mr. </abbr>  
@@ -824,11 +911,24 @@ x_{n1} &amp; x_{n2}&amp;...&amp;x_{np} \\
 
 <small>Text</small>
 
+</section><section id="inline-code" class="level3" data-number="9.3"><h3 data-number="9.3" class="anchored" data-anchor-id="inline-code">
+<span class="header-section-number">9.3</span> <strong>Inline Code</strong>
+</h3>
+<p>Use computed values directly in text sections. Code is evaluated at render and results appear as text.</p>
+<section id="knitr" class="level4" data-number="9.3.1"><h4 data-number="9.3.1" class="anchored" data-anchor-id="knitr">
+<span class="header-section-number">9.3.1</span> Knitr</h4>
+<p>Value is .<code>4</code></p>
+</section><section id="jupyter" class="level4" data-number="9.3.2"><h4 data-number="9.3.2" class="anchored" data-anchor-id="jupyter">
+<span class="header-section-number">9.3.2</span> Jupyter</h4>
+<p>Value is .<code>`{python} 2 + 2`</code></p>
+</section><section id="output" class="level4" data-number="9.3.3"><h4 data-number="9.3.3" class="anchored" data-anchor-id="output">
+<span class="header-section-number">9.3.3</span> Output</h4>
+<p>Value is 4.</p>
 
 
 <!-- -->
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1293,8 +1393,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./control_structure.html" class="pagination-link" aria-label="控制结构">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">控制结构</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./R-Python.html" class="pagination-link" aria-label="R⬌Python">
+        <span class="nav-page-text">R⬌Python</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1377,250 +1477,285 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="va">[ ]</span> q</span>
 <span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="ss">        -   </span><span class="va">[ ]</span> w</span>
 <span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### 图</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## Execute chunk</span></span>
 <span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-plot</span></span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "plot 点-线"</span></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-subcap:</span></span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "点"</span></span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "线"</span></span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: page-right</span></span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>,<span class="at">pch=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>))</span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>)<span class="sc">^</span><span class="dv">2</span>,<span class="at">type=</span><span class="st">"b"</span>,<span class="at">pch=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>))</span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>如左图 @fig-plot-1 所示，点有25种不同的形状，</span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>右图 @fig-plot-2 所示。</span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 流程图</span></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="in">sequenceDiagram</span></span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="in">  participant Alice</span></span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="in">  participant Bob</span></span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="in">  Alice-&gt;&gt;John: Hello John, how are you?</span></span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="in">  loop Healthcheck</span></span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="in">    John-&gt;&gt;John: Fight against hypochondria</span></span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="in">  end</span></span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="in">  Note right of John: Rational thoughts &lt;br/&gt;prevail!</span></span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a><span class="in">  John--&gt;&gt;Alice: Great!</span></span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="in">  John-&gt;&gt;Bob: How about you?</span></span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="in">  Bob--&gt;&gt;John: Jolly good!</span></span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>+----------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>| Option                                                               | Default                                                              | Effects                                                                                                                                                                                                                                                                                                                                                              |</span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>+======================================================================+======================================================================+======================================================================================================================================================================================================================================================================================================================================================================+</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>| <span class="in">`echo`</span>                                                               | <span class="in">`true`</span>                                                               | <span class="in">`false`</span>: hide code in output\                                                                                                                                                                                                                                                                                                                                        |</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>|                                                                      |                                                                      | : include code cell syntax<span class="in">`fenced`</span>                                                                                                                                                                                                                                                                                                                                   |</span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>+----------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>| <span class="in">`eval`</span>                                                               | <span class="in">`true`</span>                                                               | <span class="in">`false`</span>: don’t run code                                                                                                                                                                                                                                                                                                                                              |</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>+----------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>| <span class="in">`include`</span>                                                            | <span class="in">`true`</span>                                                               | <span class="in">`false`</span>: don’t include code or results                                                                                                                                                                                                                                                                                                                               |</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>+----------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>| <span class="in">`output`</span>                                                             | <span class="in">`true`</span>                                                               | <span class="in">`false`</span>: don’t include results\                                                                                                                                                                                                                                                                                                                                      |</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>|                                                                      |                                                                      | : treat results as raw markdown<span class="in">`asis`</span>                                                                                                                                                                                                                                                                                                                                |</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>+----------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>| <span class="in">`warning`</span>                                                            | <span class="in">`true`</span>                                                               | <span class="in">`false`</span>: don’t include warnings in output                                                                                                                                                                                                                                                                                                                            |</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>+----------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>| <span class="in">`error`</span>                                                              | <span class="in">`false`</span>                                                              | <span class="in">`true`</span>: include error in output and continue with render                                                                                                                                                                                                                                                                                                             |</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>+----------------------------------------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### 图</span></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-plot</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "plot 点-线"</span></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-subcap:</span></span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "点"</span></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "线"</span></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: page-right</span></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>,<span class="at">pch=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>))</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>)<span class="sc">^</span><span class="dv">2</span>,<span class="at">type=</span><span class="st">"b"</span>,<span class="at">pch=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>))</span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>如左图 @fig-plot-1 所示，点有25种不同的形状，</span>
 <span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{dot}</span></span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a><span class="in">//| label: fig-simple</span></span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="in">//| fig-cap: "This is a simple graphviz graph."</span></span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="in">graph G {</span></span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="in">  layout=neato</span></span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="in">  run -- intr;</span></span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="in">  intr -- runbl;</span></span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="in">  runbl -- run;</span></span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="in">  run -- kernel;</span></span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="in">  kernel -- zombie;</span></span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="in">  kernel -- sleep;</span></span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="in">  kernel -- runmem;</span></span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="in">  sleep -- swap;</span></span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="in">  swap -- runswap;</span></span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="in">  runswap -- new;</span></span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a><span class="in">  runswap -- runmem;</span></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a><span class="in">  new -- runmem;</span></span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a><span class="in">  sleep -- runmem;</span></span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="fu">##### EDA {#sec-eda}</span></span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>引用章节： @sec-eda and @sec-formula</span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>引用图片 @fig-histogram shows two histograms displaying the distributions of <span class="in">`price`</span> and <span class="in">`area`</span> individually.</span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-histogram</span></span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "直方图"</span></span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histograms of mpg"</span></span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-subcap:</span></span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Histogram of `cty`s"</span></span>
-<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Histogram of `hwy`s" </span></span>
-<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: "What's this."</span></span>
-<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
-<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: page-right</span></span>
-<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty)) <span class="sc">+</span></span>
-<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of cty"</span>)</span>
-<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span>hwy)) <span class="sc">+</span></span>
-<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of hwy"</span>)</span>
-<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a><span class="fu">## 表格</span></span>
-<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a>@tbl-stats displays basic summary statistics for these two variables.</span>
-<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-stats</span></span>
-<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table Summary statistics "</span></span>
-<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_displ=</span><span class="fu">mean</span>(displ),</span>
-<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_hwy=</span><span class="fu">mean</span>(hwy),</span>
-<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_cty=</span><span class="fu">mean</span>(cty),</span>
-<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> cyl</span>
-<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>))</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>右图 @fig-plot-2 所示。</span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 流程图</span></span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="in">sequenceDiagram</span></span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="in">  participant Alice</span></span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="in">  participant Bob</span></span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="in">  Alice-&gt;&gt;John: Hello John, how are you?</span></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="in">  loop Healthcheck</span></span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="in">    John-&gt;&gt;John: Fight against hypochondria</span></span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="in">  end</span></span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="in">  Note right of John: Rational thoughts &lt;br/&gt;prevail!</span></span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="in">  John--&gt;&gt;Alice: Great!</span></span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="in">  John-&gt;&gt;Bob: How about you?</span></span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a><span class="in">  Bob--&gt;&gt;John: Jolly good!</span></span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{dot}</span></span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="in">//| label: fig-simple</span></span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="in">//| fig-cap: "This is a simple graphviz graph."</span></span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a><span class="in">graph G {</span></span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a><span class="in">  layout=neato</span></span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a><span class="in">  run -- intr;</span></span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a><span class="in">  intr -- runbl;</span></span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a><span class="in">  runbl -- run;</span></span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a><span class="in">  run -- kernel;</span></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a><span class="in">  kernel -- zombie;</span></span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a><span class="in">  kernel -- sleep;</span></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="in">  kernel -- runmem;</span></span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a><span class="in">  sleep -- swap;</span></span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="in">  swap -- runswap;</span></span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a><span class="in">  runswap -- new;</span></span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="in">  runswap -- runmem;</span></span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a><span class="in">  new -- runmem;</span></span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a><span class="in">  sleep -- runmem;</span></span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a><span class="fu">##### EDA {#sec-eda}</span></span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a>引用章节： @sec-eda and @sec-formula</span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>引用图片 @fig-histogram shows two histograms displaying the distributions of <span class="in">`price`</span> and <span class="in">`area`</span> individually.</span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-histogram</span></span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "直方图"</span></span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histograms of mpg"</span></span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-subcap:</span></span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Histogram of `cty`s"</span></span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Histogram of `hwy`s" </span></span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: "What's this."</span></span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: page-right</span></span>
+<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty)) <span class="sc">+</span></span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of cty"</span>)</span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span>hwy)) <span class="sc">+</span></span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of hwy"</span>)</span>
 <span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a><span class="fu">## 公式 {#sec-formula}</span></span>
+<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a><span class="fu">## 表格</span></span>
 <span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>Black-Scholes (@eq-black-scholes) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:</span>
+<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>@tbl-stats displays basic summary statistics for these two variables.</span>
 <span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a>$$ \frac{\partial \mathrm C}{ \partial \mathrm t } + \frac{1}{2}\sigma^{2} \mathrm S^{2} \frac{\partial^{2} \mathrm C}{\partial \mathrm C^2}   + \mathrm r \mathrm S \frac{\partial \mathrm C}{\partial \mathrm S}\ =   \mathrm r \mathrm C  $$ {#eq-black-scholes}</span>
-<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>We can fit a simple linear regression model of the form shown in @eq-slr.</span>
-<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>price = \hat{\beta}_0 + \hat{\beta}_1 \times area + \epsilon</span>
-<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>$$ {#eq-slr}</span>
-<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a><span class="fu">## callouts</span></span>
-<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`note`</span></span>
-<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`warning`</span></span>
-<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`important`</span></span>
+<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-stats</span></span>
+<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table Summary statistics "</span></span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_displ=</span><span class="fu">mean</span>(displ),</span>
+<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_hwy=</span><span class="fu">mean</span>(hwy),</span>
+<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_cty=</span><span class="fu">mean</span>(cty),</span>
+<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> cyl</span>
+<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>))</span>
+<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`tip`</span></span>
+<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a><span class="fu">## 公式 {#sec-formula}</span></span>
 <span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`caution`</span></span>
+<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a>Black-Scholes (@eq-black-scholes) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:</span>
 <span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a>This is a pretty incomplete analysis, but hopefully the document provides a good overview of some of the authoring features of Quarto!</span>
-<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>$$ \frac{\partial \mathrm C}{ \partial \mathrm t } + \frac{1}{2}\sigma^{2} \mathrm S^{2} \frac{\partial^{2} \mathrm C}{\partial \mathrm C^2}   + \mathrm r \mathrm S \frac{\partial \mathrm C}{\partial \mathrm S}\ =   \mathrm r \mathrm C  $$ {#eq-black-scholes}</span>
+<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a>We can fit a simple linear regression model of the form shown in @eq-slr.</span>
 <span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a>::: {#tip-example .callout-tip}</span>
-<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a><span class="fu">### 交叉引用 a Tip</span></span>
-<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a>Add an ID starting with <span class="in">`#tip-`</span> to reference a tip.</span>
-<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a>price = \hat{\beta}_0 + \hat{\beta}_1 \times area + \epsilon</span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a>$$ {#eq-slr}</span>
+<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a><span class="fu">## callouts</span></span>
 <span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a>See @tip-example...</span>
+<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`note`</span></span>
 <span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a>| 标注类型    | 前缀    |</span>
-<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a>|-------------|---------|</span>
-<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a>| <span class="in">`note`</span>      | <span class="in">`#nte-`</span> |</span>
-<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a>| <span class="in">`tip`</span>       | <span class="in">`#tip-`</span> |</span>
-<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a>| <span class="in">`warning`</span>   | <span class="in">`#wrn-`</span> |</span>
-<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a>| <span class="in">`important`</span> | <span class="in">`#imp-`</span> |</span>
-<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a>| <span class="in">`caution`</span>   | <span class="in">`#cau-`</span> |</span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`warning`</span></span>
+<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`important`</span></span>
+<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`tip`</span></span>
+<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`caution`</span></span>
 <span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a><span class="fu">## Blockquote</span></span>
-<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; qwert</span></span>
+<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a>This is a pretty incomplete analysis, but hopefully the document provides a good overview of some of the authoring features of Quarto!</span>
+<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; &gt; &gt; asfg</span></span>
-<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a><span class="fu">## LaTex</span></span>
-<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a><span class="fu">### 公式对齐</span></span>
+<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a>::: {#tip-example .callout-tip}</span>
+<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a><span class="fu">### 交叉引用 a Tip</span></span>
+<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a>Add an ID starting with <span class="in">`#tip-`</span> to reference a tip.</span>
+<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a>$$\begin{aligned}</span>
-<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a>  f(x) =&amp; \sum_{k=0}^\infty \frac{1}{k!} x^k <span class="sc">\\</span></span>
-<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a>  =&amp; e^x</span>
-<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a>\end{aligned}$$</span>
-<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a><span class="fu">### 括号等高</span></span>
-<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a>$$\phi(x) = \frac{1}{\sqrt{2\pi}} \exp\left<span class="sc">\{</span> \frac{1}{2} x^2 \right<span class="sc">\}</span> $$</span>
-<span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a><span class="fu">### 矩阵</span></span>
-<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a>x_{11} &amp; x_{12}&amp;...&amp;x_{1p} <span class="sc">\\</span></span>
-<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a>x_{21} &amp; x_{22}&amp;...&amp;x_{2p} <span class="sc">\\</span></span>
-<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a>\vdots &amp;\vdots &amp;   &amp;\vdots<span class="sc">\\</span></span>
-<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a>x_{n1} &amp; x_{n2}&amp;...&amp;x_{np} <span class="sc">\\</span></span>
-<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
-<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a>See @tip-example...</span>
+<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a>| 标注类型    | 前缀    |</span>
+<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a>|-------------|---------|</span>
+<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a>| <span class="in">`note`</span>      | <span class="in">`#nte-`</span> |</span>
+<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a>| <span class="in">`tip`</span>       | <span class="in">`#tip-`</span> |</span>
+<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a>| <span class="in">`warning`</span>   | <span class="in">`#wrn-`</span> |</span>
+<span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a>| <span class="in">`important`</span> | <span class="in">`#imp-`</span> |</span>
+<span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a>| <span class="in">`caution`</span>   | <span class="in">`#cau-`</span> |</span>
+<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a><span class="fu">## Blockquote</span></span>
+<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; qwert</span></span>
+<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; &gt; &gt; asfg</span></span>
+<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a><span class="fu">## LaTex</span></span>
+<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a><span class="fu">### 公式对齐</span></span>
 <span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### 向量表示</span></span>
-<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a>$$   \boldsymbol{v} = (v_1, v_2)^T $$</span>
-<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## 定理类段落</span></span>
-<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a>术语</span>
-<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a>:   定义：三角形的内角和等于180°。</span>
-<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a>或者</span>
-<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-276"><a href="#cb6-276" aria-hidden="true" tabindex="-1"></a>引用<span class="co">[</span><span class="ot">@thm-lebesgue01</span><span class="co">]</span>。</span>
-<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a>::: {#thm-lebesgue01 name="勒贝格定理"}</span>
-<span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a>一元函数黎曼可积， 当且仅当其不连续点的集合为零测集。</span>
-<span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-282"><a href="#cb6-282" aria-hidden="true" tabindex="-1"></a>| **环境名**  | **默认显示名** | **标签前缀** |</span>
-<span id="cb6-283"><a href="#cb6-283" aria-hidden="true" tabindex="-1"></a>|-------------|----------------|--------------|</span>
-<span id="cb6-284"><a href="#cb6-284" aria-hidden="true" tabindex="-1"></a>| theorem     | Theorem        | #thm-        |</span>
-<span id="cb6-285"><a href="#cb6-285" aria-hidden="true" tabindex="-1"></a>| lemma       | Lemma          | #lem-        |</span>
-<span id="cb6-286"><a href="#cb6-286" aria-hidden="true" tabindex="-1"></a>| corollary   | Corollary      | #cor-        |</span>
-<span id="cb6-287"><a href="#cb6-287" aria-hidden="true" tabindex="-1"></a>| proposition | Proposition    | #prp-        |</span>
-<span id="cb6-288"><a href="#cb6-288" aria-hidden="true" tabindex="-1"></a>| conjecture  | Conjecture     | #cnj-        |</span>
-<span id="cb6-289"><a href="#cb6-289" aria-hidden="true" tabindex="-1"></a>| definition  | Definition     | #def-        |</span>
-<span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a>| example     | Example        | #exm-        |</span>
-<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a>| exercise    | Exercise       | #exr-        |</span>
-<span id="cb6-292"><a href="#cb6-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a><span class="fu">## 代码块</span></span>
-<span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-295"><a href="#cb6-295" aria-hidden="true" tabindex="-1"></a><span class="fu">### syntax highlight</span></span>
-<span id="cb6-296"><a href="#cb6-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-297"><a href="#cb6-297" aria-hidden="true" tabindex="-1"></a><span class="in">```         </span></span>
-<span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a><span class="in">1 + 1</span></span>
-<span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-300"><a href="#cb6-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a><span class="in">``` python</span></span>
-<span id="cb6-302"><a href="#cb6-302" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"abcde"</span></span>
-<span id="cb6-303"><a href="#cb6-303" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-304"><a href="#cb6-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-305"><a href="#cb6-305" aria-hidden="true" tabindex="-1"></a><span class="fu">### raw content</span></span>
-<span id="cb6-306"><a href="#cb6-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-307"><a href="#cb6-307" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb6-308"><a href="#cb6-308" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;body&gt;</span></span>
-<span id="cb6-309"><a href="#cb6-309" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
-<span id="cb6-310"><a href="#cb6-310" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;h&gt;markdown_html&lt;/h&gt;</span></span>
-<span id="cb6-311"><a href="#cb6-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-312"><a href="#cb6-312" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;&lt;/p&gt; &lt;abbr title="Mister"&gt; Mr. &lt;/abbr&gt;  &lt;/p&gt;</span></span>
-<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;center&gt;Center&lt;/center&gt;</span></span>
+<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a>$$\begin{aligned}</span>
+<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a>  f(x) =&amp; \sum_{k=0}^\infty \frac{1}{k!} x^k <span class="sc">\\</span></span>
+<span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a>  =&amp; e^x</span>
+<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a>\end{aligned}$$</span>
+<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a><span class="fu">### 括号等高</span></span>
+<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a>$$\phi(x) = \frac{1}{\sqrt{2\pi}} \exp\left<span class="sc">\{</span> \frac{1}{2} x^2 \right<span class="sc">\}</span> $$</span>
+<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a><span class="fu">### 矩阵</span></span>
+<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-276"><a href="#cb6-276" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a>x_{11} &amp; x_{12}&amp;...&amp;x_{1p} <span class="sc">\\</span></span>
+<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a>x_{21} &amp; x_{22}&amp;...&amp;x_{2p} <span class="sc">\\</span></span>
+<span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a>\vdots &amp;\vdots &amp;   &amp;\vdots<span class="sc">\\</span></span>
+<span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a>x_{n1} &amp; x_{n2}&amp;...&amp;x_{np} <span class="sc">\\</span></span>
+<span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
+<span id="cb6-282"><a href="#cb6-282" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-283"><a href="#cb6-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-284"><a href="#cb6-284" aria-hidden="true" tabindex="-1"></a><span class="fu">### 向量表示</span></span>
+<span id="cb6-285"><a href="#cb6-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-286"><a href="#cb6-286" aria-hidden="true" tabindex="-1"></a>$$   \boldsymbol{v} = (v_1, v_2)^T $$</span>
+<span id="cb6-287"><a href="#cb6-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-288"><a href="#cb6-288" aria-hidden="true" tabindex="-1"></a><span class="fu">## 定理类段落</span></span>
+<span id="cb6-289"><a href="#cb6-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a>术语</span>
+<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-292"><a href="#cb6-292" aria-hidden="true" tabindex="-1"></a>:   定义：三角形的内角和等于180°。</span>
+<span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a>或者</span>
+<span id="cb6-295"><a href="#cb6-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-296"><a href="#cb6-296" aria-hidden="true" tabindex="-1"></a>引用<span class="co">[</span><span class="ot">@thm-lebesgue01</span><span class="co">]</span>。</span>
+<span id="cb6-297"><a href="#cb6-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a>::: {#thm-lebesgue01 name="勒贝格定理"}</span>
+<span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a>一元函数黎曼可积， 当且仅当其不连续点的集合为零测集。</span>
+<span id="cb6-300"><a href="#cb6-300" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-302"><a href="#cb6-302" aria-hidden="true" tabindex="-1"></a>| **环境名**  | **默认显示名** | **标签前缀** |</span>
+<span id="cb6-303"><a href="#cb6-303" aria-hidden="true" tabindex="-1"></a>|-------------|----------------|--------------|</span>
+<span id="cb6-304"><a href="#cb6-304" aria-hidden="true" tabindex="-1"></a>| theorem     | Theorem        | #thm-        |</span>
+<span id="cb6-305"><a href="#cb6-305" aria-hidden="true" tabindex="-1"></a>| lemma       | Lemma          | #lem-        |</span>
+<span id="cb6-306"><a href="#cb6-306" aria-hidden="true" tabindex="-1"></a>| corollary   | Corollary      | #cor-        |</span>
+<span id="cb6-307"><a href="#cb6-307" aria-hidden="true" tabindex="-1"></a>| proposition | Proposition    | #prp-        |</span>
+<span id="cb6-308"><a href="#cb6-308" aria-hidden="true" tabindex="-1"></a>| conjecture  | Conjecture     | #cnj-        |</span>
+<span id="cb6-309"><a href="#cb6-309" aria-hidden="true" tabindex="-1"></a>| definition  | Definition     | #def-        |</span>
+<span id="cb6-310"><a href="#cb6-310" aria-hidden="true" tabindex="-1"></a>| example     | Example        | #exm-        |</span>
+<span id="cb6-311"><a href="#cb6-311" aria-hidden="true" tabindex="-1"></a>| exercise    | Exercise       | #exr-        |</span>
+<span id="cb6-312"><a href="#cb6-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a><span class="fu">## 代码块</span></span>
 <span id="cb6-314"><a href="#cb6-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;dl&gt;Description List</span></span>
+<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a><span class="fu">### syntax highlight</span></span>
 <span id="cb6-316"><a href="#cb6-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;dt&gt;主题&lt;/dt&gt;</span></span>
-<span id="cb6-318"><a href="#cb6-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;dd&gt;描述&lt;/dd&gt;</span></span>
+<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a><span class="in">```         </span></span>
+<span id="cb6-318"><a href="#cb6-318" aria-hidden="true" tabindex="-1"></a><span class="in">1 + 1</span></span>
+<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-320"><a href="#cb6-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-321"><a href="#cb6-321" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/dl&gt;</span></span>
-<span id="cb6-322"><a href="#cb6-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-323"><a href="#cb6-323" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;mark&gt;Text highlight&lt;/mark&gt;</span></span>
+<span id="cb6-321"><a href="#cb6-321" aria-hidden="true" tabindex="-1"></a><span class="in">``` python</span></span>
+<span id="cb6-322"><a href="#cb6-322" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"abcde"</span></span>
+<span id="cb6-323"><a href="#cb6-323" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-324"><a href="#cb6-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-325"><a href="#cb6-325" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;kbd&gt;keyboard Ctrl+C&lt;/kbd&gt;</span></span>
+<span id="cb6-325"><a href="#cb6-325" aria-hidden="true" tabindex="-1"></a><span class="fu">### raw content</span></span>
 <span id="cb6-326"><a href="#cb6-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-327"><a href="#cb6-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-328"><a href="#cb6-328" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;small&gt;Text&lt;/small&gt;</span></span>
-<span id="cb6-329"><a href="#cb6-329" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;body&gt;</span></span>
-<span id="cb6-330"><a href="#cb6-330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-331"><a href="#cb6-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{=latex}</span></span>
-<span id="cb6-332"><a href="#cb6-332" aria-hidden="true" tabindex="-1"></a><span class="in">\renewcommand*{\labelitemi}{\textgreater}</span></span>
-<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-327"><a href="#cb6-327" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb6-328"><a href="#cb6-328" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;body&gt;</span></span>
+<span id="cb6-329"><a href="#cb6-329" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb6-330"><a href="#cb6-330" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;h&gt;markdown_html&lt;/h&gt;</span></span>
+<span id="cb6-331"><a href="#cb6-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-332"><a href="#cb6-332" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;&lt;/p&gt; &lt;abbr title="Mister"&gt; Mr. &lt;/abbr&gt;  &lt;/p&gt;</span></span>
+<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;center&gt;Center&lt;/center&gt;</span></span>
+<span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;dl&gt;Description List</span></span>
+<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;dt&gt;主题&lt;/dt&gt;</span></span>
+<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;dd&gt;描述&lt;/dd&gt;</span></span>
+<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/dl&gt;</span></span>
+<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;mark&gt;Text highlight&lt;/mark&gt;</span></span>
+<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;kbd&gt;keyboard Ctrl+C&lt;/kbd&gt;</span></span>
+<span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;small&gt;Text&lt;/small&gt;</span></span>
+<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;body&gt;</span></span>
+<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a><span class="in">```{=latex}</span></span>
+<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a><span class="in">\renewcommand*{\labelitemi}{\textgreater}</span></span>
+<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a><span class="fu">### **Inline Code**</span></span>
+<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a>Use computed values directly in text sections. Code is evaluated at render and results appear as text.</span>
+<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Knitr</span></span>
+<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-360"><a href="#cb6-360" aria-hidden="true" tabindex="-1"></a>Value is .`<span class="in">` `</span>r 2 + 2` ``</span>
+<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Jupyter</span></span>
+<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a>Value is .`<span class="in">` `</span>{python} 2 + 2` ``</span>
+<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Output</span></span>
+<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a>Value is 4.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

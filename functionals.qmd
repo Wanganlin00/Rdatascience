@@ -12,7 +12,7 @@
 library(purrr)
 ```
 
-## `map`  变体
+## `map` 变体
 
 | 参数 \\ 返回    | 列表                                                        | 原子                                                                 | 同类型                                                           | 无                                                           |
 |---------------|---------------|---------------|---------------|---------------|
@@ -169,7 +169,7 @@ typeof(params)
 pmap(params, runif)
 ```
 
-## `reduce`  家族
+## `reduce` 家族
 
 通过迭代应用两个输入的函数（a **binary** function）将列表简化为单个值。
 
@@ -282,4 +282,57 @@ a3d
 apply(a3d, c(1, 2), mean)
 ```
 
+`lapply()`、`sapply()` 和 `vapply()` 针对的都是列表结构的数据，`sapply()`是简化（simplified）版本的 `lapply()`，而 `vapply()` 则在 `sapply()` 的基础上加了结果验证，以保证可靠性。
+
+```{r}
+set.seed(10)
+
+temp <- list(
+  35 + rnorm(10, mean = 1, sd = 10),
+  20 + rnorm(5, mean = 1, sd = 3),
+  25 + rnorm(22, mean = 2, sd = 6),
+  33 + rnorm(14, mean = 4, sd = 20)
+)
+basic <- function(x) {
+  c(min = min(x), mean = mean(x), median = median(x), max = max(x))
+}
+```
+
+```{r}
+lapply(temp, basic)
+sapply(temp, basic)
+```
+
+```{r}
+vapply(temp, basic, numeric(4))
+```
+`vapply()` 第 3 个参数传入对每一个子集调用函数后结果的预期，上述设定为包含 4 个元素的数值型向量。
+
+
 ### 数学泛函
+
+## 函数式编程
+
+```{r}
+f <- function(x, fun) {
+  fun(x)
+}
+
+f(1:10, sum)
+f(1:10, quantile)
+```
+
+在我们创建的函数 `f()` 中，我们可以理解为对传入函数的 `mean()`、`sum()` 等函数重命名成 `fun()` 并进行调用。
+
+```{r}
+f2 <- function(type) {
+  switch(type,
+         mean = mean,
+         sum = sum,
+         quantile = quantile)
+}
+mean
+f2("mean")
+
+f2("mean")(1:10)
+```

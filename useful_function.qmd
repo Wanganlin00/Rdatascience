@@ -1,5 +1,36 @@
 # 实用函数
 
+## 三方包的安装与更新
+
+```{r eval=FALSE}
+# CRAN 
+install.packages("package_name")  
+# 本地 
+install.packages("package_file_path/package_name_version.tar.gz", repos = NULL)  
+# Bioconductor 
+install.packages("BiocManager") 
+BiocManager::install("Bioconductor_Packages")  
+# Github 
+remotes::install_github("tidyverse/ggplot2")
+```
+
+```{r eval=FALSE}
+pacman::p_up() # 或 pacman::p_update()
+BiocManager::install()
+rvcheck::update_all()
+remotes::update_packages()
+```
+
+## 查看默认加载的包
+
+```{r}
+
+print(.packages())
+search()
+# 
+sessionInfo()
+devtools::session_info()
+```
 
 ## 对象的显示和删除
 
@@ -10,20 +41,11 @@ ls.str()
 rm(list = ls())
 ```
 
-
-## `seq()`, `rep()`, `cut()`
+## 索引
 
 ```{r}
-seq(from=1,to=30,by=3)  # 生成一个序列
-seq(from=1,to=30,length=10) 
-
-rep(x = c("A",1,"B",2),times = 3)           #重复序列
-rep(x = c("A",1,"B",2),times = c(1,2,3,4))
-rep(x = c("A",1,"B",2),each = 3,times = 2)
-
-x <- c(2.3,4.5,2.4,3,3.8,4,5.6,6.7,2.1,1.5)
-cut( x = x, breaks =3,)                # 因子
-cut( x = x, breaks =c(1,3,5,8),include.lowest = TRUE) 
+1:length(mtcars$mpg)
+seq_along(mtcars$mpg)
 ```
 
 
@@ -73,34 +95,61 @@ subset()
 sample()
 ```
 
+## `seq()`, `rep()`, `cut()`
+
+```{r}
+seq(from=1,to=30,by=3)  # 生成一个序列
+seq(from=1,to=30,length=10) 
+
+sequence(30,by=3)
+
+
+rep(x = c("A",1,"B",2),times = 3)           #重复序列
+rep(x = c("A",1,"B",2),times = c(1,2,3,4))
+rep(x = c("A",1,"B",2),each = 3,times = 2)
+
+x <- c(2.3,4.5,2.4,3,3.8,4,5.6,6.7,2.1,1.5)
+cut( x = x, breaks =3,)                # 因子
+cut( x = x, breaks =c(1,3,5,8),include.lowest = TRUE) 
+```
+
+
 ## 逻辑运算
 
 ```{r}
 x<-c(2,3,5,1,4)
+x>2
+
 all(x>2)
 any(x>2)
+
+# 返回值为TRUE的索引
 which(x>2)
 which.max(x)
 which.min(x)
-mtcars[mtcars$gear == 5 & mtcars$cyl == 4, ]
 
-
-(x1 <- 1:10 %% 2 == 0)
-(x2 <- which(x1))
-
-(y1 <- 1:10 %% 5 == 0)
-(y2 <- which(y1))
+# 返回值
+x[x>2]
+x[which(x>2)]
 ```
 
 ## 集合运算
 
 ```{r}
+(x1 <- 1:10 %% 2 == 0)
+(x2 <- which(x1))
+
+(y1 <- 1:10 %% 5 == 0)
+(y2 <- which(y1))
+# 交集
 x1 & y1
 base::intersect(x2, y2)
 
+# 并集
 x1 | y1
 base::union(x2,y2)
 
+# 差集
 x1 & !y1
 base::setdiff(x2, y2)
 
@@ -168,29 +217,6 @@ diff(x,lag = 2,difference=2) ## 隔1个值后位减前位，进行2次
 
 
 
-## 矩阵运算
-
-```{r}
-X <- matrix(data = 1:9,ncol = 3,nrow = 3)
-X
-
-diag(X)
-det(X)
-eigen(X)
-
-X
-# 协方差矩阵
-cov(X)
-
-# 相关系数矩阵
-cor(X)
-```
-
-
-
-
-
-
 ## 字符串函数
 
 ```{r}
@@ -208,9 +234,6 @@ print(data)
 data$has_data_grepl <- grepl("Data", data$description)
 print(data)
 ```
-
-
-
 
 ```{r}
 #子串
@@ -239,13 +262,35 @@ toupper("abc")              #大写转换
 tolower("aaAGEErg")         #小写转换
 ```
 
+```{r}
+a <- "string"
+sprintf("This is where a %s goes.", a)
+
+x <- 8
+sprintf("Regular:%04d", x)
+
+sprintf("%f", pi)         # "3.141593"
+sprintf("%.3f", pi)       # "3.142"
+sprintf("%1.0f", pi)      # "3"
+sprintf("%5.1f", pi)      # "  3.1"
+sprintf("%05.1f", pi)     # "003.1"
+sprintf("%+f", pi)        # "+3.141593"
+sprintf("% f", pi)        # " 3.141593"
+sprintf("%-10f", pi)      # "3.141593  "   (left justified)
+sprintf("%e", pi)         #"3.141593e+00"
+sprintf("%E", pi)         # "3.141593E+00"
+sprintf("%g", pi)         # "3.14159"
+sprintf("%g",   1e6 * pi) # "3.14159e+06"  (exponential)
+sprintf("%.9g", 1e6 * pi) # "3141592.65"   ("fixed")
+sprintf("%G", 1e-6 * pi)  # "3.14159E-06"
+```
+
 ## apply函数簇
 
 ### `apply()`
 
 ```{r}
 apply(X = mtcars, MARGIN = 2, FUN = mean)
-
 ```
 
 ### `aggregate()`
@@ -302,11 +347,23 @@ models
 vapply(models, function(x) coef(x)[[2]], double(1))
 ```
 
-mapply for applying a function to multiple arguments,
+## 矩阵运算
 
-rapply for a recursive version of lapply()
+```{r}
+X <- matrix(data = 1:9,ncol = 3,nrow = 3)
+X
 
-eapply for applying a function to each entry in an environment.
+diag(X)
+det(X)
+eigen(X)
+
+X
+# 协方差矩阵
+cov(X)
+
+# 相关系数矩阵
+cor(X)
+```
 
 ## 统计分布函数
 

@@ -1,6 +1,4 @@
----
-title: "读入和写出"
----
+# 读入和写出
 
 ## Import
 
@@ -12,6 +10,13 @@ df <- data.frame(id=character(0),age=numeric(0),sex=character(0))
 df <- edit(df)
 
 fix(df)
+```
+
+### 逐行键入数据
+
+```{r}
+readline("输入年龄：")
+# 键入 24
 ```
 
 ### 文本文件
@@ -49,6 +54,18 @@ library(readxl)
 #read_xlsx()
 read_excel(path = "data/example.xlsx",sheet = 1,range = "A1:D11")
 read_excel("data/example.xlsx",2)
+```
+
+### 等宽格式
+
+**readr** 包提供的 `read_fwf()`
+
+```{r}
+' First     Last  Sex Number
+ Currer     Bell    F      2
+    Dr.    Seuss    M     49
+    ""   Student   NA     21' |> read_fwf()
+
 ```
 
 ### Internet datasets

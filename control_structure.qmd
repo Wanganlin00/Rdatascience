@@ -10,9 +10,9 @@
 x <- 10
 
 if(x %%3 ==0) {
-    print("能被3整除")
+    message("能被3整除")
 } else {
-    print("不能被3整除")
+    message("不能被3整除")
 }
 ```
 
@@ -106,3 +106,25 @@ while(flag){
 ```
 
 ### repeat()
+
+```{r}
+i <- 1
+
+repeat{
+  print(i)
+  i <- i*2
+  if (i > 100) break  # 跳出当前的循环
+}
+```
+
+```{r}
+i <- 1
+
+repeat{
+  print(i)
+  i <- i*2
+  if (i > 200) break()
+  if (i > 100) next()  #跳过后续代码的运行进入下一次循环
+  print("Can you see me?")
+}
+```
