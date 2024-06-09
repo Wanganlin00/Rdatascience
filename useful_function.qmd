@@ -283,6 +283,13 @@ sprintf("%g", pi)         # "3.14159"
 sprintf("%g",   1e6 * pi) # "3.14159e+06"  (exponential)
 sprintf("%.9g", 1e6 * pi) # "3141592.65"   ("fixed")
 sprintf("%G", 1e-6 * pi)  # "3.14159E-06"
+
+
+x <- "string"
+sprintf("Substitute in multiple strings: %s %s", x, "string2")
+
+sprintf("A single percent sign here： %%")
+
 ```
 
 ## apply函数簇
