@@ -262,6 +262,8 @@ toupper("abc")              #大写转换
 tolower("aaAGEErg")         #小写转换
 ```
 
+## 打印函数 `sprintf()`
+
 ```{r}
 a <- "string"
 sprintf("This is where a %s goes.", a)
