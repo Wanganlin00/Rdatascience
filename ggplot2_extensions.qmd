@@ -2,20 +2,6 @@
 
 <https://exts.ggplot2.tidyverse.org/gallery/>
 
-## ggsci
-
-```{r}
-library(ggsci)
-```
-
-lancet
-
-jco
-
-nejm
-
-gsea
-
 ## ggpubr
 
 ggplot2 with Publication Ready Graphics in R
@@ -247,12 +233,6 @@ ggplot(data = mtcars, aes(x= wt, y = mpg)) +
 # geom_label_repel 带白底外框
 ```
 
-## 相关图 {#ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-ggplot2_graphics-sec-correlogram}
-
-```{r}
-library(ggcorrplot)
-```
-
 ## 山脊图
 
 ```{r}
@@ -299,7 +279,5 @@ p <- ggplot(mtcars,
 ```{r}
 library(ggExtra)
 ```
-
-## 热图
 
 ## 森林图
