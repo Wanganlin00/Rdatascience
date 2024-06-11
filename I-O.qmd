@@ -14,9 +14,9 @@ fix(df)
 
 ### 逐行键入数据
 
-```{r}
+```{r eval=FALSE}
 readline("输入年龄：")
-# 键入 24
+
 ```
 
 ### 文本文件
@@ -38,7 +38,7 @@ read.table("data/leadership.txt",header = TRUE,sep=",",row.names = "id")
 
 #### `readr::`
 
-`read.csv2()` `read_tsv()` `read_delim()`
+`read_csv()` `read_tsv()` `read_delim()`
 
 ```{r}
 #| eval: false

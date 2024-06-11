@@ -1,16 +1,4 @@
-# 参考资料 {.unnumbered style="color:red"}
-
-## 可视化
-
--   [ggplot2: Elegant Graphics for Data Analysis (3e)](https://ggplot2-book.org/)
-
--   <https://exts.ggplot2.tidyverse.org/gallery/>
-
--   <https://www.datanovia.com/en/blog/tag/ggpubr/>
-
--   [现代统计图形（2）](https://bookdown.org/xiangyun/msg2nd/)
-
--   [R Graphics Cookbook, 2nd edition](https://r-graphics.org/)
+# 推荐阅读 {.unnumbered style="color:red"}
 
 ## 数据科学
 
@@ -24,6 +12,20 @@
 
 -   [arrow.apache.R](https://arrow.apache.org/docs/r/)
 
+-   [Pandoc](https://pandoc.org/)
+
+## 可视化
+
+-   [ggplot2: Elegant Graphics for Data Analysis (3e)](https://ggplot2-book.org/)
+
+-   <https://exts.ggplot2.tidyverse.org/gallery/>
+
+-   <https://www.datanovia.com/en/blog/tag/ggpubr/>
+
+-   [现代统计图形（2）](https://bookdown.org/xiangyun/msg2nd/)
+
+-   [R Graphics Cookbook, 2nd edition](https://r-graphics.org/)
+
 ## 编程
 
 -   [Advanced R](https://adv-r.hadley.nz/index.html#other-books)
@@ -31,5 +33,3 @@
 -   [Efficient R programming](https://csgillespie.github.io/efficientR/)
 
 -   [R Packages(2e)](https://r-pkgs.org/)
-
--   [Pandoc](https://pandoc.org/)
