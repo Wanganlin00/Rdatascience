@@ -1,1 +1,6 @@
 # 数据清洗
+
+```{r}
+if(!require(tidyverse)) install.packages("tidyverse")
+library(tidyverse)
+```
