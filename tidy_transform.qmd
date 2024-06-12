@@ -6,5 +6,15 @@ library(tidyverse)
 ```
 
 ```{r}
+mpg
+```
 
+## 行操作
+
+<https://dplyr.tidyverse.org/index.html> "分割-应用-组合"（Split-Apply-Combine）
+
+### `dplyr::filter()`
+
+```{r}
+dplyr::filter(mpg,model=="a4")
 ```
