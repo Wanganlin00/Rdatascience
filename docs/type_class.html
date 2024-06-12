@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">参考资料</span></a>
+ <span class="menu-text">推荐阅读</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -251,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./efficient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">高效</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">高效R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -306,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li>
-<a href="#s3%E7%B1%BB-%E5%8E%9F%E5%AD%90%E5%90%91%E9%87%8F" id="toc-s3类-原子向量" class="nav-link" data-scroll-target="#s3%E7%B1%BB-%E5%8E%9F%E5%AD%90%E5%90%91%E9%87%8F"><span class="header-section-number">1.2.3</span> S3类 原子向量</a>
+<a href="#s3%E7%B1%BB%E5%8E%9F%E5%AD%90%E5%90%91%E9%87%8F" id="toc-s3类原子向量" class="nav-link" data-scroll-target="#s3%E7%B1%BB%E5%8E%9F%E5%AD%90%E5%90%91%E9%87%8F"><span class="header-section-number">1.2.3</span> S3类原子向量</a>
   <ul class="collapse">
 <li><a href="#factor" id="toc-factor" class="nav-link" data-scroll-target="#factor"><span class="header-section-number">1.2.3.1</span> factor</a></li>
   <li><a href="#date" id="toc-date" class="nav-link" data-scroll-target="#date"><span class="header-section-number">1.2.3.2</span> Date</a></li>
@@ -775,8 +775,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>要保留其他属性，需要创建S3 类。</p>
-</section></section><section id="s3类-原子向量" class="level3" data-number="1.2.3"><h3 data-number="1.2.3" class="anchored" data-anchor-id="s3类-原子向量">
-<span class="header-section-number">1.2.3</span> S3类 原子向量</h3>
+</section></section><section id="s3类原子向量" class="level3" data-number="1.2.3"><h3 data-number="1.2.3" class="anchored" data-anchor-id="s3类原子向量">
+<span class="header-section-number">1.2.3</span> S3类原子向量</h3>
 <p>base R 中使用的四个重要的 S3类原子向量：</p>
 <ol type="1">
 <li><p>分类数据，其中值来自<strong>factor</strong>向量中记录的一组固定水平。</p></li>
@@ -866,7 +866,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">today</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">today</span></span>
-<span><span class="co">#&gt; [1] "2024-06-05"</span></span>
+<span><span class="co">#&gt; [1] "2024-06-11"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">today</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "double"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html">attributes</a></span><span class="op">(</span><span class="va">today</span><span class="op">)</span></span>
@@ -878,7 +878,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"02 14-2002"</span>,<span class="st">"01 04-2013"</span><span class="op">)</span>,<span class="st">"%m %d-%Y"</span><span class="op">)</span> <span class="co">#以"%m %d-%Y"格式读入</span></span>
 <span><span class="co">#&gt; [1] "2002-02-14" "2013-01-04"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">"%Y/%m/%d"</span><span class="op">)</span> <span class="co">#以"%Y/%m/%d"格式输出</span></span>
-<span><span class="co">#&gt; [1] "2024/06/05"</span></span>
+<span><span class="co">#&gt; [1] "2024/06/11"</span></span>
 <span></span>
 <span></span>
 <span><span class="co"># 双精度值（通过剥离类来查看）表示自 1970 年 1 月 1 日以来的天数</span></span>
@@ -940,7 +940,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section></section><section id="泛型向量列表" class="level3" data-number="1.2.4"><h3 data-number="1.2.4" class="anchored" data-anchor-id="泛型向量列表">
 <span class="header-section-number">1.2.4</span> 泛型向量（列表）</h3>
-<p>从技术上讲，列表的每个元素实际上是相同的类型，因为每个元素实际上是对另一个对象的引用 <a href="#fig-list" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> ，该对象可以是任何类型。</p>
+<p>从技术上讲，列表的每个元素实际上是相同的类型，因为每个元素实际上是对另一个对象的引用 <a href="#fig-list" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-list</span></a> ，该对象可以是任何类型。</p>
 <section id="list" class="level4" data-number="1.2.4.1"><h4 data-number="1.2.4.1" class="anchored" data-anchor-id="list">
 <span class="header-section-number">1.2.4.1</span> list</h4>
 <p>列表不存储值本身，而是存储对它们的引用：</p>
@@ -1901,8 +1901,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="参考资料">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">参考资料</span>
+      <a href="./index.html" class="pagination-link" aria-label="推荐阅读">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">推荐阅读</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -2191,7 +2191,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb40-298"><a href="#cb40-298" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-299"><a href="#cb40-299" aria-hidden="true" tabindex="-1"></a>要保留其他属性，需要创建S3 类。</span>
 <span id="cb40-300"><a href="#cb40-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-301"><a href="#cb40-301" aria-hidden="true" tabindex="-1"></a><span class="fu">### S3类 原子向量</span></span>
+<span id="cb40-301"><a href="#cb40-301" aria-hidden="true" tabindex="-1"></a><span class="fu">### S3类原子向量</span></span>
 <span id="cb40-302"><a href="#cb40-302" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-303"><a href="#cb40-303" aria-hidden="true" tabindex="-1"></a>base R 中使用的四个重要的 S3类原子向量：</span>
 <span id="cb40-304"><a href="#cb40-304" aria-hidden="true" tabindex="-1"></a></span>

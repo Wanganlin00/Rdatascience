@@ -3,27 +3,25 @@ project:
   output-dir: docs
 
 book:
-  title: "R数据科学与编程"
+  title: "数据科学与编程"
   reader-mode: true
   chapters:
     - index.qmd
     
-    - part: "Data Science"
+    - part: "R Data Science"
       chapters: 
         - type_class.qmd
         - I-O.qmd
         - useful_function.qmd
         - base_graphics.qmd
-        - ggplot2_graphics.qmd
-        - ggplot2_extensions.qmd
         - custom_functions.qmd
         - Dynamic_report_syntax_format.qmd
 
-    - part: "R <---> Python"
+    - part: "R → Python"
       chapters: 
         - R-Python.qmd
 
-    - part: "Programming"
+    - part: "R Programming"
       chapters: 
         - control_structure.qmd
         - functions.qmd

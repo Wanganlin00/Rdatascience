@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">参考资料</span></a>
+ <span class="menu-text">推荐阅读</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -251,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./efficient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">高效</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">高效R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -295,18 +295,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0" id="toc-数学函数" class="nav-link" data-scroll-target="#%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0"><span class="header-section-number">3.10</span> 数学函数</a></li>
   <li><a href="#%E7%BB%9F%E8%AE%A1%E5%87%BD%E6%95%B0" id="toc-统计函数" class="nav-link" data-scroll-target="#%E7%BB%9F%E8%AE%A1%E5%87%BD%E6%95%B0"><span class="header-section-number">3.11</span> 统计函数</a></li>
   <li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0" id="toc-字符串函数" class="nav-link" data-scroll-target="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="header-section-number">3.12</span> 字符串函数</a></li>
+  <li><a href="#%E6%89%93%E5%8D%B0%E5%87%BD%E6%95%B0-sprintf" id="toc-打印函数-sprintf" class="nav-link" data-scroll-target="#%E6%89%93%E5%8D%B0%E5%87%BD%E6%95%B0-sprintf"><span class="header-section-number">3.13</span> 打印函数 <code>sprintf()</code></a></li>
   <li>
-<a href="#apply%E5%87%BD%E6%95%B0%E7%B0%87" id="toc-apply函数簇" class="nav-link" data-scroll-target="#apply%E5%87%BD%E6%95%B0%E7%B0%87"><span class="header-section-number">3.13</span> apply函数簇</a>
+<a href="#apply%E5%87%BD%E6%95%B0%E7%B0%87" id="toc-apply函数簇" class="nav-link" data-scroll-target="#apply%E5%87%BD%E6%95%B0%E7%B0%87"><span class="header-section-number">3.14</span> apply函数簇</a>
   <ul>
-<li><a href="#apply" id="toc-apply" class="nav-link" data-scroll-target="#apply"><span class="header-section-number">3.13.1</span> <code>apply()</code></a></li>
-  <li><a href="#aggregate" id="toc-aggregate" class="nav-link" data-scroll-target="#aggregate"><span class="header-section-number">3.13.2</span> <code>aggregate()</code></a></li>
-  <li><a href="#by-tapply" id="toc-by-tapply" class="nav-link" data-scroll-target="#by-tapply"><span class="header-section-number">3.13.3</span> <code>by()</code>, <code>tapply()</code></a></li>
-  <li><a href="#lapply-sapply" id="toc-lapply-sapply" class="nav-link" data-scroll-target="#lapply-sapply"><span class="header-section-number">3.13.4</span> <code>lapply()</code>, <code>sapply()</code></a></li>
-  <li><a href="#vapply" id="toc-vapply" class="nav-link" data-scroll-target="#vapply"><span class="header-section-number">3.13.5</span> <code>vapply</code></a></li>
+<li><a href="#apply" id="toc-apply" class="nav-link" data-scroll-target="#apply"><span class="header-section-number">3.14.1</span> <code>apply()</code></a></li>
+  <li><a href="#aggregate" id="toc-aggregate" class="nav-link" data-scroll-target="#aggregate"><span class="header-section-number">3.14.2</span> <code>aggregate()</code></a></li>
+  <li><a href="#by-tapply" id="toc-by-tapply" class="nav-link" data-scroll-target="#by-tapply"><span class="header-section-number">3.14.3</span> <code>by()</code>, <code>tapply()</code></a></li>
+  <li><a href="#lapply-sapply" id="toc-lapply-sapply" class="nav-link" data-scroll-target="#lapply-sapply"><span class="header-section-number">3.14.4</span> <code>lapply()</code>, <code>sapply()</code></a></li>
+  <li><a href="#vapply" id="toc-vapply" class="nav-link" data-scroll-target="#vapply"><span class="header-section-number">3.14.5</span> <code>vapply</code></a></li>
   </ul>
 </li>
-  <li><a href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97" id="toc-矩阵运算" class="nav-link" data-scroll-target="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="header-section-number">3.14</span> 矩阵运算</a></li>
-  <li><a href="#%E7%BB%9F%E8%AE%A1%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0" id="toc-统计分布函数" class="nav-link" data-scroll-target="#%E7%BB%9F%E8%AE%A1%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="header-section-number">3.15</span> 统计分布函数</a></li>
+  <li><a href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97" id="toc-矩阵运算" class="nav-link" data-scroll-target="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="header-section-number">3.15</span> 矩阵运算</a></li>
+  <li><a href="#%E7%BB%9F%E8%AE%A1%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0" id="toc-统计分布函数" class="nav-link" data-scroll-target="#%E7%BB%9F%E8%AE%A1%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="header-section-number">3.16</span> 统计分布函数</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -353,23 +354,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/zpackages.html">.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "MASS"        "benchmarkme" "Rcpp"        "Matrix"      "writexl"    </span></span>
-<span><span class="co">#&gt;  [6] "readxl"      "patchwork"   "stats"       "graphics"    "grDevices"  </span></span>
-<span><span class="co">#&gt; [11] "utils"       "datasets"    "BiocManager" "lubridate"   "forcats"    </span></span>
-<span><span class="co">#&gt; [16] "stringr"     "dplyr"       "purrr"       "readr"       "tidyr"      </span></span>
-<span><span class="co">#&gt; [21] "tibble"      "ggplot2"     "tidyverse"   "conflicted"  "methods"    </span></span>
-<span><span class="co">#&gt; [26] "base"</span></span>
+<span><span class="co">#&gt;  [1] "stats"       "graphics"    "grDevices"   "utils"       "datasets"   </span></span>
+<span><span class="co">#&gt;  [6] "BiocManager" "lubridate"   "forcats"     "stringr"     "dplyr"      </span></span>
+<span><span class="co">#&gt; [11] "purrr"       "readr"       "tidyr"       "tibble"      "ggplot2"    </span></span>
+<span><span class="co">#&gt; [16] "tidyverse"   "conflicted"  "methods"     "base"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] ".GlobalEnv"          "package:MASS"        "package:benchmarkme"</span></span>
-<span><span class="co">#&gt;  [4] "package:Rcpp"        "package:Matrix"      "package:writexl"    </span></span>
-<span><span class="co">#&gt;  [7] "package:readxl"      "package:patchwork"   "package:stats"      </span></span>
-<span><span class="co">#&gt; [10] "package:graphics"    "package:grDevices"   "package:utils"      </span></span>
-<span><span class="co">#&gt; [13] "package:datasets"    ".conflicts"          "package:BiocManager"</span></span>
-<span><span class="co">#&gt; [16] "package:lubridate"   "package:forcats"     "package:stringr"    </span></span>
-<span><span class="co">#&gt; [19] "package:dplyr"       "package:purrr"       "package:readr"      </span></span>
-<span><span class="co">#&gt; [22] "package:tidyr"       "package:tibble"      "package:ggplot2"    </span></span>
-<span><span class="co">#&gt; [25] "package:tidyverse"   "package:conflicted"  "package:methods"    </span></span>
-<span><span class="co">#&gt; [28] "Autoloads"           "package:base"</span></span>
+<span><span class="co">#&gt;  [1] ".GlobalEnv"          "package:stats"       "package:graphics"   </span></span>
+<span><span class="co">#&gt;  [4] "package:grDevices"   "package:utils"       "package:datasets"   </span></span>
+<span><span class="co">#&gt;  [7] ".conflicts"          "package:BiocManager" "package:lubridate"  </span></span>
+<span><span class="co">#&gt; [10] "package:forcats"     "package:stringr"     "package:dplyr"      </span></span>
+<span><span class="co">#&gt; [13] "package:purrr"       "package:readr"       "package:tidyr"      </span></span>
+<span><span class="co">#&gt; [16] "package:tibble"      "package:ggplot2"     "package:tidyverse"  </span></span>
+<span><span class="co">#&gt; [19] "package:conflicted"  "package:methods"     "Autoloads"          </span></span>
+<span><span class="co">#&gt; [22] "package:base"</span></span>
 <span><span class="co"># </span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; R version 4.4.0 (2024-04-24 ucrt)</span></span>
@@ -393,31 +390,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
-<span><span class="co">#&gt;  [1] MASS_7.3-60.2       benchmarkme_1.0.8   Rcpp_1.0.12        </span></span>
-<span><span class="co">#&gt;  [4] Matrix_1.7-0        writexl_1.5.0       readxl_1.4.3       </span></span>
-<span><span class="co">#&gt;  [7] patchwork_1.2.0     BiocManager_1.30.23 lubridate_1.9.3    </span></span>
-<span><span class="co">#&gt; [10] forcats_1.0.0       stringr_1.5.1       dplyr_1.1.4        </span></span>
-<span><span class="co">#&gt; [13] purrr_1.0.2         readr_2.1.5         tidyr_1.3.1        </span></span>
-<span><span class="co">#&gt; [16] tibble_3.2.1        ggplot2_3.5.1       tidyverse_2.0.0    </span></span>
-<span><span class="co">#&gt; [19] conflicted_1.2.0   </span></span>
+<span><span class="co">#&gt;  [1] BiocManager_1.30.23 lubridate_1.9.3     forcats_1.0.0      </span></span>
+<span><span class="co">#&gt;  [4] stringr_1.5.1       dplyr_1.1.4         purrr_1.0.2        </span></span>
+<span><span class="co">#&gt;  [7] readr_2.1.5         tidyr_1.3.1         tibble_3.2.1       </span></span>
+<span><span class="co">#&gt; [10] ggplot2_3.5.1       tidyverse_2.0.0     conflicted_1.2.0   </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
-<span><span class="co">#&gt;  [1] utf8_1.2.4            generics_0.1.3        lattice_0.22-6       </span></span>
-<span><span class="co">#&gt;  [4] stringi_1.8.4         hms_1.1.3             digest_0.6.35        </span></span>
-<span><span class="co">#&gt;  [7] magrittr_2.0.3        evaluate_0.23         grid_4.4.0           </span></span>
-<span><span class="co">#&gt; [10] timechange_0.3.0      iterators_1.0.14      fastmap_1.2.0        </span></span>
-<span><span class="co">#&gt; [13] foreach_1.5.2         doParallel_1.0.17     cellranger_1.1.0     </span></span>
-<span><span class="co">#&gt; [16] jsonlite_1.8.8        httr_1.4.7            fansi_1.0.6          </span></span>
-<span><span class="co">#&gt; [19] scales_1.3.0          codetools_0.2-20      cli_3.6.2            </span></span>
-<span><span class="co">#&gt; [22] rlang_1.1.4           munsell_0.5.1         withr_3.0.0          </span></span>
-<span><span class="co">#&gt; [25] cachem_1.1.0          parallel_4.4.0        tools_4.4.0          </span></span>
-<span><span class="co">#&gt; [28] tzdb_0.4.0            memoise_2.0.1         colorspace_2.1-0     </span></span>
-<span><span class="co">#&gt; [31] vctrs_0.6.5           R6_2.5.1              lifecycle_1.0.4      </span></span>
-<span><span class="co">#&gt; [34] htmlwidgets_1.6.4     pkgconfig_2.0.3       pillar_1.9.0         </span></span>
-<span><span class="co">#&gt; [37] gtable_0.3.5          glue_1.7.0            benchmarkmeData_1.0.4</span></span>
-<span><span class="co">#&gt; [40] xfun_0.44             tidyselect_1.2.1      rstudioapi_0.16.0    </span></span>
-<span><span class="co">#&gt; [43] knitr_1.47            htmltools_0.5.8.1     rmarkdown_2.27       </span></span>
-<span><span class="co">#&gt; [46] compiler_4.4.0</span></span>
+<span><span class="co">#&gt;  [1] jsonlite_1.8.8    gtable_0.3.5      compiler_4.4.0    tidyselect_1.2.1 </span></span>
+<span><span class="co">#&gt;  [5] scales_1.3.0      fastmap_1.2.0     R6_2.5.1          generics_0.1.3   </span></span>
+<span><span class="co">#&gt;  [9] knitr_1.47        htmlwidgets_1.6.4 munsell_0.5.1     pillar_1.9.0     </span></span>
+<span><span class="co">#&gt; [13] tzdb_0.4.0        rlang_1.1.4       utf8_1.2.4        cachem_1.1.0     </span></span>
+<span><span class="co">#&gt; [17] stringi_1.8.4     xfun_0.44         timechange_0.3.0  memoise_2.0.1    </span></span>
+<span><span class="co">#&gt; [21] cli_3.6.2         withr_3.0.0       magrittr_2.0.3    digest_0.6.35    </span></span>
+<span><span class="co">#&gt; [25] grid_4.4.0        rstudioapi_0.16.0 hms_1.1.3         lifecycle_1.0.4  </span></span>
+<span><span class="co">#&gt; [29] vctrs_0.6.5       evaluate_0.23     glue_1.7.0        fansi_1.0.6      </span></span>
+<span><span class="co">#&gt; [33] colorspace_2.1-0  rmarkdown_2.27    htmltools_0.5.8.1 tools_4.4.0      </span></span>
+<span><span class="co">#&gt; [37] pkgconfig_2.0.3</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ─ Session info ───────────────────────────────────────────────────────────────</span></span>
 <span><span class="co">#&gt;  setting  value</span></span>
@@ -425,93 +413,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt;  os       Windows 10 x64 (build 19045)</span></span>
 <span><span class="co">#&gt;  system   x86_64, mingw32</span></span>
 <span><span class="co">#&gt;  ui       RTerm</span></span>
-<span><span class="co">#&gt;  language (EN)</span></span>
+<span><span class="co">#&gt;  language EN</span></span>
 <span><span class="co">#&gt;  collate  Chinese (Simplified)_China.utf8</span></span>
 <span><span class="co">#&gt;  ctype    Chinese (Simplified)_China.utf8</span></span>
 <span><span class="co">#&gt;  tz       Asia/Shanghai</span></span>
-<span><span class="co">#&gt;  date     2024-06-06</span></span>
+<span><span class="co">#&gt;  date     2024-06-12</span></span>
 <span><span class="co">#&gt;  pandoc   3.1.11 @ D:/RStudio/resources/app/bin/quarto/bin/tools/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt;  package         * version  date (UTC) lib source</span></span>
-<span><span class="co">#&gt;  benchmarkme     * 1.0.8    2022-06-12 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  benchmarkmeData   1.0.4    2020-04-23 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  BiocManager     * 1.30.23  2024-05-04 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  cachem            1.1.0    2024-05-16 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  cellranger        1.1.0    2016-07-27 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  cli               3.6.2    2023-12-11 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  codetools         0.2-20   2024-03-31 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  colorspace        2.1-0    2023-01-23 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  conflicted      * 1.2.0    2023-02-01 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  devtools          2.4.5    2022-10-11 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  digest            0.6.35   2024-03-11 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  doParallel        1.0.17   2022-02-07 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  dplyr           * 1.1.4    2023-11-17 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  ellipsis          0.3.2    2021-04-29 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  evaluate          0.23     2023-11-01 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  fansi             1.0.6    2023-12-08 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  fastmap           1.2.0    2024-05-15 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  forcats         * 1.0.0    2023-01-29 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  foreach           1.5.2    2022-02-02 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  fs                1.6.4    2024-04-25 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  generics          0.1.3    2022-07-05 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  ggplot2         * 3.5.1    2024-04-23 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  glue              1.7.0    2024-01-09 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  gtable            0.3.5    2024-04-22 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  hms               1.1.3    2023-03-21 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  htmltools         0.5.8.1  2024-04-04 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  htmlwidgets       1.6.4    2023-12-06 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  httpuv            1.6.15   2024-03-26 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  httr              1.4.7    2023-08-15 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  iterators         1.0.14   2022-02-05 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  jsonlite          1.8.8    2023-12-04 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  knitr             1.47     2024-05-29 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  later             1.3.2    2023-12-06 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  lattice           0.22-6   2024-03-20 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  lifecycle         1.0.4    2023-11-07 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  lubridate       * 1.9.3    2023-09-27 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  magrittr          2.0.3    2022-03-30 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  MASS            * 7.3-60.2 2024-04-24 [1] local</span></span>
-<span><span class="co">#&gt;  Matrix          * 1.7-0    2024-03-22 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  memoise           2.0.1    2021-11-26 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  mime              0.12     2021-09-28 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  miniUI            0.1.1.1  2018-05-18 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  munsell           0.5.1    2024-04-01 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  patchwork       * 1.2.0    2024-01-08 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  pillar            1.9.0    2023-03-22 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  pkgbuild          1.4.4    2024-03-17 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  pkgconfig         2.0.3    2019-09-22 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  pkgload           1.3.4    2024-01-16 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  profvis           0.3.8    2023-05-02 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  promises          1.3.0    2024-04-05 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  purrr           * 1.0.2    2023-08-10 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  R6                2.5.1    2021-08-19 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  Rcpp            * 1.0.12   2024-01-09 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  readr           * 2.1.5    2024-01-10 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  readxl          * 1.4.3    2023-07-06 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  remotes           2.5.0    2024-03-17 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  rlang             1.1.4    2024-06-04 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  rmarkdown         2.27     2024-05-17 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  rstudioapi        0.16.0   2024-03-24 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  scales            1.3.0    2023-11-28 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  sessioninfo       1.2.2    2021-12-06 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  shiny             1.8.1.1  2024-04-02 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  stringi           1.8.4    2024-05-06 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  stringr         * 1.5.1    2023-11-14 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  tibble          * 3.2.1    2023-03-20 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  tidyr           * 1.3.1    2024-01-24 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  tidyselect        1.2.1    2024-03-11 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  tidyverse       * 2.0.0    2023-02-22 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  timechange        0.3.0    2024-01-18 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  tzdb              0.4.0    2023-05-12 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  urlchecker        1.0.1    2021-11-30 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  usethis           2.2.3    2024-02-19 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  utf8              1.2.4    2023-10-22 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  vctrs             0.6.5    2023-12-01 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  withr             3.0.0    2024-01-16 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  writexl         * 1.5.0    2024-02-09 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  xfun              0.44     2024-05-15 [1] CRAN (R 4.4.0)</span></span>
-<span><span class="co">#&gt;  xtable            1.8-4    2019-04-21 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  package     * version date (UTC) lib source</span></span>
+<span><span class="co">#&gt;  BiocManager * 1.30.23 2024-05-04 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  cachem        1.1.0   2024-05-16 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  cli           3.6.2   2023-12-11 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  colorspace    2.1-0   2023-01-23 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  conflicted  * 1.2.0   2023-02-01 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  devtools      2.4.5   2022-10-11 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  digest        0.6.35  2024-03-11 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  dplyr       * 1.1.4   2023-11-17 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  ellipsis      0.3.2   2021-04-29 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  evaluate      0.23    2023-11-01 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  fansi         1.0.6   2023-12-08 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  fastmap       1.2.0   2024-05-15 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  forcats     * 1.0.0   2023-01-29 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  fs            1.6.4   2024-04-25 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  generics      0.1.3   2022-07-05 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  ggplot2     * 3.5.1   2024-04-23 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  glue          1.7.0   2024-01-09 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  gtable        0.3.5   2024-04-22 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  hms           1.1.3   2023-03-21 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  htmltools     0.5.8.1 2024-04-04 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  htmlwidgets   1.6.4   2023-12-06 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  httpuv        1.6.15  2024-03-26 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  jsonlite      1.8.8   2023-12-04 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  knitr         1.47    2024-05-29 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  later         1.3.2   2023-12-06 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  lifecycle     1.0.4   2023-11-07 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  lubridate   * 1.9.3   2023-09-27 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  magrittr      2.0.3   2022-03-30 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  memoise       2.0.1   2021-11-26 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  mime          0.12    2021-09-28 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  miniUI        0.1.1.1 2018-05-18 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  munsell       0.5.1   2024-04-01 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  pillar        1.9.0   2023-03-22 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  pkgbuild      1.4.4   2024-03-17 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  pkgconfig     2.0.3   2019-09-22 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  pkgload       1.3.4   2024-01-16 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  profvis       0.3.8   2023-05-02 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  promises      1.3.0   2024-04-05 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  purrr       * 1.0.2   2023-08-10 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  R6            2.5.1   2021-08-19 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  Rcpp          1.0.12  2024-01-09 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  readr       * 2.1.5   2024-01-10 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  remotes       2.5.0   2024-03-17 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  rlang         1.1.4   2024-06-04 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  rmarkdown     2.27    2024-05-17 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  rstudioapi    0.16.0  2024-03-24 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  scales        1.3.0   2023-11-28 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  sessioninfo   1.2.2   2021-12-06 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  shiny         1.8.1.1 2024-04-02 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  stringi       1.8.4   2024-05-06 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  stringr     * 1.5.1   2023-11-14 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  tibble      * 3.2.1   2023-03-20 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  tidyr       * 1.3.1   2024-01-24 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  tidyselect    1.2.1   2024-03-11 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  tidyverse   * 2.0.0   2023-02-22 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  timechange    0.3.0   2024-01-18 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  tzdb          0.4.0   2023-05-12 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  urlchecker    1.0.1   2021-11-30 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  usethis       2.2.3   2024-02-19 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  utf8          1.2.4   2023-10-22 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  vctrs         0.6.5   2023-12-01 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  withr         3.0.0   2024-01-16 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  xfun          0.44    2024-05-15 [1] CRAN (R 4.4.0)</span></span>
+<span><span class="co">#&gt;  xtable        1.8-4   2019-04-21 [1] CRAN (R 4.4.0)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  [1] D:/R-4.4.0/library</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -897,6 +871,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] "aaageerg"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section><section id="打印函数-sprintf" class="level2" data-number="3.13"><h2 data-number="3.13" class="anchored" data-anchor-id="打印函数-sprintf">
+<span class="header-section-number">3.13</span> 打印函数 <code>sprintf()</code>
+</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="st">"string"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"This is where a %s goes."</span>, <span class="va">a</span><span class="op">)</span></span>
@@ -933,13 +910,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%.9g"</span>, <span class="fl">1e6</span> <span class="op">*</span> <span class="va">pi</span><span class="op">)</span> <span class="co"># "3141592.65"   ("fixed")</span></span>
 <span><span class="co">#&gt; [1] "3141592.65"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%G"</span>, <span class="fl">1e-6</span> <span class="op">*</span> <span class="va">pi</span><span class="op">)</span>  <span class="co"># "3.14159E-06"</span></span>
-<span><span class="co">#&gt; [1] "3.14159E-06"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; [1] "3.14159E-06"</span></span>
+<span></span>
+<span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="st">"string"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"Substitute in multiple strings: %s %s"</span>, <span class="va">x</span>, <span class="st">"string2"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Substitute in multiple strings: string string2"</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"A single percent sign here： %%"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "A single percent sign here： %"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="apply函数簇" class="level2" data-number="3.13"><h2 data-number="3.13" class="anchored" data-anchor-id="apply函数簇">
-<span class="header-section-number">3.13</span> apply函数簇</h2>
-<section id="apply" class="level3" data-number="3.13.1"><h3 data-number="3.13.1" class="anchored" data-anchor-id="apply">
-<span class="header-section-number">3.13.1</span> <code>apply()</code>
+</section><section id="apply函数簇" class="level2" data-number="3.14"><h2 data-number="3.14" class="anchored" data-anchor-id="apply函数簇">
+<span class="header-section-number">3.14</span> apply函数簇</h2>
+<section id="apply" class="level3" data-number="3.14.1"><h3 data-number="3.14.1" class="anchored" data-anchor-id="apply">
+<span class="header-section-number">3.14.1</span> <code>apply()</code>
 </h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span>X <span class="op">=</span> <span class="va">mtcars</span>, MARGIN <span class="op">=</span> <span class="fl">2</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span>
@@ -949,8 +934,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt;   0.437500   0.406250   3.687500   2.812500</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="aggregate" class="level3" data-number="3.13.2"><h3 data-number="3.13.2" class="anchored" data-anchor-id="aggregate">
-<span class="header-section-number">3.13.2</span> <code>aggregate()</code>
+</section><section id="aggregate" class="level3" data-number="3.14.2"><h3 data-number="3.14.2" class="anchored" data-anchor-id="aggregate">
+<span class="header-section-number">3.14.2</span> <code>aggregate()</code>
 </h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtcars</span>,</span>
@@ -1246,8 +1231,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="by-tapply" class="level3" data-number="3.13.3"><h3 data-number="3.13.3" class="anchored" data-anchor-id="by-tapply">
-<span class="header-section-number">3.13.3</span> <code>by()</code>, <code>tapply()</code>
+</section><section id="by-tapply" class="level3" data-number="3.14.3"><h3 data-number="3.14.3" class="anchored" data-anchor-id="by-tapply">
+<span class="header-section-number">3.14.3</span> <code>by()</code>, <code>tapply()</code>
 </h3>
 <p><code><a href="https://rdrr.io/r/base/by.html">by()</a></code>是应用于数据框的tapply的面向对象包装器。</p>
 <div class="cell">
@@ -1344,8 +1329,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt;  Max.   :19.20   Max.   :8   Max.   :472.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="lapply-sapply" class="level3" data-number="3.13.4"><h3 data-number="3.13.4" class="anchored" data-anchor-id="lapply-sapply">
-<span class="header-section-number">3.13.4</span> <code>lapply()</code>, <code>sapply()</code>
+</section><section id="lapply-sapply" class="level3" data-number="3.14.4"><h3 data-number="3.14.4" class="anchored" data-anchor-id="lapply-sapply">
+<span class="header-section-number">3.14.4</span> <code>lapply()</code>, <code>sapply()</code>
 </h3>
 <p><code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> returns a list of the same length as X,</p>
 <p><code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code> is a user-friendly version and wrapper of <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> by default returning a vector or matrix</p>
@@ -1373,8 +1358,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 100% 10.00 20.08553692   1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="vapply" class="level3" data-number="3.13.5"><h3 data-number="3.13.5" class="anchored" data-anchor-id="vapply">
-<span class="header-section-number">3.13.5</span> <code>vapply</code>
+</section><section id="vapply" class="level3" data-number="3.14.5"><h3 data-number="3.14.5" class="anchored" data-anchor-id="vapply">
+<span class="header-section-number">3.14.5</span> <code>vapply</code>
 </h3>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_cyl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/split.html">split</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span></span>
@@ -1413,8 +1398,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; -5.647025 -2.780106 -2.192438</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="矩阵运算" class="level2" data-number="3.14"><h2 data-number="3.14" class="anchored" data-anchor-id="矩阵运算">
-<span class="header-section-number">3.14</span> 矩阵运算</h2>
+</section></section><section id="矩阵运算" class="level2" data-number="3.15"><h2 data-number="3.15" class="anchored" data-anchor-id="矩阵运算">
+<span class="header-section-number">3.15</span> 矩阵运算</h2>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">9</span>,ncol <span class="op">=</span> <span class="fl">3</span>,nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">X</span></span>
@@ -1458,8 +1443,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [3,]    1    1    1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="统计分布函数" class="level2" data-number="3.15"><h2 data-number="3.15" class="anchored" data-anchor-id="统计分布函数">
-<span class="header-section-number">3.15</span> 统计分布函数</h2>
+</section><section id="统计分布函数" class="level2" data-number="3.16"><h2 data-number="3.16" class="anchored" data-anchor-id="统计分布函数">
+<span class="header-section-number">3.16</span> 统计分布函数</h2>
 <p>形如<code>[dpqr]distribution_abbreviation</code>，其中密度函数<code>d</code>，分布函数<code>p</code>，分位数函数<code>q</code>，随机数生成函数<code>r</code></p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">### 正态分布</span></span>
@@ -1470,7 +1455,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fl">0.025</span>,<span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="co"># N(0,1)的上0.025分位数</span></span>
 <span><span class="co">#&gt; [1] 1.959964</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span>  <span class="co"># 生成5个服从N(3,9)的随机数</span></span>
-<span><span class="co">#&gt; [1] 0.2891081 3.4383484 1.4556073 4.1387602 3.2466002</span></span>
+<span><span class="co">#&gt; [1]  5.242658 -1.049689 10.785462  1.421776  3.422772</span></span>
 <span></span>
 <span></span>
 <span><span class="co">### 二项分布</span></span>
@@ -1494,13 +1479,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
 <span><span class="va">multi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MASS/man/mvrnorm.html">mvrnorm</a></span><span class="op">(</span><span class="fl">500</span>,<span class="va">mean</span>,<span class="va">sigma</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">multi</span><span class="op">)</span></span>
-<span><span class="co">#&gt;            [,1]       [,2]     [,3]</span></span>
-<span><span class="co">#&gt; [1,] 274.360632 178.296590 3.739516</span></span>
-<span><span class="co">#&gt; [2,] 276.925939 146.194721 3.891480</span></span>
-<span><span class="co">#&gt; [3,] 365.619110 314.044505 3.489077</span></span>
-<span><span class="co">#&gt; [4,] 309.964766 268.700640 3.730031</span></span>
-<span><span class="co">#&gt; [5,]   5.294053  -9.555759 4.001449</span></span>
-<span><span class="co">#&gt; [6,] 207.046292 202.889589 3.198244</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt;           [,1]       [,2]     [,3]</span></span>
+<span><span class="co">#&gt; [1,] 277.42494 158.205302 3.977876</span></span>
+<span><span class="co">#&gt; [2,] -99.11102  25.712951 4.536442</span></span>
+<span><span class="co">#&gt; [3,] 217.65444 146.338734 4.025039</span></span>
+<span><span class="co">#&gt; [4,]  72.81782  83.567162 3.698638</span></span>
+<span><span class="co">#&gt; [5,]  87.49841  73.745399 4.166188</span></span>
+<span><span class="co">#&gt; [6,] 174.64953   7.794454 3.546805</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
@@ -2239,136 +2224,145 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb30-286"><a href="#cb30-286" aria-hidden="true" tabindex="-1"></a><span class="fu">tolower</span>(<span class="st">"aaAGEErg"</span>)         <span class="co">#小写转换</span></span>
 <span id="cb30-287"><a href="#cb30-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb30-288"><a href="#cb30-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-291"><a href="#cb30-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-292"><a href="#cb30-292" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">"string"</span></span>
-<span id="cb30-293"><a href="#cb30-293" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"This is where a %s goes."</span>, a)</span>
-<span id="cb30-294"><a href="#cb30-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-295"><a href="#cb30-295" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">8</span></span>
-<span id="cb30-296"><a href="#cb30-296" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Regular:%04d"</span>, x)</span>
-<span id="cb30-297"><a href="#cb30-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-298"><a href="#cb30-298" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%f"</span>, pi)         <span class="co"># "3.141593"</span></span>
-<span id="cb30-299"><a href="#cb30-299" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%.3f"</span>, pi)       <span class="co"># "3.142"</span></span>
-<span id="cb30-300"><a href="#cb30-300" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%1.0f"</span>, pi)      <span class="co"># "3"</span></span>
-<span id="cb30-301"><a href="#cb30-301" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%5.1f"</span>, pi)      <span class="co"># "  3.1"</span></span>
-<span id="cb30-302"><a href="#cb30-302" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%05.1f"</span>, pi)     <span class="co"># "003.1"</span></span>
-<span id="cb30-303"><a href="#cb30-303" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%+f"</span>, pi)        <span class="co"># "+3.141593"</span></span>
-<span id="cb30-304"><a href="#cb30-304" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"% f"</span>, pi)        <span class="co"># " 3.141593"</span></span>
-<span id="cb30-305"><a href="#cb30-305" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%-10f"</span>, pi)      <span class="co"># "3.141593  "   (left justified)</span></span>
-<span id="cb30-306"><a href="#cb30-306" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%e"</span>, pi)         <span class="co">#"3.141593e+00"</span></span>
-<span id="cb30-307"><a href="#cb30-307" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%E"</span>, pi)         <span class="co"># "3.141593E+00"</span></span>
-<span id="cb30-308"><a href="#cb30-308" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%g"</span>, pi)         <span class="co"># "3.14159"</span></span>
-<span id="cb30-309"><a href="#cb30-309" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%g"</span>,   <span class="fl">1e6</span> <span class="sc">*</span> pi) <span class="co"># "3.14159e+06"  (exponential)</span></span>
-<span id="cb30-310"><a href="#cb30-310" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%.9g"</span>, <span class="fl">1e6</span> <span class="sc">*</span> pi) <span class="co"># "3141592.65"   ("fixed")</span></span>
-<span id="cb30-311"><a href="#cb30-311" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%G"</span>, <span class="fl">1e-6</span> <span class="sc">*</span> pi)  <span class="co"># "3.14159E-06"</span></span>
-<span id="cb30-312"><a href="#cb30-312" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-313"><a href="#cb30-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-314"><a href="#cb30-314" aria-hidden="true" tabindex="-1"></a><span class="fu">## apply函数簇</span></span>
+<span id="cb30-289"><a href="#cb30-289" aria-hidden="true" tabindex="-1"></a><span class="fu">## 打印函数 `sprintf()`</span></span>
+<span id="cb30-290"><a href="#cb30-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-293"><a href="#cb30-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-294"><a href="#cb30-294" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">"string"</span></span>
+<span id="cb30-295"><a href="#cb30-295" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"This is where a %s goes."</span>, a)</span>
+<span id="cb30-296"><a href="#cb30-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-297"><a href="#cb30-297" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb30-298"><a href="#cb30-298" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Regular:%04d"</span>, x)</span>
+<span id="cb30-299"><a href="#cb30-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-300"><a href="#cb30-300" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%f"</span>, pi)         <span class="co"># "3.141593"</span></span>
+<span id="cb30-301"><a href="#cb30-301" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%.3f"</span>, pi)       <span class="co"># "3.142"</span></span>
+<span id="cb30-302"><a href="#cb30-302" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%1.0f"</span>, pi)      <span class="co"># "3"</span></span>
+<span id="cb30-303"><a href="#cb30-303" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%5.1f"</span>, pi)      <span class="co"># "  3.1"</span></span>
+<span id="cb30-304"><a href="#cb30-304" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%05.1f"</span>, pi)     <span class="co"># "003.1"</span></span>
+<span id="cb30-305"><a href="#cb30-305" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%+f"</span>, pi)        <span class="co"># "+3.141593"</span></span>
+<span id="cb30-306"><a href="#cb30-306" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"% f"</span>, pi)        <span class="co"># " 3.141593"</span></span>
+<span id="cb30-307"><a href="#cb30-307" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%-10f"</span>, pi)      <span class="co"># "3.141593  "   (left justified)</span></span>
+<span id="cb30-308"><a href="#cb30-308" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%e"</span>, pi)         <span class="co">#"3.141593e+00"</span></span>
+<span id="cb30-309"><a href="#cb30-309" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%E"</span>, pi)         <span class="co"># "3.141593E+00"</span></span>
+<span id="cb30-310"><a href="#cb30-310" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%g"</span>, pi)         <span class="co"># "3.14159"</span></span>
+<span id="cb30-311"><a href="#cb30-311" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%g"</span>,   <span class="fl">1e6</span> <span class="sc">*</span> pi) <span class="co"># "3.14159e+06"  (exponential)</span></span>
+<span id="cb30-312"><a href="#cb30-312" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%.9g"</span>, <span class="fl">1e6</span> <span class="sc">*</span> pi) <span class="co"># "3141592.65"   ("fixed")</span></span>
+<span id="cb30-313"><a href="#cb30-313" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%G"</span>, <span class="fl">1e-6</span> <span class="sc">*</span> pi)  <span class="co"># "3.14159E-06"</span></span>
+<span id="cb30-314"><a href="#cb30-314" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-315"><a href="#cb30-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-316"><a href="#cb30-316" aria-hidden="true" tabindex="-1"></a><span class="fu">### `apply()`</span></span>
-<span id="cb30-317"><a href="#cb30-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-320"><a href="#cb30-320" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-321"><a href="#cb30-321" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(<span class="at">X =</span> mtcars, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> mean)</span>
-<span id="cb30-322"><a href="#cb30-322" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-323"><a href="#cb30-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-324"><a href="#cb30-324" aria-hidden="true" tabindex="-1"></a><span class="fu">### `aggregate()`</span></span>
-<span id="cb30-325"><a href="#cb30-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-328"><a href="#cb30-328" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-329"><a href="#cb30-329" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(<span class="at">x =</span> mtcars,</span>
-<span id="cb30-330"><a href="#cb30-330" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">am=</span>mtcars<span class="sc">$</span>am,<span class="at">cyl=</span>mtcars<span class="sc">$</span>cyl),</span>
-<span id="cb30-331"><a href="#cb30-331" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> mean)  </span>
-<span id="cb30-332"><a href="#cb30-332" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(.<span class="sc">~</span>am<span class="sc">+</span>cyl,</span>
-<span id="cb30-333"><a href="#cb30-333" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> mtcars,</span>
-<span id="cb30-334"><a href="#cb30-334" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> mean)</span>
-<span id="cb30-335"><a href="#cb30-335" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(mpg<span class="sc">~</span>am<span class="sc">+</span>cyl,</span>
-<span id="cb30-336"><a href="#cb30-336" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> mtcars,</span>
-<span id="cb30-337"><a href="#cb30-337" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> summary)</span>
-<span id="cb30-338"><a href="#cb30-338" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-339"><a href="#cb30-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-340"><a href="#cb30-340" aria-hidden="true" tabindex="-1"></a><span class="fu">### `by()`, `tapply()`</span></span>
-<span id="cb30-341"><a href="#cb30-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-342"><a href="#cb30-342" aria-hidden="true" tabindex="-1"></a><span class="in">`by()`</span>是应用于数据框的tapply的面向对象包装器。</span>
-<span id="cb30-343"><a href="#cb30-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-346"><a href="#cb30-346" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-347"><a href="#cb30-347" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(<span class="at">data =</span> mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
-<span id="cb30-348"><a href="#cb30-348" aria-hidden="true" tabindex="-1"></a>   <span class="at">INDICES =</span> <span class="fu">list</span>(<span class="at">cyl=</span>mtcars<span class="sc">$</span>cyl),</span>
-<span id="cb30-349"><a href="#cb30-349" aria-hidden="true" tabindex="-1"></a>   <span class="at">FUN =</span> summary)</span>
+<span id="cb30-316"><a href="#cb30-316" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"string"</span></span>
+<span id="cb30-317"><a href="#cb30-317" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Substitute in multiple strings: %s %s"</span>, x, <span class="st">"string2"</span>)</span>
+<span id="cb30-318"><a href="#cb30-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-319"><a href="#cb30-319" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"A single percent sign here： %%"</span>)</span>
+<span id="cb30-320"><a href="#cb30-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-321"><a href="#cb30-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-322"><a href="#cb30-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-323"><a href="#cb30-323" aria-hidden="true" tabindex="-1"></a><span class="fu">## apply函数簇</span></span>
+<span id="cb30-324"><a href="#cb30-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-325"><a href="#cb30-325" aria-hidden="true" tabindex="-1"></a><span class="fu">### `apply()`</span></span>
+<span id="cb30-326"><a href="#cb30-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-329"><a href="#cb30-329" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-330"><a href="#cb30-330" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(<span class="at">X =</span> mtcars, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> mean)</span>
+<span id="cb30-331"><a href="#cb30-331" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-332"><a href="#cb30-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-333"><a href="#cb30-333" aria-hidden="true" tabindex="-1"></a><span class="fu">### `aggregate()`</span></span>
+<span id="cb30-334"><a href="#cb30-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-337"><a href="#cb30-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-338"><a href="#cb30-338" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(<span class="at">x =</span> mtcars,</span>
+<span id="cb30-339"><a href="#cb30-339" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">am=</span>mtcars<span class="sc">$</span>am,<span class="at">cyl=</span>mtcars<span class="sc">$</span>cyl),</span>
+<span id="cb30-340"><a href="#cb30-340" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> mean)  </span>
+<span id="cb30-341"><a href="#cb30-341" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(.<span class="sc">~</span>am<span class="sc">+</span>cyl,</span>
+<span id="cb30-342"><a href="#cb30-342" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> mtcars,</span>
+<span id="cb30-343"><a href="#cb30-343" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> mean)</span>
+<span id="cb30-344"><a href="#cb30-344" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(mpg<span class="sc">~</span>am<span class="sc">+</span>cyl,</span>
+<span id="cb30-345"><a href="#cb30-345" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> mtcars,</span>
+<span id="cb30-346"><a href="#cb30-346" aria-hidden="true" tabindex="-1"></a>          <span class="at">FUN =</span> summary)</span>
+<span id="cb30-347"><a href="#cb30-347" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-348"><a href="#cb30-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-349"><a href="#cb30-349" aria-hidden="true" tabindex="-1"></a><span class="fu">### `by()`, `tapply()`</span></span>
 <span id="cb30-350"><a href="#cb30-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-351"><a href="#cb30-351" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(<span class="at">data =</span> mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
-<span id="cb30-352"><a href="#cb30-352" aria-hidden="true" tabindex="-1"></a>   <span class="at">INDICES =</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>cyl),</span>
-<span id="cb30-353"><a href="#cb30-353" aria-hidden="true" tabindex="-1"></a>   <span class="at">FUN =</span> <span class="cf">function</span>(x) <span class="fu">lm</span>( disp <span class="sc">~</span> mpg, <span class="at">data =</span> x))</span>
-<span id="cb30-354"><a href="#cb30-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-355"><a href="#cb30-355" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(<span class="at">X =</span> mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
-<span id="cb30-356"><a href="#cb30-356" aria-hidden="true" tabindex="-1"></a>       <span class="at">INDEX =</span> <span class="fu">list</span>(<span class="at">cyl=</span>mtcars<span class="sc">$</span>cyl),</span>
-<span id="cb30-357"><a href="#cb30-357" aria-hidden="true" tabindex="-1"></a>       <span class="at">FUN =</span> summary)</span>
-<span id="cb30-358"><a href="#cb30-358" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-351"><a href="#cb30-351" aria-hidden="true" tabindex="-1"></a><span class="in">`by()`</span>是应用于数据框的tapply的面向对象包装器。</span>
+<span id="cb30-352"><a href="#cb30-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-355"><a href="#cb30-355" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-356"><a href="#cb30-356" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(<span class="at">data =</span> mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
+<span id="cb30-357"><a href="#cb30-357" aria-hidden="true" tabindex="-1"></a>   <span class="at">INDICES =</span> <span class="fu">list</span>(<span class="at">cyl=</span>mtcars<span class="sc">$</span>cyl),</span>
+<span id="cb30-358"><a href="#cb30-358" aria-hidden="true" tabindex="-1"></a>   <span class="at">FUN =</span> summary)</span>
 <span id="cb30-359"><a href="#cb30-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-360"><a href="#cb30-360" aria-hidden="true" tabindex="-1"></a><span class="fu">### `lapply()`, `sapply()`</span></span>
-<span id="cb30-361"><a href="#cb30-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-362"><a href="#cb30-362" aria-hidden="true" tabindex="-1"></a><span class="in">`lapply()`</span> returns a list of the same length as X,</span>
+<span id="cb30-360"><a href="#cb30-360" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(<span class="at">data =</span> mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
+<span id="cb30-361"><a href="#cb30-361" aria-hidden="true" tabindex="-1"></a>   <span class="at">INDICES =</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>cyl),</span>
+<span id="cb30-362"><a href="#cb30-362" aria-hidden="true" tabindex="-1"></a>   <span class="at">FUN =</span> <span class="cf">function</span>(x) <span class="fu">lm</span>( disp <span class="sc">~</span> mpg, <span class="at">data =</span> x))</span>
 <span id="cb30-363"><a href="#cb30-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-364"><a href="#cb30-364" aria-hidden="true" tabindex="-1"></a><span class="in">`sapply()`</span> is a user-friendly version and wrapper of <span class="in">`lapply()`</span> by default returning a vector or matrix</span>
-<span id="cb30-365"><a href="#cb30-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-368"><a href="#cb30-368" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-369"><a href="#cb30-369" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">beta =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">3</span><span class="sc">:</span><span class="dv">3</span>), <span class="at">logic =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
-<span id="cb30-370"><a href="#cb30-370" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="at">X =</span> x,<span class="at">FUN =</span> quantile)</span>
-<span id="cb30-371"><a href="#cb30-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-372"><a href="#cb30-372" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(x, quantile)</span>
-<span id="cb30-373"><a href="#cb30-373" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-364"><a href="#cb30-364" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(<span class="at">X =</span> mtcars[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
+<span id="cb30-365"><a href="#cb30-365" aria-hidden="true" tabindex="-1"></a>       <span class="at">INDEX =</span> <span class="fu">list</span>(<span class="at">cyl=</span>mtcars<span class="sc">$</span>cyl),</span>
+<span id="cb30-366"><a href="#cb30-366" aria-hidden="true" tabindex="-1"></a>       <span class="at">FUN =</span> summary)</span>
+<span id="cb30-367"><a href="#cb30-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-368"><a href="#cb30-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-369"><a href="#cb30-369" aria-hidden="true" tabindex="-1"></a><span class="fu">### `lapply()`, `sapply()`</span></span>
+<span id="cb30-370"><a href="#cb30-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-371"><a href="#cb30-371" aria-hidden="true" tabindex="-1"></a><span class="in">`lapply()`</span> returns a list of the same length as X,</span>
+<span id="cb30-372"><a href="#cb30-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-373"><a href="#cb30-373" aria-hidden="true" tabindex="-1"></a><span class="in">`sapply()`</span> is a user-friendly version and wrapper of <span class="in">`lapply()`</span> by default returning a vector or matrix</span>
 <span id="cb30-374"><a href="#cb30-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-375"><a href="#cb30-375" aria-hidden="true" tabindex="-1"></a><span class="fu">### `vapply`</span></span>
-<span id="cb30-376"><a href="#cb30-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-379"><a href="#cb30-379" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-380"><a href="#cb30-380" aria-hidden="true" tabindex="-1"></a>by_cyl <span class="ot">&lt;-</span> <span class="fu">split</span>(mtcars, mtcars<span class="sc">$</span>cyl)</span>
-<span id="cb30-381"><a href="#cb30-381" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">lapply</span>(by_cyl, <span class="cf">function</span>(data) <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> data))</span>
-<span id="cb30-382"><a href="#cb30-382" aria-hidden="true" tabindex="-1"></a>models</span>
-<span id="cb30-383"><a href="#cb30-383" aria-hidden="true" tabindex="-1"></a><span class="fu">vapply</span>(models, <span class="cf">function</span>(x) <span class="fu">coef</span>(x)[[<span class="dv">2</span>]], <span class="fu">double</span>(<span class="dv">1</span>))</span>
-<span id="cb30-384"><a href="#cb30-384" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-377"><a href="#cb30-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-378"><a href="#cb30-378" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">beta =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">3</span><span class="sc">:</span><span class="dv">3</span>), <span class="at">logic =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>))</span>
+<span id="cb30-379"><a href="#cb30-379" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="at">X =</span> x,<span class="at">FUN =</span> quantile)</span>
+<span id="cb30-380"><a href="#cb30-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-381"><a href="#cb30-381" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(x, quantile)</span>
+<span id="cb30-382"><a href="#cb30-382" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-383"><a href="#cb30-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-384"><a href="#cb30-384" aria-hidden="true" tabindex="-1"></a><span class="fu">### `vapply`</span></span>
 <span id="cb30-385"><a href="#cb30-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-386"><a href="#cb30-386" aria-hidden="true" tabindex="-1"></a><span class="fu">## 矩阵运算</span></span>
-<span id="cb30-387"><a href="#cb30-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-390"><a href="#cb30-390" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-391"><a href="#cb30-391" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>,<span class="at">ncol =</span> <span class="dv">3</span>,<span class="at">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb30-392"><a href="#cb30-392" aria-hidden="true" tabindex="-1"></a>X</span>
-<span id="cb30-393"><a href="#cb30-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-394"><a href="#cb30-394" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(X)</span>
-<span id="cb30-395"><a href="#cb30-395" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(X)</span>
-<span id="cb30-396"><a href="#cb30-396" aria-hidden="true" tabindex="-1"></a><span class="fu">eigen</span>(X)</span>
-<span id="cb30-397"><a href="#cb30-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-398"><a href="#cb30-398" aria-hidden="true" tabindex="-1"></a>X</span>
-<span id="cb30-399"><a href="#cb30-399" aria-hidden="true" tabindex="-1"></a><span class="co"># 协方差矩阵</span></span>
-<span id="cb30-400"><a href="#cb30-400" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(X)</span>
-<span id="cb30-401"><a href="#cb30-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-402"><a href="#cb30-402" aria-hidden="true" tabindex="-1"></a><span class="co"># 相关系数矩阵</span></span>
-<span id="cb30-403"><a href="#cb30-403" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(X)</span>
-<span id="cb30-404"><a href="#cb30-404" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-405"><a href="#cb30-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-406"><a href="#cb30-406" aria-hidden="true" tabindex="-1"></a><span class="fu">## 统计分布函数</span></span>
-<span id="cb30-407"><a href="#cb30-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-408"><a href="#cb30-408" aria-hidden="true" tabindex="-1"></a>形如<span class="in">`[dpqr]distribution_abbreviation`</span>，其中密度函数<span class="in">`d`</span>，分布函数<span class="in">`p`</span>，分位数函数<span class="in">`q`</span>，随机数生成函数<span class="in">`r`</span></span>
-<span id="cb30-409"><a href="#cb30-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-412"><a href="#cb30-412" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-413"><a href="#cb30-413" aria-hidden="true" tabindex="-1"></a><span class="do">### 正态分布</span></span>
-<span id="cb30-414"><a href="#cb30-414" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">2</span>)  <span class="co">#N(0,4)在 3 处的密度值</span></span>
-<span id="cb30-415"><a href="#cb30-415" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">2</span>)<span class="co">#N(0,4)在1，2，3处的分布概率值</span></span>
-<span id="cb30-416"><a href="#cb30-416" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.025</span>,<span class="dv">0</span>,<span class="dv">1</span>)<span class="co"># N(0,1)的上0.025分位数</span></span>
-<span id="cb30-417"><a href="#cb30-417" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">3</span>)  <span class="co"># 生成5个服从N(3,9)的随机数</span></span>
+<span id="cb30-388"><a href="#cb30-388" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-389"><a href="#cb30-389" aria-hidden="true" tabindex="-1"></a>by_cyl <span class="ot">&lt;-</span> <span class="fu">split</span>(mtcars, mtcars<span class="sc">$</span>cyl)</span>
+<span id="cb30-390"><a href="#cb30-390" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">lapply</span>(by_cyl, <span class="cf">function</span>(data) <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> data))</span>
+<span id="cb30-391"><a href="#cb30-391" aria-hidden="true" tabindex="-1"></a>models</span>
+<span id="cb30-392"><a href="#cb30-392" aria-hidden="true" tabindex="-1"></a><span class="fu">vapply</span>(models, <span class="cf">function</span>(x) <span class="fu">coef</span>(x)[[<span class="dv">2</span>]], <span class="fu">double</span>(<span class="dv">1</span>))</span>
+<span id="cb30-393"><a href="#cb30-393" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-394"><a href="#cb30-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-395"><a href="#cb30-395" aria-hidden="true" tabindex="-1"></a><span class="fu">## 矩阵运算</span></span>
+<span id="cb30-396"><a href="#cb30-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-399"><a href="#cb30-399" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-400"><a href="#cb30-400" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>,<span class="at">ncol =</span> <span class="dv">3</span>,<span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb30-401"><a href="#cb30-401" aria-hidden="true" tabindex="-1"></a>X</span>
+<span id="cb30-402"><a href="#cb30-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-403"><a href="#cb30-403" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(X)</span>
+<span id="cb30-404"><a href="#cb30-404" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(X)</span>
+<span id="cb30-405"><a href="#cb30-405" aria-hidden="true" tabindex="-1"></a><span class="fu">eigen</span>(X)</span>
+<span id="cb30-406"><a href="#cb30-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-407"><a href="#cb30-407" aria-hidden="true" tabindex="-1"></a>X</span>
+<span id="cb30-408"><a href="#cb30-408" aria-hidden="true" tabindex="-1"></a><span class="co"># 协方差矩阵</span></span>
+<span id="cb30-409"><a href="#cb30-409" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(X)</span>
+<span id="cb30-410"><a href="#cb30-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-411"><a href="#cb30-411" aria-hidden="true" tabindex="-1"></a><span class="co"># 相关系数矩阵</span></span>
+<span id="cb30-412"><a href="#cb30-412" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(X)</span>
+<span id="cb30-413"><a href="#cb30-413" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-414"><a href="#cb30-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-415"><a href="#cb30-415" aria-hidden="true" tabindex="-1"></a><span class="fu">## 统计分布函数</span></span>
+<span id="cb30-416"><a href="#cb30-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-417"><a href="#cb30-417" aria-hidden="true" tabindex="-1"></a>形如<span class="in">`[dpqr]distribution_abbreviation`</span>，其中密度函数<span class="in">`d`</span>，分布函数<span class="in">`p`</span>，分位数函数<span class="in">`q`</span>，随机数生成函数<span class="in">`r`</span></span>
 <span id="cb30-418"><a href="#cb30-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-419"><a href="#cb30-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-420"><a href="#cb30-420" aria-hidden="true" tabindex="-1"></a><span class="do">### 二项分布</span></span>
-<span id="cb30-421"><a href="#cb30-421" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,<span class="dv">400</span>,<span class="fl">0.02</span>))<span class="co"># 命中率为0.02，独立射击400次，至少击中2次的概率</span></span>
-<span id="cb30-422"><a href="#cb30-422" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()</span>
-<span id="cb30-423"><a href="#cb30-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-424"><a href="#cb30-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-425"><a href="#cb30-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-426"><a href="#cb30-426" aria-hidden="true" tabindex="-1"></a><span class="do">### 多元正态分布</span></span>
-<span id="cb30-427"><a href="#cb30-427" aria-hidden="true" tabindex="-1"></a>mean<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">230.7</span>,<span class="fl">146.7</span>,<span class="fl">3.6</span>)</span>
-<span id="cb30-428"><a href="#cb30-428" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">15360.8</span>,<span class="fl">6721.2</span>,<span class="sc">-</span><span class="fl">47.1</span>,</span>
-<span id="cb30-429"><a href="#cb30-429" aria-hidden="true" tabindex="-1"></a>                <span class="fl">6721.2</span>,<span class="fl">4700.9</span>,<span class="sc">-</span><span class="fl">16.5</span>,</span>
-<span id="cb30-430"><a href="#cb30-430" aria-hidden="true" tabindex="-1"></a>                <span class="sc">-</span><span class="fl">47.1</span>,<span class="fl">16.5</span>,<span class="fl">0.3</span>),<span class="at">nrow =</span> <span class="dv">3</span>,<span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb30-431"><a href="#cb30-431" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb30-432"><a href="#cb30-432" aria-hidden="true" tabindex="-1"></a>multi <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(<span class="dv">500</span>,mean,sigma)</span>
-<span id="cb30-433"><a href="#cb30-433" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(multi)</span>
-<span id="cb30-434"><a href="#cb30-434" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-421"><a href="#cb30-421" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-422"><a href="#cb30-422" aria-hidden="true" tabindex="-1"></a><span class="do">### 正态分布</span></span>
+<span id="cb30-423"><a href="#cb30-423" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">2</span>)  <span class="co">#N(0,4)在 3 处的密度值</span></span>
+<span id="cb30-424"><a href="#cb30-424" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">2</span>)<span class="co">#N(0,4)在1，2，3处的分布概率值</span></span>
+<span id="cb30-425"><a href="#cb30-425" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="dv">1</span><span class="fl">-0.025</span>,<span class="dv">0</span>,<span class="dv">1</span>)<span class="co"># N(0,1)的上0.025分位数</span></span>
+<span id="cb30-426"><a href="#cb30-426" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">3</span>)  <span class="co"># 生成5个服从N(3,9)的随机数</span></span>
+<span id="cb30-427"><a href="#cb30-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-428"><a href="#cb30-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-429"><a href="#cb30-429" aria-hidden="true" tabindex="-1"></a><span class="do">### 二项分布</span></span>
+<span id="cb30-430"><a href="#cb30-430" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,<span class="dv">400</span>,<span class="fl">0.02</span>))<span class="co"># 命中率为0.02，独立射击400次，至少击中2次的概率</span></span>
+<span id="cb30-431"><a href="#cb30-431" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()</span>
+<span id="cb30-432"><a href="#cb30-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-433"><a href="#cb30-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-434"><a href="#cb30-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-435"><a href="#cb30-435" aria-hidden="true" tabindex="-1"></a><span class="do">### 多元正态分布</span></span>
+<span id="cb30-436"><a href="#cb30-436" aria-hidden="true" tabindex="-1"></a>mean<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">230.7</span>,<span class="fl">146.7</span>,<span class="fl">3.6</span>)</span>
+<span id="cb30-437"><a href="#cb30-437" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">15360.8</span>,<span class="fl">6721.2</span>,<span class="sc">-</span><span class="fl">47.1</span>,</span>
+<span id="cb30-438"><a href="#cb30-438" aria-hidden="true" tabindex="-1"></a>                <span class="fl">6721.2</span>,<span class="fl">4700.9</span>,<span class="sc">-</span><span class="fl">16.5</span>,</span>
+<span id="cb30-439"><a href="#cb30-439" aria-hidden="true" tabindex="-1"></a>                <span class="sc">-</span><span class="fl">47.1</span>,<span class="fl">16.5</span>,<span class="fl">0.3</span>),<span class="at">nrow =</span> <span class="dv">3</span>,<span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb30-440"><a href="#cb30-440" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb30-441"><a href="#cb30-441" aria-hidden="true" tabindex="-1"></a>multi <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(<span class="dv">500</span>,mean,sigma)</span>
+<span id="cb30-442"><a href="#cb30-442" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(multi)</span>
+<span id="cb30-443"><a href="#cb30-443" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
