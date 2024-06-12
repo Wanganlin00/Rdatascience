@@ -13,6 +13,7 @@ book:
         - type_class.qmd
         - I-O.qmd
         - useful_function.qmd
+        - tidy_transform.qmd
         - base_graphics.qmd
         - custom_functions.qmd
         - Dynamic_report_syntax_format.qmd
