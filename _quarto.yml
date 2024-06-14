@@ -14,10 +14,11 @@ book:
         - read_write.qmd
         - useful_function.qmd
         - logical_vector.qmd
+        - number_vector.qmd
         - tidy_transform.qmd
         - base_graphics.qmd
         - custom_functions.qmd
-        - Dynamic_report_syntax_format.qmd
+        - dynamic_report_syntax_format.qmd
 
     - part: "R → Python"
       chapters: 
