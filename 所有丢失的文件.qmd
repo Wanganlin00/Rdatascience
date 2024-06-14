@@ -1,0 +1,2111 @@
+# tidyr
+
+```{r}
+@ -1,194 +0,0 @@
+#数据重塑
+
+#                             宽表-->长表                            ####
+pivot_longer(data ,cols ,names_to ,names_sep ,values_to ,names_pattern ,...)
+
+#值列中只有一个变量####
+tribble(
+  ~id,  ~bp1, ~bp2,
+  "A",  100,  120,
+  "B",  140,  115,
+  "C",  120,  125
+)|> 
+  pivot_longer(
+    cols = -id,
+    names_to = "measurement",
+    values_to = "value"
+  )
+#值列中有两个变量
+tibble(ID=c("A","B","C"),
+       GDP_2019=c(114,251,152),
+       GDP_2018=c(215,115,141),
+       GDP_2017=c(141,244,243)) %>% 
+  pivot_longer(
+    cols = -ID,
+    names_to =c(".value","year"),
+    names_sep = "_") %>% 
+  .[order(.$year),]
+
+
+billboard
+billboard |> 
+  pivot_longer(
+    cols = starts_with("wk"), #cols指定哪些列不是变量
+    names_to = "week",        #names_to将存储原列名，命名为week
+    values_to = "rank",       #values_to命名存储在单元格值中的值，命名为 rank
+    values_drop_na = TRUE    #删除含有NA的行
+  )|> 
+  mutate(
+    week = parse_number(week)#忽略第一个连续数字前后的字符
+  ) %>% 
+  dplyr::filter(week>20)|>          #很少有歌曲在前 100 名中停留超过 20 周。
+  ggplot(aes(x = week, y = rank, group = track)) + 
+  geom_line(alpha = 0.25) + 
+  scale_y_reverse()
+
+#值列中有多个变量####
+who2
+who2 |> 
+  pivot_longer(
+    cols = !(country:year),
+    names_to = c("diagnosis", "gender", "age"), 
+    names_sep = "_",
+    values_to = "count"
+  )
+
+household
+household |> 
+  pivot_longer(
+    cols = !family, 
+    names_to = c(".value", "child"), #".value"将 以_分隔的第一部分用作列名来存储值，
+                                    #第二部分child1，child2作为新变量child的值
+    names_sep = "_", 
+    values_drop_na = TRUE #删除NA
+  )
+tribble(
+  ~d1_name,~d1_major,~d2_name,~d2_major,~d3_name,~d3_major,
+  '张非',"math",'李斯','English','王武','statistic',
+  '钟爱','English','陈述','math','孙健','medicine'
+) %>% 
+  pivot_longer(
+    col=starts_with("d"),
+    names_to = c("group",".value"),
+    #names_sep = "_",
+    names_pattern = "(.*\\d)(.*)"  #正则表达式
+  )
+
+
+
+#                     长表-->宽表                 ####
+pivot_wider(data ,id_cols ,names_from ,values_from ,valus_fill ,...)
+
+#一个列名列####
+df <- tribble(
+  ~id, ~measurement, ~value,
+  "A",        "bp1",    100,
+  "B",        "bp1",    140,
+  "B",        "bp2",    115, 
+  "A",        "bp2",    120,
+  "A",        "bp3",    105
+)
+df |> 
+  distinct(measurement) |> #新列名是唯一值
+  pull()
+df |> 
+  select(-measurement, -value) |> 
+  distinct()              #输出中的行，id_cols
+df |> 
+  select(-measurement, -value) |> 
+  distinct() |> 
+  mutate(x = NA, y = NA, z = NA) #组成空数据框
+
+df |> 
+  pivot_wider(
+    names_from = measurement,
+    values_from = value
+  )
+
+#多个列名列或多个值列####
+
+cms_patient_experience
+cms_patient_experience |> 
+  distinct(measure_cd, measure_title)  #唯一值 列名列
+cms_patient_experience |> 
+  pivot_wider(
+    id_cols = starts_with("org"),#唯一标识列，默认是除了name_from,value_from指定列之外的列，measure列只有6种，不具有标识作用
+    names_from = measure_cd,#列名来自某一列的单元格值
+    values_from = prf_rate  #值来自原数值变量列的单元格值
+  )
+
+us_rent_income
+us_rent_income %>% 
+  pivot_wider(
+    names_from = variable,
+    values_from = c(estimate,moe)
+  )
+
+#常见错误####
+tibble(
+  x=1:6,
+  y=c("A","A",'B','B','C','C'),
+  z=c(3,5,7,9,11,13)
+) %>% 
+  pivot_wider(
+    names_from = y,
+    values_from = z
+  )            #无法压缩行数
+
+tibble(
+  x=1:6,
+  y=c("A","A",'B','B','C','C'),
+  z=c(3,5,7,9,11,13)
+) %>% 
+  .[-1] %>% #删除标识列——x列，值不能被唯一识别
+  pivot_wider(
+    names_from = y,
+    values_from = z
+  )  
+
+tibble(
+  x=1:6,
+  y=c("A","A",'B','B','C','C'),
+  z=c(3,5,7,9,11,13)
+) %>% 
+  group_by(y) %>% #增加各组的唯一识别列
+  mutate(group_n=row_number()) %>% 
+  .[-1] %>% #删除唯一标识列
+  pivot_wider(
+    names_from = y,
+    values_from = z
+  ) %>% 
+  .[-1]
+  
+#                                 拆分列        ####
+#separate(data,col,into,sep,...)
+
+table3
+table3 %>% 
+  separate(rate,into = c('cases','population'),
+           sep='/',convert=TRUE)
+tibble(
+  Class=c("Class 1",'Class 2'),
+  name=c('Amy,Aly,Cron,Tex','Bob,Jhon,Mike')
+) %>% 
+  separate_rows(name,sep = ',') %>%    #还原
+  group_by(Class) %>% 
+  summarise(name=str_c(name,collapse = ','))
+
+
+#extract() #正则表达式
+
+tibble(
+  obs.=c('Rich(Sam)','Wind(Ash)','Bil(Hela)'),
+  A_count=c(7,10,5)
+) %>% 
+  extract(obs.,into = c("site","surveyor"),
+          regex = "(.*)\\((.*)\\)")
+#                                 合并列        ####
+#unite(data,col,sep,...)
+table5
+table5 %>% 
+  unite(year_Y,century,year,sep='')
+                 
+
+
+```
+
+# string
+
+```{r}
+@ -1,166 +0,0 @@
+library(tidyverse)
+library(babynames)
+
+
+                        #创建字符串####
+
+string1 <- "This is a string"
+string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
+
+#转义字符   \
+single_quote <- '\'' # or "'"
+double_quote <-  "\""# or '"'
+backslash <- "\\"
+x <- c(single_quote, double_quote, backslash)
+x
+str_view(x)  
+
+#Raw strings
+
+tricky1 <- "double_quote <- \"\\\"\" # or '\"'\nsingle_quote <- '\\'' # or \"'\""
+str_view(tricky1)
+
+tricky2 <- r"(double_quote <- "\"" # or '"'
+single_quote <- '\'' # or "'")"
+str_view(tricky2)
+#r"()"       r"[]"          r"{}"         r"--()--"      r"---()---"
+
+
+?Quotes  #\n\t\b
+x <- c("one\ntwo", "one\ttwo", "\u00b5", "\U0001f604")
+x
+str_view(x)
+x <- "This\u00a0is\u00a0tricky"
+x
+str_view(x)
+
+                               #从数据创建字符串####
+#str_c（）将任意数量的向量作为参数，并返回长度与其中最长向量相同的字符向量
+str_c("x", "y", "z")
+str_c("Hello ", c("John", "Susan"))
+str_c(c("x","y"),NA)  #NA NA
+
+df <- tibble(name = c("Flora", "David", "Terra", NA))
+df |>
+  mutate(greeting = str_c("Hello ", name, "!"))
+
+c(c('x','y',NA),'z')  #合并
+coalesce(c('x','y',NA),'z') #删除NA合并
+df |> 
+  mutate(
+    greeting1 = str_c("Hi ", coalesce(name, "you"), "!"), #注意顺序
+    greeting2 = coalesce(str_c("Hi ", name, "!"), "Hi!")  #
+  )
+
+#str_glue()   a character vector's each element  into a single string
+df |> mutate(greeting = str_glue("Hi {name}!"))
+df |> mutate(greeting = str_glue("{{Hi {name}!}}")) #double up 转义
+
+#str_flatten()  a character vector combines each element ，return a single string
+str_flatten(c("x", "y", "z"))#默认""
+str_flatten(c("x", "y", "z"),collapse = "+")
+str_flatten(c("x", "y", "z"), "+", last = "-")
+?str_flatten
+
+df <- tribble(
+  ~ name, ~ fruit,
+  "Carmen", "banana",
+  "Carmen", "apple",
+  "Marvin", "nectarine",
+  "Terence", "cantaloupe",
+  "Terence", "papaya",
+  "Terence", "mandarin"
+)
+df |>
+  group_by(name) |> 
+  summarize(fruits = str_flatten(fruit, ",",last=" and "))
+
+
+           #tidyr包        #提取 Extracting data from strings  ####
+df |> separate_longer_delim(col, delim)
+df |> separate_longer_position(col, width)
+df |> separate_wider_delim(col, delim, names)
+df |> separate_wider_position(col, widths)
+
+#分隔成行
+df1 <- tibble(x = c("a,b,c", "d,e", "f"))
+df1 |> 
+  separate_longer_delim(x, delim = ",")
+
+df2 <- tibble(x = c("1211", "131", "21"))
+df2 |> 
+  separate_longer_position(x, width = 2)
+
+#分成列
+df3 <- tibble(x = c("a10.1.2022", "b10.2.2011", "e15.1.2015"))
+df3 |> 
+  separate_wider_delim(
+    x,
+    delim = ".",
+    names = c("code", "edition", "year")
+  )
+df3 |> 
+  separate_wider_delim(
+    x,
+    delim = ".",
+    names = c("code", NA, "year") #用NA省略
+  )
+df4 <- tibble(x = c("202215TX", "202122LA", "202325CA")) 
+df4 |> 
+  separate_wider_position(
+    x,
+    widths = c(year = 4, age = 2, state = 2)
+  )
+tibble(x = c("1-1-1", "1-1-2", "1-3", "1-3-2", "1"))|> 
+  separate_wider_delim(
+    x,
+    delim = "-",
+    names = c("x", "y", "z"),
+    too_few = "align_start" #"debug"，"align_end"
+  )
+
+tibble(x = c("1-1-1", "1-1-2", "1-3-5-6", "1-3-2", "1-3-5-7-9"))|> 
+  separate_wider_delim(
+    x,
+    delim = "-",
+    names = c("x", "y", "z"),
+    too_many = "merge"    #"debug"，"drop"     #     debug |> filter(!x_ok)
+  )
+
+
+                          #字母####
+
+str_length(c("a", "R for data science", NA))   #长度
+babynames
+babynames |>
+  count(length = str_length(name), wt = n)
+babynames |>
+  group_by(length=str_length(name)) %>% 
+  summarise(sum=sum(n),n=n())
+
+#子集 str_sub(string, start, end)
+x <- c("Apple", "Banana", "Pear")
+str_sub(x, 1, 3)
+str_sub(x, -3, -1)
+
+                    #非英文文本####
+
+#编码    从十六进制数字到字符的映射称为编码  UTF-8
+charToRaw("Hadley")
+
+x1 <- "text\nEl Ni\xf1o was particularly bad this year"
+x2 <- "text\n\x82\xb1\x82\xf1\x82\xc9\x82\xbf\x82\xcd"
+read_csv(x1, locale = locale(encoding = "Latin1"))
+read_csv(x2, locale = locale(encoding = "Shift-JIS"))
+#字母变体
+u <- c("\u00fc", "u\u0308")
+str_view(u)
+str_length(u)
+str_sub(u, 1, 1)
+u[[1]] == u[[2]]
+str_equal(u[[1]], u[[2]])
+
+#与语言环境相关的函数
+stringi::stri_locale_list()
+str_to_upper(c("i", "ı"), locale = "tr")#土耳其语
+str_sort(c("a", "c", "ch", "h", "z"), locale = "cs") #捷克语
+```
+
+# 正则表达式
+
+```{r}
+@ -1,266 +0,0 @@
+library(tidyverse)
+library(babynames)
+fruit#包含 80 种水果的名称。
+words#包含 980 个常用英语单词。
+sentences#包含 720 个短句。
+
+                           # 直接匹配####
+str_view(fruit, "berry")  
+str_view(fruit, "a...e")
+
+                        #字符组 Character classes ####
+
+#   [...]    匹配方括号内任意一个字符
+#   [^...]   匹配除方括号内的任意字符
+str_view(words, "[aeiou]x[aeiou]")  #匹配元音之间的x
+
+str_view(words, "[^aeiou]y[^aeiou]") #匹配辅音之间的y
+
+
+
+                                          # 量词  Quantifier ####
+# 贪婪量词 尽可能匹配
+# 懒惰量词 原有量词后加一个 ? ，仅保持最小匹配
+
+s<-c("a", "ab", "abb","aab","aa","aabb",'abbbbb')
+  str_view(s, "ab?")  #    ?  匹配 0 或 1 次   {0,1}
+  str_view(s, "ab??") 
+  
+  str_view(s, "ab+")  #    +  至少匹配一次    {1,}
+  str_view(s, "ab+?")
+  str_view(s, "ab*?")  #    *  匹配任意次数    {0,}
+
+  #{n}正好匹配 n 次。
+  #{n,}至少匹配 n 次。
+  #{n,m}N 次和 M 次之间的匹配。
+  x<-c("1234abcd  123 a33a bbbc  2223")
+  str_view(x,"\\d{2}")
+  
+  str_view(x,"\\d{2,}")
+  str_view(x,"\\d{2,3}")
+  str_view(x,"\\d{2,3}?")
+  
+  # . 匹配除 \n 以外的任意字符
+  
+  
+                                  # Key functions ####
+# Detect matches
+  str_detect(c("a", "b", "c"), "[aeiou]")
+  babynames |> 
+    dplyr::filter(str_detect(name, "x")) |> #筛选包含x的名字
+    count(name, wt = n, sort = TRUE)  
+  babynames |> 
+    group_by(year) |> 
+    summarize(prop_x = mean(str_detect(name, "x"))) |> 
+    ggplot(aes(x = year, y = prop_x)) + 
+    geom_line()
+  
+  #Count matches
+  x <- c("apple", "banana", "pear")
+  str_count(x, "p")  
+
+  str_count("abababa", "aba")
+  str_view("abababa", "aba")
+  
+  babynames |> 
+    count(name) |> 
+    mutate(
+      vowels = str_count(name,
+                         regex( "[aeiou]",ignore_case = TRUE)),#忽略大小写
+      v1=str_count(name, "[aeiouAEIOU]"),
+      v2=str_count(str_to_lower(name), "[aeiou]"),
+      consonants = str_count(name,
+                             regex( "[^aeiou]", ignore_case = TRUE))
+    )
+# Replace values
+  x <- c("apple", "pear", "banana")
+  str_replace(x, "[aeiou]", "-")  #替换第一个匹配
+  str_replace_all(x, "[aeiou]", "")#替换所有匹配
+  
+  str_remove(x, "[aeiou]")      #删除        相当于替换符为""
+  str_remove_all(x, "[aeiou]")   #str_replace(x, pattern, "")
+  
+#Extract variables
+  df <- tribble(
+    ~str,
+    "<Sheryl>-F_34",
+    "<Kisha>-F_45", 
+    "<Brandon>-N_33",
+    "<Sharon>-F_38", 
+    "<Penny>-F_58",
+    "<Justin>-M_41", 
+    "<Patricia>-F_84", 
+  )
+  df |> 
+    separate_wider_regex(
+      str,
+      patterns = c(
+        "<", 
+        name = "[A-Za-z]+", #匹配 ≥1 个字母
+        ">-", 
+        gender = ".",        #匹配任意字符
+        "_",
+        age = "[0-9]+"      #匹配 ≥1 个数字
+      )
+    )
+#Escaping  转义   ####
+  
+  # To create the regular expression \., we need to use \\.
+  dot <- "\\."
+  str_view(dot)
+  str_view(c("abc", "a.c", "bef"), "a\\.c")  
+
+  x <- "a\\b"         
+  str_view(x)        #a\b
+  str_view("\\\\")  #\\
+  str_view(x, "\\\\") #一个特殊字符需要\\转义
+  str_view(x, r"{\\}")
+x<-c("abc", "a.c", "a*c", "a c")
+str_view(x, "a[.]c")
+str_view(x, ".[*]c")
+
+                        #  Anchors  锚点#### 
+# 匹配开头或结尾：^$  s
+str_view(fruit, "^a")
+str_view(fruit, "a$")
+
+str_view(fruit, "apple")
+str_view(fruit, "^apple$") #仅匹配完整字符串
+
+#  \b  单词的开头或结尾
+x <- c("summary(x)", "summarize(df)", "rowsum(x)", "sum(x)")
+str_view(x, "sum")
+str_view(x, "^sum$")
+str_view(x, "\\bsum\\b") 
+# zero-width match
+str_view("abc", c("$", "^", "\\b"))
+str_replace_all("abc", c("$", "^", "\\b"), "++")
+
+
+                            #Character classes####
+#  -   定义一个范围，匹配任何小写字母并匹配任何数字。[a-z][0-9]
+#  \   对特殊字符进行转义，[\^\-\]]  匹配 ^、-和 ]
+x <- "abcd ABCD 12345 -!@#%."
+str_view(x, "[abc]+")
+str_view(x, "[a-z]+")
+str_view(x, "[^a-z0-9]+")
+
+#\d匹配任何数字;匹配任何非数字的内容\D
+str_view(x, "\\d+")
+str_view(x, "\\D+")
+#\s匹配任何空格（例如，空格、制表符、换行符）;匹配任何非空格的内容。\S
+str_view(x, "\\s+")
+str_view(x, "\\S+")
+#\w匹配任何“单词”字符，即字母和数字;匹配任何“非单词”字符。\W
+str_view(x, "\\w+")
+str_view(x, "\\W+")
+
+
+#alternation
+str_view(fruit, "apple|melon|nut")
+str_view(fruit, "aa|ee|ii|oo|uu")
+
+files <- list.files()
+
+str_view(files,"包\\.(R|Rdata|txt)")
+
+         # 分组和引用 ####
+# 捕获分组 ()   非捕获分组 (?: )
+# 引用
+str_view(fruit, "(..)\\1")  #引用第一个
+str_view(words, "^(..).*\\1$")
+sentences |>                  #交换第二个单词和第3个单词的顺序
+  str_replace("(\\w+) (\\w+) (\\w+)", "\\1 \\3 \\2") |> 
+  str_view()
+
+sentences |> 
+  str_match("The (\\w+) (\\w+)") |> 
+  head(20)
+x <- c("a gray cat", "a grey dog")
+str_match(x, "gr(e|a)y")
+str_match(x, "gr(?:e|a)y")   #(?: )创建非捕获组
+
+                 #  模式控制  ####
+#Regex flags
+bananas <- c("banana", "Banana", "BANANA")
+str_view(bananas, regex("banana", ignore_case = TRUE))
+
+
+x <- "Line 1\nLine 2\nLine 3"
+str_view(x, ".Line")
+str_view(x, regex(".Line", dotall = TRUE))#匹配所有内容,包括 \n
+
+str_view(x, "^Line")
+str_view(x, regex("^Line", multiline = TRUE))#多行匹配
+
+phone <- regex(                           #注释
+  r"(
+    \(?     # optional opening parens  
+    (\d{3}) # area code
+    [)\-]?  # optional closing parens or dash
+    \ ?     # optional space
+    (\d{3}) # another three numbers
+    [\ -]?  # optional space or dash
+    (\d{4}) # four more numbers
+  )", 
+  comments = TRUE
+)
+str_extract(c("514-791-8141", "(123) 456 7890", "123456"), phone)
+
+
+#固定匹配
+str_view(c("", "a", "."), stringr::fixed("a"))
+str_view("x X", stringr::fixed("X", ignore_case = TRUE))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                     #练习####
+#检查
+str_view(sentences, "^The\\b")  #找到以The开头的句子
+
+str_view(sentences, "^(She|He|It|They)\\b")#找到以代词开头的句子
+
+pn <- c("He is a boy", "She had a good time",
+         "Shells come from the sea", "Hadley said 'It's a great day'")
+pattern <- "^(She|He|It|They)\\b"
+str_detect(pn, pattern)
+
+# 布尔运算
+str_view(words, "^[^aeiou]+$")
+words[!str_detect(words, "[aeiou]")]
+
+str_view(words, "a.*b|b.*a")
+words[str_detect(words, "a") & str_detect(words, "b")]
+
+words[
+  str_detect(words, "w") &
+    str_detect(words, "a") &
+    str_detect(words, "l") 
+]
+
+#创建模式
+str_view(sentences, "\\b(red|green|blue)\\b")
+
+cols <- colors()
+cols <- cols[!str_detect(cols, "\\d")]
+str_view(cols)
+pattern <- str_c("\\b(", str_flatten(cols, "|"), ")\\b")
+str_view(sentences, pattern)
+
+str_escape()
+
+setwd("F:/R语言/tidyverse")
+head(list.files(pattern = ".*(\\.R)$"))
+```
+
+# parquet——arrow包
+
+```{r}
+@ -1,75 +0,0 @@
+library(tidyverse)
+library(arrow)
+
+                                    #获取数据####
+dir.create("data", showWarnings = FALSE)
+curl::multi_download(      # 9GB       #西雅图公共图书馆借书人次/书/月
+  "https://r4ds.s3.us-west-2.amazonaws.com/seattle-library-checkouts.csv",
+  "data/seattle-library-checkouts.csv",   #路径
+  resume = TRUE
+)
+                                # 打开数据集####
+seattle_csv <- arrow::open_dataset(
+  sources = "data/seattle-library-checkouts.csv", 
+  col_types = arrow::schema(ISBN = string()),
+  format = "csv"
+)
+"seattle_csv
+glimpse(seattle_csv)                                    #慢
+seattle_csv |> 
+  group_by(CheckoutYear) |> 
+  summarise(Checkouts = sum(Checkouts)) |>              #慢
+  arrange(CheckoutYear) |> 
+  dplyr::collect()"
+                         
+
+
+                            #The parquet format ####
+#readr::read_file()
+path_pq<-"data/seattle-library-checkouts"
+
+                            #重写为parquet格式文件
+seattle_csv |>
+group_by(CheckoutYear) |>
+  write_dataset(path_pq, format = "parquet")
+
+tibble(
+  files = list.files(path_pq, recursive = TRUE),        #列出路径中的文件，递归
+  size_MB = file.size(file.path(path_pq, files)) / 1024^2
+) |> 
+  summarise(
+    size_GB=sum(size_MB/1024)
+  )
+  
+
+                       #    Using dplyr with arrow  ####
+
+seattle_pq <- open_dataset(path_pq)
+
+query <- seattle_pq |> 
+  dplyr::filter(CheckoutYear >= 2018, MaterialType == "BOOK") |>
+  group_by(CheckoutYear) |>
+  summarize(TotalCheckouts = sum(Checkouts)) |>
+  arrange(CheckoutYear)
+query
+collect(query)       #返回结果
+
+#性能
+seattle_pq |> 
+dplyr::filter(CheckoutYear == 2021, MaterialType == "BOOK") |>
+  group_by(CheckoutMonth) |>
+  summarize(TotalCheckouts = sum(Checkouts)) |>
+  arrange(desc(CheckoutMonth)) |>
+  collect() |> 
+  system.time()
+
+#duckdb
+seattle_pq |> 
+  to_duckdb() |>  #arrow::to_duckdb()
+  dplyr::filter(CheckoutYear >= 2018, MaterialType == "BOOK") |>
+  group_by(CheckoutYear) |>
+  summarize(TotalCheckouts = sum(Checkouts,na.rm = TRUE)) |>
+  arrange(desc(CheckoutYear)) |>
+  collect()
+
+
+
+```
+
+# data.table包
+
+```{r}
+library(data.table)
+
+setkey(dt,v1,v3)  #设置键
+setindex(dt,v1,v3)  #设置索引
+DT[
+  ...
+  ][
+    ...
+    ][
+      ...
+      ]         #链式操作 ， |> 
+
+#数据读写
+DT<-fread("data/students.csv")
+DT
+
+fwrite(DT,"data/DT.csv",append = T,sep = "\t")
+fwrite(setDT(list(c(0),list(1:5))),"data/DT_list_col.csv") #写出列表列
+fwrite(DT,"data/DT.csv.gz",compress = "gzip")     #写出到压缩文件
+
+
+#数据连接
+rbind(DT1,DT2,...)
+cbind()
+
+merge(x,y,all.x=T,by="v1") #左连接
+merge(x,y,all.y=T,by="v1") #右连接
+merge(x,y,by="v1")       #内连接
+merge(x,y,all=T,by="v1") #全连接
+```
+
+# database-SQL
+
+```{r}
+library(DBI)
+library(dbplyr)
+library(tidyverse)
+
+
+                                           #连接数据库####
+con <- DBI::dbConnect(
+ # RMariaDB::MariaDB(), 
+  username = "foo"
+)
+con <- DBI::dbConnect(
+ # RPostgres::Postgres(), 
+  hostname = "databases.mycompany.com", 
+  port = 1234
+)
+
+library(duckdb)
+con <- DBI::dbConnect(duckdb::duckdb(), dbdir = "duckdb")#持久数据库
+con <- DBI::dbConnect(duckdb::duckdb())  #临时数据库
+
+dbWriteTable(con, "mpg", ggplot2::mpg)  #添加数据
+dbWriteTable(con, "diamonds", ggplot2::diamonds)
+
+#DBI
+dbListTables(con)  #列出table
+
+
+con |> 
+  dbReadTable("mpg") |> 
+  as_tibble()
+
+sql <- "
+  SELECT carat, cut, clarity, color, price 
+  FROM diamonds 
+  WHERE price > 15000" 
+as_tibble(dbGetQuery(con, sql))     #SQL直接从数据库查询
+
+#dbplyr
+diamonds_db <- tbl(con, "diamonds")  #创建数据库表（table）
+diamonds_db                     
+
+big_diamonds_db <- diamonds_db |> 
+  dplyr::filter(price > 15000) |> 
+  select(carat:clarity, price)      #dbplyr代码转化为SQL再查询
+
+big_diamonds_db |>
+  show_query()
+
+big_diamonds <- collect( big_diamonds_db)            #返回数据到R中
+big_diamonds
+
+
+                                        #SQL####
+
+
+diamonds_db <- tbl(con, "diamonds")  #创建数据库表（table）
+diamonds_db                     
+
+diamonds_db |> 
+  select(carat,cut,price) |> 
+  dplyr::filter(carat<=3) |> 
+  group_by(cut) |> 
+  summarize(
+    n = n(),
+    mean_price = mean(price, na.rm = TRUE)
+  ) |> 
+  arrange(mean_price) |> 
+  show_query()
+
+SQL
+"SELECT cut, COUNT(*) AS n, AVG(price) AS mean_price
+  FROM (
+  SELECT carat, cut, price
+  FROM diamonds
+  WHERE (carat <= 3.0)
+) q01
+GROUP BY cut
+ORDER BY mean_price
+LEFT JOIN y ON (key = key)
+INNER JOIN y ON (key = key)"#right_join()full_join()
+```
+
+# datatime_lubridata包
+
+```{r}
+@ -1,198 +0,0 @@
+library(nycflights13)
+
+
+                               #创建日期/时间####
+ #<date>
+# <time>
+ # <dttm>
+
+#文件导入
+csv <- "
+date,datetime
+2022-01-02,2022-01-02 05:12
+"
+read_csv(csv)
+
+csv <- "
+  date
+  01/02/15
+"
+read_csv(csv, col_types = cols(date = col_date("%m/%d/%y")))
+read_csv(csv, col_types = cols(date = col_date("%y/%m/%d")))
+
+#字符串捕获
+ymd("2017-01-31")
+mdy("January 31st, 2017")
+dmy("31-Jan-2017")
+ymd_hms("2017-01-31 20:11:59")
+mdy_hm("01/31/2017 08:01")
+
+#跨越多个列的日期时间的各个组件
+flights |> 
+  select(year, month, day, hour, minute) |> 
+  mutate(
+    departure = make_datetime(year, month, day, hour, minute),
+    dep_data=make_date(year,month,day)
+    ) |> 
+  head(20)
+
+make_datetime_100 <- function(year, month, day, time) {
+  make_datetime(year, month, day, time %/% 100, time %% 100)
+}
+flights_dt <- flights |> 
+  dplyr::filter(!is.na(dep_time), !is.na(arr_time)) |> 
+  mutate(
+    dep_time = make_datetime_100(year, month, day, dep_time),
+    arr_time = make_datetime_100(year, month, day, arr_time),
+    sched_dep_time = make_datetime_100(year, month, day, sched_dep_time),
+    sched_arr_time = make_datetime_100(year, month, day, sched_arr_time)
+  ) |> 
+  select(origin, dest, ends_with("delay"), ends_with("time"))
+
+#使用日期时间时，1 表示 1 秒，因此 binwidth 为 86400 表示一天
+#对于日期，1 表示 1 天
+# 2013年
+flights_dt
+flights_dt |> 
+  ggplot(aes(x = dep_time)) + 
+  geom_freqpoly(binwidth = 86400) # 86400 seconds = 1 day 
+# 2013-01-01
+flights_dt |> 
+  dplyr::filter(dep_time < ymd(20130102)) |> 
+  ggplot(aes(x = dep_time)) + 
+  geom_freqpoly(binwidth = 600) # 600 s = 10 minutes
+
+
+#类型转换
+as_datetime(60 * 60 * 10)
+as_date(365 * 10 + 2)
+
+today()
+as_datetime(today())
+
+now()
+as_date(now())
+                            
+                        
+
+                        #获取日期时间组件####
+datetime <- ymd_hms("2026-07-08 12:34:56")
+year(datetime)
+month(datetime,label = TRUE)
+mday(datetime)
+yday(datetime)  #一年中的第几天
+wday(datetime, label = TRUE, abbr = FALSE)  #星期几
+hour(datetime)
+minute(datetime)
+second(datetime)
+flights_dt |> 
+  mutate(wday = wday(dep_time, label = TRUE)) |> 
+  ggplot(aes(x = wday)) +
+  geom_bar()#工作日出发的航班比周末起飞的航班多
+
+flights_dt |> 
+  mutate(minute_dep= minute(dep_time)) |> 
+  group_by(minute_dep) |> #一小时内按实际出发分钟划分的平均起飞延误
+  summarize(
+    avg_delay = mean(dep_delay, na.rm = TRUE),
+    n = n()
+  ) |> 
+  ggplot(aes(x = minute_dep, y = avg_delay)) +
+  geom_line()+#在 20-30分钟和 50-60 分钟内起飞的航班的延误率比其余时间低得多
+  geom_point(color="red")
+flights_dt |> 
+  mutate(minute_dep= minute(dep_time)) |> 
+  group_by(minute_dep) |> 
+  summarize(
+    avg_delay = mean(dep_delay, na.rm = TRUE),
+    n = n()
+  ) |> 
+ggplot(aes(x=minute_dep,y=n))+#对 30 和 60 等整数的强烈偏好
+  geom_line()
+
+sched_dep <- flights_dt |> 
+  mutate(minute_sched = minute(sched_dep_time)) |> #计划
+  group_by(minute_sched) |> 
+  summarize(
+    avg_delay = mean(arr_delay, na.rm = TRUE),
+    n = n()
+  )
+ggplot(sched_dep, aes(x = minute_sched, y = avg_delay)) +
+  geom_line()
+ggplot(sched_dep,aes(x=minute_sched,y=n))+
+  geom_line()#对 0 和 30 等整数的强烈偏好
+                       
+
+
+              #Roundong####
+#floor_date()round_date()ceiling_date()
+
+flights_dt |> 
+  count(week = floor_date(dep_time, "week")) |> 
+  ggplot(aes(x = week, y = n)) +      
+  geom_line() +       #每周的航班数量
+  geom_point()
+flights_dt |>                   #as_hms()
+  mutate(dep_hour = hms::as_hms(dep_time - floor_date(dep_time, "day")))  |> 
+  ggplot(aes(x = dep_hour)) +
+  geom_freqpoly(binwidth = 60 * 30)
+
+                #修改组件####
+datetime <- ymd_hms("2026-07-08 12:34:56")
+year(datetime) <- 2030
+month(datetime) <- 01
+hour(datetime) <- hour(datetime) + 1
+datetime
+update(datetime, year = 2030, month = 2, mday = 2, hour = 2)
+update(ymd("2023-02-01"), mday = 30)
+update(ymd("2023-02-01"), hour = 400)
+
+
+
+                          #时间跨度Time spans ####
+#持续时间 duration  始终以秒为单位记录时间跨度
+h_age <- today() - ymd("2000-10-18")
+as.duration(h_age)
+dseconds(15)
+dminutes(10)
+dhours(c(12, 24))
+ddays(0:5)
+dweeks(3)
+dyears(1)/ddays(1)       #365.25 天
+
+
+#Periods  “人类”时间（如天和月）
+years(1)      #365.25 天
+years(1) / days(1)
+hours(c(12, 24))
+days(7)
+months(1:6)
+ymd("2024-01-01") + dyears(1)  #闰年
+ymd("2024-01-01") + years(1) 
+                                       
+ymd_hms("2026-03-08 01:00:00", tz = "America/New_York")+ddays(1)
+ymd_hms("2026-03-08 01:00:00", tz = "America/New_York")+days(1)
+
+flights_dt |> 
+  dplyr::filter(arr_time < dep_time) 
+flights_dt <- flights_dt |> 
+  mutate(
+    overnight = arr_time < dep_time,
+    arr_time = arr_time + days(overnight),  # days(T)=1d
+    sched_arr_time = sched_arr_time + days(overnight)
+  )
+flights_dt
+
+
+#Intervals
+#  start %--% end
+
+y2023 <- ymd("2023-01-01") %--% ymd("2024-01-01")
+y2024 <- ymd("2024-01-01") %--% ymd("2025-01-01")
+y2023 / days(1)
+y2024 / days(1)
+
+
+                           #     时区            ####
+Sys.timezone()
+OlsonNames()
+```
+
+# factor-forcats包
+
+```{r}
+@ -1,139 +0,0 @@
+                                        #basic####
+
+x1 <- c("Dec", "Apr", "Jan", "Mar")
+x2 <- c("Dec", "Apr", "Jam", "Mar")
+
+month_levels <- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+)
+factor(x1, levels = month_levels,labels = c(1:12)) #默认按字母顺序排序
+fct(x1)         #按第一次出现排序
+fct(x1, levels = month_levels)
+
+levels(x1) #因子水平
+
+csv <- "
+month,value
+Jan,12
+Feb,56
+Mar,12"
+df<-read_csv(csv, col_types = cols(month =readr::col_factor(month_levels)))
+df$month
+
+
+
+                                     # 修改因子顺序 ####
+forcats::gss_cat  #因子数据集
+
+relig_summary <- gss_cat |>
+  group_by(relig) |>
+  summarize(
+    tvhours = mean(tvhours, na.rm = TRUE),
+    n = n()
+  )
+ggplot(relig_summary, aes(x = tvhours, y = relig,size=n)) + geom_point()
+ggplot(relig_summary,aes(x = tvhours,     #按tvhours升序 重排无序因子水平 
+                         y = fct_reorder(relig,tvhours),size=n)) +
+  geom_point()
+
+
+rincome_summary <- gss_cat |>
+  group_by(rincome) |>
+  summarize(
+    age = mean(age, na.rm = TRUE),
+    n = n()
+  )
+rincome_summary
+ggplot(rincome_summary,aes(x=age,y=rincome))+
+  geom_point()
+ggplot(rincome_summary, aes(x = age,     #将任意数量的水平前移至第一
+                            y = fct_relevel(rincome, c("Not applicable")))) +
+  geom_point()
+
+by_age <- gss_cat |>
+  dplyr::filter(!is.na(age)) |> 
+  count(age, marital) |>
+  group_by(age) |>
+  mutate(
+    prop = n / sum(n)
+  )
+by_age
+ggplot(by_age, aes(x = age, y = prop, color = marital)) +
+  geom_line(linewidth = 1) + 
+  scale_color_brewer(palette = "Set1")
+                                          
+ggplot(by_age, aes(x = age, y = prop,  #按与最大值关联的值对因子重新排序
+                   color = fct_reorder2(marital, age, prop))) +
+  geom_line(linewidth = 1) +
+  scale_color_brewer(palette = "Set1") + 
+  labs(color = "marital") 
+
+
+gss_cat |>                    #单独fct_infreq()降序，合用升序
+  mutate(marital = marital |> fct_infreq() |> fct_rev()) |>
+  ggplot(aes(x = marital)) +
+  geom_bar()
+
+
+
+
+
+
+                            #修改因子名####
+gss_cat |> count(partyid)
+
+gss_cat |>
+  mutate(
+    partyid = fct_recode(partyid,  #重编因子名
+                         "Republican, strong"    = "Strong republican",
+                         "Republican, weak"      = "Not str republican",
+                         "Independent, near rep" = "Ind,near rep",
+                         "Independent, near dem" = "Ind,near dem",
+                         "Democrat, weak"        = "Not str democrat",
+                         "Democrat, strong"      = "Strong democrat"
+                        # "Other"                 = "No answer",
+                        # "Other"                 = "Don't know",
+                        # "Other"                 = "Other party"
+    )
+  ) |>
+  count(partyid)
+
+gss_cat |>
+  mutate(
+    partyid = fct_collapse(partyid,  #合并水平
+                           "other" = c("No answer", "Don't know", "Other party"),
+                           "rep" = c("Strong republican", "Not str republican"),
+                           "ind" = c("Ind,near rep", "Independent", "Ind,near dem"),
+                           "dem" = c("Not str democrat", "Strong democrat")
+    )
+  ) |>
+  count(partyid)
+
+
+relig_summary 
+gss_cat |>
+  mutate(relig = fct_lump_lowfreq(relig)) |> #合并除最大组以外的水平为Other
+  count(relig)
+
+gss_cat |>
+  mutate(relig = fct_lump_n(relig, n = 3)) |> #合并较小组水平为第n+1组Other
+  count(relig, sort = TRUE)  #排序
+
+gss_cat |>
+  mutate(relig = fct_lump_min(relig,min=100)) |> #合并出现min次以下的水平为Other
+  count(relig)
+
+relig_summary |> 
+  mutate(
+    prop=n/sum(n)
+  )
+gss_cat |>
+  mutate(relig = fct_lump_prop(relig,prop=0.1)) |> #合并出现prop以下的水平为Other
+  count(relig)
+gss_cat |>
+  mutate(relig = fct_lump_prop(relig,prop=-0.1)) |> #合并出现-prop以上的水平为Other
+  count(relig)
+
+
+                               #有序因子####
+```
+
+# hierarchical——data
+
+```{r}
+@ -1,175 +0,0 @@
+library(tidyverse)
+library(repurrrsive)
+library(jsonlite)
+#rectangling
+##来自JSON或XML的嵌套数据
+#JSON 是 javascript object notation 的缩写
+
+
+                                                  #  list  ####       
+
+list(a = 1:2, b = 1:3, c = 1:4)
+c(c(1, 2), c(3, 4))            #一维
+
+x3<-c(list(1, 2), list(3, 4))  #多个成分（向量、矩阵、数组、数据框）组成list
+str(x3)
+list(a=c(1),b=2,c=3,d=4)
+
+#Hierarchy 层次结构 \树状结构
+x4<- list(list(1, 2), list(3, 4))         
+str(x4)
+x5 <- list(x1=1,x2=list(y1=2,y2=list(z1=3, z2=list(p1=4, p2=list(q1=5)))))
+x5
+str(x5)
+View(x5)
+
+#list-columns 列表列
+df <- tibble(
+  x = 1:2, 
+  y = c("a", "b"),
+  z = list(list(1, 2), list(3, 4, 5))
+)
+df
+
+                          #Unnesting 取消嵌套####
+
+#unnest_wider()
+df1 <- tribble(
+  ~x, ~y,
+  1, list(a = 11, b = 12),
+  2, list(a = 21, b = 22),
+  3, list(a = 31, b = 32),
+)
+df1
+tidyr::unnest_wider(df1,y)          #子列表已命名->列
+tidyr::unnest_wider(df1,y,names_sep = "_")          #消除重复名称
+
+#unnest_longer() 
+df2 <- tribble(
+  ~x, ~y,
+  1, list(11, 12, 13),
+  2, list(21),
+  3, list(31, 32),
+)
+df2
+tidyr::unnest_longer(df2,y)        #子列表未命名->行
+
+df6 <- tribble(
+  ~x, ~y,
+  "a", list(1, 2),
+  "b", list(3),
+  "c", list()
+)
+df6 |> unnest_longer(y,keep_empty = TRUE) #保留空行
+
+#不一致的类型
+df4 <- tribble(
+  ~x, ~y,
+  "a", list(1),
+  "b", list("a", TRUE, 5)
+)
+df4 |> unnest_longer(y)  #子列表->行
+
+
+                                # 案例研究   ####
+#非常宽的数据
+repos <- tibble(json = gh_repos)
+repos          # 6行列表
+repos|> 
+  unnest_longer(json)   # 176行命名子列表
+repos |> 
+  unnest_longer(json) |> 
+  unnest_wider(json)       #  176×68
+
+repos |> 
+  unnest_longer(json) |> 
+  unnest_wider(json) |> 
+  select(id, full_name, owner, description) |> 
+  unnest_wider(owner,names_sep = "_")      #  "_" 消除重复名称
+
+
+#关系数据
+chars<-tibble(json=got_chars) 
+chars
+chars |> 
+  unnest_wider(json)
+
+chars |> 
+  unnest_wider(json) |> 
+  select(name,titles) |> 
+  unnest_longer(titles) 
+
+tibble(json=got_chars) %>% 
+  hoist(json,'name','titles') %>% #等价
+  unnest_longer(titles)
+
+
+#深度嵌套
+gmaps_cities
+gmaps_cities |> 
+  unnest_wider(json)
+
+gmaps_cities |> 
+  unnest_wider(json) |> 
+  select(-status) |> 
+  unnest_longer(results) 
+
+locations <- gmaps_cities |> 
+  unnest_wider(json) |> 
+  select(-status) |> 
+  unnest_longer(results) |> 
+  unnest_wider(results)
+locations
+locations |> 
+  select(city, formatted_address, geometry) |> 
+  hoist(
+    geometry,
+    ne_lat = c("bounds", "northeast", "lat"),  #hoist() 直接提取
+    sw_lat = c("bounds", "southwest", "lat"),
+    ne_lng = c("bounds", "northeast", "lng"),
+    sw_lng = c("bounds", "southwest", "lng"),
+  )
+
+
+                              #JSON格式####
+# A path to a json file inside the package:
+gh_users_json()
+
+gh_users2 <- read_json(gh_users_json())
+# Check it's the same as the data we were using previously
+identical(gh_users, gh_users2)
+
+#readr::parse_date()readr::parse_datetime()readr::parse_double()
+str(parse_json('1'))
+str(parse_json('[1, 2, 3]')) #数组
+
+str(parse_json('{"x": [1, 2, 3],"y":[5,6]}'))#对象
+
+
+json <- '[
+  {"name": "John", "age": 34},
+  {"name": "Susan", "age": 27}        
+]'                #数组
+df <- tibble(json = parse_json(json)) # json是df的一个列向量成分
+df
+unnest_wider(df,json)
+
+json <- '{
+  "status": "OK", 
+  "results": [
+    {"name": "John", "age": 34},
+    {"name": "Susan", "age": 27}
+ ]
+}
+'                #对象
+df <- tibble(json = list(parse_json(json)))
+df
+df |> 
+  unnest_wider(json) |> 
+  unnest_longer(results) |> 
+  unnest_wider(results)
+
+
+df <- tibble(results = parse_json(json)$results)
+df |> 
+  unnest_wider(results)
+```
+
+# 网络抓取
+
+```{r}
+@ -1,110 +0,0 @@
+library(tidyverse)
+library(rvest)
+
+ #  HTML basic：HyperText Markup Language 超文本标记语言 ####
+"<html>                  #document metadata
+  <head>                       #start tag <...>
+  <title>Page title</title>
+  </head>                     #end tag  </...>
+<body>   #contents  # Block tags: <h1><section><p><ol> <ul>heading 1,section,paragraph,ordered list
+ <h1 id='first' >  A heading</h1>   #<tag attributes> id,class 命名属性 name1='value1'
+   <p>Some text &amp; <b>some bold text.</b></p>   #Inline tags:<b><i><a>  bold,italics,link
+                                #  HTML escapes： &gt;&lt;&amp    greater than:>,less than:<，ampersand：&
+   <a href='webscraping' > https://r4ds.hadley.nz/webscraping </a> #href <a>
+   <img src='myimg.png' width='100' height='100'>   #src <img>
+</body>
+"
+                                        #提取数据 ####
+read_html("http://rvest.tidyverse.org/")
+
+                       #查找元素
+html <- minimal_html("
+  <h1>This is a heading</h1>
+  <p id='first'>This is a paragraph</p>
+  <p id='important'>This is an important paragraph</p>
+  <p class='important'>This is an important paragraph</p>
+  <p class='first'>This is a  paragraph</p>
+   <img id='first',src='myimg.png' width='100' height='100'> 
+")
+#cascading style sheets:级联样式表     CSS选择器
+html
+html |> html_elements("p")  #selects all p
+html |> html_elements(".first") # all  .class
+html |> html_elements("#first")#  all   #id
+    
+html |> html_element("p")  #返回第一个
+
+html |> html_elements("b")    #> {xml_nodeset (0)}
+html |> html_element("b")     #> {xml_missing}   #> <NA>
+
+#嵌套选择 Nesting selections
+html <- minimal_html("
+  <ul>
+    <li><b>C-3PO</b> is a <i>droid</i> that weighs <span class='weight'>167 kg</span></li>
+    <li><b>R4-P17</b> is a <i>droid</i></li>
+    <li><b>R2-D2</b> is a <i>droid</i> that weighs <span class='weight'>96 kg</span></li>
+    <li><b>Yoda</b> weighs <span class='weight'>66 kg</span></li>
+  </ul>
+  ")
+characters <- html |> html_elements("li")
+characters
+characters |> html_element("b")
+characters |> html_element(".weight")
+characters |> html_elements(".weight")
+
+# Text 
+characters |> 
+  html_element("b") |> 
+  html_text2()
+characters |> 
+  html_element(".weight") |> 
+  html_text2()                 #提取纯文本内容
+#attributes
+html <- minimal_html("
+  <p><a href='https://en.wikipedia.org/wiki/Cat'>cats</a></p>
+  <p><a href='https://en.wikipedia.org/wiki/Dog'>dogs</a></p>
+")
+html |> 
+  html_elements("p") |> 
+  html_element("a") |> 
+  html_attr("href")
+
+#table              <table><tr><th><td> 行、标题heading、数据
+
+html <- minimal_html("
+  <table class='mytable'>
+    <tr><th>x</th>   <th>y</th></tr>
+    <tr><td>1.5</td> <td>2.7</td></tr>
+    <tr><td>4.9</td> <td>1.3</td></tr>
+    <tr><td>7.2</td> <td>8.1</td></tr>
+  </table>
+  ")
+html |> 
+  html_element(".mytable") |> 
+  html_table(convert = F)
+
+                                 #示例####
+#1
+url <- "https://rvest.tidyverse.org/articles/starwars.html"
+html <- read_html(url)
+
+section <- html |> html_elements("section") #提取元素section
+section
+tibble(
+  title = section |> 
+    html_element("h2") |>   #提取h2标题文本：电影名称
+    html_text2(),
+  released = section |> 
+    html_element("p") |>    #提取p段落文本：日期
+    html_text2() |> 
+    str_remove("Released: ") |> 
+    parse_date(),
+  director = section |>       
+    html_element(".director") |> #提取.class=director属性：导演
+    html_text2(),
+  intro = section |> 
+    html_element(".crawl") |>  #提取.class=crawl属性：简介
+    html_text2()
+)
+#2 IMDB top 250 电影
+
+```
+
+# iteration
+
+```{r}
+@ -1,275 +0,0 @@
+                                 #修改多个列####
+across(.cols, .fns, ..., .names = NULL, .unpack = FALSE)
+if_any(.cols, .fns, ..., .names = NULL)
+if_all(.cols, .fns, ..., .names = NULL)
+everything()        #选择每一列
+where()  #根据类型选择列
+'where(is.numeric) selects all numeric columns.
+where(is.character) selects all string columns.
+where(is.Date) selects all date columns.
+where(is.POSIXct) selects all date-time columns.
+where(is.logical) selects all logical columns.'
+
+
+A <- c(3,4,1,2,5)
+all(A>2)
+any(A>2)
+which(A>4)
+
+#Selecting columns with .cols
+set.seed(1234)
+df <- tibble(
+  grp = sample(1:2, 10, replace = TRUE),
+  a = rnorm(10),
+  b = rnorm(10),
+  c = rnorm(10),
+  d = rnorm(10)
+)
+df
+df |> 
+  group_by(grp) |> 
+  summarize(
+    n=n(),
+    across(everything(), median))
+
+#Calling a single function
+
+#Calling multiple functions
+rnorm_na <- function(n, n_na, mean = 0, sd = 1) {
+  sample(c(rnorm(n - n_na, mean = mean, sd = sd), rep(NA, n_na)))
+}
+
+df_miss <- tibble(
+  a = rnorm_na(5, 1),
+  b = rnorm_na(5, 1),
+  c = rnorm_na(5, 2),
+  d = rnorm(5)
+)
+df_miss
+df_miss |> 
+  summarize(
+    across(a:d, function(x) median(x, na.rm = TRUE)),
+    n = n()
+  )
+df_miss |> 
+  summarize(
+    across(a:d, list(
+      median = \(x) median(x, na.rm = TRUE),#用\代替function
+      n_miss = \(x) sum(is.na(x)))
+      ),
+    n = n()
+  )
+
+#Column names
+df_miss |> 
+  summarize( #汇总
+    across(
+      .col=a:d,
+      .fns=list(
+        median = \(x) median(x, na.rm = TRUE),
+        n_miss = \(x) sum(is.na(x))
+      ),
+      .names = "{.fn}_{.col}"
+    ),
+    n = n(),
+  )
+df_miss |> 
+  mutate(     #添加
+    across(a:d, \(x) coalesce(x, 0), .names = "{.col}_na_zero")
+  )
+#Filtering
+df_miss |> dplyr::filter(if_any(a:d, is.na))
+# same as df_miss |> filter(is.na(a) | is.na(b) | is.na(c) | is.na(d))
+
+
+df_miss |> dplyr::filter(if_all(a:d, is.na))
+# same as df_miss |> filter(is.na(a) & is.na(b) & is.na(c) & is.na(d))
+
+
+#in functionsacross()
+expand_dates <- function(df) {
+  df |> 
+    mutate(
+      across(where(is.Date), list(year = year, month = month, day = mday))
+    )
+}
+
+df_date <- tibble(
+  name = c("Amy", "Bob"),
+  date = ymd(c("2009-08-03", "2010-01-16"))
+)
+
+df_date |> 
+  expand_dates()
+
+summarize_means <- function(df, summary_vars = where(is.numeric)) {
+  df |> 
+    summarize(
+      across({{ summary_vars }}, \(x) mean(x, na.rm = TRUE)),
+      n = n(),
+      .groups = "drop"
+    )
+}
+diamonds |> 
+  group_by(cut) |> 
+  summarize_means()
+diamonds |> 
+  group_by(cut) |> 
+  summarize_means(c(carat, x:z))
+
+#Vs pivot_longer
+df
+df |> 
+  summarize(across(a:d, list(median = median, mean = mean)))
+
+long <- df |> 
+  pivot_longer(a:d,names_to = "name",values_to = "value") |> 
+  group_by(name) |> 
+  summarize(
+    median = median(value),
+    mean = mean(value)
+  )
+long
+long |> 
+  pivot_wider(
+    names_from = name,
+    values_from = c(median, mean),
+    names_vary = "slowest",
+    names_glue = "{name}_{.value}"
+  )
+                          #读取多个文件####
+rm(list = ls())
+# 分部进行  list.files(path,pattern,full.name)
+paths <- list.files("data", pattern = "sales[.]csv$", 
+                    full.names = TRUE,recursive = TRUE)
+paths
+library(arrow)
+files<-list(
+  read_csv("data/01-sales.csv"),
+  read_csv("data/02-sales.csv"),
+  read_csv("data/03-sales.csv")
+)
+files
+
+rm(list = ls())
+                      #循环迭代  purrr::map(),list_rbind(),list_cbind ####
+map(x, f)
+list( f(x[[1]]) , f(x[[2]]) , ..., f(x[[n]] ))   #  map(list,function)
+
+files <- map(paths, read_csv) 
+length(files)
+files
+
+purrr::list_rbind(files)    #行合并
+
+
+#路径中的数据
+set_names(paths,basename)  #从路径中提取文件名,文件名也是一列数据
+files <- list(
+  "01-sales.csv"=read_csv("data/01-sales.csv"),
+  "02-sales.csv"=read_csv("data/02-sales.csv"),
+  "03-sales.csv"=read_csv("data/03-sales.csv"))
+
+files <- map(set_names(paths,basename),read_csv)#简写 文件名进入数据框
+files
+files$`01-sales.csv`
+
+paths |> 
+  set_names(basename) |> 
+  map(read_csv) |> 
+  list_rbind(names_to = "file_name_csv") |> #文件名 to 列名
+  write_csv( "data/2019第一季度销售情况.csv") #保存
+
+
+
+#推荐多次简单迭代
+paths |> 
+  map(read_csv) |> 
+  map(\(df) df |> dplyr::filter(!is.na(n)))|> 
+  map(\(df) df |> mutate(id =LETTERS[1:nrow(df)] )) |> 
+  list_rbind()
+
+#异构数据
+df_types <- function(df) {  #捕获数据框结构
+  tibble(
+    col_name = names(df), 
+    col_type = map_chr(df, vctrs::vec_ptype_full),
+    n_miss = map_int(df, \(x) sum(is.na(x)))
+  )
+}
+files |> 
+  map(df_types) |> 
+  list_rbind(names_to = "file_name") |> 
+  select(-n_miss) |> 
+  pivot_wider(names_from = col_name, values_from = col_type)
+
+
+#处理故障
+files <- paths |> 
+  map(possibly(\(path) readxl::read_excel(path), NULL))
+data <- files |> list_rbind()
+
+failed <- map_vec(files, is.null)  #获取失败文件路径
+paths[failed]
+
+
+
+                           #保存多个对象####
+rm(list = ls())
+paths <- list.files("data", pattern = "sales[.]csv$", 
+                    full.names = TRUE,recursive = TRUE)
+
+#写入数据库####
+con <- DBI::dbConnect(duckdb::duckdb())
+duckdb::duckdb_read_csv(con, "sales", paths) #读取到数据库
+library(DBI)
+library(dbplyr)
+dbListTables(con)
+
+con |> 
+  dbReadTable("sales") |> 
+  as_tibble()
+tbl(con, "sales") 
+
+DBI::dbCreateTable(con, "gapminder", template)  #创建数据库table
+append_file <- function(path) {       #追加文件路径
+  df <- readxl::read_excel(path)
+  df$year <- parse_number(basename(path))
+  DBI::dbAppendTable(con, "gapminder", df)
+}
+paths |> map(append_file)
+paths |> walk(append_file)  #不看输出
+
+                                       #写出 csv 文件####
+
+by_clarity <- diamonds |> 
+  group_nest(clarity)        #分组列表列
+by_clarity
+
+by_clarity <- by_clarity |> 
+  mutate(path = str_glue("data/diamonds-{clarity}.csv"))#添加文件名
+by_clarity
+                                  #map2()walk2() 两个参数变化
+map2(by_clarity$data, by_clarity$path, write_csv) #控制台有输出
+walk2(by_clarity$data, by_clarity$path, write_csv) #控制台无输出
+
+
+                             #保存绘图####
+carat_histogram <- function(df) {
+  ggplot(df, aes(x = carat)) + geom_histogram(binwidth = 0.1)  
+}
+carat_histogram(by_clarity$data[[1]])
+
+by_clarity <- diamonds |> 
+  group_nest(clarity) 
+by_clarity <- by_clarity |> 
+  mutate(
+    plot = map(data, carat_histogram),
+    path = str_glue("data/histogram-{clarity}.png")
+  )
+by_clarity
+walk2(
+  by_clarity$path,
+  by_clarity$plot,
+  \(path, plot) ggsave(path, plot, width = 6, height = 6)
+)
+```
+
+# Join
+
+```{r}
+@ -1,68 +0,0 @@
+                                  # equi join ####
+x <- tribble(
+  ~ID, ~val_x,
+  1, "x1",
+  2, "x2",
+  3, "x3"
+)
+y <- tribble(
+  ~ID, ~val_y,
+  1, "y1",
+  2, "y2",
+  4, "y3"
+)
+full_join(x,y,join_by(ID==ID))
+inner_join(x,y,by='ID')
+left_join(x,y,by='ID')
+right_join(x,y,by='ID')
+semi_join(x,y,by='ID') 
+anti_join(x,y,by='ID')
+                             # Non-equi joins ####
+#交叉连接
+cross_join(x,y)         #nrow(x) * nrow(y)
+#不等式连接
+inner_join(x,y, join_by(ID >=ID), keep = TRUE)
+
+#滚动联接  rolling join           
+inner_join(x,y, join_by(closest(ID >=ID)))#滚动连接类似于不等式连接，但仅匹配最近一个值。
+
+parties <- tibble(
+  q = 1:4,
+  party = ymd(c("2022-01-10", "2022-04-04", "2022-07-11", "2022-10-03"))
+)
+set.seed(123)
+employees <- tibble(
+  name = sample(babynames::babynames$name, 100),
+  birthday = ymd("2022-01-01") + (sample(365, 100, replace = TRUE) - 1)
+)
+employees
+employees |> 
+  left_join(parties, join_by(closest(birthday >= party)))
+employees |> 
+  anti_join(parties, join_by(closest(birthday >= party))) #
+
+# Overlap joins 重叠连接
+parties <- tibble(
+  q = 1:4,
+  party = ymd(c("2022-01-10", "2022-04-04", "2022-07-11", "2022-10-03")),
+  start = ymd(c("2022-01-01", "2022-04-04", "2022-07-11", "2022-10-03")),
+  end = ymd(c("2022-04-03", "2022-07-10", "2022-10-02", "2022-12-31"))
+)
+parties
+employees |> 
+  inner_join(parties, join_by(between(birthday, start, end)), unmatched = "error")
+
+
+
+#集合运算   要求变量名（列）完全相同,把观测（行）看成是集合中的元素
+x<-tibble(ID=c(1,2),X=c("a1",'a2'))
+x
+y<-tibble(ID=c(2,3),X=c("a2",'a3'))
+y
+
+lubridate::intersect(x,y) #返回共同包含的相同观测
+union(x,y)#返回所有不同观测
+setdiff(x,y) #返回在x中不在y中
+setequal(x,y)#判断是否相等
+
+
+```
+
+# 缺失值
+
+```{r}
+@ -1,92 +0,0 @@
+#dplyr 
+#tidyr
+
+                          #显式缺失值   Explicit missing values   ####
+
+#last observation carried forward    locf
+treatment <- tribble(
+  ~person,           ~treatment, ~response,
+  "Derrick Whitmore", 1,         7,
+  NA,                 2,         10,
+  NA,                 3,         NA,
+  "Katherine Burke",  1,         4
+)
+treatment |>
+  tidyr::fill(everything())  #填充NA上一个观测的值
+
+
+# Fixed values
+x <- c(1, 4, 5, 7, -99)
+dplyr::na_if(x,-99)
+
+x <- c(1, 4, 5, 7, NA)
+dplyr::coalesce(x, 0)
+
+# NaN :not a number
+x<-c(0/0,0*Inf,Inf-Inf,1/0)
+x
+is.nan(x)
+
+
+                             #隐式缺失值 Implicit missing values  ####
+stocks <- tibble(
+  year  = c(2020, 2020, 2020, 2020, 2021, 2021, 2021),
+  qtr   = c(   1,    2,    3,    4,    2,    3,    4), #缺失2021第一季度
+  price = c(1.88, 0.59, 0.35,   NA, 0.92, 0.17, 2.66)      
+)
+#Pivoting
+
+stocks |>
+  pivot_wider(
+    names_from = qtr, 
+    values_from = price
+  )
+#Complete
+stocks |>
+  tidyr::complete(year, qtr)
+
+#Joins
+library(nycflights13)
+
+flights |> 
+  distinct(faa = dest) |> 
+  anti_join(airports)
+flights |> 
+  distinct(tailnum) |> 
+  anti_join(planes)
+ 
+                                          #因子和空组####
+
+health <- tibble(
+  name   = c("Ikaia", "Oletta", "Leriah", "Dashay", "Tresaun"),
+  smoker = factor(c("no", "no", "no", "no", "no"), levels = c("yes", "no")),
+  age    = c(34, 88, 75, 47, 56),
+)
+health |> count(smoker)
+health |> count(smoker, .drop = FALSE) #保留因子所有水平
+
+p<-ggplot(health, aes(x = smoker)) +
+  geom_bar() 
+
+p+scale_x_discrete()
+p+scale_x_discrete(drop = FALSE) #保留因子所有水平
+
+health |> 
+  group_by(smoker, .drop = FALSE) |> #保留因子所有水平
+  summarize(
+    n = n(),
+    mean_age = mean(age),
+    min_age = min(age),
+    max_age = max(age),
+    sd_age = sd(age)
+  )
+health |> 
+  group_by(smoker) |> 
+  summarize(
+    n = n(),
+    mean_age = mean(age),
+    min_age = min(age),
+    max_age = max(age),
+    sd_age = sd(age)
+  ) |> 
+  complete(smoker)# 显式处理
+```
+
+# 数值向量
+
+```{r}
+@ -1,162 +0,0 @@
+#  数值向量 ####
+
+#解析数字####data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAWElEQVR42mNgGPTAxsZmJsVqQApgmGw1yApwKcQiT7phRBuCzzCSDSHGMKINIeDNmWQlA2IigKJwIssQkHdINgxfmBBtGDEBS3KCxBc7pMQgMYE5c/AXPwAwSX4lV3pTWwAAAABJRU5ErkJggg==
+parse_double()
+parse_number("1244gag") #忽略非数字文本
+?parse_number
+?col_number
+#计数####
+count()
+flights |> count(dest, sort = TRUE)
+flights |> 
+  group_by(dest) |> 
+  summarize(
+    n = n(),#访问有关“当前”组的信息
+    delay = mean(arr_delay, na.rm = TRUE)
+  )
+flights |> 
+  group_by(dest) |> 
+  summarize(
+    carriers = n_distinct(carrier)) |> #计算一个或多个变量的不同（唯一）值的数量
+  arrange(desc(carriers))
+
+#加权计数
+flights |> count(tailnum, wt = distance)
+flights |> 
+  group_by(tailnum) |> 
+  summarize(miles = sum(distance))
+
+
+#数值转换####
+
+#recycling or repeating the short vector  ####
+x <- c(1, 2, 10, 20)
+x / 5
+x / c(5, 5, 5, 5)
+x * c(1, 2)
+x * c(1, 2, 3)
+flights |> 
+  dplyr::filter(month == c(1, 2)) # 1月份出发的奇数行中的航班和 2 月份出发的偶数行中的航班
+flights |> 
+  dplyr::filter(month %in% c(1, 2)) # 1月份和2月份出发的航班
+
+#Minimum and maximum####
+df <- tribble(
+  ~x, ~y,
+  1,  3,
+  5,  2,
+  7, NA,
+)
+
+df |> 
+  mutate(
+    min = pmin(x, y, na.rm = TRUE),  #每行的最小值或最大值
+    max = pmax(x, y, na.rm = TRUE)
+  )
+df |> 
+  mutate(
+    min = min(x, y, na.rm = TRUE),
+    max = max(x, y, na.rm = TRUE)
+  )
+#Modular arithmetic  模运算####
+1:10 %/% 3       #整除
+
+1:10 %% 3       #余数
+flights |> 
+  group_by(hour = sched_dep_time %/% 100) |> 
+  summarize(prop_cancelled = mean(is.na(dep_time)), n = n()) |> 
+  dplyr::filter(hour > 1) |> 
+  ggplot(aes(x = hour, y = prop_cancelled)) +
+  geom_line(color = "grey50") + 
+  geom_point(aes(size = n))
+#Logarithms 对数####
+log(exp(10))
+log2(8)
+log10(1000)
+#Rounding 舍入 ####
+round(x, digits)
+round(123.456, 2)
+round(123.456, -2)
+#Round to nearest multiple of 4
+round(x / 4) * 4
+# Round to nearest 0.25
+round(x / 0.25) * 0.25
+# ***.5 will be rounded to the even integer（偶数整数）
+round(c(2.5,3.5,6.5,7.5,11.5)) 
+x<-123.456
+
+floor(x)
+ceiling(x)
+
+
+#Cutting numbers into ranges####
+x <- c(1, 2, 5, 10, 15, 20)
+cut(x, breaks = c(0, 5, 10, 15, 20))   #因子
+cut(x, breaks = c(0, 5, 10, 100),right = F)
+cut(x, breaks = c(0, 5, 10, 100),include.lowest =T)
+
+cut(x, 
+    breaks = c(0, 5, 10, 15, 20), 
+    labels = c("sm", "md", "lg", "xl"))
+y <- c(NA, -10, 5, 10, 30)
+cut(y, breaks = c(0, 5, 10, 15, 20))
+
+
+cumsum(1:10) #累和
+# 常规转换   ####
+#排名
+x <- c(1, 2, 2, 3, 4, NA)
+min_rank(x)
+min_rank(desc(x))
+#偏移量offset
+x <- c(2, 5, 11, 11, 19, 35)
+dplyr::lag(x,n=2)  #滞后
+lead(x,n=3 )#前移
+
+# 连续标识符
+events <- tibble(
+  time = c(3, 5, 10, 12, 15, 17, 19, 20, 27, 28, 30)
+)
+events <- events |> 
+  mutate(
+    previous_1=dplyr::lag(time),
+    previous_1.default=dplyr::lag(time,default = first(time)),
+    next_1=lead(time),
+    diff = time - dplyr::lag(time,default = first(time)),
+    has_gap = diff >= 5
+  )
+events
+events |> mutate(
+  group = cumsum(has_gap)
+)
+
+df <- tibble(
+  x = c("a", "a", "a", "b", "c", "c", "d", "e", "a", "a", "b", "b"),
+  y = c(1, 2, 3, 2, 4, 1, 3, 9, 4, 8, 10, 199)
+) %>% 
+  group_by(id = consecutive_id(x)) |> 
+  slice_head(n = 3)
+df
+
+
+#numeric summaries####
+summarize(
+  mean = mean(dep_delay, na.rm = TRUE),
+  median = median(dep_delay, na.rm = TRUE),
+  min(),
+  max(),
+  quantile(x, 0.25),
+  xquantile(x, 0.5),
+  quantile(x, 0.95),
+  sd(),
+  IQR(),    #quantile(x, 0.75) - quantile(x, 0.25)
+  #distribution
+  first_dep = first(dep_time, na_rm = TRUE), 
+  fifth_dep = nth(dep_time, 5, na_rm = TRUE),
+  last_dep = last(dep_time, na_rm = TRUE),
+  x / sum(x),
+  (x - mean(x)) / sd(x),
+  (x - min(x)) / (max(x) - min(x)),
+  n = n(),
+  .groups = "drop"
+)
+```
