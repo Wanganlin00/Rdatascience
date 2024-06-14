@@ -13,6 +13,7 @@ book:
         - type_class.qmd
         - read_write.qmd
         - useful_function.qmd
+        - logical_vector.qmd
         - tidy_transform.qmd
         - base_graphics.qmd
         - custom_functions.qmd

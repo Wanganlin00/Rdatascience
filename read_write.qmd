@@ -2,22 +2,24 @@
 
 ## Import
 
-### 键盘输入
+```{r}
+tibble(
+  x = c(1, 2, 5), 
+  y = c("h", "m", "g"),
+  z = c(0.08, 0.83, 0.60)
+)
+```
+
 
 ```{r}
-#| eval: false
-df <- data.frame(id=character(0),age=numeric(0),sex=character(0))
-df <- edit(df)
-
-fix(df)
+tribble(
+  ~x, ~y, ~z,
+  1, "h", 0.08,
+  2, "m", 0.83,
+  5, "g", 0.60
+)
 ```
 
-### 逐行键入数据
-
-```{r eval=FALSE}
-readline("输入年龄：")
-
-```
 
 ### 文本文件
 
@@ -46,6 +48,15 @@ readr::read_csv("data/leadership.txt",col_names = TRUE,id="file_path") |>
     column_to_rownames(var = "id")
 ```
 
+#### 批量读取
+
+```{r}
+sales_files <- c("data/01-sales.csv",
+                 "data/02-sales.csv",
+                 "data/03-sales.csv")
+read_csv(sales_files, id = "file_path")
+```
+
 ### Excel
 
 ```{r}
@@ -56,45 +67,25 @@ read_excel(path = "data/example.xlsx",sheet = 1,range = "A1:D11")
 read_excel("data/example.xlsx",2)
 ```
 
-### 等宽格式
-
-**readr** 包提供的 `read_fwf()`
+### 脚本载入
 
 ```{r}
-' First     Last  Sex Number
- Currer     Bell    F      2
-    Dr.    Seuss    M     49
-    ""   Student   NA     21' |> read_fwf()
-
+source("data/add_function.R")
+add(c(1,24,4),4)
 ```
 
-### Internet datasets
+::: callout-note
+add_function
 
 ```{r}
-#| eval: false
-url = "https://www.monetdb.org/sites/default/files/voc_tsvs.zip"
-download.file(url, "voc_tsvs.zip") # download file
-unzip("voc_tsvs.zip", exdir = "data") # unzip files
-file.remove("voc_tsvs.zip") # tidy up by removing the zip file
-
-url = "https://vincentarelbundock.github.io/Rdatasets/csv/datasets/co2.csv"
-download.file(url, "extdata/co2.csv")
-df_co2 = read_csv("extdata/co2.csv")
+add <- function(x,y){
+  return(x+y)
+}
 ```
+:::
 
-### library datasets
 
-```{r}
-#|eval: false
-data(package = "dplyr")
-#> Data sets in package ‘dplyr’:
-#> 
-#> band_instruments               Band membership
-#> band_instruments2              Band membership
-#> band_members                   Band membership
-#> starwars                       Starwars characters
-#> storms                         Storm tracks data
-```
+
 
 ### 二进制文件
 
@@ -115,6 +106,59 @@ write_parquet(x,sink = "data/leadership.parquet")
 read_parquet(file = "data/leadership.parquet" )
 ```
 
+
+### 数据库
+
+```{r}
+#| eval: false
+library(DBI)
+library(dbplyr)
+```
+
+
+
+
+
+### 等宽格式
+
+**readr** 包提供的 `read_fwf()`
+
+```{r}
+' First     Last  Sex Number
+ Currer     Bell    F      2
+    Dr.    Seuss    M     49
+    ""   Student   NA     21' |> read_fwf()
+
+```
+
+### Internet Datasets
+
+```{r}
+#| eval: false
+url = "https://www.monetdb.org/sites/default/files/voc_tsvs.zip"
+download.file(url, "voc_tsvs.zip") # download file
+unzip("voc_tsvs.zip", exdir = "data") # unzip files
+file.remove("voc_tsvs.zip") # tidy up by removing the zip file
+
+url = "https://vincentarelbundock.github.io/Rdatasets/csv/datasets/co2.csv"
+download.file(url, "extdata/co2.csv")
+df_co2 = read_csv("extdata/co2.csv")
+```
+
+###  Datasets in library
+
+```{r}
+#|eval: false
+data(package = "dplyr")
+#> Data sets in package ‘dplyr’:
+#> 
+#> band_instruments               Band membership
+#> band_instruments2              Band membership
+#> band_members                   Band membership
+#> starwars                       Starwars characters
+#> storms                         Storm tracks data
+```
+
 ### JSON
 
 *javascript object notation*
@@ -129,39 +173,31 @@ read_json(path = "data/3龙门币3赤金.json",simplifyVector = TRUE)
 ```{r}
 #| eval: false
 library(haven)
-read_spss()
-read_sav()
-
-read_sas()
-
-read_dta()
-read_stata()
+read_spss(file)
+read_sav(file)
+read_sas(file)
+read_dta(file)
+read_stata(file)
 ```
 
-### Database
+
+
+### 键盘输入
 
 ```{r}
 #| eval: false
-library(DBI)
-library(dbplyr)
+df <- data.frame(id=character(0),age=numeric(0),sex=character(0))
+df <- edit(df)
+
+fix(df)
 ```
 
-### 脚本载入
+### 逐行键入数据
 
-```{r}
-source("data/add_function.R")
-add(c(1,24,4),4)
+```{r eval=FALSE}
+readline("输入年龄：")
+
 ```
-
-::: callout-note
-add_function
-
-```{r}
-add <- function(x,y){
-  return(x+y)
-}
-```
-:::
 
 ## Write
 
