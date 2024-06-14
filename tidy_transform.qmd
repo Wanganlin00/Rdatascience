@@ -161,6 +161,31 @@ mpg |>
               .by = c(cyl,drv))
 ```
 
+
+###  `group_nest`
+
+```{r}
+library(tidyverse)
+library(broom)
+data(crickets, package = "modeldata")
+names(crickets)
+
+split_by_species <- crickets %>% 
+  group_nest(species) 
+split_by_species
+
+model_by_species <- 
+  split_by_species %>% 
+  mutate(model = map(data, ~ lm(rate ~ temp, data = .x)))
+model_by_species
+
+model_by_species %>% 
+  mutate(coef = map(model, tidy)) %>% 
+  select(species, coef) %>% 
+  unnest(cols = c(coef))
+```
+
+
 ## 整洁操作
 
 ### `pivot_longer()`
