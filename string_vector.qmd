@@ -1,0 +1,51 @@
+## 字符串
+
+## 连接
+
+```{r}
+str_c("x", "y", "z")
+str_c("Hello ", c("John", "Susan"))
+
+paste0("x","y")
+paste0("Hello ", c("John", "Susan"))
+```
+
+```{r}
+string1 <- "This is a string"
+string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
+```
+
+## 转义
+
+escape
+
+```{r}
+x <- c("one\ntwo", "one\ttwo", "\u00b5", "\U0001f604")
+x
+str_view(x)
+```
+
+```{r}
+
+# 转义字符串
+single_quote <- "\'"
+double_quote <- '\"'
+backslash <- "\\"
+x <- c(single_quote, double_quote, backslash)
+x
+
+# 查看
+str_view(x)
+```
+
+## 原始字符串
+
+```{r}
+single_quote <- r"(')"        # []    ---()---  -()-
+double_quote <- r"["]"
+backslash <- r"--(\)--"
+
+x <- c(single_quote, double_quote, backslash)
+x
+str_view(x)
+```
