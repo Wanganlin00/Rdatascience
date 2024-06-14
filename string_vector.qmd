@@ -10,9 +10,61 @@ paste0("x","y")
 paste0("Hello ", c("John", "Susan"))
 ```
 
+## `str_flatten`
+
 ```{r}
-string1 <- "This is a string"
-string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
+df <- tribble(
+  ~ name, ~ fruit,
+  "Carmen", "banana",
+  "Carmen", "apple",
+  "Marvin", "nectarine",
+  "Terence", "cantaloupe",
+  "Terence", "papaya",
+  "Terence", "mandarin"
+)
+df |>
+  group_by(name) |> 
+  summarize(fruits = str_flatten(fruit, ", ",last = ", and "))
+```
+
+## 提取
+
+```{r}
+# df |> separate_longer_delim(cols, delim)
+# df |> separate_longer_position(cols, width)
+# df |> separate_wider_delim(cols, delim, names)
+# df |> separate_wider_position(cols, widths)
+# df |> separate_wider_regex(cols,patterns)
+```
+
+### 变长
+
+```{r}
+df1 <- tibble(x = c("a,b,c", "d,e", "f"))
+df1 |> 
+  separate_longer_delim(x, delim = ",")
+
+df2 <- tibble(x = c("1211", "131", "21"))
+df2 |> 
+  separate_longer_position(x, width = 1)
+```
+
+## 变宽
+
+```{r}
+df3 <- tibble(x = c("a10.1.2022", "b10.2.2011", "e15.1.2015"))
+df3 |> 
+  separate_wider_delim(
+    x,
+    delim = ".",
+    names = c("code", "edition", "year")
+  )
+df3 |> 
+  separate_wider_delim(
+    x,
+    delim = ".",
+    names = c("code", NA, "year")
+  )
 ```
 
 ## 转义
