@@ -1,13 +1,48 @@
 ## 字符串
 
+
+
 ## 连接
 
 ```{r}
+
+
+cat("hello","BOb","\b\n","\bIsn\' R","\t","GREAT?\n",sep = " " )
+
 str_c("x", "y", "z")
 str_c("Hello ", c("John", "Susan"))
 
 paste0("x","y")
 paste0("Hello ", c("John", "Susan"))
+paste("x",c("a","b"),sep="",collapse = "?")  
+
+paste0("x",c("A","B"),collapse="?")
+```
+
+## 子集
+
+```{r}
+
+x <- c("Apple", "Banana", "Pear")
+substr(x=x,start = 2,stop=4)   
+str_sub(string = x,start = 2,end = 4)
+str_sub(x, -3, -1)
+```
+
+## 长度
+
+```{r}
+nchar(c("a", "R for data science", NA))
+str_length(c("a", "R for data science", NA))
+```
+
+## 字母大小写
+
+```{r}
+str_to_upper(c("i", "ı"))
+str_to_upper(c("i", "ı"), locale = "tr")
+toupper("abc")              #大写转换
+tolower("aaAGEErg")         #小写转换
 ```
 
 ## `str_flatten`
@@ -27,7 +62,13 @@ df |>
   summarize(fruits = str_flatten(fruit, ", ",last = ", and "))
 ```
 
-## 提取
+## 排序
+
+```{r}
+str_sort(c("a", "c", "ch", "h", "z"))
+```
+
+## 分离
 
 ```{r}
 # df |> separate_longer_delim(cols, delim)
@@ -49,7 +90,7 @@ df2 |>
   separate_longer_position(x, width = 1)
 ```
 
-## 变宽
+### 变宽
 
 ```{r}
 df3 <- tibble(x = c("a10.1.2022", "b10.2.2011", "e15.1.2015"))
@@ -64,6 +105,13 @@ df3 |>
     x,
     delim = ".",
     names = c("code", NA, "year")
+  )
+
+df4 <- tibble(x = c("202215TX", "202122LA", "202325CA")) 
+df4 |> 
+  separate_wider_position(
+    x,
+    widths = c(year = 4, age = 2, state = 2)
   )
 ```
 
@@ -90,7 +138,7 @@ x
 str_view(x)
 ```
 
-## 原始字符串
+## raw
 
 ```{r}
 single_quote <- r"(')"        # []    ---()---  -()-
