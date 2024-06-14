@@ -133,9 +133,25 @@ cummin(x)
 cummax(x)
 cummean(x)
 ```
+## 连续标识符
+
+```{r}
+# 变量变化时加1
+consecutive_id(c(TRUE, TRUE, FALSE, FALSE, TRUE, FALSE, NA, NA))
+consecutive_id(c(1, 1, 1, 2, 1, 1, 2, 2))
+```
+
+```{r}
+df <- data.frame(x = c(0, 0, 1, 0), y = c(2, 2, 2, 2))
+df %>% group_by(x, y) %>% summarise(n = n())
+
+df %>% group_by(id = consecutive_id(x, y), x, y) %>% summarise(n = n())
+```
 
 
-## Offsets
+
+
+## 偏移量 Offsets
 
 ```{r}
 x <- c(2, 5, 11, 11, 19, 35)
@@ -159,4 +175,3 @@ mpg |>
     )
 
 ```
-
