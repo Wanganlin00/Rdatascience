@@ -94,6 +94,7 @@ df2 |>
 
 ```{r}
 df3 <- tibble(x = c("a10.1.2022", "b10.2.2011", "e15.1.2015"))
+df3
 df3 |> 
   separate_wider_delim(
     x,
