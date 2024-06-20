@@ -1870,6 +1870,7 @@ x <- c(1, 4, 5, 7, -99)
 dplyr::na_if(x,-99)
 
 x <- c(1, 4, 5, 7, NA)
+x
 dplyr::coalesce(x, 0)
 
 # NaN :not a number
