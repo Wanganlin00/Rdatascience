@@ -1,7 +1,5 @@
 # 高效R
 
-## 向量化编程
-
 ## data.table
 
 -   [data.table](https://rdatatable.gitlab.io/data.table/)
@@ -94,17 +92,64 @@ stopCluster(cl)
 
 Rcpp sugar
 
-`NumericVector` `IntegerVector` `CharacterVector` `LogicalVector`
+### 向量类
 
-`NumericMatrix` `IntegerMatrix` `CharacterMatrix` `LogicalMatrix`
+`NumericVector` `IntegerVector` `CharacterVector` `LogicalVector`
 
 ```{r}
 library(Rcpp)
-sourceCpp("function/add_cpp.cpp")
+sourceCpp("function/sum_cpp.cpp")
 
-add_cpp(2,34.5)
+sum_cpp(mpg$displ)
+sum(mpg$displ)
 
 sourceCpp("function/mean_cpp.cpp")
+mean_cpp(mpg$displ)
+```
+
+`NumericMatrix` `IntegerMatrix` `CharacterMatrix` `LogicalMatrix`
+
+### 数据框类
+
+DataFrame
+
+### 列表类
+
+List
+
+```{r}
+# 平均百分比误差
+sourceCpp("function/mpe.cpp")
+mod <- lm(mpg ~ wt, data = mtcars)
+mpe(mod)
+```
+
+### 函数类
+
+```{r}
+cppFunction("RObject callWithOne(Function f) {
+  return f(1);
+}")
+
+callWithOne(function(x) x + 1)
+callWithOne(paste)
+```
+
+### 属性
+
+```{r}
+cppFunction('NumericVector attribs() {
+  NumericVector out = NumericVector::create(1, 2, 3);
+
+  out.names() = CharacterVector::create("a", "b", "c");
+  out.attr("my-attr") = "my-value";
+  out.attr("class") = "my-class";
+
+  return out;
+}')
+
+
+attribs()
 ```
 
 ## Rcpp sugar

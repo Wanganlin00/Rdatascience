@@ -15,7 +15,7 @@ library(purrr)
 ## `map` 变体
 
 | 参数 \\ 返回    | 列表                                                        | 原子                                                                 | 同类型                                                           | 无                                                           |
-|---------------|---------------|---------------|---------------|---------------|
+|-----------------|-------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------|--------------------------------------------------------------|
 | 一个参数        | [`map()`](https://purrr.tidyverse.org/reference/map.html)   | [`map_lgl()`](https://purrr.tidyverse.org/reference/map.html), ...   | [`modify()`](https://purrr.tidyverse.org/reference/modify.html)  | [`walk()`](https://purrr.tidyverse.org/reference/map.html)   |
 | 两个参数        | [`map2()`](https://purrr.tidyverse.org/reference/map2.html) | [`map2_lgl()`](https://purrr.tidyverse.org/reference/map2.html), ... | [`modify2()`](https://purrr.tidyverse.org/reference/modify.html) | [`walk2()`](https://purrr.tidyverse.org/reference/map2.html) |
 | 一个参数 + 索引 | [`imap()`](https://purrr.tidyverse.org/reference/imap.html) | [`imap_lgl()`](https://purrr.tidyverse.org/reference/imap.html), ... | [`imodify()`](https://purrr.tidyverse.org/reference/modify.html) | [`iwalk()`](https://purrr.tidyverse.org/reference/imap.html) |
@@ -306,8 +306,8 @@ sapply(temp, basic)
 ```{r}
 vapply(temp, basic, numeric(4))
 ```
-`vapply()` 第 3 个参数传入对每一个子集调用函数后结果的预期，上述设定为包含 4 个元素的数值型向量。
 
+`vapply()` 第 3 个参数传入对每一个子集调用函数后结果的预期，上述设定为包含 4 个元素的数值型向量。
 
 ### 数学泛函
 

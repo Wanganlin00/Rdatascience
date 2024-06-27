@@ -1,0 +1,221 @@
+# Quasiquotation
+
+准引用 Quasiquotation
+
+拟引函数 quasiquoting functions
+
+引用（quotation）是捕获未评估表达式的行为
+
+取消引用（unquotation）`!!` (发音为bang-bang)是选择性地评估引用的表达式的部分，告诉引用函数删除隐式引号
+
+准引用（Quasiquotation）使得创建将函数作者编写的代码与函数用户编写的代码相结合的函数变得容易
+
+```{r}
+library(rlang)
+```
+
+```{r}
+paste("Good", "morning", "Hadley")
+
+
+cement <- function(...) {
+  args <- ensyms(...)
+  paste(purrr::map(args, as_string), collapse = " ")
+}
+
+cement(Good, morning, Hadley)
+```
+
+取消引用（unquotation）`!!` (发音为bang-bang)告诉引用函数删除隐式引号
+
+```{r}
+name <- "Hadley"
+time <- "morning"
+
+# quoted
+paste("Good", time, name)
+
+# evaluated
+cement(Good, time, name)
+cement(Good, !!time, !!name)
+
+```
+
+## evaluated or quoted
+
+## 引用
+
+### 捕获表达式
+
+空格和注释不是表达式的一部分
+
+捕获（开发人员）形参的表达式，函数主体中
+
+```{r}
+expr(x + y)
+expr(1 / 2 / 3)
+
+exprs(x = x ^ 2, y = y ^ 3, z = z ^ 4)
+
+
+f1 <- function(x) expr(x)
+f1(a + b + c)
+```
+
+捕获用户作为参数传入的表达式，通过传参提供
+
+```{r}
+f2 <- function(x) enexpr(x)
+f2(a + b + c)
+
+# 捕获多个表达式
+f <- function(...) enexprs(...)
+f(x = 1, y = 10 * z)
+
+f(mtcars$mpg)
+```
+
+### 捕获 symbol
+
+`ensym()`
+
+`ensyms()`
+
+```{r}
+f <- function(...) ensyms(...)
+f(x)
+f("x")
+
+
+```
+
+### 替换
+
+```{r}
+f4 <- function(x) substitute(x * 2)
+f4(a + b + c)
+```
+
+
+## 取消引用
+
+
+### 取消引用一个参数
+
+```{r}
+x <- expr(-1)
+expr(f(!!x, y))
+
+a <- sym("y")
+b <- 1
+expr(f(!!a, !!b))
+```
+
+右边是函数调用，评估并插入结果
+
+```{r}
+mean_rm <- function(var) {
+  var <- ensym(var)
+  expr(mean(!!var, na.rm = TRUE))
+}
+
+
+expr(mean_rm(x) + mean_rm(y))
+
+expr(!!mean_rm(x) + !!mean_rm(y))
+```
+
+
+保留运算符的优先级
+
+```{r}
+x1 <- expr(x + 1)
+x2 <- expr(x + 2)
+
+expr(!!x1 / !!x2)
+```
+
+
+### 取消引用函数
+
+```{r}
+f <- expr(pkg::foo)
+f
+expr((!!f)(x, y))
+
+call2(f, expr(x), expr(y))
+```
+
+
+### 取消引用缺失的参数
+
+```{r error=TRUE}
+
+arg <- missing_arg()
+
+expr(foo(!!arg, !!arg))
+
+expr(foo(!!maybe_missing(arg), !!maybe_missing(arg)))
+```
+
+### 取消引用特殊形式函数参数
+
+```{r}
+x <- expr(mpg)
+expr(`$`(mtcars, !!x))
+```
+
+### 取消引用多个参数
+
+unquote-splice `!!!` ，发音为 bang-bang-bang，一对多的替换插入
+
+```{r}
+xs <- exprs(1, a, -b)
+expr(f(!!!xs, y))
+
+
+# Or with names
+ys <- set_names(xs, c("a", "b", "c"))
+expr(f(!!!ys, d = 4))
+
+
+call2("f", !!!xs, expr(y))
+```
+
+
+### 点-点-点 `...`
+
+
+与 Python 中的 *args* 和 *kwarg*（star-star-kwargs） 密切相关
+
+```{r}
+dfs <- list(
+  a = data.frame(x = 1, y = 2),
+  b = data.frame(x = 3, y = 4)
+)
+
+dplyr::bind_rows(!!!dfs)
+
+do.call("rbind", dfs)
+```
+
+
+
+
+
+间接提供参数名称，`:=` 发音为 colon-equals
+
+```{r}
+var <- "x"
+val <- c(4, 3, 9)
+
+tibble::tibble(!!var := val)
+
+args <- list(val)
+names(args) <- var
+
+do.call("data.frame", args)
+```
+
+
+

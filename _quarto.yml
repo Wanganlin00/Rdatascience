@@ -31,9 +31,13 @@ book:
         - functions.qmd
         - environments.qmd
         - exception_handling.qmd
-        - efficient.qmd
         - functionals.qmd
         - object_oriented_programming.qmd
+        - meta_programming.qmd
+        - expressions_AST.qmd
+        - quasiquotation.qmd
+        - evaluation.qmd
+        - efficient.qmd
 
 
 execute:

@@ -12,7 +12,6 @@
 
 -   多态polymorphism：由继承而产生的相关的不同的类，其对象对同一消息做出不同的响应。将函数的接口与其实现分开考虑，对不同类型的输入使用相同的函数形式
 
-
 **OO 系统**
 
 1.  类 （class）定义对象是什么。
@@ -270,6 +269,42 @@ s3_dispatch(mean(x))
 mean
 s3_methods_generic("mean")
 s3_methods_class("ordered")
+```
+
+### S3 方法重载
+
+```{r}
+# S3 方法重载示例
+generic_function <- function(x, y) {
+  UseMethod("generic_function")
+}
+
+# 为numeric类定义方法
+generic_function.numeric <- function(x, y) {
+  print(x + y)
+}
+
+# 为character类定义方法
+generic_function.character <- function(x, y) {
+  print(paste(x, y))
+}
+
+# 调用函数
+generic_function(1, 2)  # 输出 3
+generic_function("Hello", "World")  # 输出 "HelloWorld"
+
+
+# S3 方法重载示例
+`+` <- function(x, y) {
+  UseMethod("+")
+}
+
+# 为character类定义方法
+`+.character`<- function(x, y) {
+  print(paste0(x, y))
+}
+
+"a"+"b"+"c"
 ```
 
 ## R6 类
@@ -566,7 +601,6 @@ instance <- ggproto(NULL, NewClass,
                     )
 instance
 ```
-
 
 ```{r}
 # 继承

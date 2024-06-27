@@ -145,7 +145,32 @@ x[order(x)]
 ```{r eval=FALSE}
 sort()
 dplyr::arrange()
+
+# 分配秩次
+rank()
 ```
+
+
+## AsIs I()
+
+`I()`函数来自于stats包，它是as.is函数的别名。I()函数用于改变对象的类别，指示R在进行操作时应该将该对象视为其原始形式，不对它进行任何转换。
+
+```{r error=TRUE}
+
+summary(mtcars$mpg) |> as_tibble()
+
+lapply(summary(mtcars$mpg), I) 
+lapply(summary(mtcars$mpg), I) |> as_tibble()
+
+sapply(summary(mtcars$mpg), I, simplify = F) 
+sapply(summary(mtcars$mpg), I, simplify = F) |> as_tibble()
+
+```
+
+
+
+
+
 
 ## 数学函数
 

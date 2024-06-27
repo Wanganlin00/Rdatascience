@@ -10,7 +10,6 @@ tibble(
 )
 ```
 
-
 ```{r}
 tribble(
   ~x, ~y, ~z,
@@ -19,7 +18,6 @@ tribble(
   5, "g", 0.60
 )
 ```
-
 
 ### 文本文件
 
@@ -67,6 +65,25 @@ read_excel(path = "data/example.xlsx",sheet = 1,range = "A1:D11")
 read_excel("data/example.xlsx",2)
 ```
 
+#### 多个Excel 合并导入
+
+```{r}
+combine_sheets <- function(excel_file_path) {
+    df <- excel_file_path %>%
+        excel_sheets() %>%
+        set_names() %>%
+        map_df(.f = ~read_excel(path = excel_file_path, sheet = ..1)
+               ,.id = "sheet"
+        )
+    return(df)
+}
+
+excel_file_paths <- list.files(path = ".",pattern = ".xlsx",recursive = T)
+
+excel_file_paths
+combine_workbooks <- map_dfr(excel_file_paths, combine_sheets)
+```
+
 ### 脚本载入
 
 ```{r}
@@ -83,9 +100,6 @@ add <- function(x,y){
 }
 ```
 :::
-
-
-
 
 ### 二进制文件
 
@@ -106,7 +120,6 @@ write_parquet(x,sink = "data/leadership.parquet")
 read_parquet(file = "data/leadership.parquet" )
 ```
 
-
 ### 数据库
 
 ```{r}
@@ -114,10 +127,6 @@ read_parquet(file = "data/leadership.parquet" )
 library(DBI)
 library(dbplyr)
 ```
-
-
-
-
 
 ### 等宽格式
 
@@ -145,7 +154,7 @@ download.file(url, "extdata/co2.csv")
 df_co2 = read_csv("extdata/co2.csv")
 ```
 
-###  Datasets in library
+### Datasets in library
 
 ```{r}
 #|eval: false
@@ -179,8 +188,6 @@ read_sas(file)
 read_dta(file)
 read_stata(file)
 ```
-
-
 
 ### 键盘输入
 

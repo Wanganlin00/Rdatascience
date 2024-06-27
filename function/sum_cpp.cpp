@@ -12,9 +12,15 @@ using namespace Rcpp;
 //
 
 // [[Rcpp::export]]
-double add_cpp(double x, double y) {
-    double value = x + y;
-    return value;
+double sum_cpp(NumericVector x) {
+    int i;
+    int n = x.size();
+    double sum = 0;
+    
+    for(i = 0; i < n; i=i+1) {
+        sum = sum + x[i];
+    }
+    return sum;
 }
 // You can include R code blocks in C++ files processed with sourceCpp
 // (useful for testing and development). The R code will be automatically 
@@ -22,5 +28,5 @@ double add_cpp(double x, double y) {
 //
 
 /*** R
-add_cpp(1,2)
+sum_cpp(c(1,2,3))
 */
