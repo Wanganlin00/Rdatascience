@@ -1,82 +1,7 @@
 # tidyr
 
 ```{r}
-@ -1,194 +0,0 @@
-#数据重塑
 
-#                             宽表-->长表                            ####
-pivot_longer(data ,cols ,names_to ,names_sep ,values_to ,names_pattern ,...)
-
-#值列中只有一个变量####
-tribble(
-  ~id,  ~bp1, ~bp2,
-  "A",  100,  120,
-  "B",  140,  115,
-  "C",  120,  125
-)|> 
-  pivot_longer(
-    cols = -id,
-    names_to = "measurement",
-    values_to = "value"
-  )
-#值列中有两个变量
-tibble(ID=c("A","B","C"),
-       GDP_2019=c(114,251,152),
-       GDP_2018=c(215,115,141),
-       GDP_2017=c(141,244,243)) %>% 
-  pivot_longer(
-    cols = -ID,
-    names_to =c(".value","year"),
-    names_sep = "_") %>% 
-  .[order(.$year),]
-
-
-billboard
-billboard |> 
-  pivot_longer(
-    cols = starts_with("wk"), #cols指定哪些列不是变量
-    names_to = "week",        #names_to将存储原列名，命名为week
-    values_to = "rank",       #values_to命名存储在单元格值中的值，命名为 rank
-    values_drop_na = TRUE    #删除含有NA的行
-  )|> 
-  mutate(
-    week = parse_number(week)#忽略第一个连续数字前后的字符
-  ) %>% 
-  dplyr::filter(week>20)|>          #很少有歌曲在前 100 名中停留超过 20 周。
-  ggplot(aes(x = week, y = rank, group = track)) + 
-  geom_line(alpha = 0.25) + 
-  scale_y_reverse()
-
-#值列中有多个变量####
-who2
-who2 |> 
-  pivot_longer(
-    cols = !(country:year),
-    names_to = c("diagnosis", "gender", "age"), 
-    names_sep = "_",
-    values_to = "count"
-  )
-
-household
-household |> 
-  pivot_longer(
-    cols = !family, 
-    names_to = c(".value", "child"), #".value"将 以_分隔的第一部分用作列名来存储值，
-                                    #第二部分child1，child2作为新变量child的值
-    names_sep = "_", 
-    values_drop_na = TRUE #删除NA
-  )
-tribble(
-  ~d1_name,~d1_major,~d2_name,~d2_major,~d3_name,~d3_major,
-  '张非',"math",'李斯','English','王武','statistic',
-  '钟爱','English','陈述','math','孙健','medicine'
-) %>% 
-  pivot_longer(
-    col=starts_with("d"),
-    names_to = c("group",".value"),
-    #names_sep = "_",
-    names_pattern = "(.*\\d)(.*)"  #正则表达式
-  )
 
 
 
@@ -166,6 +91,7 @@ tibble(
   
 #                                 拆分列        ####
 #separate(data,col,into,sep,...)
+
 
 table3
 table3 %>% 
@@ -1492,7 +1418,6 @@ tibble(
 # iteration
 
 ```{r}
-@ -1,275 +0,0 @@
                                  #修改多个列####
 across(.cols, .fns, ..., .names = NULL, .unpack = FALSE)
 if_any(.cols, .fns, ..., .names = NULL)
@@ -1504,6 +1429,7 @@ where(is.character) selects all string columns.
 where(is.Date) selects all date columns.
 where(is.POSIXct) selects all date-time columns.
 where(is.logical) selects all logical columns.'
+
 
 
 A <- c(3,4,1,2,5)
@@ -1770,80 +1696,6 @@ walk2(
 )
 ```
 
-# Join
-
-```{r}
-@ -1,68 +0,0 @@
-                                  # equi join ####
-x <- tribble(
-  ~ID, ~val_x,
-  1, "x1",
-  2, "x2",
-  3, "x3"
-)
-y <- tribble(
-  ~ID, ~val_y,
-  1, "y1",
-  2, "y2",
-  4, "y3"
-)
-full_join(x,y,join_by(ID==ID))
-inner_join(x,y,by='ID')
-left_join(x,y,by='ID')
-right_join(x,y,by='ID')
-semi_join(x,y,by='ID') 
-anti_join(x,y,by='ID')
-                             # Non-equi joins ####
-#交叉连接
-cross_join(x,y)         #nrow(x) * nrow(y)
-#不等式连接
-inner_join(x,y, join_by(ID >=ID), keep = TRUE)
-
-#滚动联接  rolling join           
-inner_join(x,y, join_by(closest(ID >=ID)))#滚动连接类似于不等式连接，但仅匹配最近一个值。
-
-parties <- tibble(
-  q = 1:4,
-  party = ymd(c("2022-01-10", "2022-04-04", "2022-07-11", "2022-10-03"))
-)
-set.seed(123)
-employees <- tibble(
-  name = sample(babynames::babynames$name, 100),
-  birthday = ymd("2022-01-01") + (sample(365, 100, replace = TRUE) - 1)
-)
-employees
-employees |> 
-  left_join(parties, join_by(closest(birthday >= party)))
-employees |> 
-  anti_join(parties, join_by(closest(birthday >= party))) #
-
-# Overlap joins 重叠连接
-parties <- tibble(
-  q = 1:4,
-  party = ymd(c("2022-01-10", "2022-04-04", "2022-07-11", "2022-10-03")),
-  start = ymd(c("2022-01-01", "2022-04-04", "2022-07-11", "2022-10-03")),
-  end = ymd(c("2022-04-03", "2022-07-10", "2022-10-02", "2022-12-31"))
-)
-parties
-employees |> 
-  inner_join(parties, join_by(between(birthday, start, end)), unmatched = "error")
-
-
-
-#集合运算   要求变量名（列）完全相同,把观测（行）看成是集合中的元素
-x<-tibble(ID=c(1,2),X=c("a1",'a2'))
-x
-y<-tibble(ID=c(2,3),X=c("a2",'a3'))
-y
-
-lubridate::intersect(x,y) #返回共同包含的相同观测
-union(x,y)#返回所有不同观测
-setdiff(x,y) #返回在x中不在y中
-setequal(x,y)#判断是否相等
-
-
-```
-
 # 缺失值
 
 ```{r}
@@ -1946,7 +1798,6 @@ health |>
 # 数值向量
 
 ```{r}
-@ -1,162 +0,0 @@
 #  数值向量 ####
 
 #解析数字####data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAWElEQVR42mNgGPTAxsZmJsVqQApgmGw1yApwKcQiT7phRBuCzzCSDSHGMKINIeDNmWQlA2IigKJwIssQkHdINgxfmBBtGDEBS3KCxBc7pMQgMYE5c/AXPwAwSX4lV3pTWwAAAABJRU5ErkJggg==

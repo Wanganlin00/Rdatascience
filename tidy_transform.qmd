@@ -133,6 +133,91 @@ relocate(mpg , model:year ,.before = 1)
 relocate(mpg , model:year ,.after = cyl)
 ```
 
+
+
+## 连接操作
+
+```{r}
+x <- tribble(
+  ~ID, ~val_x,
+  1, "x1",
+  2, "x2",
+  3, "x3"
+)
+y <- tribble(
+  ~id, ~val_y,
+  1, "y1",
+  2, "y2",
+  4, "y4"
+)
+x;y
+```
+
+
+### equi join
+
+mutate-joins 
+
+```{r}
+# 全连接
+full_join(x, y, by = join_by(ID == id))
+
+# 内连接
+inner_join(x, y, by = join_by(ID == id))
+
+# 左连接
+left_join(x, y, by = join_by(ID == id))
+
+# 右连接
+right_join(x, y, by = join_by(ID == id))
+
+
+```
+
+
+
+filter-joins
+
+```{r}
+# 半连接
+semi_join(x, y, by = join_by(ID == id))
+
+# 反连接
+anti_join(x, y, by = join_by(ID == id))
+```
+
+
+### non-equi join
+
+cross_join 
+
+```{r}
+#交叉连接
+cross_join(x,y)         #nrow(x) * nrow(y)
+
+#不等式连接
+inner_join(x,y, by = join_by(ID >=id), keep = TRUE)
+
+#滚动联接  rolling join 类似于不等式连接，但仅匹配最近一个值。
+inner_join(x,y, join_by(closest(ID >=id)))
+```
+## 集合运算
+
+集合运算   要求变量名（列）完全相同,把观测（行）看成是集合中的元素
+
+```{r}
+x<-tibble(ID=c(1,2),X=c("a1",'a2'))
+y<-tibble(ID=c(2,3),X=c("a2",'a3'))
+x;y
+
+lubridate::intersect(x,y) #返回共同包含的相同观测
+union(x,y)#返回所有不同观测
+setdiff(x,y) #返回在x中不在y中
+setequal(x,y)#判断是否相等
+```
+
+
+
 ## 分组操作
 
 ### `group_by()`
@@ -141,7 +226,6 @@ relocate(mpg , model:year ,.after = cyl)
 mpg |> 
     group_by(cyl) |> 
     summarise(n=n(),mean_hwy=mean(hwy,na.rm = T))
-
 
 
 mpg |> 
@@ -162,7 +246,7 @@ mpg |>
 ```
 
 
-###  `group_nest`
+###  `group_nest()`
 
 ```{r}
 library(tidyverse)
@@ -184,6 +268,8 @@ model_by_species %>%
   select(species, coef) %>% 
   unnest(cols = c(coef))
 ```
+
+### `group_split()`
 
 
 ## 整洁操作
@@ -251,6 +337,43 @@ household |>
   )
 ```
 
+
+
+```{r}
+df <- tibble(ID=c("A","B","C"),
+       GDP_2019=c(114,251,152),
+       GDP_2018=c(215,115,141),
+       GDP_2017=c(141,244,243)) 
+df
+
+df %>% 
+  pivot_longer(
+    cols = -ID,
+    names_to =c(".value","year"),
+    names_sep = "_") %>% 
+    arrange(year)
+
+```
+
+```{r}
+
+df <- tribble(
+  ~class1_name,~class1_major,~class2_name,~class2_major,~class3_name,~class3_major,
+  '张非',"math",'李斯','English','王武','statistic',
+  '钟爱','English','陈述','math','孙健','medicine'
+) 
+df
+df%>% 
+  pivot_longer(
+    col=starts_with("class"),
+    names_to = c("group",".value"),
+    names_sep = "_",
+  )
+```
+
+
+
+
 ### `pivot_wider()`
 
 ```{r}
@@ -271,14 +394,16 @@ cms_patient_experience |>
     )
 ```
 
-## 整洁变量名和变量值
+
+
+## 重编码
 
 ```{r}
 students <- read_csv("data/students.csv", na = c("N/A", ""))
 students
 ```
 
-#### 整洁变量名
+#### 变量名
 
 ```{r}
 if(!require(janitor)) install.packages("janitor")
@@ -288,4 +413,6 @@ students |>
     janitor::clean_names(case="snake") #"title"  "lower_camel" "upper_camel"
 ```
 
-#### 
+#### 变量值
+
+##### 缺失值

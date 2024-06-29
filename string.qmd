@@ -78,7 +78,7 @@ str_sort(c("a", "c", "ch", "h", "z"))
 # df |> separate_wider_regex(cols,patterns)
 ```
 
-### 变长
+### `separate_longer_*`
 
 ```{r}
 df1 <- tibble(x = c("a,b,c", "d,e", "f"))
@@ -90,7 +90,7 @@ df2 |>
   separate_longer_position(x, width = 1)
 ```
 
-### 变宽
+### `separate_wider_*`
 
 ```{r}
 df3 <- tibble(x = c("a10.1.2022", "b10.2.2011", "e15.1.2015"))
