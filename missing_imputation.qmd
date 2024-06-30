@@ -1,0 +1,80 @@
+# 缺失值处理
+
+完全随机缺失：某变量的缺失与其他变量都无关
+
+随机缺失：某变量的缺失与其他观测变量有关，与它自己的未观测值无关
+
+非随机缺失：不属于上述两类的缺失
+
+## 识别缺失值
+
+```{r}
+data(sleep,package = "VIM")
+
+# 列出有缺失值的行
+sleep[!complete.cases(sleep),]
+
+mice::md.pattern(sleep,rotate.names = T)
+```
+
+## 删除
+
+不建议
+
+## 简单插补
+
+用某个值（均值，中位数，中数）来替换变量中的缺失值。不建议。
+
+## k最近邻插补
+
+根据其他所有变量，在数据集中查找与此观测最近邻（最相似，Gower 距离）的k个观测，将这k个观测的相应变量值进行汇总，如取中位数（连续型）或众数（类别型），将汇总值替换均值。
+
+对于观测数＜1000的数据集是个不错的选择。
+
+```{r}
+sleep_knn_imp <- VIM::kNN(data = sleep,k = 5,
+                      imp_var = F)
+sleep_knn_imp
+```
+
+## 随机森林插补
+
+对于大型数据集（\>500），随机森林法
+
+1.  使用均值替代连续型NA，使用众数替代分类变量的NA。同时记录NA的位置
+
+2.  返回第一个变量 X1 的缺失数据。创建在此变量上没有缺失值的观测值的训练集。使用训练集生成随机森林模型，用该模型预测X1 。用预测值插补NA
+
+3.  对X2 到 Xp 重复步骤2
+
+4.  重复步骤2 和3 ，直到插补值的变化不超过指定的阈值
+
+```{r}
+library(missForest)
+set.seed(10)
+(sleep_rf_imp <- missForest(sleep)$ximp)
+```
+
+## 
+
+## 多重插补
+
+多重插补（multiple imputation）是一种基于重复模拟（蒙特卡罗法）的处理方法，考虑了缺失值引起的不确定性，适用于假设检验
+
+mice包利用链式方程（chained equation）进行多元插补
+
+```{r}
+library(mice)
+sleep_mice_imp <- mice(sleep,m=5,seed = 100)
+
+# 默认连续型用 lm，glm，gam，分类变量用 （多元）logistic回归 
+fit <- with(sleep_mice_imp, lm(Dream ~ Span + Gest))
+pooled <- pool(fit)
+
+summary(pooled)
+
+sleep_mice_imp$imp$Dream
+
+mi_imp_3rd <- complete(sleep_mice_imp,action = 3)
+mi_imp_3rd
+```

@@ -17,6 +17,7 @@ book:
         - number_vector.qmd
         - string_.qmd
         - tidy_transform.qmd
+        - missing_imputation.qmd
         - base_graphics.qmd
         - custom_functions.qmd
         - dynamic_report_syntax_format.qmd
