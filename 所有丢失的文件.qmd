@@ -976,8 +976,7 @@ OlsonNames()
 # factor-forcats包
 
 ```{r}
-@ -1,139 +0,0 @@
-                                        #basic####
+              #basic####
 
 x1 <- c("Dec", "Apr", "Jan", "Mar")
 x2 <- c("Dec", "Apr", "Jam", "Mar")
@@ -991,6 +990,10 @@ fct(x1)         #按第一次出现排序
 fct(x1, levels = month_levels)
 
 levels(x1) #因子水平
+```
+
+```{r}
+
 
 csv <- "
 month,value
