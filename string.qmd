@@ -1,15 +1,15 @@
-## 字符串
+# 文本
 
-
+[`stringi`](https://stringi.gagolewski.com/)**+ [`stringr`](https://stringr.tidyverse.org/) + [`glue`](https://glue.tidyverse.org/) +** [`stringx`](https://stringx.gagolewski.com/)
 
 ## 连接
 
 ```{r}
 
-
 cat("hello","BOb","\b\n","\bIsn\' R","\t","GREAT?\n",sep = " " )
 
 str_c("x", "y", "z")
+
 str_c("Hello ", c("John", "Susan"))
 
 paste0("x","y")
@@ -17,6 +17,30 @@ paste0("Hello ", c("John", "Susan"))
 paste("x",c("a","b"),sep="",collapse = "?")  
 
 paste0("x",c("A","B"),collapse="?")
+```
+
+## [**`stringr`**](https://stringr.tidyverse.org/)
+
+```{r}
+x <- c("why", "video", "cross", "extra")
+str_length(x) 
+str_c(x, collapse = "; ")
+str_sub(x,start =  1,end =  2)
+
+# 正则表达式
+str_detect(x, "[aeiou]")
+str_count(x, "[aeiou]")
+str_subset(x, "[aeiou]")
+str_locate(x, "[aeiou]")
+str_extract(x, "[aeiou]")
+str_match(x, "(.)[aeiou](.)")
+str_replace(x, "[aeiou]", "?")
+str_split(c("a,b", "c,d,e"), ",")
+
+# 空格
+str_pad(x, 10, "both")
+x <- c("  a   ", "b   ",  "   c")
+str_trim(x)
 ```
 
 ## 子集
