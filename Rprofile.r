@@ -37,3 +37,13 @@ options(
     message(cat("0",rep("=",100),"100%",sep = ""))
     message(today())
 }
+
+
+# 更新 R 
+
+installr::updateR()
+
+
+
+
+
