@@ -39,6 +39,7 @@ R中存在的一切都是一个对象，包括 **base objects** 和 **OO objects
 基本对象来自 S
 
 ```{r}
+if(!require(sloop)) install.packages("sloop")
 # A base object:
 sloop::otype(1:10)
 is.object(1:10)

@@ -10,10 +10,22 @@
 
 ## 稀疏矩阵
 
-稀疏矩阵(Sparse matrices)对象仅存储非零元素，更节省内存
+Sparse matrix
+
+稀疏矩阵的典型构造方式是通过三元组。
 
 ```{r}
 library("Matrix")
+i <- c(1, 3:8) # 行指标
+j <- c(2, 9, 6:10) # 列指标
+x <- 7 * (1:7) # 数据
+sparseMatrix(i, j, x = x)
+```
+
+稀疏矩阵对象仅存储非零元素，更节省内存
+
+```{r}
+
 N = 100
 
 m = diag(1, N, N)
@@ -22,12 +34,13 @@ sp = sparseMatrix(1:N, 1:N, x = 1)
 object.size(m)
 object.size(sp)
 
+
 ```
 
 ## 硬件
 
 ```{r}
-library("benchmarkme")
+if(!require(benchmarkme)) install.packages("benchmarkme")
 ```
 
 1字节（byte）= 8位（bit） 二进制数 = 1个 ASCII 字符。

@@ -1,5 +1,5 @@
 ---
-title: "动态报告语法格式"
+title: "动态报告"
 execute:
   warning: false
   error: false
@@ -39,7 +39,7 @@ editor: visual
 
 <https://quarto.org/docs/guide/>
 
-## 基础
+## 语法格式
 
 +---------------------------------------------------------+-----------------------------------------------------------+
 | output                                                  | syntax                                                    |

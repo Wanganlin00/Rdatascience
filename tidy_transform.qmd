@@ -133,8 +133,6 @@ relocate(mpg , model:year ,.before = 1)
 relocate(mpg , model:year ,.after = cyl)
 ```
 
-
-
 ## 连接操作
 
 ```{r}
@@ -153,10 +151,9 @@ y <- tribble(
 x;y
 ```
 
-
 ### equi join
 
-mutate-joins 
+mutate-joins
 
 ```{r}
 # 全连接
@@ -174,8 +171,6 @@ right_join(x, y, by = join_by(ID == id))
 
 ```
 
-
-
 filter-joins
 
 ```{r}
@@ -186,10 +181,9 @@ semi_join(x, y, by = join_by(ID == id))
 anti_join(x, y, by = join_by(ID == id))
 ```
 
-
 ### non-equi join
 
-cross_join 
+cross_join
 
 ```{r}
 #交叉连接
@@ -201,9 +195,10 @@ inner_join(x,y, by = join_by(ID >=id), keep = TRUE)
 #滚动联接  rolling join 类似于不等式连接，但仅匹配最近一个值。
 inner_join(x,y, join_by(closest(ID >=id)))
 ```
+
 ## 集合运算
 
-集合运算   要求变量名（列）完全相同,把观测（行）看成是集合中的元素
+集合运算 要求变量名（列）完全相同,把观测（行）看成是集合中的元素
 
 ```{r}
 x<-tibble(ID=c(1,2),X=c("a1",'a2'))
@@ -215,8 +210,6 @@ union(x,y)#返回所有不同观测
 setdiff(x,y) #返回在x中不在y中
 setequal(x,y)#判断是否相等
 ```
-
-
 
 ## 分组操作
 
@@ -245,8 +238,7 @@ mpg |>
               .by = c(cyl,drv))
 ```
 
-
-###  `group_nest()`
+### `group_nest()`
 
 ```{r}
 library(tidyverse)
@@ -270,7 +262,6 @@ model_by_species %>%
 ```
 
 ### `group_split()`
-
 
 ## 整洁操作
 
@@ -337,8 +328,6 @@ household |>
   )
 ```
 
-
-
 ```{r}
 df <- tibble(ID=c("A","B","C"),
        GDP_2019=c(114,251,152),
@@ -371,9 +360,6 @@ df%>%
   )
 ```
 
-
-
-
 ### `pivot_wider()`
 
 ```{r}
@@ -394,14 +380,13 @@ cms_patient_experience |>
     )
 ```
 
-
-
 ## 重编码
 
 ```{r}
 students <- read_csv("data/students.csv", na = c("N/A", ""))
 students
 ```
+
 
 #### 变量名
 

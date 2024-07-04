@@ -349,7 +349,7 @@ str_view(x, "ab*?")  # 匹配a
 
 ```
 
-### 锚点Anchors 
+### 锚点Anchors
 
 ```{r}
 # 匹配开头或结尾：^  $

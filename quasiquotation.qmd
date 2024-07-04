@@ -96,9 +96,7 @@ f4 <- function(x) substitute(x * 2)
 f4(a + b + c)
 ```
 
-
 ## 取消引用
-
 
 ### 取消引用一个参数
 
@@ -125,7 +123,6 @@ expr(mean_rm(x) + mean_rm(y))
 expr(!!mean_rm(x) + !!mean_rm(y))
 ```
 
-
 保留运算符的优先级
 
 ```{r}
@@ -134,7 +131,6 @@ x2 <- expr(x + 2)
 
 expr(!!x1 / !!x2)
 ```
-
 
 ### 取消引用函数
 
@@ -145,7 +141,6 @@ expr((!!f)(x, y))
 
 call2(f, expr(x), expr(y))
 ```
-
 
 ### 取消引用缺失的参数
 
@@ -182,9 +177,7 @@ expr(f(!!!ys, d = 4))
 call2("f", !!!xs, expr(y))
 ```
 
-
 ### 点-点-点 `...`
-
 
 与 Python 中的 *args* 和 *kwarg*（star-star-kwargs） 密切相关
 
@@ -199,10 +192,6 @@ dplyr::bind_rows(!!!dfs)
 do.call("rbind", dfs)
 ```
 
-
-
-
-
 间接提供参数名称，`:=` 发音为 colon-equals
 
 ```{r}
@@ -216,6 +205,3 @@ names(args) <- var
 
 do.call("data.frame", args)
 ```
-
-
-

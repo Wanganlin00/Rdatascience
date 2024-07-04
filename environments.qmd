@@ -395,6 +395,10 @@ traceback()
 
 使用 `lobstr::cst()`从头开始 来理解调用栈, **c**all **s**tack **t**ree @fig-frame
 
+```{r echo=FALSE}
+if(!require(lobstr)) install.packages("lobstr")
+```
+
 ```{r}
 h <- function(x) {
   lobstr::cst()

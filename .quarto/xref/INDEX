@@ -67,5 +67,20 @@
   },
   "R-Python.qmd": {
     "R-Python.html": "a18f048b"
+  },
+  "read_write.qmd": {
+    "read_write.html": "36391f6d"
+  },
+  "logical_vector.qmd": {
+    "logical_vector.html": "832b32d2"
+  },
+  "number_vector.qmd": {
+    "number_vector.html": "c21f5a56"
+  },
+  "text_string.qmd": {
+    "text_string.html": "9b099b92"
+  },
+  "tidy_transform.qmd": {
+    "tidy_transform.html": "90195447"
   }
 }

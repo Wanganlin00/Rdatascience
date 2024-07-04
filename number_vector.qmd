@@ -1,4 +1,4 @@
-# 数字向量
+# 数值
 
 ## `parse_number()`
 
@@ -48,7 +48,7 @@ mpg |>
     arrange(desc(hwy_sum))
 ```
 
-## `pmax()`  `pmin()`
+## `pmax()` `pmin()`
 
 ```{r}
 df <- tribble(
@@ -133,6 +133,7 @@ cummin(x)
 cummax(x)
 cummean(x)
 ```
+
 ## 连续标识符
 
 ```{r}
@@ -148,9 +149,6 @@ df %>% group_by(x, y) %>% summarise(n = n())
 df %>% group_by(id = consecutive_id(x, y), x, y) %>% summarise(n = n())
 ```
 
-
-
-
 ## 偏移量 Offsets
 
 ```{r}
@@ -158,7 +156,6 @@ x <- c(2, 5, 11, 11, 19, 35)
 dplyr::lag(x,n=1)
 dplyr::lead(x,n=2)
 ```
-
 
 ## 位置
 
