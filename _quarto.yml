@@ -20,7 +20,7 @@ book:
         - missing_imputation.qmd
         - base_graphics.qmd
         - custom_functions.qmd
-        - dynamic_report_syntax_format.qmd
+        - dynamic_report.qmd
 
     - part: "R → Python"
       chapters: 
