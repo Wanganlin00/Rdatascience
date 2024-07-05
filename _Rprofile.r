@@ -50,7 +50,7 @@ pkgs <- c('conflicted','installr',"devtools",'reticulate','BiocManager',
           'mice', 'missForest', 'VIM')
 
 stat <- c('moments', 'nortest','HH','emmeans',"ez",'afex' ,'gee', 'geepack','epiDisplay', 'psych','dendextend', 'rpart.plot', 'vip',
-          "tidymodels",'poissonreg','censored', 'multilevelmod',
+          "tidymodels",'poissonreg','censored', 'multilevelmod','discrim',
           'factoextra', 'tidyclust',"pec"
           )
 remotes::install_github('jbryer/psa', build_vignettes = TRUE, dependencies = 'Enhances')
