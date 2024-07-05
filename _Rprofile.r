@@ -50,7 +50,9 @@ pkgs <- c('conflicted','installr',"devtools",'reticulate','BiocManager',
           'mice', 'missForest', 'VIM')
 
 stat <- c('moments', 'nortest','HH','emmeans',"ez",'afex' ,'gee', 'geepack','epiDisplay', 'psych','dendextend', 'rpart.plot', 'vip',
-          "tidymodels",'poissonreg','censored', 'multilevelmod')
+          "tidymodels",'poissonreg','censored', 'multilevelmod',
+          'factoextra', 'tidyclust',"pec"
+          )
 remotes::install_github('jbryer/psa', build_vignettes = TRUE, dependencies = 'Enhances')
 
 graph <- c('patchwork',"ggpubr","survminer","ggrepel","ggcorrplot","ggsurvfit",'ggfortify',
@@ -61,8 +63,6 @@ tbl <- c('gt', 'gtsummary', 'tableone')
 
 
 install.packages(pkgs)
-install.packages("pROC")
-
 install.packages(stat)
 
 # 语言
