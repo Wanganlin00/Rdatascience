@@ -39,6 +39,9 @@ options(
     message(today())
 }
 
+# when you try to load a package that is not installed?
+# When using library, you get an error message. With require, the
+# return value is FALSE and a warning is printed
 
 # 更新 RGui 
 
