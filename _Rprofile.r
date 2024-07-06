@@ -7,6 +7,7 @@ options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
 
 
 
+# conflict_prefer(name = "filter", winner = "dplyr")
 
 .First<-function() {
     library(showtext,quietly = T)
