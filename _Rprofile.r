@@ -1,9 +1,8 @@
 # ~\etc\Rprofile.site
 
-options(
-    repos = c(CRAN = "https://cran.rstudio.com/")
-)
-# options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
+options(repos = c(CRAN = "https://cran.rstudio.com/"))
+
+options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
 
 
 
@@ -31,6 +30,8 @@ options(
     library(readxl)
     library(writexl)
     message(cat("0", rep("=", 100), "100%", sep = ""))
+    getOption("repos")
+    options("BioC_mirror")
 }
 
 
