@@ -8,6 +8,11 @@
 
 -   [arrow.apache.R](https://arrow.apache.org/docs/r/)
 
+## tidypolars
+
+-   [tidypolars](https://tidypolars.etiennebacher.com/)
+
+
 ## 稀疏矩阵
 
 Sparse matrix
@@ -102,6 +107,12 @@ stopCluster(cl)
 ## Rcpp
 
 [Rcpp](http://www.rcpp.org/)
+
+[Rcpp4everyone](https://teuder.github.io/rcpp4everyone_en/)
+
+<https://dirk.eddelbuettel.com/papers/useR2019_rcpp_tutorial.pdf>
+
+<https://www.runoob.com/cplusplus/cpp-tutorial.html>
 
 Rcpp sugar
 
