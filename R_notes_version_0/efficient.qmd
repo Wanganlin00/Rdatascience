@@ -10,6 +10,10 @@
 
 ## tidypolars
 
+-   [R polars](https://pola-rs.github.io/r-polars/)
+
+-   [Cookbook Polars for R](https://ddotta.github.io/cookbook-rpolars/)
+
 -   [tidypolars](https://tidypolars.etiennebacher.com/)
 
 
