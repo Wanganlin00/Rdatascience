@@ -18,6 +18,7 @@ book:
         - text_string.qmd
         - tidy_transform.qmd
         - missing_imputation.qmd
+        - big_data.qmd
         - base_graphics.qmd
         - custom_functions.qmd
         - dynamic_report.qmd
@@ -38,9 +39,8 @@ book:
         - expressions_AST.qmd
         - quasiquotation.qmd
         - evaluation.qmd
-        - efficient.qmd
-
-
+        
+        
 execute:
   cache: true
   message: false 

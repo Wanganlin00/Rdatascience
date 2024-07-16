@@ -127,7 +127,7 @@ R语言是一种支持函数式编程的语言，它自然地支持一级函数�
 
     ```{r}
     map_values <- function(x, f) {
-      vapply(x, f, FUN.VALUE = double(x))
+      vapply(x, f, FUN.VALUE = double(1))
     }
 
     result <- map_values(c(1,2,3,4,5), function(x) x ^ 2)
@@ -412,7 +412,7 @@ a <- b <- c <- d <- 2
 
 如果函数无法完成其分配的任务，则应抛出错误，并立即终止函数的执行。
 
-```{r}
+```{r error=TRUE}
 j05 <- function() {
   stop("I'm an error")
   return(10)
@@ -422,7 +422,7 @@ j05()
 
 ### 退出处理程序
 
-```{r}
+```{r error=TRUE}
 j06 <- function(x) {
   cat("Hello\n")
   on.exit(cat("Goodbye!\n"), add = TRUE) # 使用  add = TRUE 时始终设置
@@ -449,11 +449,11 @@ j06(FALSE)
 -   special：`[[`, `if` ,`for`
 
 ```{r}
+x <- 2
+y <- 1
 x + y
 `+`(x, y)
 
-names(df) <- c("x", "y", "z")
-`names<-`(df, c("x", "y", "z"))
 
 for(i in 1:10) print(i)
 `for`(i, 1:10, print(i))
@@ -494,7 +494,7 @@ x
 
 ### 特殊形式
 
-所有特殊形式都作为Primitive functions @sec-Primitive_functions 实现（即在 C 中），这意味着打印这些函数没有信息。
+所有特殊形式都作为初等函数 @sec-Primitive_functions 实现（即在 C 中），这意味着打印这些函数没有信息。
 
 ```{r}
 `for`

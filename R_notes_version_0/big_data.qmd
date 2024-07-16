@@ -1,0 +1,244 @@
+# 大内存数据
+
+## 稀疏矩阵
+
+Sparse matrix
+
+稀疏矩阵的典型构造方式是通过三元组。
+
+```{r}
+library(Matrix)
+i <- c(1, 3:8) # 行指标
+j <- c(2, 9, 6:10) # 列指标
+x <- 7 * (1:7) # 数据
+sparseMatrix(i, j, x = x)
+```
+
+稀疏矩阵对象仅存储非零元素，更节省内存
+
+```{r}
+
+N = 100
+
+m = diag(1, N, N)
+sp = sparseMatrix(1:N, 1:N, x = 1)
+ 
+object.size(m)
+object.size(sp)
+
+
+```
+
+## `data.table`
+
+-   [data.table](https://rdatatable.gitlab.io/data.table/)
+
+## `arrow`
+
+-   [arrow.apache.R](https://arrow.apache.org/docs/r/)
+
+## `polars`
+
+### [Polars](https://docs.pola.rs/)
+
+-   [R polars](https://pola-rs.github.io/r-polars/)
+
+-   [Cookbook Polars for R](https://ddotta.github.io/cookbook-rpolars/)
+
+```{r}
+if(!require(polars))
+    install.packages("polars", repos = "https://rpolars.r-universe.dev")
+
+polars_info()
+polars_code_completion_activate()
+```
+
+Polars 的主要函数存储在 “pl” 命名空间中，可以使用 “`pl$`” 前缀进行访问，以防止与其他组件和base R 函数名称冲突
+
+```{r}
+iris_polars <- pl$DataFrame(iris)
+iris_polars
+```
+
+访问属性
+
+```{r}
+iris_polars$shape
+iris_polars$height
+iris_polars$width
+
+# polars syntax
+pl$DataFrame(iris)$
+  select(c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width"))$
+  with_columns(
+    pl$when(
+      (pl$col("Petal.Length") / pl$col("Petal.Width") > 3)
+    )$then(pl$lit("long"))$
+      otherwise(pl$lit("large"))$
+      alias("petal_type")
+  )$
+  filter(pl$col("Sepal.Length")$is_between(4.5, 5.5))$
+  head(6)
+```
+
+```{r}
+pl$read_csv("data/Advertising.csv")
+```
+
+### [tidypolars](https://tidypolars.etiennebacher.com/)
+
+```{r}
+if(!require(tidypolars))
+    install.packages('tidypolars',
+                     repos = c('https://etiennebacher.r-universe.dev', getOption("repos"))
+    )
+
+iris |> 
+  as_polars_df() |> 
+  select(starts_with(c("Sep", "Pet"))) |> 
+  mutate(
+    petal_type = ifelse((Petal.Length / Petal.Width) > 3, "long", "large")
+  ) |> 
+  filter(between(Sepal.Length, 4.5, 5.5)) |> 
+  head()
+```
+
+## Rcpp
+
+[Rcpp](http://www.rcpp.org/)
+
+[Rcpp4everyone](https://teuder.github.io/rcpp4everyone_en/)
+
+<https://dirk.eddelbuettel.com/papers/useR2019_rcpp_tutorial.pdf>
+
+<https://www.runoob.com/cplusplus/cpp-tutorial.html>
+
+### 向量类
+
+`NumericVector` `IntegerVector` `CharacterVector` `LogicalVector`
+
+```{r}
+library(Rcpp)
+sourceCpp("function/sum_cpp.cpp")
+
+sum_cpp(mpg$displ)
+sum(mpg$displ)
+
+sourceCpp("function/mean_cpp.cpp")
+mean_cpp(mpg$displ)
+```
+
+`NumericMatrix` `IntegerMatrix` `CharacterMatrix` `LogicalMatrix`
+
+### 数据框类
+
+DataFrame
+
+### 列表类
+
+List
+
+```{r}
+# 平均百分比误差
+sourceCpp("function/mpe.cpp")
+mod <- lm(mpg ~ wt, data = mtcars)
+mpe(mod)
+```
+
+### 函数类
+
+```{r}
+cppFunction("RObject callWithOne(Function f) {
+  return f(1);
+}")
+
+callWithOne(function(x) x + 1)
+callWithOne(paste)
+```
+
+### 属性
+
+```{r}
+cppFunction('NumericVector attribs() {
+  NumericVector out = NumericVector::create(1, 2, 3);
+
+  out.names() = CharacterVector::create("a", "b", "c");
+  out.attr("my-attr") = "my-value";
+  out.attr("class") = "my-class";
+
+  return out;
+}')
+
+
+attribs()
+```
+
+### Rcpp sugar
+
+## 并行计算 Parallel computing
+
+![](images/parallel_computation.jpeg){fig-align="center"}
+
+Cluster
+
+Master
+
+Worker
+
+Job -\> (Spilt) -\> task 1,...,n, -\> (feed) -\> R worker
+
+```{r}
+library("parallel")
+num_of_cores = detectCores()
+num_of_cores
+```
+
+`parLapply（cl， x， FUN， ...）`
+
+`parApply（cl = NULL， X， MARGIN， FUN， ...）`
+
+`parSapply（cl = NULL， X， FUN， ...， simplify = TRUE， USE.NAMES = TRUE)`
+
+`makeCluster()`此函数指定要使用的处理器数量
+
+```{r eval=FALSE}
+library("parallel")
+
+
+N = 10^4
+sapply(1:N, sd)
+
+cl = makeCluster(4)
+parSapply(cl, 1:N, sd)
+stopCluster(cl)
+```
+
+## 硬件
+
+```{r}
+if(!require(benchmarkme)) install.packages("benchmarkme")
+```
+
+1字节（byte）= 8位（bit） 二进制数 = 1个 ASCII 字符。
+
+International System of Units (SI)
+
+```{r}
+# 随机存取存储器 Random access memory,RAM
+benchmarkme::get_ram()
+```
+
+standard hard disk drives (HDDs)
+
+Solid state drives (SSDs)
+
+```{r}
+# 操作系统 2^8
+.Machine$sizeof.pointer
+```
+
+```{r}
+# CPU
+res = benchmark_std() 
+plot(res)
+```

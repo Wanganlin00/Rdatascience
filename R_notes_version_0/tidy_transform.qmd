@@ -220,7 +220,6 @@ mpg |>
     group_by(cyl) |> 
     summarise(n=n(),mean_hwy=mean(hwy,na.rm = T))
 
-
 mpg |> 
     group_by(cyl,drv) |> 
     summarise(n=n(),
@@ -386,7 +385,6 @@ cms_patient_experience |>
 students <- read_csv("data/students.csv", na = c("N/A", ""))
 students
 ```
-
 
 #### 变量名
 
