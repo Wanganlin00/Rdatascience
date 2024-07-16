@@ -191,6 +191,15 @@ Job -\> (Spilt) -\> task 1,...,n, -\> (feed) -\> R worker
 library("parallel")
 num_of_cores = detectCores()
 num_of_cores
+
+# 定义一个示例函数
+example_function <- function(x) {
+  return(x^2)
+}
+
+# 创建输入数据
+input_data <- 1:1e5
+
 ```
 
 `parLapply（cl， x， FUN， ...）`
@@ -201,16 +210,29 @@ num_of_cores
 
 `makeCluster()`此函数指定要使用的处理器数量
 
-```{r eval=FALSE}
-library("parallel")
+```{r}
+# 使用 parLapply （多进程并行）
+# 创建集群
+cl <- makeCluster(detectCores() - 1) # 创建一个集群，通常留一个核心给操作系统
 
+# 将所需的库和数据导入集群
+clusterExport(cl, varlist = c("example_function", "input_data"))
 
-N = 10^4
-sapply(1:N, sd)
+# 执行并行计算
+result <- parSapply(cl, input_data, example_function) %>% as_tibble()
+print(result)
 
-cl = makeCluster(4)
-parSapply(cl, 1:N, sd)
+# 关闭集群
 stopCluster(cl)
+```
+
+```{r error=TRUE}
+# 使用 mclapply （多进程并行）多线程（Multithreading）
+
+# 使用 mclapply 执行并行计算
+result <- mclapply(input_data, example_function, mc.cores = 4) # mc.cores 指定使用的核心数
+print(result)
+
 ```
 
 ## 硬件
