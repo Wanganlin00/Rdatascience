@@ -79,17 +79,17 @@ installr::updateR(cran_mirror = "https://mirrors.ustc.edu.cn/CRAN/")
 
 pkgs <- c('conflicted','installr',"devtools",'reticulate','BiocManager',
           'readxl', 'writexl','showtext',"janitor","svglite",
-          'tidyverse',"data.table","arrow",
+          'tidyverse',"data.table","arrow","tidymodels",
           'mice', 'missForest', 'VIM')
 
 stat <- c('moments', 'nortest','HH','emmeans',"ez",'afex' ,'gee', 'geepack','epiDisplay', 'psych',
-          "tidymodels",'poissonreg','censored', 'multilevelmod','discrim',
+          'poissonreg','censored', 'multilevelmod','discrim',
           'factoextra', 'tidyclust',"tidygraph"
           )
 remotes::install_github('jbryer/psa', build_vignettes = TRUE, dependencies = 'Enhances')
 
-graph <- c('patchwork',"ggpubr","survminer","ggrepel","ggcorrplot","ggsurvfit",'ggfortify',"ggprism",
-        'ggpmisc','pheatmap',"ggthemes","pROC","ggrapg"
+graph <- c('patchwork',"ggpubr","ggpattern","survminer","pROC","plotly","ggraph","ggrepel","ggcorrplot","ggprism",
+           'pheatmap',"ggsurvfit",'ggfortify',"ggthemes",'ggpmisc'
         )
 
 tbl <- c('gt', 'gtsummary', 'tableone')
