@@ -15,9 +15,8 @@ book:
         - useful_function.qmd
         - logical_vector.qmd
         - number_vector.qmd
-        - text_string.qmd
+        - string_text.qmd
         - tidy_transform.qmd
-        - missing_imputation.qmd
         - big_data.qmd
         - base_graphics.qmd
         - custom_functions.qmd
