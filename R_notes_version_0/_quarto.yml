@@ -18,7 +18,6 @@ book:
         - string_text.qmd
         - transform_tidy.qmd
         - big_data.qmd
-        - base_graphics.qmd
         - custom_functions.qmd
         - dynamic_report.qmd
 
@@ -56,8 +55,7 @@ number-depth: 4
 code-fold: true
 code-tools: true
 code-link: true
-
-
+code-summary: "Show the code"
 knitr:
   opts_chunk: 
     comment: "#>" 

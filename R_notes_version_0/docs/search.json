@@ -1,0 +1,189 @@
+[
+  {
+    "objectID": "dynamic_report.html",
+    "href": "dynamic_report.html",
+    "title": "\n10  动态报告\n",
+    "section": "",
+    "text": "1 文本格式",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#section-text_format",
+    "href": "dynamic_report.html#section-text_format",
+    "title": "\n10  动态报告\n",
+    "section": "",
+    "text": "output\nsyntax\n\n\n\ncode\n` code `\n\n\n\n粗体\n**粗体**\n\n\n\n斜体\n*斜体*\n\n\n\n下横线\n[下横线]{.underline}\n\n\n\n删除线\n~~删除线~~\n\n\n\n上标X2\n\nX^2^\n\n\n\n下标 X1\n\nX~1~\n\n\n\n\n水平线分隔符\n\n\n***\n\n\n\nhttps://r4ds.hadley.nz/\n&lt;https://r4ds.hadley.nz/&gt;\n\n\n\nquarto\n[quarto](https://quarto.org)\n\n\n\n\n | \n\n\n\n\n\n\nBlockquote\n\n&gt; Blockquote",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#yaml",
+    "href": "dynamic_report.html#yaml",
+    "title": "\n10  动态报告\n",
+    "section": "\n2 YAML",
+    "text": "2 YAML\n\n2.1 Execute chunk\n\n\n\n\n\n\n\nOption\nDefault\nEffects\n\n\n\necho\ntrue\n\n\nfalse: hide code in output\\\n\ninclude code cell syntaxfenced\n\n\n\n\neval\ntrue\n\nfalse: don’t run code\n\n\ninclude\ntrue\n\nfalse: don’t include code or results\n\n\noutput\ntrue\n\n\nfalse: don’t include results\\\n\ntreat results as raw markdownasis\n\n\n\n\nwarning\ntrue\n\nfalse: don’t include warnings in output\n\n\nerror\nfalse\n\ntrue: include error in output and continue with render\n\n\n\n2.2 添加页脚\n您可以创建包含某些内容的文件。然后将其显示在 quarto 文档的底部。html\n首先，创建一个名为 file 的文件。在其中复制以下内容：footer.html\n在YAML block 中添加 include-after-body: \"footer.html\"\n\n2.3 标题上方添加额外空间\n使用自定义样式表可以直接实现此效果。此样式表将包含专门设计用于在标题上方添加额外空间的规则。\n首先创建一个名为并包含以下规则的 CSS 文件：style.css\nh1, .h1, h2, .h2, h3, .h3 {\n  margin-top: 84px;\n}\n这些 CSS 规则将在 1、2 和 3 级标题（分别由h1 、h2 和h3 标签表示）上方添加 84 像素的边距。\n最后，在YAML block 中添加 css: style.css",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#内部链接",
+    "href": "dynamic_report.html#内部链接",
+    "title": "\n10  动态报告\n",
+    "section": "\n3 内部链接",
+    "text": "3 内部链接\n如 文本格式 是第一节",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#脚注",
+    "href": "dynamic_report.html#脚注",
+    "title": "\n10  动态报告\n",
+    "section": "\n4 脚注",
+    "text": "4 脚注\n第一个1\nFor instance2, here is one attached to the word carrot3.",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#figure",
+    "href": "dynamic_report.html#figure",
+    "title": "\n10  动态报告\n",
+    "section": "\n5 Figure",
+    "text": "5 Figure\n\n5.1 Caption\n\nShow the codelibrary(tidyverse)\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_boxplot() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\nFigure: Here is a really important caption.\n\n\n\n标题文本居中\ninclude-in-header:\n   - text: |\n       &lt;style&gt;\n       figcaption {\n         text-align: center;\n       }\n       &lt;/style&gt;\n\n5.2 交互式图\n\nShow the codelibrary(plotly)\np &lt;- mpg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_boxplot() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n# Turn it interactive with ggplotly\np &lt;- ggplotly(p)\np\n\n\n\n\n\n\n5.3 选项卡\nDiv .class .panel-tabset .nav-pills\n\n\nScatterplot\nBoxplot\nBarplot\n\n\n\n\nShow the codempg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_point() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\nShow the codempg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_boxplot() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\nShow the codempg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_bar(stat = \"identity\") +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\n\n5.4 全宽图\n\nShow the code\nlibrary(patchwork)\nlibrary(ggplot2)\n\nggplot(mtcars) + geom_point(aes(mpg, disp))+\nggplot(mtcars) + geom_boxplot(aes(gear, disp, group = gear))+\nggplot(mtcars) + geom_smooth(aes(disp, qsec))+\nggplot(mtcars) + geom_bar(aes(carb))\n\n\n\n\n\n\n\nShow the codeplot(1:25,1:25,pch=c(1:25))\nplot(1:25,c(1:25)^2,type=\"b\",pch=c(1:25))\n\n\n\n\n\n\n\n\n\n(a) 点\n\n\n\n\n\n\n\n\n\n(b) 线\n\n\n\n\n\n\n图 1: 左右图\n\n\n如左图 图 10.1 (a) 所示，点有25种不同的形状，\n右图 图 10.1 (b) 所示。\n\n5.4.1 EDA\n引用章节： Section 10.5.4.1 and Section 10.7\n引用图片 图 10.2 shows two histograms displaying the distributions of price and area individually.\n直方图ggplot(mpg, aes(cty)) +\n  geom_histogram() +\n  labs(title = \"Histogram of cty\")\n\nggplot(mpg, aes(x =hwy)) +\n  geom_histogram() +\n  labs(title = \"Histogram of hwy\")\n\n\n\n\n\n\n\n\n\n(a) Histogram of ctys\n\n\n\n\n\n\n\n\n\n(b) Histogram of hwys\n\n\n\n\n\n\n图 2: Histograms of mpg",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#表格",
+    "href": "dynamic_report.html#表格",
+    "title": "\n10  动态报告\n",
+    "section": "\n6 表格",
+    "text": "6 表格\n表 10.1 displays basic summary statistics for these two variables.\n\nShow the codempg %&gt;%\n  summarise(\n    mean_displ=mean(displ),\n    mean_hwy=mean(hwy),\n    mean_cty=mean(cty),\n    .by = cyl\n    ) %&gt;%\n  knitr::kable(digits = c(0, 0, 0, 0, 2))\n\n\n表 1: Table Summary statistics\n\n\n\n\ncyl\nmean_displ\nmean_hwy\nmean_cty\n\n\n\n4\n2\n29\n21\n\n\n6\n3\n23\n16\n\n\n8\n5\n18\n13\n\n\n5\n2\n29\n20",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#sec-formula",
+    "href": "dynamic_report.html#sec-formula",
+    "title": "\n10  动态报告\n",
+    "section": "\n7 公式",
+    "text": "7 公式\nBlack-Scholes (式 10.1) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:\n\\[ \\frac{\\partial \\mathrm C}{ \\partial \\mathrm t } + \\frac{1}{2}\\sigma^{2} \\mathrm S^{2} \\frac{\\partial^{2} \\mathrm C}{\\partial \\mathrm C^2}   + \\mathrm r \\mathrm S \\frac{\\partial \\mathrm C}{\\partial \\mathrm S}\\ =   \\mathrm r \\mathrm C   \\tag{1}\\]\nWe can fit a simple linear regression model of the form shown in 式 10.2.\n\\[\nprice = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\times area + \\epsilon\n\\tag{2}\\]",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#callout",
+    "href": "dynamic_report.html#callout",
+    "title": "\n10  动态报告\n",
+    "section": "\n8 Callout",
+    "text": "8 Callout\n\n\n\n\n\n\nNote\n\n\n\nNote that there are five types of callouts, including: note, tip, warning, caution, and important.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis is an example of an tip callout\n\n\n\n\n\n\n\n\nCaution\n\n\n\nThis is an example of an caution callout\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThis is an example of an warning callout\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an example of an important callout\n\n\n\n\n\n\n\n\nTip 1\n\n\n\n交叉引用 a Tip\nAdd an ID starting with #tip- to reference a tip.\n\n\nSee Tip 10.1…\n自定义callout\n\n\n\n\n\n\n\nNote\n\n\n\nThis is a custom callout.\nUsing CSS, you can control pretty much everything.\nThis div is even shaking every now and then 🙃\n\n\n\n\n\n标注类型\n前缀\n\n\n\nnote\n#nte-\n\n\ntip\n#tip-\n\n\nwarning\n#wrn-\n\n\nimportant\n#imp-\n\n\ncaution\n#cau-",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#页边距",
+    "href": "dynamic_report.html#页边距",
+    "title": "\n10  动态报告\n",
+    "section": "\n9 页边距",
+    "text": "9 页边距\n\n9.1 R结果\n\nShow the codeknitr::kable(\n  mtcars[1:3, 1:3]\n)\n\n\n\n\n\nmpg\ncyl\ndisp\n\n\n\nMazda RX4\n21.0\n6\n160\n\n\nMazda RX4 Wag\n21.0\n6\n160\n\n\nDatsun 710\n22.8\n4\n108\n\n\n\n\n\n9.2 Div\n\n\nHi! I’m a side note! 🔥",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#latex",
+    "href": "dynamic_report.html#latex",
+    "title": "\n10  动态报告\n",
+    "section": "\n10 LaTex",
+    "text": "10 LaTex\n\n10.1 公式对齐\n\\[\\begin{aligned}\n  f(x) =& \\sum_{k=0}^\\infty \\frac{1}{k!} x^k \\\\\n  =& e^x\n\\end{aligned}\\]\n\n10.2 括号等高\n\\[\\phi(x) = \\frac{1}{\\sqrt{2\\pi}} \\exp\\left\\{ \\frac{1}{2} x^2 \\right\\} \\]\n\n10.3 矩阵\n\\[\n\\begin{bmatrix}\nx_{11} & x_{12}&...&x_{1p} \\\\\nx_{21} & x_{22}&...&x_{2p} \\\\\n\\vdots &\\vdots &   &\\vdots\\\\\nx_{n1} & x_{n2}&...&x_{np} \\\\\n\\end{bmatrix}\n\\]\n\n10.4 向量表示\n\\[   \\boldsymbol{v} = (v_1, v_2)^T \\]",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#定理类段落",
+    "href": "dynamic_report.html#定理类段落",
+    "title": "\n10  动态报告\n",
+    "section": "\n11 定理类段落",
+    "text": "11 定理类段落\n\n术语\n\n定义：三角形的内角和等于180°。\n\n\n或者\n引用Theorem 10.1。\n\nTheorem 1 (勒贝格定理) 一元函数黎曼可积， 当且仅当其不连续点的集合为零测集。\n\n\n\n环境名\n默认显示名\n标签前缀\n\n\n\ntheorem\nTheorem\n#thm-\n\n\nlemma\nLemma\n#lem-\n\n\ncorollary\nCorollary\n#cor-\n\n\nproposition\nProposition\n#prp-\n\n\nconjecture\nConjecture\n#cnj-\n\n\ndefinition\nDefinition\n#def-\n\n\nexample\nExample\n#exm-\n\n\nexercise\nExercise\n#exr-",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#opts_chunkset.r",
+    "href": "dynamic_report.html#opts_chunkset.r",
+    "title": "\n10  动态报告\n",
+    "section": "\n12 _opts_chunk$set.R",
+    "text": "12 _opts_chunk$set.R\n\nShow the codeknitr::opts_chunk$set(\n  # comment = \"#&gt;\",\n  # collapse = TRUE,\n  # cache = TRUE,\n  # message = FALSE,\n  # error = FALSE,\n)\nggplot2::theme_set(new = ggplot2::theme_classic())",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#代码块",
+    "href": "dynamic_report.html#代码块",
+    "title": "\n10  动态报告\n",
+    "section": "\n13 代码块",
+    "text": "13 代码块\n\n13.1 html\n\n    \n\n Mr.   \n\n\nCenter\n\n\n\nText highlight\n\nCtrl+C&gt;\n\n\n小文本Text\n\n\n13.2 Inline Code\n\nUse computed values directly in text sections. Code is evaluated at render and results appear as text.\n\nShow the codea &lt;- 1+2+3\n\n\n\n13.2.1 Knitr\na 的值为 6",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#文本高亮",
+    "href": "dynamic_report.html#文本高亮",
+    "title": "\n10  动态报告\n",
+    "section": "\n14 文本高亮",
+    "text": "14 文本高亮\n\nText highlight\n\n keyboard Ctrl+C&gt;",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#会话信息",
+    "href": "dynamic_report.html#会话信息",
+    "title": "\n10  动态报告\n",
+    "section": "\n15 会话信息",
+    "text": "15 会话信息\n\n\nSession Information,click to show\n\n\nShow the codesessionInfo()\n#&gt; R version 4.4.1 (2024-06-14 ucrt)\n#&gt; Platform: x86_64-w64-mingw32/x64\n#&gt; Running under: Windows 10 x64 (build 19045)\n#&gt; \n#&gt; Matrix products: default\n#&gt; \n#&gt; \n#&gt; locale:\n#&gt; [1] LC_COLLATE=Chinese (Simplified)_China.utf8 \n#&gt; [2] LC_CTYPE=Chinese (Simplified)_China.utf8   \n#&gt; [3] LC_MONETARY=Chinese (Simplified)_China.utf8\n#&gt; [4] LC_NUMERIC=C                               \n#&gt; [5] LC_TIME=Chinese (Simplified)_China.utf8    \n#&gt; \n#&gt; time zone: Asia/Shanghai\n#&gt; tzcode source: internal\n#&gt; \n#&gt; attached base packages:\n#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     \n#&gt; \n#&gt; other attached packages:\n#&gt;  [1] plotly_4.10.4    writexl_1.5.0    readxl_1.4.3     patchwork_1.2.0 \n#&gt;  [5] lubridate_1.9.3  forcats_1.0.0    stringr_1.5.1    dplyr_1.1.4     \n#&gt;  [9] purrr_1.0.2      readr_2.1.5      tidyr_1.3.1      tibble_3.2.1    \n#&gt; [13] ggplot2_3.5.1    tidyverse_2.0.0  conflicted_1.2.0 showtext_0.9-7  \n#&gt; [17] showtextdb_3.0   sysfonts_0.8.9  \n#&gt; \n#&gt; loaded via a namespace (and not attached):\n#&gt;  [1] gtable_0.3.5            xfun_0.45               htmlwidgets_1.6.4      \n#&gt;  [4] lattice_0.22-6          tzdb_0.4.0              crosstalk_1.2.1        \n#&gt;  [7] vctrs_0.6.5             tools_4.4.1             generics_0.1.3         \n#&gt; [10] stats4_4.4.1            fansi_1.0.6             pkgconfig_2.0.3        \n#&gt; [13] Matrix_1.7-0            data.table_1.15.4       S4Vectors_0.42.1       \n#&gt; [16] lifecycle_1.0.4         GenomeInfoDbData_1.2.12 farver_2.1.2           \n#&gt; [19] compiler_4.4.1          munsell_0.5.1           codetools_0.2-20       \n#&gt; [22] GenomeInfoDb_1.40.1     htmltools_0.5.8.1       lazyeval_0.2.2         \n#&gt; [25] yaml_2.3.9              pillar_1.9.0            cachem_1.1.0           \n#&gt; [28] nlme_3.1-165            tidyselect_1.2.1        digest_0.6.36          \n#&gt; [31] stringi_1.8.4           splines_4.4.1           labeling_0.4.3         \n#&gt; [34] fastmap_1.2.0           grid_4.4.1              colorspace_2.1-0       \n#&gt; [37] cli_3.6.3               magrittr_2.0.3          utf8_1.2.4             \n#&gt; [40] withr_3.0.0             scales_1.3.0            UCSC.utils_1.0.0       \n#&gt; [43] timechange_0.3.0        rmarkdown_2.27          XVector_0.44.0         \n#&gt; [46] httr_1.4.7              cellranger_1.1.0        hms_1.1.3              \n#&gt; [49] memoise_2.0.1           evaluate_0.24.0         knitr_1.48             \n#&gt; [52] GenomicRanges_1.56.1    IRanges_2.38.1          viridisLite_0.4.2      \n#&gt; [55] mgcv_1.9-1              rlang_1.1.4             glue_1.7.0             \n#&gt; [58] BiocGenerics_0.50.0     rstudioapi_0.16.0       jsonlite_1.8.8         \n#&gt; [61] R6_2.5.1                zlibbioc_1.50.0",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#footnotes",
+    "href": "dynamic_report.html#footnotes",
+    "title": "\n10  动态报告\n",
+    "section": "",
+    "text": "WANG,A.,et al.(2025)↩︎\ndafhaifhafoahfo↩︎\nThe carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color↩︎",
+    "crumbs": [
+      "R Data Science",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  }
+]

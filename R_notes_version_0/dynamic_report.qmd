@@ -136,6 +136,18 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 如 [文本格式](#section-text_format) 是第一节
 
+## 脚注
+
+第一个[^dynamic_report-1]
+
+[^dynamic_report-1]: WANG,A.,et al.(2025)
+
+For instance[^dynamic_report-2], here is one attached to the word carrot[^dynamic_report-3].
+
+[^dynamic_report-2]: dafhaifhafoahfo
+
+[^dynamic_report-3]: The carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color
+
 ## Figure
 
 ### Caption
@@ -187,7 +199,7 @@ p
 Div .class `.panel-tabset .nav-pills`
 
 ::: {.panel-tabset .nav-pills}
-Scatterplot
+## Scatterplot
 
 ```{r, warning=FALSE}
 mpg %>%
@@ -198,7 +210,7 @@ mpg %>%
 
 ```
 
-Boxplot
+## Boxplot
 
 ```{r, warning=FALSE}
 mpg %>%
@@ -208,7 +220,7 @@ mpg %>%
   theme(legend.position = "none")
 ```
 
-Barplot
+## Barplot
 
 ```{r, warning=FALSE}
 mpg %>%
@@ -230,9 +242,9 @@ mpg %>%
 library(patchwork)
 library(ggplot2)
 
-ggplot(mtcars) + geom_point(aes(mpg, disp))
-ggplot(mtcars) + geom_boxplot(aes(gear, disp, group = gear))
-ggplot(mtcars) + geom_smooth(aes(disp, qsec))
+ggplot(mtcars) + geom_point(aes(mpg, disp))+
+ggplot(mtcars) + geom_boxplot(aes(gear, disp, group = gear))+
+ggplot(mtcars) + geom_smooth(aes(disp, qsec))+
 ggplot(mtcars) + geom_bar(aes(carb))
 
 ```
@@ -310,7 +322,7 @@ $$
 price = \hat{\beta}_0 + \hat{\beta}_1 \times area + \epsilon
 $$ {#eq-slr}
 
-## **Callout**
+## Callout
 
 ::: callout-note
 Note that there are five types of callouts, including: `note`, `tip`, `warning`, `caution`, and `important`.
@@ -444,28 +456,17 @@ knitr::opts_chunk$set(
 ggplot2::theme_set(new = ggplot2::theme_classic())
 ```
 
-## 代码块
 
-### html
+## html
 
 ```{=html}
 <body>
     
-<h>markdown_html</h>
 
-<p></p> <abbr title="Mister"> Mr. </abbr>  </p>
+<p><abbr title="Mister"> Mr. </abbr>  </p>
 
 <p><center>Center</center></p>
 
-
-    
-<dl>Description List
-
-<dt>主题</dt>
-
-<dd>描述</dd>
-
-</dl>
 
 
 <p><mark>Text highlight</mark></p>
@@ -474,9 +475,9 @@ ggplot2::theme_set(new = ggplot2::theme_classic())
 
 
 <P>小文本<small>Text</small></P>
-<body>
+</body>
 ```
-### **Inline Code**
+### 内联代码
 
 Use computed values directly in text sections. Code is evaluated at render and results appear as text.
 
@@ -492,33 +493,21 @@ a 的值为 `` `r a` ``
 ## 文本高亮
 
 ```{=html}
-<style>
-div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
-</style>
+<body>
+<p><mark>Text highlight</mark></p>
+
+<p> keyboard <kbd>  Ctrl+C    </kbd>></p>
+
+</body>
 ```
-::: yellow
--   This is my first conclusion
--   This is my second conclusion
-:::
 
-## 脚注
-
-第一个[^1]
-
-[^1]: WANG,A.,et al.(2025)
-
-For instance[^2], here is one attached to the word carrot[^3].
-
-[^2]: dafhaifhafoahfo
-
-[^3]: The carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color
 
 ## 会话信息
 
 ```{=html}
 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
 
-<b><i>Session Information</i></b>
+<mark><b><i>Session Information,click to show</i></b></mark>
 
 </button>
 ```
