@@ -1,0 +1,411 @@
+# 数据清洗
+
+```{r}
+if(!require(tidyverse)) install.packages("tidyverse")
+library(tidyverse)
+```
+
+```{r}
+mpg
+```
+
+## 行操作
+
+<https://dplyr.tidyverse.org/index.html> "分割-应用-组合"（Split-Apply-Combine）
+
+### `dplyr::filter()`
+
+```{r}
+dplyr::filter(mpg,model=="a4")
+
+
+
+dplyr::filter(mpg,drv %in% c("r","f"))
+```
+
+### `arrange()`
+
+```{r}
+arrange(mpg, year,displ,cty)
+
+arrange(mpg,desc(displ))
+```
+
+### `distinct()`
+
+```{r}
+distinct(mpg,manufacturer)
+count(mpg,manufacturer,sort = TRUE)
+
+mpg |> 
+    distinct(manufacturer,cyl) |> 
+    count(cyl)
+
+# 将在数据集中找到唯一行的第一个出现并丢弃其余行
+distinct(mpg,manufacturer,.keep_all = TRUE)
+```
+
+### `slice()`
+
+```{r}
+slice_head(mpg , n=6)
+slice_max(mpg, order_by = displ ,n=6)
+slice_min(mpg,order_by = displ,prop = 0.01)
+
+slice_sample(mpg,n=10,weight_by =hwy ,replace = T)
+```
+
+## 列操作
+
+### `dplyr::select()`
+
+-   `:`用于选择一系列连续变量。
+
+-   `!`用于获取一组变量的补集。
+
+-   `&`以及`|`用于选择交集 或并集。
+
+-   [`c()`](https://rdrr.io/r/base/c.html)用于组合选择。
+
+此外，还可以使用\*\*选择帮助程序*( selection helpers )*。一些帮助程序选择特定的列：
+
+-   [`everything()`](https://tidyselect.r-lib.org/reference/everything.html)：匹配所有变量。
+
+-   [`last_col()`](https://tidyselect.r-lib.org/reference/everything.html)：选择最后一个变量，可能带有偏移量。
+
+-   [`group_cols()`](https://dplyr.tidyverse.org/reference/group_cols.html)：选择所有分组列。
+
+其他帮助程序通过匹配其名称中的模式来选择变量：
+
+-   [`starts_with()`](https://tidyselect.r-lib.org/reference/starts_with.html)：以前缀开头。
+
+-   [`ends_with()`](https://tidyselect.r-lib.org/reference/starts_with.html)：以后缀结尾。
+
+-   [`contains()`](https://tidyselect.r-lib.org/reference/starts_with.html)：包含文本字符串。
+
+-   [`matches()`](https://tidyselect.r-lib.org/reference/starts_with.html)：匹配正则表达式。
+
+-   [`num_range()`](https://tidyselect.r-lib.org/reference/starts_with.html)：匹配 x01、x02、x03 等数值范围。
+
+或者从存储在字符向量中的变量：
+
+-   [`all_of()`](https://tidyselect.r-lib.org/reference/all_of.html)：匹配字符向量中的变量名称。所有 名称必须存在，否则抛出越界错误（out-of-bounds error）。
+
+-   [`any_of()`](https://tidyselect.r-lib.org/reference/all_of.html)：与`all_of()` 相同，只是对于不存在的名称不会抛出任何错误。
+
+或者使用谓词( predicate )函数：
+
+-   [where(fn)](https://tidyselect.r-lib.org/reference/where.html)：将该函数应用于所有变量并选择该函数返回`TRUE`的变量。
+
+```{r}
+dplyr::select(mpg,model:year)
+select(mpg,c(3,4,5))
+select(mpg,where(is.numeric))
+select(mpg,where(~is.numeric(.x) && mean(.x,na.rm=TRUE)<50))
+```
+
+### `mutate()`
+
+```{r}
+mutate(mpg,
+       id=nrow(mpg),
+       .before = 1)
+
+mutate(mpg,
+       id=nrow(mpg),
+       .after = 1)
+
+mutate(mpg,
+       id=nrow(mpg),
+       .keep = "used")
+```
+
+### `rename()`
+
+```{r}
+rename(mpg,生产厂商=manufacturer)
+```
+
+### `relocate()`
+
+```{r}
+relocate(mpg , model:year ,.before = 1)
+relocate(mpg , model:year ,.after = cyl)
+```
+
+## 连接操作
+
+```{r}
+x <- tribble(
+  ~ID, ~val_x,
+  1, "x1",
+  2, "x2",
+  3, "x3"
+)
+y <- tribble(
+  ~id, ~val_y,
+  1, "y1",
+  2, "y2",
+  4, "y4"
+)
+x;y
+```
+
+### equi join
+
+mutate-joins
+
+```{r}
+# 全连接
+full_join(x, y, by = join_by(ID == id))
+
+# 内连接
+inner_join(x, y, by = join_by(ID == id))
+
+# 左连接
+left_join(x, y, by = join_by(ID == id))
+
+# 右连接
+right_join(x, y, by = join_by(ID == id))
+
+
+```
+
+filter-joins
+
+```{r}
+# 半连接
+semi_join(x, y, by = join_by(ID == id))
+
+# 反连接
+anti_join(x, y, by = join_by(ID == id))
+```
+
+### non-equi join
+
+cross_join
+
+```{r}
+#交叉连接
+cross_join(x,y)         #nrow(x) * nrow(y)
+
+#不等式连接
+inner_join(x,y, by = join_by(ID >=id), keep = TRUE)
+
+#滚动联接  rolling join 类似于不等式连接，但仅匹配最近一个值。
+inner_join(x,y, join_by(closest(ID >=id)))
+```
+
+## 集合运算
+
+集合运算 要求变量名（列）完全相同,把观测（行）看成是集合中的元素
+
+```{r}
+x<-tibble(ID=c(1,2),X=c("a1",'a2'))
+y<-tibble(ID=c(2,3),X=c("a2",'a3'))
+x;y
+
+lubridate::intersect(x,y) #返回共同包含的相同观测
+union(x,y)#返回所有不同观测
+setdiff(x,y) #返回在x中不在y中
+setequal(x,y)#判断是否相等
+```
+
+## 分组操作
+
+### `group_by()`
+
+```{r}
+mpg |> 
+    group_by(cyl) |> 
+    summarise(n=n(),mean_hwy=mean(hwy,na.rm = T))
+
+mpg |> 
+    group_by(cyl,drv) |> 
+    summarise(n=n(),
+              .groups = "drop_last") #删除最后一个分组条件
+# drop 删除所有分组
+# keep 保留所有分组
+
+mpg |> 
+    group_by(cyl,drv) |> 
+    ungroup()
+
+
+mpg |> 
+    summarise(n=n(),mean_hwy=mean(hwy,na.rm = T),
+              .by = c(cyl,drv))
+```
+
+### `group_nest()`
+
+```{r}
+library(tidyverse)
+library(broom)
+data(crickets, package = "modeldata")
+names(crickets)
+
+split_by_species <- crickets %>% 
+  group_nest(species) 
+split_by_species
+
+model_by_species <- 
+  split_by_species %>% 
+  mutate(model = map(data, ~ lm(rate ~ temp, data = .x)))
+model_by_species
+
+model_by_species %>% 
+  mutate(coef = map(model, tidy)) %>% 
+  select(species, coef) %>% 
+  unnest(cols = c(coef))
+```
+
+### `group_split()`
+
+## 整洁操作
+
+
+### `pivot_longer()`
+
+#### 列名包含一个变量名
+
+```{r}
+billboard
+```
+
+```{r}
+billboard_longer <- billboard |> 
+  pivot_longer(
+    cols = starts_with("wk"), 
+    names_to = "week", 
+    values_to = "排名" ,
+    values_drop_na = TRUE,
+  ) |> 
+    mutate(
+        week=parse_number(week)
+    )
+billboard_longer
+```
+
+```{r}
+#| fig-cap: "歌曲排名随时间变化的折线图"
+billboard_longer |> 
+  ggplot(aes(x = week, y = 排名, group = track)) + 
+  geom_line(alpha = 0.25) + 
+  scale_y_reverse()
+```
+
+#### 列名包含多个变量名
+
+```{r}
+who2
+```
+
+```{r}
+who2 |> 
+  pivot_longer(
+    cols = !(country:year),
+    names_to = c("diagnosis", "gender", "age"), 
+    names_sep = "_",
+    values_to = "count",
+    values_drop_na = T
+  )
+```
+
+#### 列名包含变量名和变量值
+
+```{r}
+household
+```
+
+```{r}
+household |> 
+  pivot_longer(
+    cols = !family, 
+    names_to = c(".value", "child"), # 使用透视列名称的第一个组件作为变量名称
+    names_sep = "_", 
+    values_drop_na = TRUE
+  )
+```
+
+```{r}
+df <- tibble(ID=c("A","B","C"),
+       GDP_2019=c(114,251,152),
+       GDP_2018=c(215,115,141),
+       GDP_2017=c(141,244,243)) 
+df
+
+df %>% 
+  pivot_longer(
+    cols = -ID,
+    names_to =c(".value","year"),
+    names_sep = "_") %>% 
+    arrange(year)
+
+```
+
+```{r}
+
+df <- tribble(
+  ~class1_name,~class1_major,~class2_name,~class2_major,~class3_name,~class3_major,
+  '张非',"math",'李斯','English','王武','statistic',
+  '钟爱','English','陈述','math','孙健','medicine'
+) 
+df
+df%>% 
+  pivot_longer(
+    col=starts_with("class"),
+    names_to = c("group",".value"),
+    names_sep = "_",
+  )
+```
+
+### `pivot_wider()`
+
+```{r}
+cms_patient_experience
+```
+
+```{r}
+cms_patient_experience |> 
+  distinct(measure_cd, measure_title)
+```
+
+```{r}
+cms_patient_experience |>
+    pivot_wider(
+        id_cols = starts_with("org"),# 唯一标识列
+        names_from = measure_cd,
+        values_from = prf_rate
+    )
+```
+
+
+### `tidyr::separate_longer_*()`
+
+```{r}
+
+```
+
+### `tidyr::separate_wider_*()`
+
+## 重编码
+
+```{r}
+students <- read_csv("data/students.csv", na = c("N/A", ""))
+students
+```
+
+#### 变量名
+
+```{r}
+if(!require(janitor)) install.packages("janitor")
+
+# snake_case
+students |>
+    janitor::clean_names(case="snake") #"title"  "lower_camel" "upper_camel"
+```
+
+#### 变量值
+
+##### 缺失值

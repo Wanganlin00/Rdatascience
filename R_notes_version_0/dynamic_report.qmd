@@ -1,23 +1,6 @@
 ---
-title: "动态报告"
-execute:
-  warning: false
-  error: false
-  message: false
-
 toc: true
-toc-depth: 5
 number-sections: true
-number-depth: 4
-
-code-fold: show
-code-link: true
-code-tools: true
-
-knitr:
-  opts_chunk: 
-    comment: "#>" 
-    collapse: TRUE
 crossref: 
   fig-title: 图
   fig-prefix: 图
@@ -30,80 +13,233 @@ crossref:
   lem-title: 引理
   lem-prefix: 引理
   sec-prefix: 章节
+  
+include-after-body: "footer.html"  # 页脚
+css: style.css
+include-in-header:  # caption 文本居中
+   - text: |   
+       <style>
+       figcaption {
+         text-align: center;
+       }
+       </style>
+code-fold: true
+code-summary: "Show the code"
+format: html
 
-format:
-  html:
-    theme: cosmo
+subtitle: "quarto" 
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+author: 
+  name: "ANLIN"
+  affiliation: "Independant 😀"
+  email: anlinwang00@gmail.com
+  roles: "made the document"
+keywords: "dynamic report"
+date: today
+description: "<br/>加油.<br/>day day up"
+
+theme:
+  dark: darkly # 深色模式
+  light: flatly
+
 editor: visual
 ---
 
+# 动态报告
+
 <https://quarto.org/docs/guide/>
 
-## 语法格式
+<https://www.productive-r-workflow.com/quarto-tricks>
 
-+---------------------------------------------------------+-----------------------------------------------------------+
-| output                                                  | syntax                                                    |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| `code`                                                  | \` code \`                                                |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| **粗体**                                                | `**粗体**`                                                |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| *斜体*                                                  | `*斜体*`                                                  |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| [下横线]{.underline}                                    | `[下横线]{.underline}`                                    |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| ~~删除线~~                                              | `~~删除线~~`                                              |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| 上标X^2^                                                | `X^2^`                                                    |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| 下标 X~1~                                               | `X~1~`                                                    |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| [SAMALL small caps]{.smallcaps}                         | 与小写字母同等高度的大写字母 `[small caps]{.smallcaps}`   |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| <https://r4ds.hadley.nz/>                               | `<https://r4ds.hadley.nz/>`                               |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| [quarto](https://quarto.org)                            | `[quarto](https://quarto.org)`                            |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| {{< video https://www.youtube.com/embed/wo9vZccmqwc >}} | `{{< video https://www.youtube.com/embed/wo9vZccmqwc >}}` |
-+---------------------------------------------------------+-----------------------------------------------------------+
-| > Blockquote                                            | `> Blockquote`                                            |
-+---------------------------------------------------------+-----------------------------------------------------------+
+## 文本格式 {#section-text_format}
 
-任务列表
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| output                                                                   | syntax                                                    |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| `code`                                                                   | `` ` code ` ``                                            |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| **粗体**                                                                 | `**粗体**`                                                |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| *斜体*                                                                   | `*斜体*`                                                  |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| [下横线]{.underline}                                                     | `[下横线]{.underline}`                                    |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| ~~删除线~~                                                               | `~~删除线~~`                                              |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| 上标X^2^                                                                 | `X^2^`                                                    |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| 下标 X~1~                                                                | `X~1~`                                                    |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| 水平线分隔符                                                             | `***`                                                     |
+|                                                                          |                                                           |
+| ------------------------------------------------------------------------ |                                                           |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| <https://r4ds.hadley.nz/>                                                | `<https://r4ds.hadley.nz/>`                               |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| [quarto](https://quarto.org)                                             | `[quarto](https://quarto.org)`                            |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| {{< video https://www.youtube.com/embed/wo9vZccmqwc >}}                  | `{{< video https://www.youtube.com/embed/wo9vZccmqwc >}}` |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| > Blockquote                                                             | `> Blockquote`                                            |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
 
--   [ ] x
-    -   [x] y
--   [x] z
-    -   [ ] q
-        -   [ ] w
+## YAML
 
-## Execute chunk
+### Execute chunk
 
-+-----------+-----------+----------------------------------------------------------+
-| Option    | Default   | Effects                                                  |
-+===========+===========+==========================================================+
-| `echo`    | `true`    | `false`: hide code in output\\                           |
-|           |           |                                                          |
-|           |           | :   include code cell syntax`fenced`                     |
-+-----------+-----------+----------------------------------------------------------+
-| `eval`    | `true`    | `false`: don’t run code                                  |
-+-----------+-----------+----------------------------------------------------------+
-| `include` | `true`    | `false`: don’t include code or results                   |
-+-----------+-----------+----------------------------------------------------------+
-| `output`  | `true`    | `false`: don’t include results\\                         |
-|           |           |                                                          |
-|           |           | :   treat results as raw markdown`asis`                  |
-+-----------+-----------+----------------------------------------------------------+
-| `warning` | `true`    | `false`: don’t include warnings in output                |
-+-----------+-----------+----------------------------------------------------------+
-| `error`   | `false`   | `true`: include error in output and continue with render |
-+-----------+-----------+----------------------------------------------------------+
++-----------+---------+----------------------------------------------------------+
+| Option    | Default | Effects                                                  |
++===========+=========+==========================================================+
+| `echo`    | `true`  | `false`: hide code in output\\                           |
+|           |         |                                                          |
+|           |         | :   include code cell syntax`fenced`                     |
++-----------+---------+----------------------------------------------------------+
+| `eval`    | `true`  | `false`: don’t run code                                  |
++-----------+---------+----------------------------------------------------------+
+| `include` | `true`  | `false`: don’t include code or results                   |
++-----------+---------+----------------------------------------------------------+
+| `output`  | `true`  | `false`: don’t include results\\                         |
+|           |         |                                                          |
+|           |         | :   treat results as raw markdown`asis`                  |
++-----------+---------+----------------------------------------------------------+
+| `warning` | `true`  | `false`: don’t include warnings in output                |
++-----------+---------+----------------------------------------------------------+
+| `error`   | `false` | `true`: include error in output and continue with render |
++-----------+---------+----------------------------------------------------------+
 
-### 图
+### 添加页脚
+
+您可以创建包含某些内容的文件。然后将其显示在 quarto 文档的底部。`html`
+
+首先，创建一个名为 file 的文件。在其中复制以下内容：`footer.html`
+
+在YAML block 中添加 `include-after-body: "footer.html"`
+
+### 标题上方添加额外空间
+
+使用自定义样式表可以直接实现此效果。此样式表将包含专门设计用于在标题上方添加额外空间的规则。
+
+首先创建一个名为并包含以下规则的 CSS 文件：`style.css`
+
+```         
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 84px;
+}
+```
+
+这些 CSS 规则将在 1、2 和 3 级标题（分别由`h1` 、`h2` 和`h3` 标签表示）上方添加 84 像素的边距。
+
+最后，在YAML block 中添加 `css: style.css`
+
+## 内部链接
+
+如 [文本格式](#section-text_format) 是第一节
+
+## Figure
+
+### Caption
+
+```{r}
+#| fig-align: center
+#| fig-width: 6
+#| fig-height: 6
+#| fig-cap: "Figure: Here is a really important caption."
+#| fig-cap-location: top
+library(tidyverse)
+
+mpg %>%
+  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +
+  geom_boxplot() +
+  xlab("class") +
+  theme(legend.position = "none")
+```
+
+标题文本居中
+
+```         
+include-in-header:
+   - text: |
+       <style>
+       figcaption {
+         text-align: center;
+       }
+       </style>
+```
+
+### 交互式图
+
+```{r}
+library(plotly)
+p <- mpg %>%
+  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +
+  geom_boxplot() +
+  xlab("class") +
+  theme(legend.position = "none")
+
+# Turn it interactive with ggplotly
+p <- ggplotly(p)
+p
+```
+
+### 选项卡
+
+Div .class `.panel-tabset .nav-pills`
+
+::: {.panel-tabset .nav-pills}
+Scatterplot
+
+```{r, warning=FALSE}
+mpg %>%
+  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +
+  geom_point() +
+  xlab("class") +
+  theme(legend.position = "none")
+
+```
+
+Boxplot
+
+```{r, warning=FALSE}
+mpg %>%
+  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +
+  geom_boxplot() +
+  xlab("class") +
+  theme(legend.position = "none")
+```
+
+Barplot
+
+```{r, warning=FALSE}
+mpg %>%
+  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +
+  geom_bar(stat = "identity") +
+  xlab("class") +
+  theme(legend.position = "none")
+```
+:::
+
+### 全宽图
+
+```{r}
+#| column: screen
+#| out-width: 100%
+#| message: false
+
+
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars) + geom_point(aes(mpg, disp))
+ggplot(mtcars) + geom_boxplot(aes(gear, disp, group = gear))
+ggplot(mtcars) + geom_smooth(aes(disp, qsec))
+ggplot(mtcars) + geom_bar(aes(carb))
+
+```
 
 ```{r}
 #| label: fig-plot
-#| fig-cap: "plot 点-线"
+#| fig-cap: "左右图"
 #| fig-subcap:
 #|   - "点"
 #|   - "线"
@@ -118,44 +254,7 @@ plot(1:25,c(1:25)^2,type="b",pch=c(1:25))
 
 右图 @fig-plot-2 所示。
 
-#### 流程图
-
-```{mermaid}
-sequenceDiagram
-  participant Alice
-  participant Bob
-  Alice->>John: Hello John, how are you?
-  loop Healthcheck
-    John->>John: Fight against hypochondria
-  end
-  Note right of John: Rational thoughts <br/>prevail!
-  John-->>Alice: Great!
-  John->>Bob: How about you?
-  Bob-->>John: Jolly good!
-```
-
-```{dot}
-//| label: fig-simple
-//| fig-cap: "This is a simple graphviz graph."
-graph G {
-  layout=neato
-  run -- intr;
-  intr -- runbl;
-  runbl -- run;
-  run -- kernel;
-  kernel -- zombie;
-  kernel -- sleep;
-  kernel -- runmem;
-  sleep -- swap;
-  swap -- runswap;
-  runswap -- new;
-  runswap -- runmem;
-  new -- runmem;
-  sleep -- runmem;
-}
-```
-
-##### EDA {#sec-eda}
+#### EDA {#sec-eda}
 
 引用章节： @sec-eda and @sec-formula
 
@@ -211,29 +310,47 @@ $$
 price = \hat{\beta}_0 + \hat{\beta}_1 \times area + \epsilon
 $$ {#eq-slr}
 
-## callouts
-
--   `note`
-
--   `warning`
-
--   `important`
-
--   `tip`
-
--   `caution`
+## **Callout**
 
 ::: callout-note
-This is a pretty incomplete analysis, but hopefully the document provides a good overview of some of the authoring features of Quarto!
+Note that there are five types of callouts, including: `note`, `tip`, `warning`, `caution`, and `important`.
+:::
+
+::: callout-tip
+This is an example of an tip callout
+:::
+
+::: callout-caution
+This is an example of an caution callout
+:::
+
+::: callout-warning
+This is an example of an warning callout
+:::
+
+::: callout-important
+This is an example of an important callout
 :::
 
 ::: {#tip-example .callout-tip}
-### 交叉引用 a Tip
+交叉引用 a Tip
 
 Add an ID starting with `#tip-` to reference a tip.
 :::
 
 See @tip-example...
+
+自定义callout
+
+::: callout-gradient
+::: callout-note
+This is a custom callout.
+
+Using CSS, you can control pretty much everything.
+
+This div is even shaking every now and then 🙃
+:::
+:::
 
 | 标注类型    | 前缀    |
 |-------------|---------|
@@ -243,11 +360,23 @@ See @tip-example...
 | `important` | `#imp-` |
 | `caution`   | `#cau-` |
 
-## Blockquote
+## 页边距
 
-> qwert
+### R结果
 
-> > > asfg
+```{r}
+#| column: margin
+
+knitr::kable(
+  mtcars[1:3, 1:3]
+)
+```
+
+### Div
+
+::: column-margin
+Hi! I'm a side note! 🔥
+:::
 
 ## LaTex
 
@@ -317,17 +446,7 @@ ggplot2::theme_set(new = ggplot2::theme_classic())
 
 ## 代码块
 
-### syntax highlight
-
-```         
-1 + 1
-```
-
-``` python
-x = "abcde"
-```
-
-### raw content
+### html
 
 ```{=html}
 <body>
@@ -335,8 +454,11 @@ x = "abcde"
 <h>markdown_html</h>
 
 <p></p> <abbr title="Mister"> Mr. </abbr>  </p>
-<center>Center</center>
 
+<p><center>Center</center></p>
+
+
+    
 <dl>Description List
 
 <dt>主题</dt>
@@ -345,29 +467,54 @@ x = "abcde"
 
 </dl>
 
-<mark>Text highlight</mark>
 
-<kbd>keyboard Ctrl+C</kbd>
+<p><mark>Text highlight</mark></p>
+
+<p keyboard <kbd>Ctrl+C</kbd>></p>
 
 
-<small>Text</small>
+<P>小文本<small>Text</small></P>
 <body>
-```
-```{=latex}
-\renewcommand*{\labelitemi}{\textgreater}
 ```
 ### **Inline Code**
 
 Use computed values directly in text sections. Code is evaluated at render and results appear as text.
 
+```{r}
+#| code-fold: show
+a <- 1+2+3
+```
+
 #### Knitr
 
-Value is .`` `r 2 + 2` ``
+a 的值为 `` `r a` ``
 
-#### Jupyter
+## 脚注
 
-Value is .`` `{python} 2 + 2` ``
+第一个[^1]
 
-#### Output
+[^1]: WANG,A.,et al.(2025)
 
-Value is 4.
+For instance[^2], here is one attached to the word carrot[^3].
+
+[^2]: dafhaifhafoahfo
+
+[^3]: The carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color
+
+## 会话信息
+
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" color="#FF0000">
+
+Session Information
+
+</button>
+
+::: {#collapseOne .accordion-collapse .collapse}
+<div>
+
+```{r}
+sessionInfo()
+```
+
+</div>
+:::
