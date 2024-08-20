@@ -88,25 +88,25 @@ editor: visual
 
 ### Execute chunk
 
-+-----------+---------+----------------------------------------------------------+
-| Option    | Default | Effects                                                  |
-+===========+=========+==========================================================+
-| `echo`    | `true`  | `false`: hide code in output\\                           |
-|           |         |                                                          |
-|           |         | :   include code cell syntax`fenced`                     |
-+-----------+---------+----------------------------------------------------------+
-| `eval`    | `true`  | `false`: don’t run code                                  |
-+-----------+---------+----------------------------------------------------------+
-| `include` | `true`  | `false`: don’t include code or results                   |
-+-----------+---------+----------------------------------------------------------+
-| `output`  | `true`  | `false`: don’t include results\\                         |
-|           |         |                                                          |
-|           |         | :   treat results as raw markdown`asis`                  |
-+-----------+---------+----------------------------------------------------------+
-| `warning` | `true`  | `false`: don’t include warnings in output                |
-+-----------+---------+----------------------------------------------------------+
-| `error`   | `false` | `true`: include error in output and continue with render |
-+-----------+---------+----------------------------------------------------------+
++-----------+-----------+----------------------------------------------------------+
+| Option    | Default   | Effects                                                  |
++===========+===========+==========================================================+
+| `echo`    | `true`    | `false`: hide code in output\\                           |
+|           |           |                                                          |
+|           |           | :   include code cell syntax`fenced`                     |
++-----------+-----------+----------------------------------------------------------+
+| `eval`    | `true`    | `false`: don’t run code                                  |
++-----------+-----------+----------------------------------------------------------+
+| `include` | `true`    | `false`: don’t include code or results                   |
++-----------+-----------+----------------------------------------------------------+
+| `output`  | `true`    | `false`: don’t include results\\                         |
+|           |           |                                                          |
+|           |           | :   treat results as raw markdown`asis`                  |
++-----------+-----------+----------------------------------------------------------+
+| `warning` | `true`    | `false`: don’t include warnings in output                |
++-----------+-----------+----------------------------------------------------------+
+| `error`   | `false`   | `true`: include error in output and continue with render |
++-----------+-----------+----------------------------------------------------------+
 
 ### 添加页脚
 
@@ -489,6 +489,18 @@ a <- 1+2+3
 
 a 的值为 `` `r a` ``
 
+## 文本高亮
+
+```{=html}
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+```
+::: yellow
+-   This is my first conclusion
+-   This is my second conclusion
+:::
+
 ## 脚注
 
 第一个[^1]
@@ -503,18 +515,15 @@ For instance[^2], here is one attached to the word carrot[^3].
 
 ## 会话信息
 
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" color="#FF0000">
+```{=html}
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
 
-Session Information
+<b><i>Session Information</i></b>
 
 </button>
-
-::: {#collapseOne .accordion-collapse .collapse}
-<div>
-
+```
+::: {#collapseOne .accordion-collapse .collapse style="color: red"}
 ```{r}
 sessionInfo()
 ```
-
-</div>
 :::
