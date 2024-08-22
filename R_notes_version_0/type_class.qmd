@@ -541,27 +541,3 @@ length(NULL)
 is.null(NULL)
 c()
 ```
-
-## 函数类型
-
-```{r}
-typeof(mean)
-
-typeof(`[`)
-
-typeof(sum)    
-
-```
-
-## 环境
-
-```{r}
-typeof(globalenv())
-```
-
-## 面向对象编程的类
-
-```{r}
-mle_obj <- stats4::mle(function(x = 1) (x - 2) ^ 2)
-typeof(mle_obj)
-```

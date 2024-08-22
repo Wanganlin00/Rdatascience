@@ -28,7 +28,7 @@
 
 2.  封装 OOP ：方法属于对象或类，对象封装了数据（字段）和 行为（方法）。`object.method(arg1, arg2)`，如R6类
 
-## **R 中的对象**
+## R 中的对象
 
 R中存在的一切都是一个对象，包括 **base objects** 和 **OO objects** 。
 
@@ -72,7 +72,7 @@ typeof(mle_obj)
 
 **基本类型**包括数据的基本类型（数值，字符，逻辑，复数等），函数类型（闭包、内置、特殊），环境，类，...... 等等。
 
-### OO objects
+### OO objects：`class` 属性
 
 -   **S3**：是 R 的第一个 OOP 系统，*Statistical Models in S*
 
@@ -312,8 +312,6 @@ generic_function("Hello", "World")  # 输出 "HelloWorld"
 
 [R6::R6Class(classname = NULL，public = list)](https://r6.r-lib.org/reference/R6Class.html)
 
-
-
 ## S4类
 
 创建类 `setClass()` ，创建泛型函数 `setGeneric()` ，创建方法 `setMethod()`
@@ -421,7 +419,9 @@ is(new("Employee"))
 
 。。。
 
-## ggproto 类
+## 原型类
+
+### ggproto 类
 
 [参考 ggplot2-book.org/internals#sec-ggproto](https://ggplot2-book.org/internals#sec-ggproto)
 

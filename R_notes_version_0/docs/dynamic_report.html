@@ -5,10 +5,10 @@
 <meta name="generator" content="quarto-1.4.555">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="ANLIN">
-<meta name="dcterms.date" content="2024-08-20">
+<meta name="dcterms.date" content="2024-08-22">
 <meta name="keywords" content="dynamic report">
 <meta name="description" content=" 加油. day day up">
-<title>数据科学与编程 - 10&nbsp; 动态报告</title>
+<title>数据科学与编程 - 6&nbsp; 动态报告</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./R-Python.html" rel="next">
-<link href="./custom_functions.html" rel="prev">
+<link href="./control_structure.html" rel="next">
+<link href="./number_vector.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -159,17 +159,17 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./dynamic_report.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">动态报告</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./dynamic_report.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">动态报告</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./dynamic_report.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">动态报告</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./dynamic_report.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">动态报告</span></a></li></ol></nav><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">动态报告</span>
+<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">动态报告</span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
             <p class="subtitle lead">quarto</p>
                   <div>
@@ -200,7 +200,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 20, 2024</p>
+        <p class="date">August 22, 2024</p>
       </div>
     </div>
     
@@ -283,53 +283,16 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./string_text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">文本</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./transform_tidy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">数据清洗</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./big_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">大内存数据</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./custom_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./dynamic_report.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">R → Python</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./R-Python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R⬌Python</span></a>
-  </div>
-</li>
-      </ul>
-</li>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">R → Python</span></span>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -342,61 +305,49 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">函数</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">环境</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exception_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functionals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">泛函</span></span></a>
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">函数</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">环境</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./object_oriented_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./meta_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">元编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./expressions_AST.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">表达式与抽象语法树</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">元编程</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quasiquotation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quasiquotation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quasiquotation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
   </div>
 </li>
       </ul>
@@ -456,13 +407,12 @@ window.Quarto = {
   <li><a href="#%E5%AE%9A%E7%90%86%E7%B1%BB%E6%AE%B5%E8%90%BD" id="toc-定理类段落" class="nav-link" data-scroll-target="#%E5%AE%9A%E7%90%86%E7%B1%BB%E6%AE%B5%E8%90%BD"><span class="header-section-number">11</span> 定理类段落</a></li>
   <li><a href="#opts_chunkset.r" id="toc-opts_chunkset.r" class="nav-link" data-scroll-target="#opts_chunkset.r"><span class="header-section-number">12</span> _opts_chunk$set.R</a></li>
   <li>
-<a href="#%E4%BB%A3%E7%A0%81%E5%9D%97" id="toc-代码块" class="nav-link" data-scroll-target="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="header-section-number">13</span> 代码块</a>
+<a href="#html" id="toc-html" class="nav-link" data-scroll-target="#html"><span class="header-section-number">13</span> html</a>
   <ul>
-<li><a href="#html" id="toc-html" class="nav-link" data-scroll-target="#html"><span class="header-section-number">13.1</span> html</a></li>
-  <li>
-<a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code"><span class="header-section-number">13.2</span> <strong>Inline Code</strong></a>
+<li>
+<a href="#%E5%86%85%E8%81%94%E4%BB%A3%E7%A0%81" id="toc-内联代码" class="nav-link" data-scroll-target="#%E5%86%85%E8%81%94%E4%BB%A3%E7%A0%81"><span class="header-section-number">13.1</span> 内联代码</a>
   <ul class="collapse">
-<li><a href="#knitr" id="toc-knitr" class="nav-link" data-scroll-target="#knitr"><span class="header-section-number">13.2.1</span> Knitr</a></li>
+<li><a href="#knitr" id="toc-knitr" class="nav-link" data-scroll-target="#knitr"><span class="header-section-number">13.1.1</span> Knitr</a></li>
   </ul>
 </li>
   </ul>
@@ -786,12 +736,12 @@ window.Quarto = {
 图&nbsp;1: 左右图
 </figcaption></figure>
 </div>
-<p>如左图 <a href="#fig-plot-1" class="quarto-xref">图&nbsp;<span>10.1 (a)</span></a> 所示，点有25种不同的形状，</p>
-<p>右图 <a href="#fig-plot-2" class="quarto-xref">图&nbsp;<span>10.1 (b)</span></a> 所示。</p>
+<p>如左图 <a href="#fig-plot-1" class="quarto-xref">图&nbsp;<span>6.1 (a)</span></a> 所示，点有25种不同的形状，</p>
+<p>右图 <a href="#fig-plot-2" class="quarto-xref">图&nbsp;<span>6.1 (b)</span></a> 所示。</p>
 <section id="sec-eda" class="level4 page-columns page-full" data-number="5.4.1"><h4 data-number="5.4.1" class="anchored" data-anchor-id="sec-eda">
 <span class="header-section-number">5.4.1</span> EDA</h4>
-<p>引用章节： <a href="#sec-eda" class="quarto-xref"><span>Section 10.5.4.1</span></a> and <a href="#sec-formula" class="quarto-xref"><span>Section 10.7</span></a></p>
-<p>引用图片 <a href="#fig-histogram" class="quarto-xref">图&nbsp;<span>10.2</span></a> shows two histograms displaying the distributions of <code>price</code> and <code>area</code> individually.</p>
+<p>引用章节： <a href="#sec-eda" class="quarto-xref"><span>Section 6.5.4.1</span></a> and <a href="#sec-formula" class="quarto-xref"><span>Section 6.7</span></a></p>
+<p>引用图片 <a href="#fig-histogram" class="quarto-xref">图&nbsp;<span>6.2</span></a> shows two histograms displaying the distributions of <code>price</code> and <code>area</code> individually.</p>
 <details class="code-fold"><summary>直方图</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Histogram of cty"</span><span class="op">)</span></span>
@@ -830,7 +780,7 @@ window.Quarto = {
 </div>
 </section></section></section><section id="表格" class="level2" data-number="6"><h2 data-number="6" class="anchored" data-anchor-id="表格">
 <span class="header-section-number">6</span> 表格</h2>
-<p><a href="#tbl-stats" class="quarto-xref">表&nbsp;<span>10.1</span></a> displays basic summary statistics for these two variables.</p>
+<p><a href="#tbl-stats" class="quarto-xref">表&nbsp;<span>6.1</span></a> displays basic summary statistics for these two variables.</p>
 <div class="cell">
 <details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
@@ -886,9 +836,9 @@ window.Quarto = {
 </div>
 </section><section id="sec-formula" class="level2" data-number="7"><h2 data-number="7" class="anchored" data-anchor-id="sec-formula">
 <span class="header-section-number">7</span> 公式</h2>
-<p>Black-Scholes (<a href="#eq-black-scholes" class="quarto-xref">式&nbsp;<span>10.1</span></a>) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:</p>
+<p>Black-Scholes (<a href="#eq-black-scholes" class="quarto-xref">式&nbsp;<span>6.1</span></a>) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:</p>
 <p><span id="eq-black-scholes"><span class="math display">\[ \frac{\partial \mathrm C}{ \partial \mathrm t } + \frac{1}{2}\sigma^{2} \mathrm S^{2} \frac{\partial^{2} \mathrm C}{\partial \mathrm C^2}   + \mathrm r \mathrm S \frac{\partial \mathrm C}{\partial \mathrm S}\ =   \mathrm r \mathrm C   \tag{1}\]</span></span></p>
-<p>We can fit a simple linear regression model of the form shown in <a href="#eq-slr" class="quarto-xref">式&nbsp;<span>10.2</span></a>.</p>
+<p>We can fit a simple linear regression model of the form shown in <a href="#eq-slr" class="quarto-xref">式&nbsp;<span>6.2</span></a>.</p>
 <p><span id="eq-slr"><span class="math display">\[
 price = \hat{\beta}_0 + \hat{\beta}_1 \times area + \epsilon
 \tag{2}\]</span></span></p>
@@ -973,7 +923,7 @@ Tip&nbsp;1
 <p>Add an ID starting with <code>#tip-</code> to reference a tip.</p>
 </div>
 </div>
-<p>See <a href="#tip-example" class="quarto-xref">Tip&nbsp;<span>10.1</span></a>…</p>
+<p>See <a href="#tip-example" class="quarto-xref">Tip&nbsp;<span>6.1</span></a>…</p>
 <p>自定义callout</p>
 <div class="callout-gradient">
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1096,7 +1046,7 @@ x_{n1} &amp; x_{n2}&amp;...&amp;x_{np} \\
 </dd>
 </dl>
 <p>或者</p>
-<p>引用<a href="#thm-lebesgue01" class="quarto-xref">Theorem&nbsp;<span>10.1</span></a>。</p>
+<p>引用<a href="#thm-lebesgue01" class="quarto-xref">Theorem&nbsp;<span>6.1</span></a>。</p>
 <div id="thm-lebesgue01" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (勒贝格定理)</strong></span> 一元函数黎曼可积， 当且仅当其不连续点的集合为零测集。</p>
 </div>
@@ -1161,10 +1111,8 @@ x_{n1} &amp; x_{n2}&amp;...&amp;x_{np} \\
 <span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span>new <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="代码块" class="level2" data-number="13"><h2 data-number="13" class="anchored" data-anchor-id="代码块">
-<span class="header-section-number">13</span> 代码块</h2>
-<section id="html" class="level3" data-number="13.1"><h3 data-number="13.1" class="anchored" data-anchor-id="html">
-<span class="header-section-number">13.1</span> html</h3>
+</section><section id="html" class="level2" data-number="13"><h2 data-number="13" class="anchored" data-anchor-id="html">
+<span class="header-section-number">13</span> html</h2>
 
     
 
@@ -1182,23 +1130,23 @@ x_{n1} &amp; x_{n2}&amp;...&amp;x_{np} \\
 
 <p>小文本<small>Text</small></p>
 
-</section><section id="inline-code" class="level3" data-number="13.2"><h3 data-number="13.2" class="anchored" data-anchor-id="inline-code">
-<span class="header-section-number">13.2</span> <strong>Inline Code</strong>
-</h3>
+<section id="内联代码" class="level3" data-number="13.1"><h3 data-number="13.1" class="anchored" data-anchor-id="内联代码">
+<span class="header-section-number">13.1</span> 内联代码</h3>
 <p>Use computed values directly in text sections. Code is evaluated at render and results appear as text.</p>
 <div class="cell">
 <details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">+</span><span class="fl">2</span><span class="op">+</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="knitr" class="level4" data-number="13.2.1"><h4 data-number="13.2.1" class="anchored" data-anchor-id="knitr">
-<span class="header-section-number">13.2.1</span> Knitr</h4>
+<section id="knitr" class="level4" data-number="13.1.1"><h4 data-number="13.1.1" class="anchored" data-anchor-id="knitr">
+<span class="header-section-number">13.1.1</span> Knitr</h4>
 <p>a 的值为 <code>6</code></p>
 </section></section></section><section id="文本高亮" class="level2" data-number="14"><h2 data-number="14" class="anchored" data-anchor-id="文本高亮">
 <span class="header-section-number">14</span> 文本高亮</h2>
 
 <p><mark>Text highlight</mark></p>
 
-<p> keyboard <kbd>Ctrl+C</kbd>&gt;</p>
+<p> keyboard <kbd>  Ctrl+C    </kbd>&gt;</p>
+
 
 </section><section id="会话信息" class="level2" data-number="15"><h2 data-number="15" class="anchored" data-anchor-id="会话信息">
 <span class="header-section-number">15</span> 会话信息</h2>
@@ -1744,13 +1692,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./custom_functions.html" class="pagination-link" aria-label="函数式编程">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">函数式编程</span></span>
+      <a href="./number_vector.html" class="pagination-link" aria-label="数值">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数值</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./R-Python.html" class="pagination-link" aria-label="R⬌Python">
-        <span class="nav-page-text">R⬌Python</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./control_structure.html" class="pagination-link" aria-label="控制结构">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">控制结构</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -2212,48 +2160,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-472"><a href="#cb16-472" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(<span class="at">new =</span> ggplot2<span class="sc">::</span><span class="fu">theme_classic</span>())</span>
 <span id="cb16-473"><a href="#cb16-473" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-474"><a href="#cb16-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-475"><a href="#cb16-475" aria-hidden="true" tabindex="-1"></a><span class="fu">## 代码块</span></span>
-<span id="cb16-476"><a href="#cb16-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-477"><a href="#cb16-477" aria-hidden="true" tabindex="-1"></a><span class="fu">### html</span></span>
-<span id="cb16-478"><a href="#cb16-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-479"><a href="#cb16-479" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb16-480"><a href="#cb16-480" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;body&gt;</span></span>
-<span id="cb16-481"><a href="#cb16-481" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
-<span id="cb16-482"><a href="#cb16-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-483"><a href="#cb16-483" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;&lt;abbr title="Mister"&gt; Mr. &lt;/abbr&gt;  &lt;/p&gt;</span></span>
-<span id="cb16-484"><a href="#cb16-484" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-485"><a href="#cb16-485" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;&lt;center&gt;Center&lt;/center&gt;&lt;/p&gt;</span></span>
+<span id="cb16-475"><a href="#cb16-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-476"><a href="#cb16-476" aria-hidden="true" tabindex="-1"></a><span class="fu">## html</span></span>
+<span id="cb16-477"><a href="#cb16-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-478"><a href="#cb16-478" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb16-479"><a href="#cb16-479" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;body&gt;</span></span>
+<span id="cb16-480"><a href="#cb16-480" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb16-481"><a href="#cb16-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-482"><a href="#cb16-482" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;&lt;abbr title="Mister"&gt; Mr. &lt;/abbr&gt;  &lt;/p&gt;</span></span>
+<span id="cb16-483"><a href="#cb16-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-484"><a href="#cb16-484" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;&lt;center&gt;Center&lt;/center&gt;&lt;/p&gt;</span></span>
+<span id="cb16-485"><a href="#cb16-485" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-486"><a href="#cb16-486" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-487"><a href="#cb16-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-488"><a href="#cb16-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-489"><a href="#cb16-489" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;&lt;mark&gt;Text highlight&lt;/mark&gt;&lt;/p&gt;</span></span>
-<span id="cb16-490"><a href="#cb16-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-491"><a href="#cb16-491" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p keyboard &lt;kbd&gt;Ctrl+C&lt;/kbd&gt;&gt;&lt;/p&gt;</span></span>
+<span id="cb16-488"><a href="#cb16-488" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;&lt;mark&gt;Text highlight&lt;/mark&gt;&lt;/p&gt;</span></span>
+<span id="cb16-489"><a href="#cb16-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-490"><a href="#cb16-490" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p keyboard &lt;kbd&gt;Ctrl+C&lt;/kbd&gt;&gt;&lt;/p&gt;</span></span>
+<span id="cb16-491"><a href="#cb16-491" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-492"><a href="#cb16-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-493"><a href="#cb16-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-494"><a href="#cb16-494" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;P&gt;小文本&lt;small&gt;Text&lt;/small&gt;&lt;/P&gt;</span></span>
-<span id="cb16-495"><a href="#cb16-495" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/body&gt;</span></span>
-<span id="cb16-496"><a href="#cb16-496" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-497"><a href="#cb16-497" aria-hidden="true" tabindex="-1"></a><span class="fu">### **Inline Code**</span></span>
-<span id="cb16-498"><a href="#cb16-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-499"><a href="#cb16-499" aria-hidden="true" tabindex="-1"></a>Use computed values directly in text sections. Code is evaluated at render and results appear as text.</span>
-<span id="cb16-500"><a href="#cb16-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-503"><a href="#cb16-503" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-504"><a href="#cb16-504" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: show</span></span>
-<span id="cb16-505"><a href="#cb16-505" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="dv">2</span><span class="sc">+</span><span class="dv">3</span></span>
-<span id="cb16-506"><a href="#cb16-506" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-507"><a href="#cb16-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-508"><a href="#cb16-508" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Knitr</span></span>
-<span id="cb16-509"><a href="#cb16-509" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-510"><a href="#cb16-510" aria-hidden="true" tabindex="-1"></a>a 的值为 `<span class="in">` `</span>r a` ``</span>
-<span id="cb16-511"><a href="#cb16-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-512"><a href="#cb16-512" aria-hidden="true" tabindex="-1"></a><span class="fu">## 文本高亮</span></span>
-<span id="cb16-513"><a href="#cb16-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-514"><a href="#cb16-514" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb16-515"><a href="#cb16-515" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;body&gt;</span></span>
-<span id="cb16-516"><a href="#cb16-516" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;&lt;mark&gt;Text highlight&lt;/mark&gt;&lt;/p&gt;</span></span>
-<span id="cb16-517"><a href="#cb16-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-518"><a href="#cb16-518" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt; keyboard &lt;kbd&gt;Ctrl+C&lt;/kbd&gt;&gt;&lt;/p&gt;</span></span>
+<span id="cb16-493"><a href="#cb16-493" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;P&gt;小文本&lt;small&gt;Text&lt;/small&gt;&lt;/P&gt;</span></span>
+<span id="cb16-494"><a href="#cb16-494" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/body&gt;</span></span>
+<span id="cb16-495"><a href="#cb16-495" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-496"><a href="#cb16-496" aria-hidden="true" tabindex="-1"></a><span class="fu">### 内联代码</span></span>
+<span id="cb16-497"><a href="#cb16-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-498"><a href="#cb16-498" aria-hidden="true" tabindex="-1"></a>Use computed values directly in text sections. Code is evaluated at render and results appear as text.</span>
+<span id="cb16-499"><a href="#cb16-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-502"><a href="#cb16-502" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-503"><a href="#cb16-503" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: show</span></span>
+<span id="cb16-504"><a href="#cb16-504" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="dv">2</span><span class="sc">+</span><span class="dv">3</span></span>
+<span id="cb16-505"><a href="#cb16-505" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-506"><a href="#cb16-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-507"><a href="#cb16-507" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Knitr</span></span>
+<span id="cb16-508"><a href="#cb16-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-509"><a href="#cb16-509" aria-hidden="true" tabindex="-1"></a>a 的值为 `<span class="in">` `</span>r a` ``</span>
+<span id="cb16-510"><a href="#cb16-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-511"><a href="#cb16-511" aria-hidden="true" tabindex="-1"></a><span class="fu">## 文本高亮</span></span>
+<span id="cb16-512"><a href="#cb16-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-513"><a href="#cb16-513" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb16-514"><a href="#cb16-514" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;body&gt;</span></span>
+<span id="cb16-515"><a href="#cb16-515" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;&lt;mark&gt;Text highlight&lt;/mark&gt;&lt;/p&gt;</span></span>
+<span id="cb16-516"><a href="#cb16-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-517"><a href="#cb16-517" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt; keyboard &lt;kbd&gt;  Ctrl+C    &lt;/kbd&gt;&gt;&lt;/p&gt;</span></span>
+<span id="cb16-518"><a href="#cb16-518" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-519"><a href="#cb16-519" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/body&gt;</span></span>
 <span id="cb16-520"><a href="#cb16-520" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-521"><a href="#cb16-521" aria-hidden="true" tabindex="-1"></a></span>

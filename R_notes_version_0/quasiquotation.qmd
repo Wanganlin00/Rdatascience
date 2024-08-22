@@ -41,7 +41,6 @@ cement(Good, !!time, !!name)
 
 ```
 
-## evaluated or quoted
 
 ## 引用
 

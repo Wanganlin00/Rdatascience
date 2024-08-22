@@ -1,9 +1,19 @@
 # 函数
 
+## 函数类型
+
+R 语言中函数主要有**内置函数（builtin）** 、 **特殊函数（special ）**和 **闭包函数（closure）**三种类型
+
+```{r}
+typeof(sum)    
+typeof(`[`)
+typeof(`%>%`)
+```
+
 ## 函数组件
 
-1.  `formals()` 控制如何调用函数的参数列表
-2.  `body()` 函数内部的代码，包括异常处理、执行程序
+1.  `formals()` 参数列表
+2.  `body()` 函数体，包括异常处理、执行程序
 3.  `environment()` 确定函数如何查找与名称相关联的值的数据结构，俗称环境
 
 ```{r}
@@ -15,8 +25,6 @@ f02 <- function(x, y) {
 formals(f02)
 body(f02)
 environment(f02)
-
-
 ```
 
 属性 `srcref`（source reference ），指向函数的源代码
@@ -25,44 +33,32 @@ environment(f02)
 attributes(f02)
 ```
 
-## 初等函数 {#sec-Primitive_functions}
+## 原函数 {#sec-Primitive_functions}
 
-在R中，初等函数 primitive functions 不具备上述三个组件。
+在R中，原函数（primitive functions） 不具备上述三个组件，而是直接通过.Primitive()调用C语言代码实现。
 
 ```{r}
 formals(sum)
 body(sum)
 environment(sum)
 attributes(sum)
+
+
 ```
 
-初等函数（primitive functions）是R语言的核心组成部分，它们具有以下特点：
+在R语言中，"Primitive functions"（始函数）是使用C语言实现的核心函数，它们是R的基础并且直接映射到底层操作，从而提供了更高的运行效率。原始函数的类型为builtin或special，并且它们通常不接受延迟求值的参数，而是在调用时立即求值 。
 
--   内置优化：初等函数通常是用C语言编写的，这意味着它们执行起来非常快。
-
--   直接调用：初等函数可以直接调用C语言代码，这使得它们在执行时不需要通过R的函数调用机制。
-
--   性能：由于直接调用C语言编写的底层代码，初等函数的性能通常比普通的R函数要好。
-
-`sum()` 函数就是一个典型的初等函数，它用于计算向量元素的总和。当你在R中调用 sum() 函数时，实际上是在调用一个高效的C语言实现的函数，而不是一个R语言层面的函数。
-
-初等函数有**内置函数（builtin）** 和 **特殊函数（special ）**两种类型。
+原函数有**内置函数（builtin）** 和 **特殊函数（special ）**两种类型。
 
 ```{r}
 sum
 typeof(sum)
+.Primitive("sum")
+get("sum",envir = baseenv())
 
 `[`
 typeof(`[`)
-
-```
-
-这些函数主要存在于 C 中，而不是 R 中。Primitive functions仅存在于 *base package*。
-
-```{r}
-formals(sum)
-body(sum)
-environment(sum)
+.Primitive("[")
 ```
 
 ## First-class functions
@@ -494,7 +490,7 @@ x
 
 ### 特殊形式
 
-所有特殊形式都作为初等函数 @sec-Primitive_functions 实现（即在 C 中），这意味着打印这些函数没有信息。
+所有特殊形式都作为[原函数](#sec-Primitive_functions) 实现（即在 C 中），这意味着打印这些函数没有信息。
 
 ```{r}
 `for`

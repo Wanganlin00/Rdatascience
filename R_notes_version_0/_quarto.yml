@@ -15,29 +15,28 @@ book:
         - useful_function.qmd
         - logical_vector.qmd
         - number_vector.qmd
-        - string_text.qmd
-        - transform_tidy.qmd
-        - big_data.qmd
-        - custom_functions.qmd
+        # - string_text.qmd
+        # - transform_tidy.qmd
+        # - functionals.qmd
+        # - big_data.qmd
+        # - custom_functions.qmd
         - dynamic_report.qmd
 
     - part: "R → Python"
-      chapters: 
-        - R-Python.qmd
+    #   chapters: 
+    #     - R-Python.qmd
 
     - part: "R Programming"
       chapters: 
         - control_structure.qmd
+        - exception_handling.qmd
         - functions.qmd
         - environments.qmd
-        - exception_handling.qmd
-        - functionals.qmd
         - object_oriented_programming.qmd
         - meta_programming.qmd
-        - expressions_AST.qmd
         - quasiquotation.qmd
         - evaluation.qmd
-        
+
         
 execute:
   cache: true

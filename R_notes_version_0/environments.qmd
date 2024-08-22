@@ -1,25 +1,100 @@
 # 环境
 
-环境是支持作用域的数据结构。
+在编程语言中，环境指的是一个包含对象、变量和函数的虚拟空间。环境可以理解为一个包含名称和与之绑定（bind）的值的集合，并且每个环境都有一个父环境，形成一个层次结构。R语言中的环境概念与作用域规则紧密相关，尤其是词法作用域（Lexical scoping）。
 
-**Lexical scoping**
+词法作用域，也称为静态作用域，是根据代码的书写结构来确定变量的可见性和作用域的。这意味着变量的作用域是由它被定义时的环境决定的，而不是在运行时动态决定的。例如，当在函数中访问一个变量时，R会首先在函数自身的环境内查找，如果没有找到，就会沿着环境链向上在父环境中查找，直到找到该变量或者达到全局环境 。
 
-1.  Name masking
-2.  Functions versus variables
-3.  A fresh start principle
-4.  Dynamic scoping
+在R中，词法作用域遵循以下原则：
 
-**Namespaces**
+1.  Name masking（名称覆盖）：在内层作用域中定义的变量可以遮蔽外层作用域中的同名变量 。
 
-**R6 classes**
+2.  Functions versus variables（函数vs. 变量）：函数可以作为一等公民在R中被创建和传递，但它们的作用域规则与普通变量相同，遵循词法作用域。
 
-## 基础知识
+3.  A fresh start principle（初始化）：当进入一个新的环境时，变量的作用域从头开始，即使与外层环境有同名变量也不会直接使用外层环境的变量。
 
--   每个环境名称都必须是唯一的。
+4.  Dynamic lookup（动态查找）：虽然R主要是使用词法作用域，但在某些情况下，如函数在全局环境中定义并调用时，可能会出现类似动态作用域的行为，即变量的值取决于调用
 
--   环境中的名称不按顺序排列。
+## 环境类型
 
--   环境有其父级。
+### 当前环境与全局环境
+
+```{r}
+# 访问全局环境
+globalenv()
+
+# 访问当前环境
+environment()
+```
+
+[`current_env()`](https://rlang.r-lib.org/reference/caller_env.html)
+
+[`global_env()`](https://rlang.r-lib.org/reference/search_envs.html)
+
+```{r error=TRUE}
+library(rlang)
+identical(global_env(), current_env())
+
+# 环境不是向量
+global_env() == current_env() 
+```
+
+```{r}
+typeof(globalenv())
+class(globalenv())
+
+is.atomic(globalenv())
+is.list(globalenv())
+
+is.environment(globalenv())
+```
+
+### 父环境
+
+每个环境都有一个父环境（parent）。用于实现词法作用域：如果在当前环境中找不到名称，则 R 将在其父环境中查找（依此类推）。可以通过向 `env()` 提供未命名的参数来设置父环境。如果不提供它，它将默认为当前环境。
+
+```{r}
+e2a<- env(d = 4, e = 5)
+e2b <- env(e2a, a = 1, b = 2, c = 3)
+```
+
+![](images/parent_environment.png){fig-align="center" width="50%"}
+
+`e2a` 是 `e2b` 的父级。
+
+```{r}
+# 查看父级
+identical(e2a, env_parent(e2b))
+env_parent(e2a)
+```
+
+默认情况下，当到达全局环境时停止。如果覆盖默认行为，则可以看到全局环境的父级包括每个加载的包。
+
+```{r}
+# 查看所有父级
+e2a
+env_parents(e2b)
+env_parents(e2b, last = empty_env())
+```
+
+### 空环境
+
+只有一个环境没有父环境：**空(** empty**)**环境。每个环境的父级最终都会随着空环境而终止。
+
+```{r}
+e2c <- env(empty_env(), d = 4, e = 5)
+e2d <- env(e2c, a = 1, b = 2, c = 3)
+```
+
+![](images/parents-empty.png){fig-align="center" width="50%"}
+
+```{r}
+# 查看所有父级
+env_parents(e2d)
+e2c
+env_parents(e2c)
+```
+
+## 环境操作
 
 -   修改时不会复制环境。
 
@@ -28,8 +103,6 @@
 环境的工作是将一组名称关联或**绑定（bind）**到一组值。
 
 ```{r}
-library(rlang)
-
 # name-value pairs
 e1 <- rlang::env(
   a = FALSE,
@@ -59,69 +132,6 @@ my_env <- base::new.env(parent = emptyenv())
 my_env$a <- 1
 ```
 
-### [`current_env()`](https://rlang.r-lib.org/reference/caller_env.html) [`global_env()`](https://rlang.r-lib.org/reference/search_envs.html)
-
-```{r error=TRUE}
-identical(global_env(), current_env())
-
-# 环境不是向量
-global_env() == current_env() 
-```
-
-```{r}
-# 访问全局环境
-globalenv()
-
-# 访问当前环境
-environment()
-```
-
-### 父环境
-
-每个环境都有一个父环境（parent）。父级是用于实现词法作用域的：如果在环境中找不到名称，则 R 将在其父级中查找（依此类推）。可以通过向 `env()` 提供未命名的参数来设置父环境。如果不提供它，它将默认为当前环境。
-
-```{r}
-e2a <- env(d = 4, e = 5)
-e2b <- env(e2a, a = 1, b = 2, c = 3)
-```
-
-![](images/parent_environment.png){fig-align="center" width="50%"}
-
-`e2a` 是 `e2b` 的父级。
-
-```{r}
-# 查看父级
-e2a
-env_parent(e2b)
-env_parent(e2a)
-```
-
-只有一个环境没有父环境：**空(** empty**)**环境。
-
-```{r}
-e2c <- env(empty_env(), d = 4, e = 5)
-e2d <- env(e2c, a = 1, b = 2, c = 3)
-```
-
-![](images/parents-empty.png){fig-align="center" width="50%"}
-
-每个环境的父级最终都会随着空环境而终止。
-
-```{r}
-# 查看所有父级
-env_parents(e2d)
-e2c
-env_parents(e2c)
-```
-
-默认情况下，当到达全局环境时停止。如果覆盖默认行为，则可以看到全局环境的父级包括每个加载的包。
-
-```{r}
-e2a
-env_parents(e2b)
-env_parents(e2b, last = empty_env())
-```
-
 ### 超级赋值 `<<-`
 
 常规赋值 `<-` 始终在当前环境中创建绑定一个变量
@@ -140,55 +150,64 @@ x
 ### 访问对象
 
 ```{r error=TRUE}
-# 
-names(e1)
-e1$a
-e1[["a"]]
+env_print(e1)
 
 # error  无顺序，不能用数字索引
 e1[[1]]
 
-e1$zxc  # NULL
+# $ [["name]]
+e1$b
+e1[["a"]]
 
-env_get(e1, "zxc")
-env_get(e1, "zxc", default = NA)
 ```
 
-### 绑定对象
+### 添加绑定
 
 ```{r}
-
 # 单个
 env_poke(e1, "e", 100)
-e1$e
 
 # 多个
 env_bind(e1, x = 10, y = 20)
-env_names(e1)
+
+env_print(e1)
 ```
 
-### 解绑定对象
+### 解除绑定
 
 ```{r}
 e1$x <- NULL  # 不能删除
 env_has(e1, "x")
+
+
 env_unbind(e1, "x") # 解绑定
 env_has(e1, "x")
+
+env_print(e1)
 ```
 
 ### 高级绑定
 
+#### 延迟绑定
+
 **delayed bindings** [`autoload()`](https://rdrr.io/r/base/autoload.html)允许 R 包提供行为类似于加载内存中的数据集
 
+延迟绑定会创建 unevaluated promise
+
 ```{r}
-# 延迟绑定会创建 promise
-env_bind_lazy(current_env(), b = {Sys.sleep(1); 1})
+env_bind_lazy(current_env(), b =object.size(e1))
+force(b)
+
 system.time(print(b))
 
 system.time(print(b))
 ```
 
-![](images/delayed_bindings_promise.png) **active bindings** 每次访问它们时都会重新计算，主要用于实现 R6 的活动字段
+![](images/delayed_bindings_unevaluated_promise.png.png){fig-align="center"}
+
+#### 动态绑定
+
+**active bindings** 每次访问它们时都会重新计算
 
 ```{r}
 env_bind_active(current_env(), z1 = function(val) runif(1))
@@ -196,9 +215,9 @@ z1
 z1
 ```
 
-## 在环境中递归（recurse）
+## 在环境中递归
 
-### 递归
+### 递归recurse
 
 ```{r eval=FALSE}
 f_recur <- function(..., env = caller_env()) {
@@ -265,7 +284,7 @@ f_iter <- function(..., env = caller_env()) {
 
 大多数环境是由 R 创建的
 
-### 软件包环境和搜索路径
+### 包环境和搜索路径
 
 ![](images/search-path.png){fig-align="center" width="60%"}
 
@@ -286,6 +305,27 @@ rlang::search_envs()
 
 ![](images/search-path-2.png){fig-align="center" width="50%"}
 
+### 命名空间
+
+**命名空间** （namespaces） 的目标是确保以不同的顺序加载包，包将找到相同的功能，并且无论用户附加什么包，每个包的工作方式都相同。
+
+```{r}
+sd
+```
+
+包中的每个函数都与一对环境相关联：前面的包环境和命名空间环境。
+
+-   包环境是包的外部接口。
+-   命名空间环境是包的内部接口。
+
+包环境控制我们如何找到函数；命名空间控制函数查找其变量的方式。
+
+包环境中的每个绑定也可以在命名空间环境中找到。
+
+每个命名空间都有一个**import**环境，**import**环境的父级是**base namespace**，**base namespace**的父级是全局环境。
+
+![](images/namespace.png){fig-align="center" width="50%"}
+
 ### 函数环境
 
 函数在创建时绑定当前环境，称为**函数环境**，用于词法作用域。在计算机语言中，捕获（或封闭）其环境的函数被称为闭包 closures 。
@@ -305,28 +345,9 @@ e <- env()  # 绑定当前环境为父级
 env_parent(e)
 
 e$g <- function() 1  # g绑定在e中
+
+env_print(e)
 ```
-
-### 命名空间
-
-**命名空间** （namespaces） 的目标是确保以不同的顺序加载包，包将找到相同的功能，并且无论用户附加什么包，每个包的工作方式都相同。
-
-```{r}
-sd
-```
-
-包中的每个函数都与一对环境相关联：前面的包环境和命名空间环境。
-
--   包环境是包的外部接口。
--   命名空间环境是包的内部接口。
-
-包环境控制我们如何找到函数;命名空间控制函数查找其变量的方式。
-
-包环境中的每个绑定也可以在命名空间环境中找到。
-
-每个命名空间都有一个**import**环境，**import**环境的父级是**base namespace**，基本命名空间的父级是全局环境。
-
-![](images/namespace.png){fig-align="center" width="50%"}
 
 ### 执行环境
 
@@ -351,7 +372,7 @@ g(10)
 g(10)
 ```
 
-每次调用函数时，都会创建一个新环境来托管执行。这称为执行环境（**execution environment**），其父级是函数环境 @fig-execution 。
+每次调用函数时，都会创建一个新环境来托管执行。这称为执行环境（**execution environment**），其父级是函数环境
 
 ```{r}
 h <- function(x) {
