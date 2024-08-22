@@ -5,9 +5,6 @@ if(!require(tidyverse)) install.packages("tidyverse")
 library(tidyverse)
 ```
 
-```{r}
-mpg
-```
 
 ## 行操作
 
@@ -20,15 +17,15 @@ dplyr::filter(mpg,model=="a4")
 
 
 
-dplyr::filter(mpg,drv %in% c("r","f"))
+dplyr::filter(mpg,drv %in% c("r","f")) |> DT::datatable()
 ```
 
 ### `arrange()`
 
 ```{r}
-arrange(mpg, year,displ,cty)
+arrange(mpg, year,displ,cty)|> DT::datatable()
 
-arrange(mpg,desc(displ))
+arrange(mpg,desc(displ))|> DT::datatable()
 ```
 
 ### `distinct()`
@@ -52,7 +49,7 @@ slice_head(mpg , n=6)
 slice_max(mpg, order_by = displ ,n=6)
 slice_min(mpg,order_by = displ,prop = 0.01)
 
-slice_sample(mpg,n=10,weight_by =hwy ,replace = T)
+slice_sample(mpg,n=6,weight_by =hwy ,replace = T)
 ```
 
 ## 列操作
@@ -67,7 +64,7 @@ slice_sample(mpg,n=10,weight_by =hwy ,replace = T)
 
 -   [`c()`](https://rdrr.io/r/base/c.html)用于组合选择。
 
-此外，还可以使用\*\*选择帮助程序*( selection helpers )*。一些帮助程序选择特定的列：
+选择帮助程序*( selection helpers )*选择特定的列：
 
 -   [`everything()`](https://tidyselect.r-lib.org/reference/everything.html)：匹配所有变量。
 
@@ -75,11 +72,9 @@ slice_sample(mpg,n=10,weight_by =hwy ,replace = T)
 
 -   [`group_cols()`](https://dplyr.tidyverse.org/reference/group_cols.html)：选择所有分组列。
 
-其他帮助程序通过匹配其名称中的模式来选择变量：
+-   [`starts_with()`](https://tidyselect.r-lib.org/reference/starts_with.html)：前缀开头。
 
--   [`starts_with()`](https://tidyselect.r-lib.org/reference/starts_with.html)：以前缀开头。
-
--   [`ends_with()`](https://tidyselect.r-lib.org/reference/starts_with.html)：以后缀结尾。
+-   [`ends_with()`](https://tidyselect.r-lib.org/reference/starts_with.html)：后缀结尾。
 
 -   [`contains()`](https://tidyselect.r-lib.org/reference/starts_with.html)：包含文本字符串。
 
@@ -91,17 +86,17 @@ slice_sample(mpg,n=10,weight_by =hwy ,replace = T)
 
 -   [`all_of()`](https://tidyselect.r-lib.org/reference/all_of.html)：匹配字符向量中的变量名称。所有 名称必须存在，否则抛出越界错误（out-of-bounds error）。
 
--   [`any_of()`](https://tidyselect.r-lib.org/reference/all_of.html)：与`all_of()` 相同，只是对于不存在的名称不会抛出任何错误。
+-   [`any_of()`](https://tidyselect.r-lib.org/reference/all_of.html)：与`all_of()`相同，只是对于不存在的名称不会抛出任何错误。
 
 或者使用谓词( predicate )函数：
 
 -   [where(fn)](https://tidyselect.r-lib.org/reference/where.html)：将该函数应用于所有变量并选择该函数返回`TRUE`的变量。
 
 ```{r}
-dplyr::select(mpg,model:year)
-select(mpg,c(3,4,5))
-select(mpg,where(is.numeric))
-select(mpg,where(~is.numeric(.x) && mean(.x,na.rm=TRUE)<50))
+dplyr::select(mpg,model:year)|> DT::datatable()
+select(mpg,c(3,4,5))|> DT::datatable()
+select(mpg,where(is.numeric))|> DT::datatable()
+select(mpg,where(~is.numeric(.x) && mean(.x,na.rm=TRUE)<50))|> DT::datatable()
 ```
 
 ### `mutate()`
@@ -109,28 +104,28 @@ select(mpg,where(~is.numeric(.x) && mean(.x,na.rm=TRUE)<50))
 ```{r}
 mutate(mpg,
        id=nrow(mpg),
-       .before = 1)
+       .before = 1)|> DT::datatable()
 
 mutate(mpg,
        id=nrow(mpg),
-       .after = 1)
+       .after = 1)|> DT::datatable()
 
 mutate(mpg,
        id=nrow(mpg),
-       .keep = "used")
+       .keep = "used")|> DT::datatable()
 ```
 
 ### `rename()`
 
 ```{r}
-rename(mpg,生产厂商=manufacturer)
+rename(mpg,生产厂商=manufacturer) |> head()
 ```
 
 ### `relocate()`
 
 ```{r}
-relocate(mpg , model:year ,.before = 1)
-relocate(mpg , model:year ,.after = cyl)
+relocate(mpg , model:year ,.before = 1) |> head()
+relocate(mpg , model:year ,.after = cyl) |> head()
 ```
 
 ## 连接操作
@@ -229,7 +224,7 @@ mpg |>
 
 mpg |> 
     group_by(cyl,drv) |> 
-    ungroup()
+    ungroup()|> DT::datatable()
 
 
 mpg |> 
@@ -269,7 +264,7 @@ model_by_species %>%
 #### 列名包含一个变量名
 
 ```{r}
-billboard
+billboard|> DT::datatable()
 ```
 
 ```{r}
@@ -283,7 +278,7 @@ billboard_longer <- billboard |>
     mutate(
         week=parse_number(week)
     )
-billboard_longer
+billboard_longer|> DT::datatable()
 ```
 
 ```{r}
@@ -297,7 +292,7 @@ billboard_longer |>
 #### 列名包含多个变量名
 
 ```{r}
-who2
+who2 |> DT::datatable()
 ```
 
 ```{r}
@@ -308,7 +303,7 @@ who2 |>
     names_sep = "_",
     values_to = "count",
     values_drop_na = T
-  )
+  ) |> head()
 ```
 
 #### 列名包含变量名和变量值
@@ -362,7 +357,7 @@ df%>%
 ### `pivot_wider()`
 
 ```{r}
-cms_patient_experience
+cms_patient_experience|> DT::datatable()
 ```
 
 ```{r}
@@ -376,7 +371,7 @@ cms_patient_experience |>
         id_cols = starts_with("org"),# 唯一标识列
         names_from = measure_cd,
         values_from = prf_rate
-    )
+    ) |> DT::datatable()
 ```
 
 ### `tidyr::separate_longer_*()`
@@ -386,6 +381,7 @@ cms_patient_experience |>
 ```
 
 ### `tidyr::separate_wider_*()`
+
 
 ## 重编码
 
