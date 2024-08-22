@@ -1,6 +1,6 @@
 # 基本数据类型和数据结构
 
-## 基本数据类型 {style="color:red"}
+## 基本数据类型
 
 基本数据类型（mode） 是指数据最基本的存储格式。在R中有5 种最基本的数据存储格式，分别是**numeric**（**integer**，**double**），**character**，**logical**，**complex** 和 **raw**。
 
@@ -117,7 +117,7 @@ NA_integer_
 is.na(NA)
 ```
 
-## 数据结构 {style="color:red"}
+## 数据结构
 
 R中的数据结构包括 **原子向量**（atomic vector）和**泛型向量**（generic vector）。
 
