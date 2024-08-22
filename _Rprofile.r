@@ -84,12 +84,12 @@ pkgs <- c('conflicted','installr',"devtools",'reticulate','BiocManager',
 
 stat <- c('moments', 'nortest','HH','emmeans',"ez",'afex' ,'gee', 'geepack','epiDisplay', 'psych',
           'poissonreg','censored', 'multilevelmod','discrim',
-          'factoextra', 'tidyclust',"tidygraph"
+          'factoextra', 'tidyclust'
           )
 remotes::install_github('jbryer/psa', build_vignettes = TRUE, dependencies = 'Enhances')
 
-graph <- c('patchwork',"ggpubr","ggpattern","survminer","pROC","plotly","ggraph","ggrepel","ggcorrplot","ggprism",
-           'pheatmap',"ggsurvfit",'ggfortify',"ggthemes",'ggpmisc'
+gplt <- c('patchwork',"ggpubr","ggpattern","survminer","pROC","plotly","ggraph","ggrepel","ggcorrplot","ggprism",
+           'pheatmap',"ggsurvfit",'ggfortify',"ggthemes",'ggpmisc','ggeffects',"tidygraph"
         )
 
 tbl <- c('gt', 'gtsummary', 'tableone')
