@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.555">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>数据科学与编程 - 5&nbsp; 逻辑向量</title>
+<title>数据科学与编程 - 4&nbsp; 逻辑向量</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./logical_vector.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">逻辑向量</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./logical_vector.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">逻辑向量</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -162,83 +162,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./big_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">大内存数据</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./useful_function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./logical_vector.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./number_vector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">数值</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./text_string.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">文本</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tidy_transform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">数据清洗</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./missing_imputation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">缺失值处理</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./base_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">base graphics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./custom_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数值</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dynamic_report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">R → Python</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./R-Python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R⬌Python</span></a>
-  </div>
-</li>
-      </ul>
-</li>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">R → Python</span></span>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -251,61 +202,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">函数</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">环境</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exception_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functionals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">泛函</span></span></a>
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">函数</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">环境</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./object_oriented_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./meta_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">元编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./expressions_AST.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">表达式与抽象语法树</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">元编程</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quasiquotation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quasiquotation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quasiquotation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
   </div>
 </li>
       </ul>
@@ -319,33 +258,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#%E9%80%BB%E8%BE%91%E6%AF%94%E8%BE%83" id="toc-逻辑比较" class="nav-link active" data-scroll-target="#%E9%80%BB%E8%BE%91%E6%AF%94%E8%BE%83"><span class="header-section-number">5.1</span> 逻辑比较</a>
+<a href="#%E9%80%BB%E8%BE%91%E6%AF%94%E8%BE%83" id="toc-逻辑比较" class="nav-link active" data-scroll-target="#%E9%80%BB%E8%BE%91%E6%AF%94%E8%BE%83"><span class="header-section-number">4.1</span> 逻辑比较</a>
   <ul>
-<li><a href="#%E6%B5%AE%E7%82%B9%E6%AF%94%E8%BE%83" id="toc-浮点比较" class="nav-link" data-scroll-target="#%E6%B5%AE%E7%82%B9%E6%AF%94%E8%BE%83"><span class="header-section-number">5.1.1</span> 浮点比较</a></li>
-  <li><a href="#%E7%BC%BA%E5%A4%B1%E5%80%BC" id="toc-缺失值" class="nav-link" data-scroll-target="#%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="header-section-number">5.1.2</span> 缺失值</a></li>
+<li><a href="#%E6%B5%AE%E7%82%B9%E6%AF%94%E8%BE%83" id="toc-浮点比较" class="nav-link" data-scroll-target="#%E6%B5%AE%E7%82%B9%E6%AF%94%E8%BE%83"><span class="header-section-number">4.1.1</span> 浮点比较</a></li>
+  <li><a href="#%E7%BC%BA%E5%A4%B1%E5%80%BC" id="toc-缺失值" class="nav-link" data-scroll-target="#%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="header-section-number">4.1.2</span> 缺失值</a></li>
   </ul>
 </li>
   <li>
-<a href="#%E5%B8%83%E5%B0%94%E4%BB%A3%E6%95%B0" id="toc-布尔代数" class="nav-link" data-scroll-target="#%E5%B8%83%E5%B0%94%E4%BB%A3%E6%95%B0"><span class="header-section-number">5.2</span> 布尔代数</a>
+<a href="#%E5%B8%83%E5%B0%94%E4%BB%A3%E6%95%B0" id="toc-布尔代数" class="nav-link" data-scroll-target="#%E5%B8%83%E5%B0%94%E4%BB%A3%E6%95%B0"><span class="header-section-number">4.2</span> 布尔代数</a>
   <ul>
-<li><a href="#%E7%BC%BA%E5%A4%B1%E5%80%BC-1" id="toc-缺失值-1" class="nav-link" data-scroll-target="#%E7%BC%BA%E5%A4%B1%E5%80%BC-1"><span class="header-section-number">5.2.1</span> 缺失值</a></li>
+<li><a href="#%E7%BC%BA%E5%A4%B1%E5%80%BC-1" id="toc-缺失值-1" class="nav-link" data-scroll-target="#%E7%BC%BA%E5%A4%B1%E5%80%BC-1"><span class="header-section-number">4.2.1</span> 缺失值</a></li>
   </ul>
 </li>
-  <li><a href="#in" id="toc-in" class="nav-link" data-scroll-target="#in"><span class="header-section-number">5.3</span> <code>%in%</code></a></li>
+  <li><a href="#in" id="toc-in" class="nav-link" data-scroll-target="#in"><span class="header-section-number">4.3</span> <code>%in%</code></a></li>
   <li>
-<a href="#%E6%9D%A1%E4%BB%B6%E8%BD%AC%E6%8D%A2" id="toc-条件转换" class="nav-link" data-scroll-target="#%E6%9D%A1%E4%BB%B6%E8%BD%AC%E6%8D%A2"><span class="header-section-number">5.4</span> 条件转换</a>
+<a href="#%E6%9D%A1%E4%BB%B6%E8%BD%AC%E6%8D%A2" id="toc-条件转换" class="nav-link" data-scroll-target="#%E6%9D%A1%E4%BB%B6%E8%BD%AC%E6%8D%A2"><span class="header-section-number">4.4</span> 条件转换</a>
   <ul>
-<li><a href="#if_else" id="toc-if_else" class="nav-link" data-scroll-target="#if_else"><span class="header-section-number">5.4.1</span> <strong><code>if_else()</code></strong></a></li>
-  <li><a href="#case_when" id="toc-case_when" class="nav-link" data-scroll-target="#case_when"><span class="header-section-number">5.4.2</span> <strong><code>case_when()</code></strong></a></li>
+<li><a href="#if_else" id="toc-if_else" class="nav-link" data-scroll-target="#if_else"><span class="header-section-number">4.4.1</span> <strong><code>if_else()</code></strong></a></li>
+  <li><a href="#case_when" id="toc-case_when" class="nav-link" data-scroll-target="#case_when"><span class="header-section-number">4.4.2</span> <strong><code>case_when()</code></strong></a></li>
   </ul>
 </li>
-  <li><a href="#%E9%80%BB%E8%BE%91%E6%B1%87%E6%80%BB" id="toc-逻辑汇总" class="nav-link" data-scroll-target="#%E9%80%BB%E8%BE%91%E6%B1%87%E6%80%BB"><span class="header-section-number">5.5</span> 逻辑汇总</a></li>
+  <li><a href="#%E9%80%BB%E8%BE%91%E6%B1%87%E6%80%BB" id="toc-逻辑汇总" class="nav-link" data-scroll-target="#%E9%80%BB%E8%BE%91%E6%B1%87%E6%80%BB"><span class="header-section-number">4.5</span> 逻辑汇总</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./logical_vector.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">逻辑向量</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./type_class.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./logical_vector.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">逻辑向量</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">逻辑向量</span>
+<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">逻辑向量</span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -360,12 +299,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="逻辑比较" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="逻辑比较">
-<span class="header-section-number">5.1</span> 逻辑比较</h2>
-<section id="浮点比较" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="浮点比较">
-<span class="header-section-number">5.1.1</span> 浮点比较</h3>
+</header><section id="逻辑比较" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="逻辑比较">
+<span class="header-section-number">4.1</span> 逻辑比较</h2>
+<section id="浮点比较" class="level3" data-number="4.1.1"><h3 data-number="4.1.1" class="anchored" data-anchor-id="浮点比较">
+<span class="header-section-number">4.1.1</span> 浮点比较</h3>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">/</span> <span class="fl">49</span> <span class="op">*</span> <span class="fl">49</span>, <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op">^</span> <span class="fl">2</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">/</span> <span class="fl">49</span> <span class="op">*</span> <span class="fl">49</span>, <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op">^</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">x</span></span>
 <span><span class="co">#&gt; [1] 1 2</span></span>
 <span><span class="va">x</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
@@ -376,24 +315,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] TRUE TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="缺失值" class="level3" data-number="5.1.2"><h3 data-number="5.1.2" class="anchored" data-anchor-id="缺失值">
-<span class="header-section-number">5.1.2</span> 缺失值</h3>
+</section><section id="缺失值" class="level3" data-number="4.1.2"><h3 data-number="4.1.2" class="anchored" data-anchor-id="缺失值">
+<span class="header-section-number">4.1.2</span> 缺失值</h3>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># “contagious”</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># “contagious”</span></span>
 <span><span class="cn">NA</span> <span class="op">==</span> <span class="cn">NA</span></span>
 <span><span class="co">#&gt; [1] NA</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">NA</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE  TRUE FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="布尔代数" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="布尔代数">
-<span class="header-section-number">5.2</span> 布尔代数</h2>
+</section></section><section id="布尔代数" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="布尔代数">
+<span class="header-section-number">4.2</span> 布尔代数</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/boolean_operations.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
 </figure>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">x1</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">x1</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE</span></span>
 <span><span class="op">(</span><span class="va">y1</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">5</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE</span></span>
@@ -427,10 +366,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] 2 4 6 8 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="缺失值-1" class="level3" data-number="5.2.1"><h3 data-number="5.2.1" class="anchored" data-anchor-id="缺失值-1">
-<span class="header-section-number">5.2.1</span> 缺失值</h3>
+<section id="缺失值-1" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="缺失值-1">
+<span class="header-section-number">4.2.1</span> 缺失值</h3>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">mutate</span><span class="op">(</span></span>
@@ -466,24 +405,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section></section><section id="in" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="in">
-<span class="header-section-number">5.3</span> <code>%in%</code>
+</section></section><section id="in" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="in">
+<span class="header-section-number">4.3</span> <code>%in%</code>
 </h2>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">11</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">11</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="cn">NA</span></span>
 <span><span class="co">#&gt; [1] FALSE FALSE  TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="条件转换" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="条件转换">
-<span class="header-section-number">5.4</span> 条件转换</h2>
-<section id="if_else" class="level3" data-number="5.4.1"><h3 data-number="5.4.1" class="anchored" data-anchor-id="if_else">
-<span class="header-section-number">5.4.1</span> <strong><code>if_else()</code></strong>
+</section><section id="条件转换" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="条件转换">
+<span class="header-section-number">4.4</span> 条件转换</h2>
+<section id="if_else" class="level3" data-number="4.4.1"><h3 data-number="4.4.1" class="anchored" data-anchor-id="if_else">
+<span class="header-section-number">4.4.1</span> <strong><code>if_else()</code></strong>
 </h3>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span><span class="op">:</span><span class="fl">3</span>, <span class="cn">NA</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span><span class="op">:</span><span class="fl">3</span>, <span class="cn">NA</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">if_else</span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="st">"+ve"</span>, <span class="st">"-ve"</span>, missing <span class="op">=</span> <span class="st">"???"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "-ve" "-ve" "-ve" "-ve" "+ve" "+ve" "+ve" "???"</span></span>
@@ -494,17 +433,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span><span class="op">)</span></span>
 <span><span class="va">y1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span></span>
 <span><span class="fu">if_else</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, <span class="va">y1</span>, <span class="va">x1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 3 1 2 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="case_when" class="level3" data-number="5.4.2"><h3 data-number="5.4.2" class="anchored" data-anchor-id="case_when">
-<span class="header-section-number">5.4.2</span> <strong><code>case_when()</code></strong>
+</section><section id="case_when" class="level3" data-number="4.4.2"><h3 data-number="4.4.2" class="anchored" data-anchor-id="case_when">
+<span class="header-section-number">4.4.2</span> <strong><code>case_when()</code></strong>
 </h3>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span><span class="op">:</span><span class="fl">3</span>, <span class="cn">NA</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span><span class="op">:</span><span class="fl">3</span>, <span class="cn">NA</span><span class="op">)</span></span>
 <span><span class="fu">case_when</span><span class="op">(</span></span>
 <span>  <span class="va">x</span> <span class="op">==</span> <span class="fl">0</span>   <span class="op">~</span> <span class="st">"0"</span>,</span>
 <span>  <span class="va">x</span> <span class="op">&lt;</span> <span class="fl">0</span>    <span class="op">~</span> <span class="st">"-ve"</span>, </span>
@@ -514,10 +453,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] "-ve" "-ve" "-ve" "0"   "+ve" "+ve" "+ve" "???"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="逻辑汇总" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="逻辑汇总">
-<span class="header-section-number">5.5</span> 逻辑汇总</h2>
+</section></section><section id="逻辑汇总" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="逻辑汇总">
+<span class="header-section-number">4.5</span> 逻辑汇总</h2>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">5</span>,<span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">5</span>,<span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span></span>
 <span><span class="va">x</span><span class="op">&gt;</span><span class="fl">2</span></span>
 <span><span class="co">#&gt; [1] FALSE  TRUE  TRUE FALSE  TRUE</span></span>
 <span></span>
@@ -995,12 +934,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./useful_function.html" class="pagination-link" aria-label="实用函数">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">实用函数</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">实用函数</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./number_vector.html" class="pagination-link" aria-label="数值">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">数值</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数值</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">

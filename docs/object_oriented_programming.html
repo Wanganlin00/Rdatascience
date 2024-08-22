@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.555">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>数据科学与编程 - 18&nbsp; 面向对象编程</title>
+<title>数据科学与编程 - 11&nbsp; 面向对象编程</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,7 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./meta_programming.html" rel="next">
-<link href="./functionals.html" rel="prev">
+<link href="./environments.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./control_structure.html">R Programming</a></li><li class="breadcrumb-item"><a href="./object_oriented_programming.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">面向对象编程</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./control_structure.html">R Programming</a></li><li class="breadcrumb-item"><a href="./object_oriented_programming.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">面向对象编程</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -162,83 +162,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./big_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">大内存数据</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./useful_function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">实用函数</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./logical_vector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">逻辑向量</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./number_vector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">数值</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./text_string.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">文本</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tidy_transform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">数据清洗</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./missing_imputation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">缺失值处理</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./base_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">base graphics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./custom_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">数值</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dynamic_report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">R → Python</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./R-Python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R⬌Python</span></a>
-  </div>
-</li>
-      </ul>
-</li>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">R → Python</span></span>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -251,61 +202,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">函数</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">环境</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exception_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functionals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">泛函</span></span></a>
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">函数</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">环境</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./object_oriented_programming.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./meta_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">元编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./expressions_AST.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">表达式与抽象语法树</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">元编程</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quasiquotation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quasiquotation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quasiquotation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
   </div>
 </li>
       </ul>
@@ -319,36 +258,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#r-%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1" id="toc-r-中的对象" class="nav-link active" data-scroll-target="#r-%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="header-section-number">18.1</span> <strong>R 中的对象</strong></a>
+<a href="#r-%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1" id="toc-r-中的对象" class="nav-link active" data-scroll-target="#r-%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="header-section-number">11.1</span> R 中的对象</a>
   <ul>
-<li><a href="#base-objects" id="toc-base-objects" class="nav-link" data-scroll-target="#base-objects"><span class="header-section-number">18.1.1</span> base objects</a></li>
-  <li><a href="#oo-objects" id="toc-oo-objects" class="nav-link" data-scroll-target="#oo-objects"><span class="header-section-number">18.1.2</span> OO objects</a></li>
+<li><a href="#base-objects" id="toc-base-objects" class="nav-link" data-scroll-target="#base-objects"><span class="header-section-number">11.1.1</span> base objects</a></li>
+  <li><a href="#oo-objectsclass-%E5%B1%9E%E6%80%A7" id="toc-oo-objectsclass-属性" class="nav-link" data-scroll-target="#oo-objectsclass-%E5%B1%9E%E6%80%A7"><span class="header-section-number">11.1.2</span> OO objects：<code>class</code> 属性</a></li>
   </ul>
 </li>
   <li>
-<a href="#s3%E7%B1%BB" id="toc-s3类" class="nav-link" data-scroll-target="#s3%E7%B1%BB"><span class="header-section-number">18.2</span> S3类</a>
+<a href="#s3%E7%B1%BB" id="toc-s3类" class="nav-link" data-scroll-target="#s3%E7%B1%BB"><span class="header-section-number">11.2</span> S3类</a>
   <ul>
-<li><a href="#%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B" id="toc-类的实例" class="nav-link" data-scroll-target="#%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="header-section-number">18.2.1</span> 类的实例</a></li>
-  <li><a href="#%E6%B3%9B%E5%9E%8B%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95%E8%B0%83%E5%BA%A6" id="toc-泛型函数和方法调度" class="nav-link" data-scroll-target="#%E6%B3%9B%E5%9E%8B%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95%E8%B0%83%E5%BA%A6"><span class="header-section-number">18.2.2</span> 泛型函数和方法调度</a></li>
-  <li><a href="#s3-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD" id="toc-s3-方法重载" class="nav-link" data-scroll-target="#s3-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD"><span class="header-section-number">18.2.3</span> S3 方法重载</a></li>
+<li><a href="#%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B" id="toc-类的实例" class="nav-link" data-scroll-target="#%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="header-section-number">11.2.1</span> 类的实例</a></li>
+  <li><a href="#%E6%B3%9B%E5%9E%8B%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95%E8%B0%83%E5%BA%A6" id="toc-泛型函数和方法调度" class="nav-link" data-scroll-target="#%E6%B3%9B%E5%9E%8B%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95%E8%B0%83%E5%BA%A6"><span class="header-section-number">11.2.2</span> 泛型函数和方法调度</a></li>
+  <li><a href="#s3-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD" id="toc-s3-方法重载" class="nav-link" data-scroll-target="#s3-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD"><span class="header-section-number">11.2.3</span> S3 方法重载</a></li>
   </ul>
 </li>
-  <li><a href="#r6-%E7%B1%BB" id="toc-r6-类" class="nav-link" data-scroll-target="#r6-%E7%B1%BB"><span class="header-section-number">18.3</span> R6 类</a></li>
+  <li><a href="#r6-%E7%B1%BB" id="toc-r6-类" class="nav-link" data-scroll-target="#r6-%E7%B1%BB"><span class="header-section-number">11.3</span> R6 类</a></li>
   <li>
-<a href="#s4%E7%B1%BB" id="toc-s4类" class="nav-link" data-scroll-target="#s4%E7%B1%BB"><span class="header-section-number">18.4</span> S4类</a>
+<a href="#s4%E7%B1%BB" id="toc-s4类" class="nav-link" data-scroll-target="#s4%E7%B1%BB"><span class="header-section-number">11.4</span> S4类</a>
   <ul>
-<li><a href="#%E5%88%9B%E5%BB%BA%E7%B1%BB%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%96%B9%E6%B3%95" id="toc-创建类泛型和方法" class="nav-link" data-scroll-target="#%E5%88%9B%E5%BB%BA%E7%B1%BB%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%96%B9%E6%B3%95"><span class="header-section-number">18.4.1</span> 创建类、泛型和方法</a></li>
-  <li><a href="#%E7%BB%A7%E6%89%BF" id="toc-继承" class="nav-link" data-scroll-target="#%E7%BB%A7%E6%89%BF"><span class="header-section-number">18.4.2</span> 继承</a></li>
-  <li><a href="#%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E9%87%8D%E8%B0%83%E5%BA%A6" id="toc-多重继承和多重调度" class="nav-link" data-scroll-target="#%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E9%87%8D%E8%B0%83%E5%BA%A6"><span class="header-section-number">18.4.3</span> 多重继承和多重调度</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E7%B1%BB%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%96%B9%E6%B3%95" id="toc-创建类泛型和方法" class="nav-link" data-scroll-target="#%E5%88%9B%E5%BB%BA%E7%B1%BB%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%96%B9%E6%B3%95"><span class="header-section-number">11.4.1</span> 创建类、泛型和方法</a></li>
+  <li><a href="#%E7%BB%A7%E6%89%BF" id="toc-继承" class="nav-link" data-scroll-target="#%E7%BB%A7%E6%89%BF"><span class="header-section-number">11.4.2</span> 继承</a></li>
+  <li><a href="#%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E9%87%8D%E8%B0%83%E5%BA%A6" id="toc-多重继承和多重调度" class="nav-link" data-scroll-target="#%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E9%87%8D%E8%B0%83%E5%BA%A6"><span class="header-section-number">11.4.3</span> 多重继承和多重调度</a></li>
   </ul>
 </li>
-  <li><a href="#ggproto-%E7%B1%BB" id="toc-ggproto-类" class="nav-link" data-scroll-target="#ggproto-%E7%B1%BB"><span class="header-section-number">18.5</span> ggproto 类</a></li>
+  <li>
+<a href="#%E5%8E%9F%E5%9E%8B%E7%B1%BB" id="toc-原型类" class="nav-link" data-scroll-target="#%E5%8E%9F%E5%9E%8B%E7%B1%BB"><span class="header-section-number">11.5</span> 原型类</a>
+  <ul>
+<li><a href="#ggproto-%E7%B1%BB" id="toc-ggproto-类" class="nav-link" data-scroll-target="#ggproto-%E7%B1%BB"><span class="header-section-number">11.5.1</span> ggproto 类</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./control_structure.html">R Programming</a></li><li class="breadcrumb-item"><a href="./object_oriented_programming.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">面向对象编程</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./control_structure.html">R Programming</a></li><li class="breadcrumb-item"><a href="./object_oriented_programming.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">面向对象编程</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">18</span>&nbsp; <span class="chapter-title">面向对象编程</span>
+<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">面向对象编程</span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -383,19 +327,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>函数式 OOP： 方法属于泛型函数，函数调用，内部组件也是函数。<code>generic(object, arg2, arg3)</code>，如S3类、S4类</p></li>
 <li><p>封装 OOP ：方法属于对象或类，对象封装了数据（字段）和 行为（方法）。<code>object.method(arg1, arg2)</code>，如R6类</p></li>
 </ol>
-<section id="r-中的对象" class="level2" data-number="18.1"><h2 data-number="18.1" class="anchored" data-anchor-id="r-中的对象">
-<span class="header-section-number">18.1</span> <strong>R 中的对象</strong>
-</h2>
+<section id="r-中的对象" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="r-中的对象">
+<span class="header-section-number">11.1</span> R 中的对象</h2>
 <p>R中存在的一切都是一个对象，包括 <strong>base objects</strong> 和 <strong>OO objects</strong> 。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/oo-venn.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
 </figure>
 </div>
-<section id="base-objects" class="level3" data-number="18.1.1"><h3 data-number="18.1.1" class="anchored" data-anchor-id="base-objects">
-<span class="header-section-number">18.1.1</span> base objects</h3>
+<section id="base-objects" class="level3" data-number="11.1.1"><h3 data-number="11.1.1" class="anchored" data-anchor-id="base-objects">
+<span class="header-section-number">11.1.1</span> base objects</h3>
 <p>基本对象来自 S</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/sloop">sloop</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"sloop"</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/sloop">sloop</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"sloop"</span><span class="op">)</span></span>
 <span><span class="co"># A base object:</span></span>
 <span><span class="fu">sloop</span><span class="fu">::</span><span class="fu"><a href="https://sloop.r-lib.org/reference/otype.html">otype</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "base"</span></span>
@@ -411,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>基本对象和 OO 对象之间的区别在于 OO 对象具有“类”属性</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="st">"class"</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="st">"class"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NULL</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="st">"class"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "data.frame"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -419,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>虽然只有 OO 对象具有类”class”属性，但每个对象都具有<strong>基本类型（base type）</strong>：</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "integer"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "list"</span></span>
@@ -439,18 +382,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p><strong>基本类型</strong>包括数据的基本类型（数值，字符，逻辑，复数等），函数类型（闭包、内置、特殊），环境，类，…… 等等。</p>
-</section><section id="oo-objects" class="level3" data-number="18.1.2"><h3 data-number="18.1.2" class="anchored" data-anchor-id="oo-objects">
-<span class="header-section-number">18.1.2</span> OO objects</h3>
+</section><section id="oo-objectsclass-属性" class="level3" data-number="11.1.2"><h3 data-number="11.1.2" class="anchored" data-anchor-id="oo-objectsclass-属性">
+<span class="header-section-number">11.1.2</span> OO objects：<code>class</code> 属性</h3>
 <ul>
 <li><p><strong>S3</strong>：是 R 的第一个 OOP 系统，<em>Statistical Models in S</em></p></li>
 <li><p><strong>S4</strong>：是对 S3 的正式和严格的重写，<em>Programming with Data</em>，S4 在默认安装(<code>options()$defaultPackages</code>) <strong><em>methods</em></strong> 包中实现。<strong><em>Bioconductor</em></strong> 项目使用的就是S4类。</p></li>
 <li><p><strong>R6</strong>：构建在环境之上的封装OOP，具有引用语义，modified in-place 而非“修改时复制（copy-on-modify）”，在 <strong><em>R6</em></strong> 包中实现。</p></li>
 <li><p><strong>prototype</strong>（原型）：模糊类和类（对象）的实例之间的区别，通常指的是一个对象的初始实例，它定义了一组属性和方法，其他对象可以基于这个原型进行创建。例如<strong><em>ggplot2</em></strong> 包的<strong><em>ggproto</em></strong>类</p></li>
-</ul></section></section><section id="s3类" class="level2" data-number="18.2"><h2 data-number="18.2" class="anchored" data-anchor-id="s3类">
-<span class="header-section-number">18.2</span> S3类</h2>
+</ul></section></section><section id="s3类" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="s3类">
+<span class="header-section-number">11.2</span> S3类</h2>
 <p>S3 对象是至少具有一个属性（其他属性可用于存储其他数据）的<strong>base type(</strong> 有mode属性)。</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># 基本类型</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
@@ -467,7 +410,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>剥离类属性，保留其他属性</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">unclass</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">unclass</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1 2 3</span></span>
 <span><span class="co">#&gt; attr(,"levels")</span></span>
 <span><span class="co">#&gt; [1] "a" "b" "c"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -475,17 +418,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>查看方法调度，<code>generic.class()</code></p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/sloop">sloop</a></span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/sloop">sloop</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://sloop.r-lib.org/reference/s3_dispatch.html">s3_dispatch</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; =&gt; print.factor</span></span>
 <span><span class="co">#&gt;  * print.default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="类的实例" class="level3" data-number="18.2.1"><h3 data-number="18.2.1" class="anchored" data-anchor-id="类的实例">
-<span class="header-section-number">18.2.1</span> 类的实例</h3>
+<section id="类的实例" class="level3" data-number="11.2.1"><h3 data-number="11.2.1" class="anchored" data-anchor-id="类的实例">
+<span class="header-section-number">11.2.1</span> 类的实例</h3>
 <p>要使对象成为类的实例，您只需设置类属性即可。</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>, class <span class="op">=</span> <span class="st">"custom_class"</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>, class <span class="op">=</span> <span class="st">"custom_class"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># 或者</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -493,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "custom_class"</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">inherits</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"custom_class"</span><span class="op">)</span></span>
@@ -508,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>例如 Date 类</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_Date</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_Date</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">is.double</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span><span class="va">x</span>, class <span class="op">=</span> <span class="st">"Date"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -518,7 +461,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>difftime 类</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_difftime</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">units</span> <span class="op">=</span> <span class="st">"secs"</span><span class="op">)</span> <span class="op">{</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_difftime</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">units</span> <span class="op">=</span> <span class="st">"secs"</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">is.double</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="va">units</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/match.arg.html">match.arg</a></span><span class="op">(</span><span class="va">units</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"secs"</span>, <span class="st">"mins"</span>, <span class="st">"hours"</span>, <span class="st">"days"</span>, <span class="st">"weeks"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -533,7 +476,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>有效性验证</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_factor</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">levels</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_factor</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">levels</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html">is.integer</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">levels</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -551,7 +494,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">validate_factor</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">validate_factor</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/class.html">unclass</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span>  <span class="va">levels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"levels"</span><span class="op">)</span></span>
 <span></span>
@@ -582,7 +525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>强制类型转换</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">difftime</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">units</span> <span class="op">=</span> <span class="st">"secs"</span><span class="op">)</span> <span class="op">{</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">difftime</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">units</span> <span class="op">=</span> <span class="st">"secs"</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">as.double</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span>  <span class="fu">new_difftime</span><span class="op">(</span><span class="va">x</span>, units <span class="op">=</span> <span class="va">units</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -596,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>复杂对象字符串表示</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">factor</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">levels</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">factor</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">levels</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">ind</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/match.html">match</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">levels</span><span class="op">)</span></span>
 <span>  <span class="fu">validate_factor</span><span class="op">(</span><span class="fu">new_factor</span><span class="op">(</span><span class="va">ind</span>, <span class="va">levels</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -610,7 +553,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>复杂对象由多个简单组件指定</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">POSIXct</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">year</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span>, </span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">POSIXct</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">year</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span>, </span>
 <span>                    <span class="va">month</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span>, </span>
 <span>                    <span class="va">day</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="op">)</span>, </span>
 <span>                    <span class="va">hour</span> <span class="op">=</span> <span class="fl">0L</span>, </span>
@@ -624,17 +567,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] "2020-01-01 CST"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="泛型函数和方法调度" class="level3" data-number="18.2.2"><h3 data-number="18.2.2" class="anchored" data-anchor-id="泛型函数和方法调度">
-<span class="header-section-number">18.2.2</span> 泛型函数和方法调度</h3>
+</section><section id="泛型函数和方法调度" class="level3" data-number="11.2.2"><h3 data-number="11.2.2" class="anchored" data-anchor-id="泛型函数和方法调度">
+<span class="header-section-number">11.2.2</span> 泛型函数和方法调度</h3>
 <p>泛型函数（generic function）</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_new_generic</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_new_generic</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/UseMethod.html">UseMethod</a></span><span class="op">(</span><span class="st">"my_new_generic"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/r-lib/sloop">"sloop"</a></span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/r-lib/sloop">"sloop"</a></span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://sloop.r-lib.org/reference/s3_dispatch.html">s3_dispatch</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    mean.matrix</span></span>
@@ -646,7 +589,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>=&gt;</code>指示调用的方法</p>
 <p><a href="https://rdrr.io/r/base/Arithmetic.html"><code>*</code></a>指示此处已定义但未调用的方法，“default”类是一个特殊的<strong>伪类</strong>。这不是一个真正的类，但包含它是为了可以定义一个标准回退，每当特定于类的方法不可用时，就会找到该回退。</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mean</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mean</span></span>
 <span><span class="co">#&gt; function (x, ...) </span></span>
 <span><span class="co">#&gt; UseMethod("mean")</span></span>
 <span><span class="co">#&gt; &lt;bytecode: 0x000001bd3db95df0&gt;</span></span>
@@ -708,7 +651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://sloop.r-lib.org/reference/s3_methods_class.html">s3_methods_class</a></span><span class="op">(</span><span class="st">"ordered"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://sloop.r-lib.org/reference/s3_methods_class.html">s3_methods_class</a></span><span class="op">(</span><span class="st">"ordered"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="kable-table">
 <table class="caption-top table table-sm table-striped small">
@@ -760,10 +703,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="s3-方法重载" class="level3" data-number="18.2.3"><h3 data-number="18.2.3" class="anchored" data-anchor-id="s3-方法重载">
-<span class="header-section-number">18.2.3</span> S3 方法重载</h3>
+</section><section id="s3-方法重载" class="level3" data-number="11.2.3"><h3 data-number="11.2.3" class="anchored" data-anchor-id="s3-方法重载">
+<span class="header-section-number">11.2.3</span> S3 方法重载</h3>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># S3 方法重载示例</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># S3 方法重载示例</span></span>
 <span><span class="va">generic_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/UseMethod.html">UseMethod</a></span><span class="op">(</span><span class="st">"generic_function"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
@@ -800,24 +743,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] "abc"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="r6-类" class="level2" data-number="18.3"><h2 data-number="18.3" class="anchored" data-anchor-id="r6-类">
-<span class="header-section-number">18.3</span> R6 类</h2>
+</section></section><section id="r6-类" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="r6-类">
+<span class="header-section-number">11.3</span> R6 类</h2>
 <p><a href="https://r6.r-lib.org/reference/R6Class.html">R6::R6Class(classname = NULL，public = list)</a></p>
-</section><section id="s4类" class="level2" data-number="18.4"><h2 data-number="18.4" class="anchored" data-anchor-id="s4类">
-<span class="header-section-number">18.4</span> S4类</h2>
+</section><section id="s4类" class="level2" data-number="11.4"><h2 data-number="11.4" class="anchored" data-anchor-id="s4类">
+<span class="header-section-number">11.4</span> S4类</h2>
 <p>创建类 <code><a href="https://rdrr.io/r/methods/setClass.html">setClass()</a></code> ，创建泛型函数 <code><a href="https://rdrr.io/r/methods/setGeneric.html">setGeneric()</a></code> ，创建方法 <code><a href="https://rdrr.io/r/methods/setMethod.html">setMethod()</a></code></p>
 <p>此外，S4 提供多重继承（即一个类可以有多个父级）和多重调度（即方法调度可以使用多个参数的类）</p>
 <p>S4 的一个重要新组件是 <strong>slot</strong>，它是对象的命名组件，使用专用子集运算符 <code>@</code>（发音为 at）进行访问。</p>
 <p><strong>accessor</strong>&nbsp;functions @</p>
 <p><a href="https://bioconductor.org/help/course-materials/2017/Zurich/S4-classes-and-methods.html">bioconductor S4类和方法</a></p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">methods</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">methods</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="创建类泛型和方法" class="level3" data-number="18.4.1"><h3 data-number="18.4.1" class="anchored" data-anchor-id="创建类泛型和方法">
-<span class="header-section-number">18.4.1</span> 创建类、泛型和方法</h3>
+<section id="创建类泛型和方法" class="level3" data-number="11.4.1"><h3 data-number="11.4.1" class="anchored" data-anchor-id="创建类泛型和方法">
+<span class="header-section-number">11.4.1</span> 创建类、泛型和方法</h3>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/methods/setClass.html">setClass</a></span><span class="op">(</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/methods/setClass.html">setClass</a></span><span class="op">(</span></span>
 <span>    <span class="co">#类名</span></span>
 <span>    <span class="st">"Person"</span>,</span>
 <span>    </span>
@@ -897,10 +840,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] "Lily"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="继承" class="level3" data-number="18.4.2"><h3 data-number="18.4.2" class="anchored" data-anchor-id="继承">
-<span class="header-section-number">18.4.2</span> 继承</h3>
+</section><section id="继承" class="level3" data-number="11.4.2"><h3 data-number="11.4.2" class="anchored" data-anchor-id="继承">
+<span class="header-section-number">11.4.2</span> 继承</h3>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/methods/setClass.html">setClass</a></span><span class="op">(</span><span class="st">"Employee"</span>, </span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/methods/setClass.html">setClass</a></span><span class="op">(</span><span class="st">"Employee"</span>, </span>
 <span>  contains <span class="op">=</span> <span class="st">"Person"</span>, </span>
 <span>  slots <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>    boss <span class="op">=</span> <span class="st">"Person"</span></span>
@@ -920,7 +863,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/methods/is.html">is</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"Person"</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/methods/is.html">is</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"Person"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/methods/is.html">is</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/methods/new.html">new</a></span><span class="op">(</span><span class="st">"Person"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Person"</span></span>
@@ -928,14 +871,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] "Employee" "Person"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="多重继承和多重调度" class="level3" data-number="18.4.3"><h3 data-number="18.4.3" class="anchored" data-anchor-id="多重继承和多重调度">
-<span class="header-section-number">18.4.3</span> 多重继承和多重调度</h3>
+</section><section id="多重继承和多重调度" class="level3" data-number="11.4.3"><h3 data-number="11.4.3" class="anchored" data-anchor-id="多重继承和多重调度">
+<span class="header-section-number">11.4.3</span> 多重继承和多重调度</h3>
 <p>。。。</p>
-</section></section><section id="ggproto-类" class="level2" data-number="18.5"><h2 data-number="18.5" class="anchored" data-anchor-id="ggproto-类">
-<span class="header-section-number">18.5</span> ggproto 类</h2>
+</section></section><section id="原型类" class="level2" data-number="11.5"><h2 data-number="11.5" class="anchored" data-anchor-id="原型类">
+<span class="header-section-number">11.5</span> 原型类</h2>
+<section id="ggproto-类" class="level3" data-number="11.5.1"><h3 data-number="11.5.1" class="anchored" data-anchor-id="ggproto-类">
+<span class="header-section-number">11.5.1</span> ggproto 类</h3>
 <p><a href="https://ggplot2-book.org/internals#sec-ggproto">参考 ggplot2-book.org/internals#sec-ggproto</a></p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">NewObject</span> <span class="op">&lt;-</span> <span class="fu">ggproto</span><span class="op">(</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">NewObject</span> <span class="op">&lt;-</span> <span class="fu">ggproto</span><span class="op">(</span></span>
 <span>  `_class` <span class="op">=</span> <span class="cn">NULL</span>, </span>
 <span>  `_inherits` <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span>
@@ -945,7 +890,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 新类</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 新类</span></span>
 <span><span class="va">NewClass</span> <span class="op">&lt;-</span> <span class="fu">ggproto</span><span class="op">(</span><span class="st">"NewClass"</span>, <span class="cn">NULL</span>,</span>
 <span>                    <span class="co"># fields     默认值 </span></span>
 <span>                    geom<span class="op">=</span><span class="cn">NA</span>,</span>
@@ -958,7 +903,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 实例</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 实例</span></span>
 <span><span class="va">instance</span> <span class="op">&lt;-</span> <span class="fu">ggproto</span><span class="op">(</span><span class="cn">NULL</span>, <span class="va">NewClass</span>,</span>
 <span>                    <span class="co"># 字段赋值</span></span>
 <span>                    geom<span class="op">=</span><span class="st">"point"</span></span>
@@ -970,7 +915,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 继承</span></span>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 继承</span></span>
 <span><span class="va">NewSubClass</span> <span class="op">&lt;-</span> <span class="fu">ggproto</span><span class="op">(</span><span class="st">"NewSubClass"</span>, <span class="va">NewClass</span><span class="op">)</span></span>
 <span><span class="va">NewSubClass</span></span>
 <span><span class="co">#&gt; &lt;ggproto object: Class NewSubClass, NewClass, gg&gt;</span></span>
@@ -982,7 +927,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <!-- -->
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1442,13 +1387,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./functionals.html" class="pagination-link" aria-label="泛函">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">泛函</span></span>
+      <a href="./environments.html" class="pagination-link" aria-label="环境">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">环境</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./meta_programming.html" class="pagination-link" aria-label="元编程">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">元编程</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">元编程</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1482,7 +1427,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>封装 OOP ：方法属于对象或类，对象封装了数据（字段）和 行为（方法）。<span class="in">`object.method(arg1, arg2)`</span>，如R6类</span>
 <span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## **R 中的对象**</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## R 中的对象</span></span>
 <span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>R中存在的一切都是一个对象，包括 **base objects** 和 **OO objects** 。</span>
 <span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a></span>
@@ -1526,7 +1471,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb29-78"><a href="#cb29-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-79"><a href="#cb29-79" aria-hidden="true" tabindex="-1"></a>**基本类型**包括数据的基本类型（数值，字符，逻辑，复数等），函数类型（闭包、内置、特殊），环境，类，...... 等等。</span>
 <span id="cb29-80"><a href="#cb29-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-81"><a href="#cb29-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### OO objects</span></span>
+<span id="cb29-81"><a href="#cb29-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### OO objects：`class` 属性</span></span>
 <span id="cb29-82"><a href="#cb29-82" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-83"><a href="#cb29-83" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**S3**：是 R 的第一个 OOP 系统，*Statistical Models in S*</span>
 <span id="cb29-84"><a href="#cb29-84" aria-hidden="true" tabindex="-1"></a></span>
@@ -1766,116 +1711,116 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb29-346"><a href="#cb29-346" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-347"><a href="#cb29-347" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">R6::R6Class(classname = NULL，public = list)</span><span class="co">](https://r6.r-lib.org/reference/R6Class.html)</span></span>
 <span id="cb29-348"><a href="#cb29-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-349"><a href="#cb29-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-349"><a href="#cb29-349" aria-hidden="true" tabindex="-1"></a><span class="fu">## S4类</span></span>
 <span id="cb29-350"><a href="#cb29-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-351"><a href="#cb29-351" aria-hidden="true" tabindex="-1"></a><span class="fu">## S4类</span></span>
+<span id="cb29-351"><a href="#cb29-351" aria-hidden="true" tabindex="-1"></a>创建类 <span class="in">`setClass()`</span> ，创建泛型函数 <span class="in">`setGeneric()`</span> ，创建方法 <span class="in">`setMethod()`</span></span>
 <span id="cb29-352"><a href="#cb29-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-353"><a href="#cb29-353" aria-hidden="true" tabindex="-1"></a>创建类 <span class="in">`setClass()`</span> ，创建泛型函数 <span class="in">`setGeneric()`</span> ，创建方法 <span class="in">`setMethod()`</span></span>
+<span id="cb29-353"><a href="#cb29-353" aria-hidden="true" tabindex="-1"></a>此外，S4 提供多重继承（即一个类可以有多个父级）和多重调度（即方法调度可以使用多个参数的类）</span>
 <span id="cb29-354"><a href="#cb29-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-355"><a href="#cb29-355" aria-hidden="true" tabindex="-1"></a>此外，S4 提供多重继承（即一个类可以有多个父级）和多重调度（即方法调度可以使用多个参数的类）</span>
+<span id="cb29-355"><a href="#cb29-355" aria-hidden="true" tabindex="-1"></a>S4 的一个重要新组件是 **slot**，它是对象的命名组件，使用专用子集运算符 <span class="in">`@`</span>（发音为 at）进行访问。</span>
 <span id="cb29-356"><a href="#cb29-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-357"><a href="#cb29-357" aria-hidden="true" tabindex="-1"></a>S4 的一个重要新组件是 **slot**，它是对象的命名组件，使用专用子集运算符 <span class="in">`@`</span>（发音为 at）进行访问。</span>
+<span id="cb29-357"><a href="#cb29-357" aria-hidden="true" tabindex="-1"></a>**accessor**&nbsp;functions \@</span>
 <span id="cb29-358"><a href="#cb29-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-359"><a href="#cb29-359" aria-hidden="true" tabindex="-1"></a>**accessor**&nbsp;functions \@</span>
+<span id="cb29-359"><a href="#cb29-359" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">bioconductor S4类和方法</span><span class="co">](https://bioconductor.org/help/course-materials/2017/Zurich/S4-classes-and-methods.html)</span></span>
 <span id="cb29-360"><a href="#cb29-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-361"><a href="#cb29-361" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">bioconductor S4类和方法</span><span class="co">](https://bioconductor.org/help/course-materials/2017/Zurich/S4-classes-and-methods.html)</span></span>
-<span id="cb29-362"><a href="#cb29-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-365"><a href="#cb29-365" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb29-366"><a href="#cb29-366" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(methods)</span>
-<span id="cb29-367"><a href="#cb29-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-363"><a href="#cb29-363" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb29-364"><a href="#cb29-364" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(methods)</span>
+<span id="cb29-365"><a href="#cb29-365" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-366"><a href="#cb29-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-367"><a href="#cb29-367" aria-hidden="true" tabindex="-1"></a><span class="fu">### 创建类、泛型和方法</span></span>
 <span id="cb29-368"><a href="#cb29-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-369"><a href="#cb29-369" aria-hidden="true" tabindex="-1"></a><span class="fu">### 创建类、泛型和方法</span></span>
-<span id="cb29-370"><a href="#cb29-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-373"><a href="#cb29-373" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb29-374"><a href="#cb29-374" aria-hidden="true" tabindex="-1"></a><span class="fu">setClass</span>(</span>
-<span id="cb29-375"><a href="#cb29-375" aria-hidden="true" tabindex="-1"></a>    <span class="co">#类名</span></span>
-<span id="cb29-376"><a href="#cb29-376" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Person"</span>,</span>
-<span id="cb29-377"><a href="#cb29-377" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb29-378"><a href="#cb29-378" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 名称和类的命名字符向量</span></span>
-<span id="cb29-379"><a href="#cb29-379" aria-hidden="true" tabindex="-1"></a>    <span class="at">slots =</span> <span class="fu">c</span>(<span class="at">name =</span> <span class="st">"character"</span>, <span class="at">age =</span> <span class="st">"numeric"</span>),</span>
-<span id="cb29-380"><a href="#cb29-380" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb29-381"><a href="#cb29-381" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 默认值列表</span></span>
-<span id="cb29-382"><a href="#cb29-382" aria-hidden="true" tabindex="-1"></a>    <span class="at">prototype =</span> <span class="fu">list</span>(<span class="at">name =</span> <span class="cn">NA_character_</span>, <span class="at">age =</span> <span class="cn">NA_real_</span>)</span>
-<span id="cb29-383"><a href="#cb29-383" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-371"><a href="#cb29-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb29-372"><a href="#cb29-372" aria-hidden="true" tabindex="-1"></a><span class="fu">setClass</span>(</span>
+<span id="cb29-373"><a href="#cb29-373" aria-hidden="true" tabindex="-1"></a>    <span class="co">#类名</span></span>
+<span id="cb29-374"><a href="#cb29-374" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Person"</span>,</span>
+<span id="cb29-375"><a href="#cb29-375" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-376"><a href="#cb29-376" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 名称和类的命名字符向量</span></span>
+<span id="cb29-377"><a href="#cb29-377" aria-hidden="true" tabindex="-1"></a>    <span class="at">slots =</span> <span class="fu">c</span>(<span class="at">name =</span> <span class="st">"character"</span>, <span class="at">age =</span> <span class="st">"numeric"</span>),</span>
+<span id="cb29-378"><a href="#cb29-378" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-379"><a href="#cb29-379" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 默认值列表</span></span>
+<span id="cb29-380"><a href="#cb29-380" aria-hidden="true" tabindex="-1"></a>    <span class="at">prototype =</span> <span class="fu">list</span>(<span class="at">name =</span> <span class="cn">NA_character_</span>, <span class="at">age =</span> <span class="cn">NA_real_</span>)</span>
+<span id="cb29-381"><a href="#cb29-381" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-382"><a href="#cb29-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-383"><a href="#cb29-383" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">"Person"</span>, <span class="at">name =</span> <span class="st">"XXX"</span>,<span class="at">age=</span><span class="dv">24</span>)</span>
 <span id="cb29-384"><a href="#cb29-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-385"><a href="#cb29-385" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">"Person"</span>, <span class="at">name =</span> <span class="st">"XXX"</span>,<span class="at">age=</span><span class="dv">24</span>)</span>
+<span id="cb29-385"><a href="#cb29-385" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span>
 <span id="cb29-386"><a href="#cb29-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-387"><a href="#cb29-387" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span>
-<span id="cb29-388"><a href="#cb29-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-389"><a href="#cb29-389" aria-hidden="true" tabindex="-1"></a>x<span class="sc">@</span>name</span>
-<span id="cb29-390"><a href="#cb29-390" aria-hidden="true" tabindex="-1"></a><span class="fu">slot</span>(x,<span class="st">"age"</span>)</span>
-<span id="cb29-391"><a href="#cb29-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-387"><a href="#cb29-387" aria-hidden="true" tabindex="-1"></a>x<span class="sc">@</span>name</span>
+<span id="cb29-388"><a href="#cb29-388" aria-hidden="true" tabindex="-1"></a><span class="fu">slot</span>(x,<span class="st">"age"</span>)</span>
+<span id="cb29-389"><a href="#cb29-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-390"><a href="#cb29-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-391"><a href="#cb29-391" aria-hidden="true" tabindex="-1"></a><span class="co"># 泛型</span></span>
 <span id="cb29-392"><a href="#cb29-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-393"><a href="#cb29-393" aria-hidden="true" tabindex="-1"></a><span class="co"># 泛型</span></span>
-<span id="cb29-394"><a href="#cb29-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-395"><a href="#cb29-395" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"age"</span>, <span class="cf">function</span>(x) <span class="fu">standardGeneric</span>(<span class="st">"age"</span>))</span>
-<span id="cb29-396"><a href="#cb29-396" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"age&lt;-"</span>, <span class="cf">function</span>(x, value) <span class="fu">standardGeneric</span>(<span class="st">"age&lt;-"</span>))</span>
+<span id="cb29-393"><a href="#cb29-393" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"age"</span>, <span class="cf">function</span>(x) <span class="fu">standardGeneric</span>(<span class="st">"age"</span>))</span>
+<span id="cb29-394"><a href="#cb29-394" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"age&lt;-"</span>, <span class="cf">function</span>(x, value) <span class="fu">standardGeneric</span>(<span class="st">"age&lt;-"</span>))</span>
+<span id="cb29-395"><a href="#cb29-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-396"><a href="#cb29-396" aria-hidden="true" tabindex="-1"></a><span class="co"># 方法</span></span>
 <span id="cb29-397"><a href="#cb29-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-398"><a href="#cb29-398" aria-hidden="true" tabindex="-1"></a><span class="co"># 方法</span></span>
-<span id="cb29-399"><a href="#cb29-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-400"><a href="#cb29-400" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">"age"</span>, <span class="st">"Person"</span>, <span class="cf">function</span>(x) x<span class="sc">@</span>age)</span>
-<span id="cb29-401"><a href="#cb29-401" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">"age&lt;-"</span>, <span class="st">"Person"</span>, <span class="cf">function</span>(x, value) {</span>
-<span id="cb29-402"><a href="#cb29-402" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">@</span>age <span class="ot">&lt;-</span> value</span>
-<span id="cb29-403"><a href="#cb29-403" aria-hidden="true" tabindex="-1"></a>  x</span>
-<span id="cb29-404"><a href="#cb29-404" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb29-398"><a href="#cb29-398" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">"age"</span>, <span class="st">"Person"</span>, <span class="cf">function</span>(x) x<span class="sc">@</span>age)</span>
+<span id="cb29-399"><a href="#cb29-399" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">"age&lt;-"</span>, <span class="st">"Person"</span>, <span class="cf">function</span>(x, value) {</span>
+<span id="cb29-400"><a href="#cb29-400" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">@</span>age <span class="ot">&lt;-</span> value</span>
+<span id="cb29-401"><a href="#cb29-401" aria-hidden="true" tabindex="-1"></a>  x</span>
+<span id="cb29-402"><a href="#cb29-402" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb29-403"><a href="#cb29-403" aria-hidden="true" tabindex="-1"></a><span class="fu">age</span>(x)</span>
+<span id="cb29-404"><a href="#cb29-404" aria-hidden="true" tabindex="-1"></a><span class="fu">age</span>(x) <span class="ot">&lt;-</span> <span class="dv">13</span></span>
 <span id="cb29-405"><a href="#cb29-405" aria-hidden="true" tabindex="-1"></a><span class="fu">age</span>(x)</span>
-<span id="cb29-406"><a href="#cb29-406" aria-hidden="true" tabindex="-1"></a><span class="fu">age</span>(x) <span class="ot">&lt;-</span> <span class="dv">13</span></span>
-<span id="cb29-407"><a href="#cb29-407" aria-hidden="true" tabindex="-1"></a><span class="fu">age</span>(x)</span>
-<span id="cb29-408"><a href="#cb29-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-409"><a href="#cb29-409" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">"show"</span>, <span class="st">"Person"</span>, <span class="cf">function</span>(object) {</span>
-<span id="cb29-410"><a href="#cb29-410" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">is</span>(object)[[<span class="dv">1</span>]], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb29-411"><a href="#cb29-411" aria-hidden="true" tabindex="-1"></a>      <span class="st">"  Name: "</span>, object<span class="sc">@</span>name, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb29-412"><a href="#cb29-412" aria-hidden="true" tabindex="-1"></a>      <span class="st">"  Age:  "</span>, object<span class="sc">@</span>age, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb29-413"><a href="#cb29-413" aria-hidden="true" tabindex="-1"></a>      <span class="at">sep =</span> <span class="st">""</span></span>
-<span id="cb29-414"><a href="#cb29-414" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb29-415"><a href="#cb29-415" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb29-416"><a href="#cb29-416" aria-hidden="true" tabindex="-1"></a>sloop<span class="sc">::</span><span class="fu">otype</span>(x)</span>
-<span id="cb29-417"><a href="#cb29-417" aria-hidden="true" tabindex="-1"></a>sloop<span class="sc">::</span><span class="fu">ftype</span>(age)</span>
+<span id="cb29-406"><a href="#cb29-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-407"><a href="#cb29-407" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">"show"</span>, <span class="st">"Person"</span>, <span class="cf">function</span>(object) {</span>
+<span id="cb29-408"><a href="#cb29-408" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">is</span>(object)[[<span class="dv">1</span>]], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb29-409"><a href="#cb29-409" aria-hidden="true" tabindex="-1"></a>      <span class="st">"  Name: "</span>, object<span class="sc">@</span>name, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb29-410"><a href="#cb29-410" aria-hidden="true" tabindex="-1"></a>      <span class="st">"  Age:  "</span>, object<span class="sc">@</span>age, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb29-411"><a href="#cb29-411" aria-hidden="true" tabindex="-1"></a>      <span class="at">sep =</span> <span class="st">""</span></span>
+<span id="cb29-412"><a href="#cb29-412" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb29-413"><a href="#cb29-413" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb29-414"><a href="#cb29-414" aria-hidden="true" tabindex="-1"></a>sloop<span class="sc">::</span><span class="fu">otype</span>(x)</span>
+<span id="cb29-415"><a href="#cb29-415" aria-hidden="true" tabindex="-1"></a>sloop<span class="sc">::</span><span class="fu">ftype</span>(age)</span>
+<span id="cb29-416"><a href="#cb29-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-417"><a href="#cb29-417" aria-hidden="true" tabindex="-1"></a>x</span>
 <span id="cb29-418"><a href="#cb29-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-419"><a href="#cb29-419" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb29-420"><a href="#cb29-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-421"><a href="#cb29-421" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"name"</span>, <span class="cf">function</span>(x) <span class="fu">standardGeneric</span>(<span class="st">"name"</span>))</span>
-<span id="cb29-422"><a href="#cb29-422" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">"name"</span>, <span class="st">"Person"</span>, <span class="cf">function</span>(x) x<span class="sc">@</span>name)</span>
-<span id="cb29-423"><a href="#cb29-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-424"><a href="#cb29-424" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span>(x)</span>
-<span id="cb29-425"><a href="#cb29-425" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"name&lt;-"</span>, <span class="cf">function</span>(x, value) <span class="fu">standardGeneric</span>(<span class="st">"name&lt;-"</span>))</span>
-<span id="cb29-426"><a href="#cb29-426" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">"name&lt;-"</span>, <span class="st">"Person"</span>, <span class="cf">function</span>(x, value) {</span>
-<span id="cb29-427"><a href="#cb29-427" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">@</span>name <span class="ot">&lt;-</span> value</span>
-<span id="cb29-428"><a href="#cb29-428" aria-hidden="true" tabindex="-1"></a>  <span class="fu">validObject</span>(x)</span>
-<span id="cb29-429"><a href="#cb29-429" aria-hidden="true" tabindex="-1"></a>  x</span>
-<span id="cb29-430"><a href="#cb29-430" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb29-431"><a href="#cb29-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-432"><a href="#cb29-432" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span>(x) <span class="ot">&lt;-</span> <span class="st">"Lily"</span></span>
-<span id="cb29-433"><a href="#cb29-433" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span>(x)</span>
-<span id="cb29-434"><a href="#cb29-434" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-419"><a href="#cb29-419" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"name"</span>, <span class="cf">function</span>(x) <span class="fu">standardGeneric</span>(<span class="st">"name"</span>))</span>
+<span id="cb29-420"><a href="#cb29-420" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">"name"</span>, <span class="st">"Person"</span>, <span class="cf">function</span>(x) x<span class="sc">@</span>name)</span>
+<span id="cb29-421"><a href="#cb29-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-422"><a href="#cb29-422" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span>(x)</span>
+<span id="cb29-423"><a href="#cb29-423" aria-hidden="true" tabindex="-1"></a><span class="fu">setGeneric</span>(<span class="st">"name&lt;-"</span>, <span class="cf">function</span>(x, value) <span class="fu">standardGeneric</span>(<span class="st">"name&lt;-"</span>))</span>
+<span id="cb29-424"><a href="#cb29-424" aria-hidden="true" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">"name&lt;-"</span>, <span class="st">"Person"</span>, <span class="cf">function</span>(x, value) {</span>
+<span id="cb29-425"><a href="#cb29-425" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">@</span>name <span class="ot">&lt;-</span> value</span>
+<span id="cb29-426"><a href="#cb29-426" aria-hidden="true" tabindex="-1"></a>  <span class="fu">validObject</span>(x)</span>
+<span id="cb29-427"><a href="#cb29-427" aria-hidden="true" tabindex="-1"></a>  x</span>
+<span id="cb29-428"><a href="#cb29-428" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb29-429"><a href="#cb29-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-430"><a href="#cb29-430" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span>(x) <span class="ot">&lt;-</span> <span class="st">"Lily"</span></span>
+<span id="cb29-431"><a href="#cb29-431" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span>(x)</span>
+<span id="cb29-432"><a href="#cb29-432" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-433"><a href="#cb29-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-434"><a href="#cb29-434" aria-hidden="true" tabindex="-1"></a><span class="fu">### 继承</span></span>
 <span id="cb29-435"><a href="#cb29-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-436"><a href="#cb29-436" aria-hidden="true" tabindex="-1"></a><span class="fu">### 继承</span></span>
-<span id="cb29-437"><a href="#cb29-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-440"><a href="#cb29-440" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb29-441"><a href="#cb29-441" aria-hidden="true" tabindex="-1"></a><span class="fu">setClass</span>(<span class="st">"Employee"</span>, </span>
-<span id="cb29-442"><a href="#cb29-442" aria-hidden="true" tabindex="-1"></a>  <span class="at">contains =</span> <span class="st">"Person"</span>, </span>
-<span id="cb29-443"><a href="#cb29-443" aria-hidden="true" tabindex="-1"></a>  <span class="at">slots =</span> <span class="fu">c</span>(</span>
-<span id="cb29-444"><a href="#cb29-444" aria-hidden="true" tabindex="-1"></a>    <span class="at">boss =</span> <span class="st">"Person"</span></span>
-<span id="cb29-445"><a href="#cb29-445" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb29-446"><a href="#cb29-446" aria-hidden="true" tabindex="-1"></a>  <span class="at">prototype =</span> <span class="fu">list</span>(</span>
-<span id="cb29-447"><a href="#cb29-447" aria-hidden="true" tabindex="-1"></a>    <span class="at">boss =</span> <span class="fu">new</span>(<span class="st">"Person"</span>)</span>
-<span id="cb29-448"><a href="#cb29-448" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb29-449"><a href="#cb29-449" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb29-450"><a href="#cb29-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-451"><a href="#cb29-451" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">new</span>(<span class="st">"Employee"</span>))</span>
-<span id="cb29-452"><a href="#cb29-452" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb29-453"><a href="#cb29-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-456"><a href="#cb29-456" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb29-457"><a href="#cb29-457" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(x, <span class="st">"Person"</span>)</span>
-<span id="cb29-458"><a href="#cb29-458" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">new</span>(<span class="st">"Person"</span>))</span>
-<span id="cb29-459"><a href="#cb29-459" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">new</span>(<span class="st">"Employee"</span>))</span>
-<span id="cb29-460"><a href="#cb29-460" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-438"><a href="#cb29-438" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb29-439"><a href="#cb29-439" aria-hidden="true" tabindex="-1"></a><span class="fu">setClass</span>(<span class="st">"Employee"</span>, </span>
+<span id="cb29-440"><a href="#cb29-440" aria-hidden="true" tabindex="-1"></a>  <span class="at">contains =</span> <span class="st">"Person"</span>, </span>
+<span id="cb29-441"><a href="#cb29-441" aria-hidden="true" tabindex="-1"></a>  <span class="at">slots =</span> <span class="fu">c</span>(</span>
+<span id="cb29-442"><a href="#cb29-442" aria-hidden="true" tabindex="-1"></a>    <span class="at">boss =</span> <span class="st">"Person"</span></span>
+<span id="cb29-443"><a href="#cb29-443" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb29-444"><a href="#cb29-444" aria-hidden="true" tabindex="-1"></a>  <span class="at">prototype =</span> <span class="fu">list</span>(</span>
+<span id="cb29-445"><a href="#cb29-445" aria-hidden="true" tabindex="-1"></a>    <span class="at">boss =</span> <span class="fu">new</span>(<span class="st">"Person"</span>)</span>
+<span id="cb29-446"><a href="#cb29-446" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb29-447"><a href="#cb29-447" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-448"><a href="#cb29-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-449"><a href="#cb29-449" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">new</span>(<span class="st">"Employee"</span>))</span>
+<span id="cb29-450"><a href="#cb29-450" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-451"><a href="#cb29-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-454"><a href="#cb29-454" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb29-455"><a href="#cb29-455" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(x, <span class="st">"Person"</span>)</span>
+<span id="cb29-456"><a href="#cb29-456" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">new</span>(<span class="st">"Person"</span>))</span>
+<span id="cb29-457"><a href="#cb29-457" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">new</span>(<span class="st">"Employee"</span>))</span>
+<span id="cb29-458"><a href="#cb29-458" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-459"><a href="#cb29-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-460"><a href="#cb29-460" aria-hidden="true" tabindex="-1"></a><span class="fu">### 多重继承和多重调度</span></span>
 <span id="cb29-461"><a href="#cb29-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-462"><a href="#cb29-462" aria-hidden="true" tabindex="-1"></a><span class="fu">### 多重继承和多重调度</span></span>
+<span id="cb29-462"><a href="#cb29-462" aria-hidden="true" tabindex="-1"></a>。。。</span>
 <span id="cb29-463"><a href="#cb29-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-464"><a href="#cb29-464" aria-hidden="true" tabindex="-1"></a>。。。</span>
+<span id="cb29-464"><a href="#cb29-464" aria-hidden="true" tabindex="-1"></a><span class="fu">## 原型类</span></span>
 <span id="cb29-465"><a href="#cb29-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-466"><a href="#cb29-466" aria-hidden="true" tabindex="-1"></a><span class="fu">## ggproto 类</span></span>
+<span id="cb29-466"><a href="#cb29-466" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggproto 类</span></span>
 <span id="cb29-467"><a href="#cb29-467" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-468"><a href="#cb29-468" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">参考 ggplot2-book.org/internals#sec-ggproto</span><span class="co">](https://ggplot2-book.org/internals#sec-ggproto)</span></span>
 <span id="cb29-469"><a href="#cb29-469" aria-hidden="true" tabindex="-1"></a></span>
