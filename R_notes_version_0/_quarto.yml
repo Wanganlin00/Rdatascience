@@ -19,7 +19,6 @@ book:
         - transform_tidy.qmd
         - functionals.qmd
         - big_data.qmd
-        - custom_functions.qmd
         - dynamic_report.qmd
 
     - part: "R → Python"
