@@ -5,46 +5,6 @@ if(!require(tidyverse)) install.packages("tidyverse")
 library(tidyverse)
 ```
 
-## Data masking
-
-[data masking](https://dplyr.tidyverse.org/articles/programming.html#data-masking)
-
-### glue 语法
-
-```{r}
-name <- "susan"
-tibble("{name}" := 2)
-```
-
-```{r}
-n <- names(mtcars)[c(2,8:11)]
-for (var in n) {
-  mtcars %>% count(.data[[var]]) %>% print()
-}
-```
-
-### embracing 语法
-
-```{r}
-my_summarise4 <- function(data,by, expr) {
-  data %>% summarise(
-    "mean_{{expr}}" := mean({{ expr }}),   #embracing拥抱 {{}}
-    "sum_{{expr}}" := sum({{ expr }}), #拥抱变量会告诉 dplyr使用存储在参数中的值，而不是将参数作为文本变量名称
-    "n_{{expr}}" := n(),
-    .by ={{by}}
-  )
-}
-
-
-my_summarise4(mpg,by = cyl, expr = displ)
-```
-
-**何时使用`{{}}`**
-
--   Data-masking: arrange()filter()summarize() compute with variables
-
--   Tidy-selection：select()relocate()rename() select variables
-
 ## 行操作**dplyr**
 
 <https://dplyr.tidyverse.org/index.html> "分割-应用-组合"（Split-Apply-Combine）

@@ -1,0 +1,11 @@
+# Arrow
+
+-   [arrow.apache.R](https://arrow.apache.org/docs/r/)
+
+read_parquet()：读取 Parquet 格式的文件
+
+read_delim_arrow()：读取带分隔符的文本文件
+
+read_csv_arrow()：读取逗号分隔值 （CSV） 文件
+
+read_tsv_arrow()：读取制表符分隔值 （TSV） 文件

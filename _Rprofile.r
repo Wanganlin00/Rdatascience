@@ -2,7 +2,7 @@
 
 options(repos = c(CRAN = "https://cran.rstudio.com/"))
 
-options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
+options(BioC_mirror = "https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
 
 
 
@@ -17,7 +17,7 @@ options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
 
 # set the default help type
 # options(help_type="text")
-options(help_type="html")
+options(help_type = "html")
 
 # set a site library
 # .Library.site <- file.path(chartr("\\", "/", R.home()), "site-library")
@@ -33,16 +33,16 @@ options(repos = c(CRAN = "https://cran.rstudio.com/"))
 
 # Give a fortune cookie, but only to interactive sessions
 # (This would need the fortunes package to be installed.)
-#  if (interactive()) 
+#  if (interactive())
 #    fortunes::fortune()
 
-.First<-function() {
-  library(showtext,quietly = T)
-  font_add("Times New Roman Regular","C:/Windows/Fonts/times.ttf")
-  font_add("Times New Roman Bold","C:/Windows/Fonts/timesbd.ttf")
-  font_add("Times New Roman Bold Italic","C:/Windows/Fonts/timesbi.ttf")
-  font_add("Times New Roman Italic","C:/Windows/Fonts/timesi.ttf")
-  font_add("黑体 常规","C:/Windows/Fonts/simhei.ttf")
+.First <- function() {
+  library(showtext, quietly = T)
+  font_add("Times New Roman Regular", "C:/Windows/Fonts/times.ttf")
+  font_add("Times New Roman Bold", "C:/Windows/Fonts/timesbd.ttf")
+  font_add("Times New Roman Bold Italic", "C:/Windows/Fonts/timesbi.ttf")
+  font_add("Times New Roman Italic", "C:/Windows/Fonts/timesi.ttf")
+  font_add("黑体 常规", "C:/Windows/Fonts/simhei.ttf")
   font_add("楷体 常规", "C:/Windows/Fonts/simkai.ttf")
   showtext_auto()
   # library(data.table)
@@ -52,7 +52,7 @@ options(repos = c(CRAN = "https://cran.rstudio.com/"))
   library(conflicted)
   conflict_prefer("filter", winner = "dplyr")
   conflict_prefer("select", winner = "dplyr")
-  conflict_prefer("setdiff","GenomicRanges")
+  conflict_prefer("setdiff", "GenomicRanges")
   library(tidyverse)
   library(patchwork)
   # library(BiocManager)
@@ -64,8 +64,8 @@ options(repos = c(CRAN = "https://cran.rstudio.com/"))
 }
 
 
-.Last<-function() {
-  message(cat("0",rep("=",100),"100%",sep = ""))
+.Last <- function() {
+  message(cat("0", rep("=", 100), "100%", sep = ""))
   message(today())
 }
 
@@ -73,34 +73,42 @@ options(repos = c(CRAN = "https://cran.rstudio.com/"))
 # When using library, you get an error message. With require, the
 # return value is FALSE and a warning is printed
 
-# 更新 RGui 
+# 更新 RGui
 
 installr::updateR(cran_mirror = "https://mirrors.ustc.edu.cn/CRAN/")
 
-pkgs <- c('conflicted','installr',"devtools",'reticulate','BiocManager',
-          'readxl', 'writexl','showtext',"janitor","svglite",
-          'tidyverse',"data.table","arrow","tidymodels",
-          'mice', 'missForest', 'VIM')
+pkgs <- c(
+  "conflicted", "installr", "devtools", "reticulate", "BiocManager",
+  "readxl", "writexl", "showtext", "janitor", "svglite",
+  "tidyverse", "data.table", "arrow", "tidymodels",
+  "mice", "missForest", "VIM"
+)
 
-stat <- c('moments', 'nortest','HH','emmeans',"ez",'afex' ,'gee', 'geepack','epiDisplay', 'psych',
-          'poissonreg','censored', 'multilevelmod','discrim',
-          'factoextra', 'tidyclust'
-          )
-remotes::install_github('jbryer/psa', build_vignettes = TRUE, dependencies = 'Enhances')
+stat <- c(
+  "moments", "nortest", "HH", "emmeans", "ez", "afex", "gee", "geepack", "epiDisplay", "psych",
+  "poissonreg", "censored", "multilevelmod", "discrim",
+  "factoextra", "tidyclust"
+)
+remotes::install_github("jbryer/psa", build_vignettes = TRUE, dependencies = "Enhances")
 
-gplt <- c('patchwork',"ggpubr","ggpattern","survminer","pROC","plotly","ggraph","ggrepel","ggcorrplot","ggprism",
-           'pheatmap',"ggsurvfit",'ggfortify',"ggthemes",'ggpmisc','ggeffects',"tidygraph"
-        )
+gplt <- c(
+  "patchwork", "ggpubr", "ggpattern", "survminer", "pROC", "plotly", "ggraph", "ggrepel", "ggcorrplot", "ggprism",
+  "pheatmap", "ggsurvfit", "ggfortify", "ggthemes", "ggpmisc", "ggeffects", "tidygraph"
+)
+install.packages()
 
-tbl <- c('gt', 'gtsummary', 'tableone')
+tbl <- c("gt", "gtsummary", "tableone")
 
 
+plug_in <- install.packages("esquisse", "colourpicker", "styler")
+install.packages(
+  "datapasta",
+  repos = c(mm = "https://milesmcbain.r-universe.dev", getOption("repos"))
+)
 
-install.packages(pkgs)
-install.packages(stat)
+install.packages()
 
 # 语言
 
 # 安装 en
 # ~\etc\Rconsole    language=en
-

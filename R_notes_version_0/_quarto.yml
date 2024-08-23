@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "数据科学与编程"
+  title: "R 数据科学与编程"
   reader-mode: true
   chapters:
     - index.qmd
@@ -18,13 +18,15 @@ book:
         - string_text.qmd
         - transform_tidy.qmd
         - functionals.qmd
-        - big_data.qmd
         - dynamic_report.qmd
-
-    - part: "R → Python"
-      chapters:
-        - R-Python.qmd
-
+        
+    - part: big_data.qmd
+      chapters: 
+        - data.table.qmd
+        - arrow.qmd
+        - polars.qmd
+        - Rcpp.qmd
+        - R_Python.qmd
     - part: "R Programming"
       chapters:
       - control_structure.qmd
@@ -40,11 +42,10 @@ book:
 execute:
   cache: true
   message: false 
-  warning: false  #阻止消息或警告出现在完成的文件中
-  
-# eval: false  阻止对代码进行评估。（显然，如果不运行代码，则不会生成任何结果）
+  warning: false 
+# eval: false  阻止对代码进行执行。（显然，如果不运行代码，则不会生成任何结果）
 # include: false  运行代码，但不会在最终文档中显示代码或结果。
-# echo: false  阻止代码，但不会阻止结果出现在完成的文件中
+# echo: false  阻止代码显示，但不会阻止结果出现在完成的文件中
 toc: true
 toc-depth: 4
 number-sections: true

@@ -1,0 +1,49 @@
+# `data.table`
+
+-   [data.table](https://rdatatable.gitlab.io/data.table/)
+-   [dtplyr](https://dtplyr.tidyverse.org/) data.table back-end for 'dplyr'
+
+```{r}
+library(data.table)
+library(dtplyr)
+library(dplyr, warn.conflicts = FALSE)
+```
+
+## dtplyr 语法
+
+DTPLYR 使用 DPLYR 的语法s实现 [data.table](http://r-datatable.com/) 的速度；编写 DPLYR（和 TidyR）代码，DTPLYR 将其转换为等效的 Data.Table。
+
+```{r}
+mtcars2 <- lazy_dt(mtcars)
+```
+
+```{r}
+dtplyr <- mtcars2 %>% 
+  filter(wt < 5) %>% 
+  mutate(l100k = 235.21 / mpg) %>% # liters / 100 km
+  group_by(cyl) %>% 
+  summarise(l100k = mean(l100k))
+dtplyr
+
+dtplyr %>% show_query()
+
+dtplyr %>% as_tibble()
+```
+
+```{r}
+dt <- data.table::as.data.table(mtcars)
+dt[wt<5][, `:=`(l100k = 235.21/mpg)][, .(l100k = mean(l100k)), keyby = .(cyl)]
+```
+
+## data.table 语法
+
+```         
+DT[i, j, by]
+
+##   R:                 i                 j        by
+## SQL:  where | order by   select | update  group by
+```
+
+![](images/data.table_cheatsheet.jpg){fig-align="center"}
+
+<https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html>
