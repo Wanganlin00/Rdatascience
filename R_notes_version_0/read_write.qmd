@@ -1,16 +1,15 @@
-# 读入和写出
+# 读取和写出
 
-## Import
+## Tibble
 
 ```{r}
+library(tibble)
 tibble(
   x = c(1, 2, 5), 
   y = c("h", "m", "g"),
   z = c(0.08, 0.83, 0.60)
 )
-```
 
-```{r}
 tribble(
   ~x, ~y, ~z,
   1, "h", 0.08,
@@ -18,6 +17,8 @@ tribble(
   5, "g", 0.60
 )
 ```
+
+## Import
 
 ### 文本文件
 
@@ -31,9 +32,7 @@ utilities,a piece of computer software that performs a particular task
 
 ```{r}
 # 列名(第1行),行标识符 (第1列)
-utils::read.table("data/leadership.txt",header = TRUE,sep=",",row.names = 1)
-x <- read.csv("data/leadership.txt",header = TRUE,sep=",",row.names = 1)
-read.table("data/leadership.txt",header = TRUE,sep=",",row.names = "id") 
+utils::read.table("data/read_write/leadership.txt",header = TRUE,sep=",",row.names = 1)
 ```
 
 #### `readr::`
@@ -41,17 +40,18 @@ read.table("data/leadership.txt",header = TRUE,sep=",",row.names = "id")
 `read_csv()` `read_tsv()` `read_delim()`
 
 ```{r}
-#| eval: false
-readr::read_csv("data/leadership.txt",col_names = TRUE,id="file_path") |> 
+readr::read_csv("data/read_write/leadership.txt",
+                col_names = TRUE,
+                id = "file_path") |>
     column_to_rownames(var = "id")
 ```
 
-#### 批量读取
+#### 批量读取csv - 相同格式
 
 ```{r}
-sales_files <- c("data/01-sales.csv",
-                 "data/02-sales.csv",
-                 "data/03-sales.csv")
+sales_files <- c("data/read_write//01-sales.csv",
+                     "data/read_write//02-sales.csv",
+                 "data/read_write//03-sales.csv")
 read_csv(sales_files, id = "file_path")
 ```
 
@@ -59,35 +59,58 @@ read_csv(sales_files, id = "file_path")
 
 ```{r}
 library(readxl)
-#read_xls()
-#read_xlsx()
-read_excel(path = "data/example.xlsx",sheet = 1,range = "A1:D11")
-read_excel("data/example.xlsx",2)
 ```
 
-#### 多个Excel 合并导入
+#### 批量读取 sheet
 
 ```{r}
-combine_sheets <- function(excel_file_path) {
-    df <- excel_file_path %>%
-        excel_sheets() %>%
-        set_names() %>%
-        map_df(.f = ~read_excel(path = excel_file_path, sheet = ..1)
-               ,.id = "sheet"
-        )
-    return(df)
+
+filename <- "data/read_write/多个sheet-iris_data.xlsx"
+
+excel_sheets(filename)
+
+excel_sheets(filename) %>% 
+    map(~read_excel(filename, sheet = .x)) %>% 
+    set_names(excel_sheets(filename)) %>% map(head)
+
+```
+
+```{r}
+read_excel_sheets <- function(filename, single_tbl = FALSE) {
+  sheets <- readxl::excel_sheets(filename)
+  
+  if (single_tbl){ #指示函数应返回单个表还是表的列表的逻辑值
+    x <- purrr::map_df(sheets, readxl::read_excel, path = filename)
+  } else {
+    x <- purrr::map(sheets, ~ readxl::read_excel(filename, sheet = .x))
+    purrr::set_names(x, sheets)
+  }
+  
+  x
 }
+
+
+read_excel_sheets(filename, F) %>% map(head)
+
+read_excel_sheets(filename, T) %>% head()
+```
+
+#### 批量读取多个Excel
+
+```{r}
 
 excel_file_paths <- list.files(path = ".",pattern = ".xlsx",recursive = T)
 
 excel_file_paths
-combine_workbooks <- map_dfr(excel_file_paths, combine_sheets)
+
+
+map(excel_file_paths, read_excel) %>% map(head)
 ```
 
 ### 脚本载入
 
 ```{r}
-source("data/add_function.R")
+source("data/read_write/add_function.R")
 add(c(1,24,4),4)
 ```
 
@@ -103,21 +126,19 @@ add <- function(x,y){
 
 ### 二进制文件
 
-RDS,R's custom binary format called RDS
+RDS，R's custom binary format called RDS
 
 `read_rds()`
 
 ```{r}
-write_rds(x,file = "data/leadership.parquet")
-read_rds("data/leadership.rds")
+read_rds("data/read_write/leadership.rds")
 ```
 
-Parquet,a fast binary and columnar storage file format(列式存储文件)
+Parquet，a fast binary and columnar storage file format(列式存储文件)
 
-```{r}
+```{r eval=FALSE}
 library(arrow)
-write_parquet(x,sink = "data/leadership.parquet")
-read_parquet(file = "data/leadership.parquet" )
+read_parquet(file = "data/read_write/leadership.parquet" )
 ```
 
 ### 数据库
@@ -130,7 +151,7 @@ library(dbplyr)
 
 ### 等宽格式
 
-**readr** 包提供的 `read_fwf()`
+`readr::read_fwf()`
 
 ```{r}
 ' First     Last  Sex Number
@@ -140,32 +161,12 @@ library(dbplyr)
 
 ```
 
-### Internet Datasets
+### 网络下载
 
 ```{r}
-#| eval: false
-url = "https://www.monetdb.org/sites/default/files/voc_tsvs.zip"
-download.file(url, "voc_tsvs.zip") # download file
-unzip("voc_tsvs.zip", exdir = "data") # unzip files
-file.remove("voc_tsvs.zip") # tidy up by removing the zip file
-
 url = "https://vincentarelbundock.github.io/Rdatasets/csv/datasets/co2.csv"
-download.file(url, "extdata/co2.csv")
-df_co2 = read_csv("extdata/co2.csv")
-```
-
-### Datasets in library
-
-```{r}
-#|eval: false
-data(package = "dplyr")
-#> Data sets in package ‘dplyr’:
-#> 
-#> band_instruments               Band membership
-#> band_instruments2              Band membership
-#> band_members                   Band membership
-#> starwars                       Starwars characters
-#> storms                         Storm tracks data
+download.file(url, "data/read_write/网络下载.csv")
+read_csv("data/read_write/网络下载.csv") %>% head()
 ```
 
 ### JSON
@@ -174,19 +175,24 @@ data(package = "dplyr")
 
 ```{r}
 library(jsonlite)
-read_json(path = "data/3龙门币3赤金.json",simplifyVector = TRUE)
+read_json(path = "data/read_write/JSON.json",simplifyVector = TRUE)
 ```
 
 ### SPSS/SAS/stata DTA
 
-```{r}
-#| eval: false
-library(haven)
-read_spss(file)
-read_sav(file)
 read_sas(file)
+
 read_dta(file)
+
 read_stata(file)
+
+```{r}
+library(haven)
+sav <- read_spss(file = "data/read_write/非正态分布的均值比较.sav")
+
+table(sav$group)
+read_sav(file = "data/read_write/非正态分布的均值比较.sav") %>% head()
+
 ```
 
 ### 键盘输入
@@ -199,23 +205,9 @@ df <- edit(df)
 fix(df)
 ```
 
-### 逐行键入数据
-
-```{r eval=FALSE}
-readline("输入年龄：")
-
-```
-
 ## Write
 
 ### 文本输出
-
-```{r eval=FALSE}
-write_csv()
-write_xlsx()
-write_rds()
-write_parquet()
-```
 
 ```{r}
 sink("data/sink_output.txt",append = F,split = T)  # split =T 输出到控制台和文件
@@ -231,4 +223,31 @@ Rstudio 直接 Export save as Image/PDF，copy to clipboard
 pdf(file = "data/pdf_output.pdf")       # bmp,jpeg,png，SVG
 plot(1:25,1:25,pch=1:25,col="green",bg="red",type = "b")
 while(!is.null(dev.list()))  dev.off() 
+```
+
+### Excel
+
+```{r}
+library(writexl)
+library(janitor)
+library(dplyr)
+
+df <- iris |> clean_names()
+l <- df |>
+  clean_names() |>
+  split(f = df$species)
+
+lt <- c(l, iris = list(df))
+
+write_xlsx(lt, path = "data/read_write/多个sheet-iris_data.xlsx")
+```
+
+```         
+write_xlsx(
+  x,
+  path = tempfile(fileext = ".xlsx"),
+  col_names = TRUE,
+  format_headers = TRUE,
+  use_zip64 = FALSE
+)
 ```

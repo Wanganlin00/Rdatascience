@@ -5,10 +5,6 @@ options(repos = c(CRAN = "https://cran.rstudio.com/"))
 options(BioC_mirror = "https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
 
 
-
-
-# conflict_prefer(name = "filter", winner = "dplyr")
-
 # Things you might want to change
 
 # options(papersize="a4")
@@ -27,9 +23,12 @@ options(help_type = "html")
 #       r["CRAN"] <- "http://my.local.cran"
 #       options(repos=r)})
 
-options(BioC_mirror = "https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
+options(BioC_mirror = "https://mirrors.tuna.tsinghua.edu.cn/bioconductor") # "https://mirrors.ustc.edu.cn/CRAN/"
 
 options(repos = c(CRAN = "https://cran.rstudio.com/"))
+
+# getOption("repos")
+# options("BioC_mirror")
 
 # Give a fortune cookie, but only to interactive sessions
 # (This would need the fortunes package to be installed.)
@@ -46,7 +45,6 @@ options(repos = c(CRAN = "https://cran.rstudio.com/"))
   font_add("楷体 常规", "C:/Windows/Fonts/simkai.ttf")
   showtext_auto()
   # library(data.table)
-  # library(mlr3verse)
   # library(knitr)
   # library(tinytex)
   library(conflicted)
@@ -59,54 +57,52 @@ options(repos = c(CRAN = "https://cran.rstudio.com/"))
   library(readxl)
   library(writexl)
   message(cat("0", rep("=", 100), "100%", sep = ""))
-  getOption("repos")
-  options("BioC_mirror")
+  message(today())
 }
 
 
 .Last <- function() {
-  message(cat("0", rep("=", 100), "100%", sep = ""))
-  message(today())
+
 }
 
-# when you try to load a package that is not installed?
-# When using library, you get an error message. With require, the
-# return value is FALSE and a warning is printed
 
-# 更新 RGui
+# 更新 R Gui
 
-installr::updateR(cran_mirror = "https://mirrors.ustc.edu.cn/CRAN/")
+installr::updateR()
 
-pkgs <- c(
-  "conflicted", "installr", "devtools", "reticulate", "BiocManager",
-  "readxl", "writexl", "showtext", "janitor", "svglite",
-  "tidyverse", "data.table", "arrow", "tidymodels",
+tools <- c(
+  "installr", "devtools",
+  "showtext", "svglite",
+  "conflicted", "reticulate", "BiocManager")
+
+
+DS <- c(
+  "tidyverse", "data.table", "arrow", "tidymodels", "readxl", "writexl", "janitor",
   "mice", "missForest", "VIM"
 )
 
-stat <- c(
+statistics <- c(
   "moments", "nortest", "HH", "emmeans", "ez", "afex", "gee", "geepack", "epiDisplay", "psych",
-  "poissonreg", "censored", "multilevelmod", "discrim",
+  "poissonreg", "censored", "multilevelmod", "discrim", "ggeffects",
   "factoextra", "tidyclust"
 )
 remotes::install_github("jbryer/psa", build_vignettes = TRUE, dependencies = "Enhances")
 
-gplt <- c(
-  "patchwork", "ggpubr", "ggpattern", "survminer", "pROC", "plotly", "ggraph", "ggrepel", "ggcorrplot", "ggprism",
-  "pheatmap", "ggsurvfit", "ggfortify", "ggthemes", "ggpmisc", "ggeffects", "tidygraph"
-)
-install.packages()
-
-tbl <- c("gt", "gtsummary", "tableone")
-
-
-plug_in <- install.packages("esquisse", "colourpicker", "styler")
-install.packages(
-  "datapasta",
-  repos = c(mm = "https://milesmcbain.r-universe.dev", getOption("repos"))
+visualization <- c(
+  "patchwork", "ggpubr", "ggpattern", "survminer", "ggsurvfit", "pROC", "ggrepel", "ggcorrplot", "ggprism",
+  "pheatmap", "ggfortify", "ggthemes", "ggpmisc", "plotly", "ggraph", "tidygraph"
 )
 
-install.packages()
+
+table <- c("gt", "gtsummary", "tableone")
+
+
+plug_in <- c("esquisse", "colourpicker", "styler")
+
+
+pkgs <- c(tools, DS, statistics, visualization, table, plug_in)
+
+lapply(pkgs, library)
 
 # 语言
 

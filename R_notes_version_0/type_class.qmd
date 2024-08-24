@@ -330,15 +330,16 @@ sex<-factor(sex,levels=c(1,2),labels = c("男","女"))
 str(sex) 
 sex
 
-leadership <- read_csv("data/leadership.txt") |> column_to_rownames(var = "id")
+
+age <- c(29, 44, 45, 68, 99)
 # 连续型变量→因子
-leadership$agecat<-cut(leadership$age,
-                    breaks = c(0,18,45,65,Inf),
-                    labels=c("minor","young","middle_age","elder"),
-                    include.lowest = TRUE,
-                    right = TRUE
-                    )
-leadership$agecat
+cut(
+    age,
+    breaks = c(0, 18, 45, 65, Inf),
+    labels = c("minor", "young", "middle_age", "elder"),
+    include.lowest = TRUE,
+    right = TRUE
+)
 ```
 
 #### Date
@@ -377,8 +378,6 @@ now_ct
 typeof(now_ct)
 attributes(now_ct)
 class(now_ct)
-
-
 ```
 
 #### Durations

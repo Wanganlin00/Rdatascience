@@ -1,0 +1,6 @@
+id,date,country,gender,age,q1,q2,q3,q4,q5
+Bob,10/24/14,US,M,29,5,4,5,5,5
+Mary,10/28/14,US,F,44,3,5,2,5,5
+Lily,10/01/14,UK,F,45,3,5,5,5,2
+July,10/12/14,UK,M,68,3,3,4,NA,NA
+Frank,05/01/14,UK,F,99,2,2,1,2,1

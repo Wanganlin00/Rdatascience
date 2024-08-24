@@ -2,6 +2,19 @@
 
 -   [arrow.apache.R](https://arrow.apache.org/docs/r/)
 
+## 安装
+
+[apache-arrow-17.0.0.tar.gz](https://github.com/apache/arrow/releases/tag/apache-arrow-17.0.0)
+
+```{r eval=FALSE}
+chooseCRANmirror()
+install.packages("~/arrow-apache-arrow-17.0.0.tar.gz", repos = NULL, type = "source")
+install.packages("arrow", type = "binary")
+
+install.packages("~/arrow-apache-arrow-17.0.0.zip", repos = NULL, type = "binary")
+
+```
+
 read_parquet()：读取 Parquet 格式的文件
 
 read_delim_arrow()：读取带分隔符的文本文件

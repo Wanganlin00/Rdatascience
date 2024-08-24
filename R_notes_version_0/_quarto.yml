@@ -11,7 +11,7 @@ book:
     - part: "R Data Science"
       chapters: 
         - type_class.qmd
-        - read_write.qmd
+        # - read_write.qmd
         - useful_function.qmd
         - logical_vector.qmd
         - number_vector.qmd

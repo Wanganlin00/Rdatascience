@@ -7,6 +7,8 @@
 install.packages("package_name")  
 # 本地 
 install.packages("H:/压缩包/GenomeInfoDbData_1.2.12.tar.gz", repos = NULL, type = "source")
+
+install.packages("H:/压缩包/GenomeInfoDbData_1.2.12.zip", repos = NULL, type = "binary")
 # Bioconductor 
 install.packages("BiocManager") 
 BiocManager::install()  
@@ -33,6 +35,8 @@ system.file("data",package = "MatrixEQTL")
 file.path(system.file("data",package = "MatrixEQTL"),"exprsData.txt")
 
 list.files(path = "data/",pattern = "\\.xlsx$", full.names = TRUE, recursive =T)
+
+unzip("data/read_write/leadership.zip", exdir = "data/read_write/解压缩") 
 ```
 
 ## 索引
