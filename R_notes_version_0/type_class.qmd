@@ -1,6 +1,6 @@
-# 基本数据类型和数据结构
+# 数据类型和数据结构
 
-## 基本数据类型
+## 数据类型
 
 基本数据类型（mode） 是指数据最基本的存储格式。在R中有5 种最基本的数据存储格式，分别是**numeric**（**integer**，**double**），**character**，**logical**，**complex** 和 **raw**。
 
@@ -104,18 +104,7 @@ charToRaw("abcde12345") #每个字符的原始二进制表示（ASCII码）转�
 typeof(charToRaw("abcde12345")) 
 ```
 
-### NA
 
-NA，Not Available，不可用
-
-实际上，每种原子类型有一个缺失值：NA_logical\_、NA_integer\_、NA_double\_、NA_character\_。
-
-```{r}
-mode(NA_character_)
-typeof(NA_complex_)
-NA_integer_
-is.na(NA)
-```
 
 ## 数据结构
 
@@ -225,6 +214,8 @@ R中的数据结构包括 **原子向量**（atomic vector）和**泛型向量**
 ![](images/summary-tree-atomic.png){fig-align="center" width="50%"}
 
 #### vector
+
+向量是一组有序元素的集合。一个 vector 可以包含任意数量的元素。但是，向量的所有元素必须属于同一类型。
 
 ```{r}
 # 单元素向量
@@ -528,6 +519,17 @@ dfm$y <- matrix(1:9, nrow = 3)
 dfm$z <- data.frame(a = 3:1, b = letters[1:3], stringsAsFactors = FALSE)
 
 dfm
+```
+
+
+## NA
+
+NA，Not Available，该值是其他内容的占位符，因此长度为 1
+
+实际上，每种原子类型有一个缺失值：NA_logical\_、NA_integer\_、NA_double\_、NA_character\_。
+
+```{r}
+length(NA)
 ```
 
 ## `NULL`

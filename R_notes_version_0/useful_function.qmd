@@ -20,10 +20,24 @@ remotes::update_packages()
 ## 查看加载的包
 
 ```{r}
-search()
-sessionInfo()
-devtools::session_info()
+(.packages())
 ```
+
+
+## 保存、加载和删除 历史数据
+
+```{r}
+x=10
+save(x,file = "mydata.RData")
+load("mydata.RData")
+
+my_model <- lm(hwy~ displ, data = mpg)
+saveRDS(my_model, file = "my_model.rds")
+readRDS("my_model.rds")
+
+rm(list = ls())
+```
+
 
 ## 文件操作
 
