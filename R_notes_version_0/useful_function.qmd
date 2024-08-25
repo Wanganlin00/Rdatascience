@@ -3,12 +3,17 @@
 ## 安装与更新
 
 ```{r eval=FALSE}
+chooseCRANmirror()
+chooseBioCmirror()
+setRepositories()
+
+
 # CRAN 
 install.packages("package_name")  
 # 本地 
-install.packages("H:/压缩包/GenomeInfoDbData_1.2.12.tar.gz", repos = NULL, type = "source")
+install.packages("./GenomeInfoDbData_1.2.12.tar.gz", repos = NULL, type = "source")
 
-install.packages("H:/压缩包/GenomeInfoDbData_1.2.12.zip", repos = NULL, type = "binary")
+install.packages("./GenomeInfoDbData_1.2.12.zip", repos = NULL, type = "binary")
 # Bioconductor 
 install.packages("BiocManager") 
 BiocManager::install()  
@@ -22,7 +27,6 @@ remotes::update_packages()
 ```{r}
 (.packages())
 ```
-
 
 ## 保存、加载和删除 历史数据
 
@@ -38,18 +42,20 @@ readRDS("my_model.rds")
 rm(list = ls())
 ```
 
-
 ## 文件操作
 
 ```{r}
-file.create("create.R")
-file.remove("create.R")
+file.create("data/create.R")
+file.remove("data/create.R")
 system.file("data",package = "MatrixEQTL")
 
 file.path(system.file("data",package = "MatrixEQTL"),"exprsData.txt")
 
 list.files(path = "data/",pattern = "\\.xlsx$", full.names = TRUE, recursive =T)
+dir(path = "data/",pattern = "\\.xlsx$", full.names = TRUE, recursive =T)
 
+
+dir.create("data/file_create_ccccccccccccccc")
 unzip("data/read_write/leadership.zip", exdir = "data/read_write/解压缩") 
 ```
 

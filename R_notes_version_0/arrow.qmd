@@ -4,15 +4,11 @@
 
 ## 安装
 
-[apache-arrow-17.0.0.tar.gz](https://github.com/apache/arrow/releases/tag/apache-arrow-17.0.0)
+[apache-arrow.tar.gz](https://github.com/apache/arrow/releases/tag/apache-arrow-17.0.0)
 
 ```{r eval=FALSE}
-chooseCRANmirror()
-install.packages("~/arrow-apache-arrow-17.0.0.tar.gz", repos = NULL, type = "source")
-install.packages("arrow", type = "binary")
-
-install.packages("~/arrow-apache-arrow-17.0.0.zip", repos = NULL, type = "binary")
-
+options(timeout = 300)
+install.packages("arrow")
 ```
 
 read_parquet()：读取 Parquet 格式的文件

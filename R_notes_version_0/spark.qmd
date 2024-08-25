@@ -1,0 +1,136 @@
+# Spark
+
+<https://spark.posit.co/>
+
+Apache Spark 是用于大规模数据处理的统一分析引擎。
+
+Spark 提供了一组超出 MapReduce 的更丰富的动词，以方便优化在多台计算机中运行的代码。Spark 还将数据加载到内存中，使操作速度比 Hadoop 的磁盘存储快得多。
+
+![](images/clipboard-2740544019.png){fig-align="center" width="60%"}
+
+## 安装
+
+### java 8
+
+<https://java.com/download>
+
+```{r}
+system(command = "E:/java/bin/java.exe -version",intern = T) %>% cat(.,sep = "\n")
+
+
+# 在 R 中临时设置 JAVA_HOME 环境变量
+# Sys.setenv(JAVA_HOME = "E:/java")
+
+```
+
+### sparklyr
+
+```{r}
+#install.packages("sparklyr")
+packageVersion("sparklyr")
+```
+
+### spark
+
+```{r}
+library(sparklyr)
+# C:\\Users\\DELL\\AppData\\Local/spark
+options(spark.install.dir = "E:/spark/")
+spark_install_dir()
+# spark_available_versions()
+
+#spark_install(version = "3.3")
+spark_installed_versions()
+
+
+# spark_uninstall(version = "1.6.3", hadoop = "2.6")
+```
+
+## 连接
+
+```{r}
+library(sparklyr)
+sc <- spark_connect(master = "local")
+```
+
+## 使用
+
+```{r}
+cars <- copy_to(sc, mtcars)
+
+cars
+```
+
+```{r}
+library(dplyr)
+select(cars, hp, mpg) %>%
+  sample_n(100) %>%
+  collect() %>%
+  plot()
+```
+
+```{r}
+model <- ml_linear_regression(cars, mpg ~ hp)
+model
+
+model %>%
+  ml_predict(copy_to(sc, data.frame(hp = 250 + 10 * 1:10))) %>%
+  transmute(hp = hp, mpg = prediction) %>%
+  full_join(select(cars, hp, mpg)) %>%
+  collect() %>%
+  plot()
+```
+
+```{r eval=FALSE}
+spark_write_csv(cars, "data/spark/cars.csv")
+
+cars <- spark_read_csv(sc, "data/spark/cars.csv")
+```
+
+### 分布式
+
+```{r}
+cars %>% spark_apply(~round(.x))
+```
+
+### 流
+
+```{r eval=FALSE}
+dir.create("data/spark/input")
+dir.create("data/spark/output")
+write.csv(mtcars, "data/spark/input/cars_1.csv", row.names = F)
+
+
+stream <-stream_read_csv(sc, "data/spark/input/") %>%
+    select(mpg, cyl, disp) %>% 
+    stream_write_csv("data/spark/output/")
+
+dir("data/spark/output", pattern = ".csv")
+
+
+write.csv(mtcars, "data/spark/input/cars_2.csv", row.names = F)
+
+# 几秒钟后
+dir("data/spark/output", pattern = ".csv")
+
+
+stream_stop(stream)
+
+file.remove("data/spark/input")
+file.remove("data/spark/output")
+```
+
+## Web 界面
+
+```{r eval=FALSE}
+spark_web(sc)
+```
+
+![](images/clipboard-2463586693.png)
+
+## 断开连接
+
+```{r}
+spark_disconnect(sc)
+spark_disconnect_all()
+```
