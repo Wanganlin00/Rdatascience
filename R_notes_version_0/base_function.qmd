@@ -1,4 +1,4 @@
-# 实用函数
+# base 函数
 
 ## 安装与更新
 
@@ -22,10 +22,17 @@ remotes::install_github("tidyverse/ggplot2")
 remotes::update_packages()
 ```
 
+## 设置语言
+
+```{r}
+Sys.setenv(LANGUAGE = "en")
+```
+
 ## 查看加载的包
 
 ```{r}
 (.packages())
+sessionInfo()
 ```
 
 ## 保存、加载和删除 历史数据
