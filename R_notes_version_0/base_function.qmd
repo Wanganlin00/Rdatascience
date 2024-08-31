@@ -1,5 +1,15 @@
 # base 函数
 
+## 选项
+
+```{r}
+getOption("timeout")
+getOption("digits")
+getOption("repos")
+getOption("BioC_mirror")
+```
+
+
 ## 安装与更新
 
 ```{r eval=FALSE}
