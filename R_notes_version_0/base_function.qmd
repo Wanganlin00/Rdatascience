@@ -9,27 +9,36 @@ getOption("repos")
 getOption("BioC_mirror")
 ```
 
-
-## 安装与更新
+## 包管理
 
 ```{r eval=FALSE}
 chooseCRANmirror()
 chooseBioCmirror()
 setRepositories()
 
-
-# CRAN 
+#  安装
+## CRAN 
 install.packages("package_name")  
-# 本地 
-install.packages("./GenomeInfoDbData_1.2.12.tar.gz", repos = NULL, type = "source")
 
+## 本地 
+install.packages("./GenomeInfoDbData_1.2.12.tar.gz", repos = NULL, type = "source")
 install.packages("./GenomeInfoDbData_1.2.12.zip", repos = NULL, type = "binary")
-# Bioconductor 
+
+## Bioconductor 
 install.packages("BiocManager") 
 BiocManager::install()  
-# Github 
+
+## Github 
 remotes::install_github("tidyverse/ggplot2")
+
+
+
+# 更新
+update.packages(ask = FALSE)  
 remotes::update_packages()
+
+# 删除
+remove.packages("airway")
 ```
 
 ## 设置语言

@@ -246,8 +246,6 @@ symbol表示对象的名称
 # 字符串转换名称
 expr(x) == rlang::sym("x")
 
-
-
 char <- "Variable"
 # symbol  name
 sbl <- sym(char)
