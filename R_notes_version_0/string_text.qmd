@@ -1,8 +1,8 @@
-# 文本
-
-[**`stringi`**](https://stringi.gagolewski.com/)+ [`stringr`](https://stringr.tidyverse.org/) + [`glue`](https://glue.tidyverse.org/) + [`stringx`](https://stringx.gagolewski.com/)
+# 字符文本的操纵
 
 ## [**`stringr`**](https://stringr.tidyverse.org/)
+
+[**`stringi`**](https://stringi.gagolewski.com/)+ [`stringr`](https://stringr.tidyverse.org/) + [`glue`](https://glue.tidyverse.org/) + [`stringx`](https://stringx.gagolewski.com/)
 
 ```{r}
 x <- c("apple", "banana", "pear","why")
@@ -162,77 +162,6 @@ str_glue("My name is {name}, not {{name}}.")
 
 ```
 
-## 分离
-
-```{r}
-# df |> separate_longer_delim(cols, delim)
-# df |> separate_longer_position(cols, width)
-# df |> separate_wider_delim(cols, delim, names)
-# df |> separate_wider_position(cols, widths)
-# df |> separate_wider_regex(cols,patterns)
-```
-
-### `separate_longer_*`
-
-```{r}
-df1 <- tibble(x = c("a,b,c", "d,e", "f"))
-df1 |> 
-  separate_longer_delim(x, delim = ",")
-
-df2 <- tibble(x = c("1211", "131", "21"))
-df2 |> 
-  separate_longer_position(x, width = 1)
-```
-
-### `separate_wider_*`
-
-```{r}
-df3 <- tibble(x = c("a10.1.2022", "b10.2.2011", "e15.1.2015"))
-df3
-df3 |> 
-  separate_wider_delim(
-    x,
-    delim = ".",
-    names = c("code", "edition", "year")
-  )
-df3 |> 
-  separate_wider_delim(
-    x,
-    delim = ".",
-    names = c("code", NA, "year")
-  )
-
-df4 <- tibble(x = c("202215TX", "202122LA", "202325CA")) 
-df4 |> 
-  separate_wider_position(
-    x,
-    widths = c(year = 4, age = 2, state = 2)
-  )
-
-df5 <- tribble(
-    ~ str,
-    "<Sheryl>-F_34",
-    "<Kisha>-F_45",
-    "<Brandon>-N_33",
-    "<Sharon>-F_38",
-    "<Penny>-F_58",
-    "<Justin>-M_41",
-    "<Patricia>-F_84",
-)
-df5 |>
-    separate_wider_regex(str,
-                         patterns = c(
-                             "<",
-                             name = "[A-Za-z]+",
-                             #匹配 ≥1 个字母
-                             ">-",
-                             gender = ".",
-                             #匹配除\n以外任意字符
-                             "_",
-                             age = "[0-9]+"      #匹配 ≥1 个数字
-                         ))
-```
-
 ## 转义escape
 
 ```{r}
@@ -276,15 +205,13 @@ str_view(x)
 
 ```{r}
 str_view(fruit, "berry")  
-str_view(fruit, "a...e")
 ```
 
-### 字符类
+### 字符类 character classes
 
 ```{r}
 #   [...]    匹配方括号内任意一个字符
 #   [^...]   匹配除方括号内的任意字符
-#   .        匹配除 \n 以外的任意字符
 str_view(words, "[aeiou]x[aeiou]")  #匹配 中间x两边元音
 
 str_view(words, "[^aeiou]y[^aeiou]") #匹配 中间y两边辅音
@@ -295,24 +222,6 @@ x <- "abcd ABCD  12345 -![@#%^."
 str_view(x, "[abc\\^\\[]")
 str_view(x, "[a-zA-Z]")
 str_view(x, "[^a-z0-9]")
-
-
-#\d匹配任何数字;匹配任何非数字的内容\D
-str_view(x, "\\d+")
-str_view(x, "\\D+")
-#\s匹配任何空格（例如，空格、制表符、换行符）;匹配任何非空格的内容。\S
-str_view(x, "\\s+")
-str_view(x, "\\S+")
-#\w匹配任何“单词”字符，即字母和数字;匹配任何“非单词”字符。\W
-str_view(x, "\\w+")
-str_view(x, "\\W+")
-
-
-#alternation
-str_view(fruit, "apple|melon|nut")
-str_view(fruit, "aa|ee|ii|oo|uu")
-
-
 ```
 
 ### 量词 Quantifier
@@ -321,18 +230,18 @@ str_view(fruit, "aa|ee|ii|oo|uu")
 # {n}正好匹配 n 次。
 # {n,}至少匹配 n 次。
 # {n,m}N 次和 M 次之间的匹配。
-x <- c("1234abcd  123 a33a bbbc  2223" , "abb","aab",'abbbbb')
-str_view(x, "\\d{2}")
+x <- c("1234_abcd  123 a33a bbbc  22_23" , "abb","aab",'a_bbbbb')
 
+str_view(x, "b{2,5}")
+str_view(x, "\\d{2}")
 str_view(x, "\\d{2,}")
 str_view(x, "\\d{2,3}")
+
 
 
 #    ?  匹配 0 或 1 次   {0,1}
 #    +  至少匹配一次    {1,}
 #    *  匹配任意次数    {0,}
-
-
 
 str_view(x, "ab?")  
 str_view(x, "ab+")  
@@ -349,7 +258,27 @@ str_view(x, "ab*?")  # 匹配a
 
 ```
 
-### 锚点Anchors
+### 元字符（meta-characters）
+
+```{r}
+#\d匹配任何数字;匹配任何非数字的内容\D
+str_view(x, "\\d+")
+str_view(x, "\\D+")
+
+#\s匹配任何空格（例如，空格、制表符、换行符）;匹配任何非空格的内容。\S
+str_view(x, "\\s+")
+str_view(x, "\\S+")
+
+#\w匹配任何“单词”字符，即字母、数字和下划线;匹配任何“非单词”字符。\W
+str_view(x, "\\w+")
+str_view(x, "\\W+")
+
+
+#   .        匹配除 \n 以外的任意字符
+str_view(fruit, "a...e")
+```
+
+**锚点Anchors**
 
 ```{r}
 # 匹配开头或结尾：^  $
@@ -360,7 +289,7 @@ str_view(fruit, "apple")
 str_view(fruit, "^apple$") #仅匹配完整字符串
 
 
-#  \b  单词的开头或结尾
+#  \b  单词的开头或结尾,字符的边界
 x <- c("summary(x)", "summarize(df)", "rowsum(x)", "sum(x)")
 str_view(x, "sum")
 str_view(x, "^sum$")
@@ -374,4 +303,12 @@ zero-width match
 ```{r}
 str_view("abc", c("$", "^", "\\b"))
 str_replace_all("abc", c("$", "^", "\\b"), "++")
+```
+
+### 或运算符
+
+```{r}
+#alternation
+str_view(fruit, "apple|melon|nut")
+str_view(fruit, "aa|ee|ii|oo|uu")
 ```

@@ -1,0 +1,128 @@
+# 数据类型
+
+数据类型是指数据的存储格式，定义了存储在变量中的数据的性质和类别，通常是原子的，无法分解成更简单的类型。
+
+在R中有5 种最基本的数据存储格式，分别是**numeric**（**integer**，**double**），**logical**，**character**，**complex** 和 **raw**。
+
+## numeric
+
+### integer
+
+```{r}
+mode(2024L)
+typeof(2024L)
+```
+
+### double
+
+十进制`decimal ()`，科学计数法`scientific ()` ，十六进制`hexadecimal ()`
+
+```{r}
+mode(1.1)
+typeof(1.1)
+0.1234
+1.23e4
+0x111   # 16^2×1+ 16^1×1 + 16^0×1
+```
+
+[**浮点标准定义的特殊值**]{.underline}
+
+-   Infinity 无穷大
+
+    ```{r}
+    mode(-Inf)
+    Inf
+    ```
+
+-   NaN，Not a Number，非数字
+
+    ```{r}
+    NaN
+    0 / 0
+    is.nan(0 / 0)
+    mode(0 / 0)
+    ```
+
+## logical
+
+比较运算符 `?Comparison`
+
+逻辑运算符`?Logic`
+
+```{r}
+typeof(TRUE)
+x <- c(T,F,T)
+y <- c(T,T,F)
+
+# 非
+!x
+
+# 与
+x&y
+T&&F
+# 或
+x|y
+T||F
+
+# 异或  不同为TRUE 或 1
+xor(x,y)
+
+```
+
+## character
+
+```{r}
+typeof("R language")
+```
+
+## complex
+
+```{r}
+z <- 2+3i
+typeof(z) 
+
+is.complex(z)
+# 获取实部
+Re(z)
+
+# 获取虚部
+Im(z)
+
+# 模
+Mod(z)
+
+# 共轭
+Conj(z)
+```
+
+## raw
+
+```{r}
+charToRaw("abcde12345") #每个字符的原始二进制表示（ASCII码）转换成16进制输出
+typeof(charToRaw("abcde12345")) 
+```
+
+## NA
+
+NA，Not Available，该值是其他内容的占位符，因此长度为 1
+
+实际上，每种原子类型有一个缺失值：NA_logical\_、NA_integer\_、NA_double\_、NA_character\_。
+
+```{r}
+length(NA)
+```
+
+## `NULL`
+
+长度始终为零，并且没有属性。
+
+```{r}
+typeof(NULL)
+length(NULL)
+is.null(NULL)
+c()
+```
+
+## 强制类型转换
+
+逻辑 -\> 整数 -\> 浮点数 -\> 字符

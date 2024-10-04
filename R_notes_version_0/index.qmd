@@ -2,6 +2,8 @@
 
 ## 数据科学
 
+-   <https://r-coder.com/>
+
 -   [R for data science](https://r4ds.hadley.nz/)
 
 -   [tidyverse.org](https://www.tidyverse.org/)
@@ -13,18 +15,6 @@
 -   [arrow.apache.R](https://arrow.apache.org/docs/r/)
 
 -   [Pandoc](https://pandoc.org/)
-
-## 可视化
-
--   [ggplot2: Elegant Graphics for Data Analysis (3e)](https://ggplot2-book.org/)
-
--   <https://exts.ggplot2.tidyverse.org/gallery/>
-
--   <https://www.datanovia.com/en/blog/tag/ggpubr/>
-
--   [现代统计图形（2）](https://bookdown.org/xiangyun/msg2nd/)
-
--   [R Graphics Cookbook, 2nd edition](https://r-graphics.org/)
 
 ## 编程
 

@@ -309,6 +309,68 @@ vapply(temp, basic, numeric(4))
 
 `vapply()` 第 3 个参数传入对每一个子集调用函数后结果的预期，上述设定为包含 4 个元素的数值型向量。
 
+## apply函数簇
+
+### `apply()`
+
+```{r}
+apply(X = mtcars, MARGIN = 2, FUN = mean)
+```
+
+### `aggregate()`
+
+```{r}
+aggregate(x = mtcars,
+          by = list(am=mtcars$am,cyl=mtcars$cyl),
+          FUN = mean)  
+aggregate(.~am+cyl,
+          data = mtcars,
+          FUN = mean)
+aggregate(mpg~am+cyl,
+          data = mtcars,
+          FUN = summary)
+```
+
+### `by()`, `tapply()`
+
+`by()`是应用于数据框的tapply的面向对象包装器。
+
+```{r}
+by(data = mtcars[,1:3],
+   INDICES = list(cyl=mtcars$cyl),
+   FUN = summary)
+
+by(data = mtcars[,1:3],
+   INDICES = factor(mtcars$cyl),
+   FUN = function(x) lm( disp ~ mpg, data = x))
+
+tapply(X = mtcars[,1:3],
+       INDEX = list(cyl=mtcars$cyl),
+       FUN = summary)
+```
+
+### `lapply()`, `sapply()`
+
+`lapply()` returns a list of the same length as X,
+
+`sapply()` is a user-friendly version and wrapper of `lapply()` by default returning a vector or matrix
+
+```{r}
+x <- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+lapply(X = x,FUN = quantile)
+
+sapply(x, quantile)
+```
+
+### `vapply`
+
+```{r}
+by_cyl <- split(mtcars, mtcars$cyl)
+models <- lapply(by_cyl, function(data) lm(mpg ~ wt, data = data))
+models
+vapply(models, function(x) coef(x)[[2]], double(1))
+```
+
 ### 数学泛函
 
 ## 函数式编程

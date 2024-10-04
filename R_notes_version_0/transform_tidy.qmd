@@ -485,10 +485,73 @@ cms_patient_experience |>
 ### `tidyr::separate_longer_*()`
 
 ```{r}
+# df |> separate_longer_delim(cols, delim)
+# df |> separate_longer_position(cols, width)
+# df |> separate_wider_delim(cols, delim, names)
+# df |> separate_wider_position(cols, widths)
+# df |> separate_wider_regex(cols,patterns)
+```
 
+
+```{r}
+df1 <- tibble(x = c("a,b,c", "d,e", "f"))
+df1 |> 
+  separate_longer_delim(x, delim = ",")
+
+df2 <- tibble(x = c("1211", "131", "21"))
+df2 |> 
+  separate_longer_position(x, width = 1)
 ```
 
 ### `tidyr::separate_wider_*()`
+
+```{r}
+df3 <- tibble(x = c("a10.1.2022", "b10.2.2011", "e15.1.2015"))
+df3
+df3 |> 
+  separate_wider_delim(
+    x,
+    delim = ".",
+    names = c("code", "edition", "year")
+  )
+df3 |> 
+  separate_wider_delim(
+    x,
+    delim = ".",
+    names = c("code", NA, "year")
+  )
+
+df4 <- tibble(x = c("202215TX", "202122LA", "202325CA")) 
+df4 |> 
+  separate_wider_position(
+    x,
+    widths = c(year = 4, age = 2, state = 2)
+  )
+
+df5 <- tribble(
+    ~ str,
+    "<Sheryl>-F_34",
+    "<Kisha>-F_45",
+    "<Brandon>-N_33",
+    "<Sharon>-F_38",
+    "<Penny>-F_58",
+    "<Justin>-M_41",
+    "<Patricia>-F_84",
+)
+df5 |>
+    separate_wider_regex(str,
+                         patterns = c(
+                             "<",
+                             name = "[A-Za-z]+",
+                             #匹配 ≥1 个字母
+                             ">-",
+                             gender = ".",
+                             #匹配除\n以外任意字符
+                             "_",
+                             age = "[0-9]+"      #匹配 ≥1 个数字
+                         ))
+```
+
 
 ## 重编码
 

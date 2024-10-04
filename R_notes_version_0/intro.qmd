@@ -1,0 +1,154 @@
+# 介绍
+
+
+## 工作空间
+
+```{r}
+x=10
+save(x,file = "mydata.RData")
+load("mydata.RData")
+
+my_model <- lm(hwy~ displ, data = mpg)
+saveRDS(my_model, file = "my_model.rds")
+readRDS("my_model.rds")
+
+ls()
+rm(list = ls())
+```
+
+## 工作目录
+
+```{r}
+getwd()
+
+
+# setwd("My\\Path")
+# setwd("My/Path") # Equivalent
+```
+
+## 文件系统
+
+
+
+### 文件夹
+
+```{r}
+# 新建
+dir.create("data/file_create_ccccccccccccccc")
+
+
+# 删除
+unlink("data/file_create_ccccccccccccccc", recursive = TRUE)
+
+
+
+# 列出文件夹里的文件
+
+list.files(path = "data/",pattern = "\\.xlsx$", full.names = TRUE, recursive =T)
+
+dir(path = "data/",pattern = "\\.xlsx$", full.names = TRUE, recursive =T) # Equivalent
+```
+
+### 文件
+
+```{r}
+file.create("data/create.R")
+file.remove("data/create.R")
+system.file("data",package = "MatrixEQTL")
+
+file.path(system.file("data",package = "MatrixEQTL"),"exprsData.txt")
+
+
+# 复制
+# file.copy("my_file.R", "my_copied_file.R")
+
+
+```
+
+
+### 压缩文件
+
+```{r}
+unzip("data/read_write/leadership.zip", exdir = "data/read_write/解压缩") 
+```
+
+## R包管理
+
+```{r eval=FALSE}
+chooseCRANmirror()
+chooseBioCmirror()
+setRepositories()
+```
+
+###  安装
+
+```{r eval=FALSE}
+# CRAN 
+install.packages("package_name")  
+
+# R Forge
+
+install.packages("MPAgenomics", repos = "http://R-Forge.R-project.org",
+                 dependencies = TRUE)
+
+# Bioconductor 
+install.packages("BiocManager") 
+BiocManager::install()  
+
+# 本地 
+install.packages("./GenomeInfoDbData_1.2.12.tar.gz", repos = NULL, type = "source")
+install.packages("./GenomeInfoDbData_1.2.12.zip", repos = NULL, type = "binary")
+
+
+# Github 
+remotes::install_github("tidyverse/ggplot2")
+```
+
+### 更新
+
+```{r eval=FALSE}
+# 更新
+update.packages(ask = FALSE)  
+remotes::update_packages()
+```
+
+
+
+
+### 检查
+
+```{r eval=FALSE}
+# If FALSE, install the package
+if (require("MASS")) install.packages("MASS")
+```
+
+
+```{r}
+
+(.packages())
+sessionInfo()
+```
+
+### 删除
+
+```{r eval=FALSE} 
+remove.packages("airway")
+```
+
+
+
+## 全局选项
+
+```{r}
+getOption("timeout")
+getOption("digits")
+getOption("repos")
+getOption("BioC_mirror")
+```
+
+## 语言设置
+
+```{r}
+Sys.setenv(LANGUAGE = "en")
+```
+

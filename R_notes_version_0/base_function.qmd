@@ -1,91 +1,27 @@
 # base 函数
 
-## 选项
+## 赋值运算符
 
-```{r}
-getOption("timeout")
-getOption("digits")
-getOption("repos")
-getOption("BioC_mirror")
-```
+| **Assignment operator in R** |                      **Description**                      |
+|:------------------------:|:-------------------------------------------:|
+|             `<-`             |                      Left assignment                      |
+|              =               | Left assignment (not recommended) and argument assignment |
+|             `->`             |                     Right assignment                      |
+|            `<<-`             |    Left lexicographic assignment (for advanced users)     |
+|            `->>`             |    Right lexicographic assignment (for advanced users)    |
 
-## 包管理
+## 其他运算符
 
-```{r eval=FALSE}
-chooseCRANmirror()
-chooseBioCmirror()
-setRepositories()
+| **Miscellaneous operator in R** |                     **Description**                      |
+|:-------------------------:|:-------------------------------------------:|
+|               \$                |          Named list or dataframe column subset           |
+|                :                |                    Sequence generator                    |
+|               ::                | Accessing functions of packages It is not usually needed |
+|               :::               |         Accessing internal functions of packages         |
+|               \~                |                      Model formulae                      |
+|               \@                |         Accessing slots in S4 classes (Advanced)         |
 
-#  安装
-## CRAN 
-install.packages("package_name")  
-
-## 本地 
-install.packages("./GenomeInfoDbData_1.2.12.tar.gz", repos = NULL, type = "source")
-install.packages("./GenomeInfoDbData_1.2.12.zip", repos = NULL, type = "binary")
-
-## Bioconductor 
-install.packages("BiocManager") 
-BiocManager::install()  
-
-## Github 
-remotes::install_github("tidyverse/ggplot2")
-
-
-
-# 更新
-update.packages(ask = FALSE)  
-remotes::update_packages()
-
-# 删除
-remove.packages("airway")
-```
-
-## 设置语言
-
-```{r}
-Sys.setenv(LANGUAGE = "en")
-```
-
-## 查看加载的包
-
-```{r}
-(.packages())
-sessionInfo()
-```
-
-## 保存、加载和删除 历史数据
-
-```{r}
-x=10
-save(x,file = "mydata.RData")
-load("mydata.RData")
-
-my_model <- lm(hwy~ displ, data = mpg)
-saveRDS(my_model, file = "my_model.rds")
-readRDS("my_model.rds")
-
-rm(list = ls())
-```
-
-## 文件操作
-
-```{r}
-file.create("data/create.R")
-file.remove("data/create.R")
-system.file("data",package = "MatrixEQTL")
-
-file.path(system.file("data",package = "MatrixEQTL"),"exprsData.txt")
-
-list.files(path = "data/",pattern = "\\.xlsx$", full.names = TRUE, recursive =T)
-dir(path = "data/",pattern = "\\.xlsx$", full.names = TRUE, recursive =T)
-
-
-dir.create("data/file_create_ccccccccccccccc")
-unzip("data/read_write/leadership.zip", exdir = "data/read_write/解压缩") 
-```
-
-## 索引
+## 逻辑索引
 
 ```{r}
 1:length(mtcars$mpg)
@@ -146,7 +82,7 @@ x[0]
 
 ### `$`, `[[ ]]`
 
-`$`是一个简写运算符, `x$y`大致相当于 `x[["y"]]` ,从左到右部分匹配
+`$`是一个简写运算符, `x$y`大致相当于 `x[["y"]]` ,从左到右部分赋值
 
 ```{r}
 x <- list(abc = 1)
@@ -189,6 +125,80 @@ dplyr::arrange()
 # 分配秩次
 rank()
 ```
+
+## 拆分
+
+```{r}
+set.seed(3)
+
+df <- CO2[sample(1:nrow(CO2), 10), ]
+head(df)
+dfs <- split(df, f = list(df$Type, df$Treatment))
+dfs
+```
+
+## 合并
+
+```{r}
+set.seed(61)
+
+employee_id <- 1:10
+employee_name <- c("Andrew", "Susan", "John", "Joe", "Jack",
+                   "Jacob", "Mary", "Kate", "Jacqueline", "Ivy")
+employee_salary <- round(rnorm(10, mean = 1500, sd = 200))
+employee_age <- round(rnorm(10, mean = 50, sd = 8))
+employee_position <- c("CTO", "CFO", "Administrative", rep("Technician", 7))
+
+
+df_1 <- data.frame(id = employee_id[1:8], name = employee_name[1:8],
+                   month_salary = employee_salary[1:8])
+df_2 <- data.frame(id = employee_id[-5], name = employee_name[-5],
+                   age = employee_age[-5], position = employee_position[-5])
+
+df_1
+df_2
+```
+
+### 连接
+
+```{r}
+# 内连接
+merge(x = df_1, y = df_2, by = c("id", "name")) 
+
+# 全连接
+merge(x = df_1, y = df_2, all = TRUE)
+
+# 左连接
+merge(x = df_1, y = df_2, all.x = TRUE)
+
+# 右连接
+merge(x = df_1, y = df_2, all.y = TRUE)
+
+# 交叉连接
+Merged <- merge(x = df_1, y = df_2, by = NULL)
+head(Merged)
+```
+
+
+### 按行名合并
+
+```{r}
+df1 <- data.frame(var = c("one", "two", "three", "four", "five"),
+                  data = c(1, 5, 1, 6, 8))
+rownames(df1) <- c("A", "B", "C", "D", "E")
+df1
+
+df2 <- data.frame(var = c("three", "one", "eight", "two", "nine"),
+                  data = c(1, 5, 1, 6, 8))
+rownames(df2) <- c("E", "A", "B", "D", "C")
+df2
+```
+
+```{r}
+merge(df1, df2, by = 0, all = TRUE) 
+merge(df1, df2, by = "row.names", all = TRUE) # Equivalent
+```
+
 
 ## AsIs `I()`
 
