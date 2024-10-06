@@ -23,7 +23,7 @@ book:
         - functionals.qmd
         - dynamic_report.qmd
         
-    - part: "高性能"
+    - part: "大数据"
       chapters: 
         - big_data.qmd
         - data.table.qmd
@@ -31,7 +31,7 @@ book:
         - polars.qmd
         - Rcpp.qmd
         - R_Python.qmd
-    - part: "R Programming"
+    - part: "编程"
       chapters:
       - control_structure.qmd
       - exception_handling.qmd

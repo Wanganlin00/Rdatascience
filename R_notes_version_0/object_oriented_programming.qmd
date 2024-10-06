@@ -1,12 +1,12 @@
 # 面向对象编程
 
-**OOP**
+## 概述
 
-面向对象编程（object-oriented programming，OOP）：编写表示现实世界中的事物和情景的**类（class）并**基于这些类创建**对象（object）。**在编写类时，你要定义所有对象都具备的通用行为（方法 method）。根据类创建对象称为**实例化**，**实例（instance）。**
+面向对象编程（object-oriented programming，OOP）：编写表示现实世界中的事物和情景的**类（class）并**基于这些类创建**对象（object）。**在编写类时，要定义所有对象都具备的通用行为（方法 method）。根据类创建对象称为**实例化**，**实例（instance）。**
 
 特点：
 
--   封装encapsulation：封装是把客观事物封装成抽象的类，用户不需要担心对象的细节，因为它们被封装在标准接口（如参数，）后面
+-   封装encapsulation：封装是把客观事物封装成抽象的类，用户不需要担心对象的细节，因为它们被封装在标准接口（如参数）后面
 
 -   继承**inheritance** ：子类共享其父类的方法。原有的类称为**父类（parent class）**或**超类（super class）**，新类称为**子类（child class）。**
 
@@ -36,47 +36,50 @@ R中存在的一切都是一个对象，包括 **base objects** 和 **OO objects
 
 ### base objects
 
-基本对象来自 S
+base 对象来自 S 语言
 
 ```{r}
 if(!require(sloop)) install.packages("sloop")
 # A base object:
-sloop::otype(1:10)
-is.object(1:10)
+sloop::otype(`[`)
+is.object(`[`)
 
 # An OO object
-is.object(mtcars)
 sloop::otype(mtcars)
+is.object(mtcars)
+mle_obj <- stats4::mle(function(x = 1) (x - 2) ^ 2)
+sloop::otype(mle_obj)
 ```
 
-基本对象和 OO 对象之间的区别在于 OO 对象具有“类”属性
+base 对象和 OO 对象之间的区别在于 OO 对象具有`class`属性
 
 ```{r}
 attr(1:10, "class")
 attr(mtcars, "class")
 ```
 
-虽然只有 OO 对象具有类"class"属性，但每个对象都具有**基本类型（base type）**：
+虽然只有 OO 对象具有类`class`属性，但每个对象都具有**基本类型（base type）**：包括基本数据类型（数值，字符，逻辑，复数等），数据结构 （data.frame，list ），function（闭包、内置、特殊），环境，类，...... 等等。
 
 ```{r}
+# base objects
 typeof(1:10)
 typeof(mtcars)
-typeof(NULL)
 typeof(mean)
+class(mean)
 typeof(`[`)
 typeof(sum) 
-typeof(globalenv())
-mle_obj <- stats4::mle(function(x = 1) (x - 2) ^ 2)
-typeof(mle_obj)
-```
 
-**基本类型**包括数据的基本类型（数值，字符，逻辑，复数等），函数类型（闭包、内置、特殊），环境，类，...... 等等。
+# OO objects
+typeof(mle_obj)
+
+typeof(globalenv())
+```
 
 ### OO objects：`class` 属性
 
 -   **S3**：是 R 的第一个 OOP 系统，*Statistical Models in S*
 
--   **S4**：是对 S3 的正式和严格的重写，*Programming with Data*，S4 在默认安装(`options()$defaultPackages`) ***methods*** 包中实现。***Bioconductor*** 项目使用的就是S4类。
+-   **S4**：是对 S3 的正式和严格的重写，*Programming with Data*，S4 在默认安装(`options()$defaultPackages`) ***methods*** 包中实现。***`Bioconductor`*** 项目使用的就是S4类。
 
 -   **R6**：构建在环境之上的封装OOP，具有引用语义，modified in-place 而非“修改时复制（copy-on-modify）”，在 ***R6*** 包中实现。
 
@@ -109,9 +112,9 @@ library(sloop)
 s3_dispatch(print(f))
 ```
 
-### 类的实例
+### 创建S3类和实例
 
-要使对象成为类的实例，您只需设置类属性即可。
+要使对象成为S3 类的实例，您只需设置类属性即可。
 
 ```{r}
 x <- structure(list(), class = "custom_class")
@@ -272,10 +275,10 @@ s3_methods_generic("mean")
 s3_methods_class("ordered")
 ```
 
-### S3 方法重载
+### 示例
 
 ```{r}
-# S3 方法重载示例
+# S3 方法示例
 generic_function <- function(x, y) {
   UseMethod("generic_function")
 }
@@ -286,8 +289,8 @@ generic_function.numeric <- function(x, y) {
 }
 
 # 为character类定义方法
-generic_function.character <- function(x, y) {
-  print(paste(x, y))
+generic_function.character <- function(x, y, sep = " " ) {
+  print(paste(x, y, sep = sep))
 }
 
 # 调用函数
@@ -295,7 +298,7 @@ generic_function(1, 2)  # 输出 3
 generic_function("Hello", "World")  # 输出 "HelloWorld"
 
 
-# S3 方法重载示例
+# + 多态 示例
 `+` <- function(x, y) {
   UseMethod("+")
 }
@@ -308,19 +311,13 @@ generic_function("Hello", "World")  # 输出 "HelloWorld"
 "a"+"b"+"c"
 ```
 
-## R6 类
-
-[R6::R6Class(classname = NULL，public = list)](https://r6.r-lib.org/reference/R6Class.html)
-
 ## S4类
 
 创建类 `setClass()` ，创建泛型函数 `setGeneric()` ，创建方法 `setMethod()`
 
 此外，S4 提供多重继承（即一个类可以有多个父级）和多重调度（即方法调度可以使用多个参数的类）
 
-S4 的一个重要新组件是 **slot**，它是对象的命名组件，使用专用子集运算符 `@`（发音为 at）进行访问。
-
-**accessor** functions \@
+S4 的一个重要新组件是 **slot**，它是对象的命名组件，使用专用子集运算符 `@`（发音为 at）进行访问。 **accessor** functions \@
 
 [bioconductor S4类和方法](https://bioconductor.org/help/course-materials/2017/Zurich/S4-classes-and-methods.html)
 
@@ -328,7 +325,7 @@ S4 的一个重要新组件是 **slot**，它是对象的命名组件，使用�
 library(methods)
 ```
 
-### 创建类、泛型和方法
+### 创建类、实例化、泛型函数和方法
 
 ```{r}
 setClass(
@@ -342,6 +339,7 @@ setClass(
     prototype = list(name = NA_character_, age = NA_real_)
 )
 
+# 实例化
 x <- new("Person", name = "XXX",age=24)
 
 str(x)
@@ -350,13 +348,15 @@ x@name
 slot(x,"age")
 
 
-# 泛型
+# 泛型函数 ： 定义
 
 setGeneric("age", function(x) standardGeneric("age"))
 setGeneric("age<-", function(x, value) standardGeneric("age<-"))
 
-# 方法
+setGeneric("name", function(x) standardGeneric("name"))
+setGeneric("name<-", function(x, value) standardGeneric("name<-"))
 
+# 方法 ： 实现
 setMethod("age", "Person", function(x) x@age)
 setMethod("age<-", "Person", function(x, value) {
   x@age <- value
@@ -378,17 +378,15 @@ sloop::ftype(age)
 
 x
 
-setGeneric("name", function(x) standardGeneric("name"))
-setMethod("name", "Person", function(x) x@name)
 
+setMethod("name", "Person", function(x) x@name)
 name(x)
-setGeneric("name<-", function(x, value) standardGeneric("name<-"))
+
 setMethod("name<-", "Person", function(x, value) {
   x@name <- value
   validObject(x)
   x
 })
-
 name(x) <- "Lily"
 name(x)
 ```
@@ -458,3 +456,7 @@ instance
 NewSubClass <- ggproto("NewSubClass", NewClass)
 NewSubClass
 ```
+
+## R6 类
+
+[R6::R6Class(classname = NULL，public = list)](https://r6.r-lib.org/reference/R6Class.html)
