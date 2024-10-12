@@ -35,8 +35,10 @@ book:
       chapters:
       - control_structure.qmd
       - exception_handling.qmd
-      - functions.qmd
       - environments.qmd
+      - functions.qmd
+      - Functional_Programming.qmd
+      - Generic_Programming.qmd
       - object_oriented_programming.qmd
       - meta_programming.qmd
       - quasiquotation.qmd

@@ -1,0 +1,27 @@
+# 函数式编程
+
+函数式编程（Functional Programming）：将计算视为数学函数的求值，强调使用纯函数、不可变数据和高阶函数。典型代表语言：Haskell、Clojure、Scala。
+
+```{r}
+f <- function(x, fun) {
+  fun(x)
+}
+
+f(1:10, sum)
+f(1:10, quantile)
+```
+在我们创建的函数 `f()` 中，我们可以理解为对传入函数的 `mean()`、`sum()` 等函数重命名成 `fun()` 并进行调用。
+
+```{r}
+f2 <- function(type) {
+  switch(type,
+         mean = mean,
+         sum = sum,
+         quantile = quantile)
+}
+mean
+f2("mean")
+
+f2("mean")(1:10)
+```
+
