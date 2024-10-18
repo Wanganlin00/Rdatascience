@@ -1,0 +1,52 @@
+Search Name:	meta
+Date Run:	18/10/2024 01:36:59
+Comment:	
+
+ID	Search	Hits
+#1	extensive stage OR extensive disease OR extensive OR advanced	96865
+#2	small cell	31026
+#3	oat cell	173
+#4	MeSH descriptor: [Lung Neoplasms] explode all trees	12253
+#5	Lung Neoplasm* OR Pulmonary Neoplasm* OR Lung Cancer* OR Pulmonary Cancer* OR lung malignan* OR Pulmonary malignan* OR Cancer of the Lung	38920
+#6	#4 OR #5	39206
+#7	(#2 OR #3 )  AND  #6	20946
+#8	MeSH descriptor: [Small Cell Lung Carcinoma] explode all trees	644
+#9	Small Cell Lung Carcinoma OR Carcinoma, Small Cell Lung OR Oat Cell Carcinoma of Lung OR Oat Cell Lung Cancer OR Small Cell Lung Cancer OR Small Cell Cancer of the Lung OR SCLC	20747
+#10	#1 AND (#7 OR #8 OR #9)	10992
+#11	MeSH descriptor: [Drug Therapy] explode all trees	186545
+#12	Drug Therap* OR Chemotherap* OR Pharmacotherap* OR Therap*, Drug	648676
+#13	MeSH descriptor: [Antineoplastic Agents] explode all trees	19873
+#14	Antineoplastic Agent* OR Antitumor Agent* OR Anticancer Agent* OR Antineoplastic Drug* OR Antitumor Drug* OR Cancer Chemotherapy Agent* OR Antineoplastic* OR Chemotherapeutic Anticancer Agent* OR Cancer Chemotherapy Drug*	71935
+#15	MeSH descriptor: [Cisplatin] explode all trees	6421
+#16	"Cisplatin" OR "cis-Diamminedichloroplatinum" OR "cis Diamminedichloroplatinum" OR "cis-Diamminedichloroplatinum(II)" OR "cis-Dichlorodiammineplatinum(II)" OR "cis-Platinum" OR "Dichlorodiammineplatinum" OR "Platinum Diamminodichloride" OR "Diamminodichloride, Platinum" OR "Biocisplatinum" OR "Platidiam" OR "Platino" OR "Platinol" OR "NSC-119875"	17334
+#17	MeSH descriptor: [Carboplatin] explode all trees	3335
+#18	"Carboplatin" OR "CBDCA" OR "cis-Diammine(cyclobutanedicarboxylato)platinum II" OR "Paraplatin" OR "Paraplatine" OR "NSC-241240" OR "NSC241240" OR "NSC 241240" OR "JM-8" OR "JM8" OR "JM 8" OR "Blastocarb" OR "Carbotec" OR "Carbosin" OR "Ercar" OR "Nealorin" OR "Neocarbo" OR "Platinwas" OR "Ribocarbo" OR "Carboplat"	9287
+#19	MeSH descriptor: [Oxaliplatin] explode all trees	1827
+#20	"Oxaliplatin" OR "1,2-Diamminocyclohexane(trans-1)oxolatoplatinum(II)" OR "L-OHP" OR "Cpd" OR "Platinum(2+) ethanedioate (1R,2R)-1,2-cyclohexanediamine (1:1:1)" OR "Oxalato-(1,2-cyclohexanediamine)platinum II" OR "Oxaliplatin, (SP-4-2-(1R-trans))-isomer" OR "Oxaliplatine" OR "1,2-Diaminocyclohexane Platinum Oxalate" OR "1,2 Diaminocyclohexane Platinum Oxalate" OR "Platinum(II)-1,2-cyclohexanediamine Oxalate" OR "Cis-oxalato-(trans-l)-1,2-diaminocyclohexane-platinum(II)" OR "ACT 078" OR "ACT-078" OR "ACT078" OR "Oxaliplatin, (SP-4-3-(cis))-isomer" OR "Eloxatine"	6771
+#21	"Lobaplatin" OR "1,2-diaminomethylcyclobutane-platinum(II) lactate" OR "D 19466" OR "D-19466"	87
+#22	MeSH descriptor: [Etoposide] explode all trees	2163
+#23	"Etoposide" OR "Demethyl Epipodophyllotoxin Ethylidine Glucoside" OR "Eposide" OR "Vepesid" OR "Etoposide, alpha-D-Glucopyranosyl Isomer" OR "alpha-D-Glucopyranosyl Isomer Etoposide" OR "Etoposide, alpha D Glucopyranosyl Isomer" OR "Etoposide, (5S)-Isomer" OR "Etoposide, (5a alpha)-Isomer" OR "Etoposide, (5a alpha,9 alpha)-Isomer" OR "NSC-141540" OR "NSC141540" OR "NSC 141540" OR "VP 16-213" OR "VP 16213" OR "VP 16 213" OR "VP-16" OR "VP16" OR "VP 16" OR "Celltop" OR "Eposin" OR "Toposar" OR "Etoposide Teva" OR "Teva, Etoposide" OR "Eto-GRY" OR "Eto GRY" OR "Etoposide Pierre Fabre" OR "Etoposido Ferrer Farma" OR "Etopos" OR "Exitop" OR "Lastet" OR "Onkoposid" OR "Riboposid" OR "Vépéside-Sandoz" OR "Vépéside Sandoz" OR "Etomedac"	5006
+#24	#11 OR #12 OR #13 OR #14 OR #15 OR #16 OR #17 OR #18 OR #19 OR #20 OR  #21 OR #22 OR #23	692433
+#25	MeSH descriptor: [Immunotherapy] explode all trees	12295
+#26	immunotherap* OR chemoimmunotherap*	16896
+#27	MeSH descriptor: [Immune Checkpoint Inhibitors] explode all trees	295
+#28	"Immune Checkpoint Inhibitors" OR "Checkpoint Inhibitors, Immune" OR "Immune Checkpoint Blockers" OR "Checkpoint Blockers, Immune" OR "Immune Checkpoint Inhibitor" OR "Checkpoint Inhibitor, Immune" OR "CTLA-4 Inhibitors" OR "CTLA 4 Inhibitors" OR "Cytotoxic T-Lymphocyte-Associated Protein 4 Inhibitors" OR "Cytotoxic T Lymphocyte Associated Protein 4 Inhibitors" OR "Cytotoxic T-Lymphocyte-Associated Protein 4 Inhibitor" OR "Cytotoxic T Lymphocyte Associated Protein 4 Inhibitor" OR "CTLA-4 Inhibitor" OR "CTLA 4 Inhibitor" OR "PD-1 Inhibitors" OR "PD 1 Inhibitors" OR "Programmed Cell Death Protein 1 Inhibitor" OR "Programmed Cell Death Protein 1 Inhibitors" OR "PD-1 Inhibitor" OR "Inhibitor, PD-1" OR "PD 1 Inhibitor" OR "Immune Checkpoint Blockade" OR "Checkpoint Blockade, Immune" OR "Immune Checkpoint Inhibition" OR "Checkpoint Inhibition, Immune" OR "PD-L1 Inhibitors" OR "PD L1 Inhibitors" OR "Programmed Death-Ligand 1 Inhibitors" OR "Programmed Death Ligand 1 Inhibitors" OR "PD-L1 Inhibitor" OR "PD L1 Inhibitor" OR "PD-1-PD-L1 Blockade" OR "Blockade, PD-1-PD-L1" OR "PD 1 PD L1 Blockade"	3093
+#29	MeSH descriptor: [Nivolumab] explode all trees	993
+#30	"Nivolumab" OR "MDX-1106" OR "MDX1106" OR "MDX 1106" OR "Opdivo" OR "BMS-936558" OR "BMS936558" OR "BMS 936558" OR "ONO-4538" OR "ONO4538" OR "ONO 4538"	3376
+#31	MeSH descriptor: [Ipilimumab] explode all trees	585
+#32	"Ipilimumab" OR "Anti-CTLA-4 MAb Ipilimumab" OR "Anti CTLA 4 MAb Ipilimumab" OR "Ipilimumab, Anti-CTLA-4 MAb" OR "MDX 010" OR "MDX-010" OR "MDX010" OR "MDX-CTLA-4" OR "MDX CTLA 4" OR "Yervoy"	2060
+#33	"camrelizumab" OR "SHR-1210" OR "SHR 1210" OR "carrelizumab"	343
+#34	"atezolizumab" OR "immunoglobulin G1, anti-(human CD antigen CD274) (human monoclonal MDPL3280a heavy chain), disulfide with human monoclonal MDPL3280a kappa-chain, dimer" OR "anti-PDL1" OR "MPDL3280A" OR "MPDL-3280A" OR "Tecentriq" OR "RG7446" OR "RG-7446"	1705
+#35	"pembrolizumab" OR "MK-3475" OR "Keytruda" OR "lambrolizumab" OR "SCH-900475"	3671
+#36	"pidilizumab" OR "CT-011" OR "CT 011"	14
+#37	"avelumab" OR "MSB0010718C" OR "MSB-0010718C" OR "bavencio" OR "MSB0010682" OR "MSB-0010682"	464
+#38	"durvalumab" OR "MEDI4736" OR "MEDI-4736" OR "Imfinzi"	1426
+#39	"tislelizumab" OR "BGB-A317"	326
+#40	"toripalimab"	213
+#41	"Serplulimab"	46
+#42	"Adebrelimab"	31
+#43	#25 OR #26 OR #27 OR #28 OR #29 OR #30  OR #31 OR #32 OR #33 OR #34 OR #35 OR #36 OR #37 OR #38 OR #39 OR #40 OR #41 OR #42	33855
+#44	MeSH descriptor: [Radiotherapy] explode all trees	10137
+#45	Radiotherapy OR Radiation Therapy OR Targeted Radiotherap* OR Targeted Radiation Therap* OR radiation OR irradiation OR radio-chemotherapy OR chemoradiotherapy OR radiation treatment OR 3D Conformal Radiation Therapy OR 3D-CRT OR Intensity-Modulated Radiation Therapy OR IMRT OR Image-Guided Radiation Therapy OR IGRT OR Stereotactic Radiation Therapy OR SRT OR Stereotactic Radiosurgery OR SRS OR Stereotactic Body Radiation Therapy OR SBRT OR Volumetric Modulated Arc Therapy OR  VMAT OR Adaptive Radiation Therapy OR ART	90446
+#46	#44 OR #45	90545
+#47	#10 AND #24 AND #43 AND #46	614

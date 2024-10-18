@@ -1,0 +1,212 @@
+## 研究设计
+
+Efficacy and Safety of the first line chemo-immunotherapy plus radiotherapy for ES-small cell lung cancer: A Systematic Review and Network Meta-analysis
+
+评价**免疫检查点抑制剂联合铂-依托泊苷加胸部放疗** 与**免疫检查点抑制剂联合铂-依托泊苷**治疗广泛期小细胞肺癌 （ES-SCLC） 的疗效和安全性。
+
+### 纳入标准 Inclusion Criteria：
+
+Population: ES-CLC Patients ，18+ years 们将包括经组织学或细胞学证实的 SCLC 的成人（18 岁或以上）以及根据标准化诊断系统（例如退伍军人管理局肺研究组分期系统）的广泛分期疾病的临床证据;根据实体瘤反应评估标准 （RECIST） 1.1 版的可测量 ES-SCLC;东部肿瘤合作组 （ECOG） 体能状态评分为 0 或 1;或其他公认的分类（Horn 2018）。我们不会对患者的性别或种族有任何限制。
+
+Intervention：至少有一个干预组是 chemo-immunotherapy + TRT\
+Control：chemo-immunotherapy 铂类+依托泊苷 +免疫抑制剂，
+
+anti PD‐1 (for example, nivolumab, pembrolizumab/lambrolizumab, pidilizumab, or tislelizumab) or anti PD‐L1 (for example, atezolizumab, avelumab, or durvalumab) plus platinum‐etoposide plus TRT
+
+主要结局
+
+总生存期 （OS）：从随机分组到全因死亡的时间
+
+任何不良事件和严重不良事件 （SAE） 的总体发生率：根据美国国家癌症研究所不良事件通用术语标准 （NCI-CTCAE） （NCI-CTCAE 2010） 评估的严重程度，包括治疗相关死亡的百分比。我们将严重不良事件定义为导致以下情况的不良事件：死亡;危及生命;需要住院治疗或延长目前的住院时间;导致持续或严重丧失工作能力或严重干扰正常生活机能;或导致先天性异常或出生缺陷。不会导致死亡、不危及生命或不需要住院治疗的医疗事件，如果它们使参与者处于危险之中或需要医疗或手术干预以防止上述结果之一，则可能被视为严重不良事件。
+
+次要结局
+
+无进展生存期 （PFS）：从随机分组到疾病进展或任何原因死亡日期的时间
+
+客观缓解率 （ORR）：根据实体瘤缓解评估标准 （RECIST） （Eisenhauer 2009） 或免疫相关 RECIST （Wolchok 2009)
+
+与健康相关的生活质量 （HRQoL），通过经过验证的量表衡量
+
+反应持续时间：从第一次出现有记录的、客观的、确认的对治疗的反应到研究者确定的疾病进展时间（根据 RECIST）（Eisenhauer 2009），或任何原因死亡的时间，以先发生者为准。
+
+我们将纳入随机对照试验 （RCT）。为了限制发表偏倚，如果未发表的在线数据和会议摘要提供足够的数据来分析和评估可能的偏倚，我们还将纳入它们
+
+### 排除标准
+
+-   患者接受了除了铂类和依托泊苷和免疫抑制剂PD-1、PD-L1和放射治疗以外的药物治疗的研究
+
+-   如果没有脑转移， 患者接受了预防性脑部放疗的研究
+
+
+-   无对照组的单臂研究
+
+-   未完成的论文
+
+-   病例报告
+
+### **Researcher Agenda**
+
+## 检索策略
+
+我们在2018年7月7日检索了PubMed、Web of Science、Scopus、CENTRAL、Embase（通过Ovid）、
+
+我们将使用 Cochrane 高灵敏度检索策略、敏感性和精度最大化版本（2008 revision）进行 MEDLINE 检索，如 Cochrane 干预系统评价手册（第 4.4.7）（Higgins 2011）中所述。 Lefebvre C, Glanville J, Briscoe S, Featherstone R, Littlewood A, Metzendorf M-I, Noel-Storr A, Paynter R, Rader T, Thomas J, Wieland LS. Chapter 4: Searching for and selecting studies \[last updated September 2024\]. In: Higgins JPT, Thomas J, Chandler J, Cumpston M, Li T, Page MJ, Welch VA (editors). Cochrane Handbook for Systematic Reviews of Interventions version 6.5. Cochrane, 2024. Available from www.training.cochrane.org/h
+
+### PRISMA
+
+### **数据提取和编码**
+
+1.  研究特征。
+
+2.  计算效应大小所需的数据。
+
+3.  研究质量或偏倚风险特征。
+
+## meta分析
+
+```{r}
+#devtools::install_github("MathiasHarrer/dmetar")
+library(dmetar)
+```
+
+## 附录
+
+
+广泛期小细胞肺癌 AND 化疗 AND 免疫治疗 AND 放疗
+
+
+### PubMed
+
+```
+#——————————————————广泛期小细胞肺癌——————————————————————#
+
+#1      extensive stage OR extensive disease OR extensive OR advanced
+
+#2      "small cell lung carcinoma"[MeSH] OR Small Cell Lung Carcinoma OR Carcinoma, Small Cell Lung OR Oat Cell Carcinoma of Lung OR Oat Cell Lung Cancer OR Small Cell Lung Cancer OR Small Cell Cancer of the Lung OR SCLC
+
+
+#3      (small cell OR oat cell ) AND ("lung neoplasms"[MeSH] OR Lung Neoplasm OR Pulmonary Neoplasm OR Lung Cancer OR Pulmonary Cancer OR Cancer of the Lung)
+
+#4      #1 AND (#2 OR #3) OR ES-SCLC 
+
+
+#_____________化疗_________________________#
+
+#5      ("Drug Therapy"[MeSH Terms] OR Drug Therap* OR Chemotherap* OR Pharmacotherap* OR Therap*, Drug)
+
+#6      ("Antineoplastic Agents"[Mesh] OR "Antineoplastic Agent*" OR "Antitumor Agent*" OR "Anticancer Agent*" OR "Antineoplastic Drug*" OR "Antitumor Drug*" OR "Cancer Chemotherapy Agent*" OR "Antineoplastic*" OR "Chemotherapeutic Anticancer Agent*" OR "Cancer Chemotherapy Drug*")
+
+
+#7     ("Cisplatin"[Mesh] OR "Cisplatin" OR "cis-Diamminedichloroplatinum" OR "cis Diamminedichloroplatinum" OR "cis-Diamminedichloroplatinum(II)" OR "cis-Dichlorodiammineplatinum(II)" OR "cis-Platinum" OR "Dichlorodiammineplatinum" OR "Platinum Diamminodichloride" OR "Diamminodichloride, Platinum" OR "Biocisplatinum" OR "Platidiam" OR "Platino" OR "Platinol" OR "NSC-119875")
+
+
+#8     ("Carboplatin"[Mesh] OR "Carboplatin" OR "CBDCA" OR "cis-Diammine(cyclobutanedicarboxylato)platinum II" OR "Paraplatin" OR "Paraplatine" OR "NSC-241240" OR "NSC241240" OR "NSC 241240" OR "JM-8" OR "JM8" OR "JM 8" OR "Blastocarb" OR "Carbotec" OR "Carbosin" OR "Ercar" OR "Nealorin" OR "Neocarbo" OR "Platinwas" OR "Ribocarbo" OR "Carboplat")
+
+#9     ("Oxaliplatin"[Mesh] OR "Oxaliplatin" OR "1,2-Diamminocyclohexane(trans-1)oxolatoplatinum(II)" OR "L-OHP" OR "Cpd" OR "Platinum(2+) ethanedioate (1R,2R)-1,2-cyclohexanediamine (1:1:1)" OR "Oxalato-(1,2-cyclohexanediamine)platinum II" OR "Oxaliplatin, (SP-4-2-(1R-trans))-isomer" OR "Oxaliplatine" OR "1,2-Diaminocyclohexane Platinum Oxalate" OR "1,2 Diaminocyclohexane Platinum Oxalate" OR "Platinum(II)-1,2-cyclohexanediamine Oxalate" OR "Cis-oxalato-(trans-l)-1,2-diaminocyclohexane-platinum(II)" OR "ACT 078" OR "ACT-078" OR "ACT078" OR "Oxaliplatin, (SP-4-3-(cis))-isomer" OR "Eloxatine")
+ 
+#10     ("lobaplatin" [Supplementary Concept] OR "Lobaplatin" OR "1,2-diaminomethylcyclobutane-platinum(II) lactate" OR "D 19466" OR "D-19466")
+
+#11     ("Etoposide"[Mesh] OR "Etoposide" OR "Demethyl Epipodophyllotoxin Ethylidine Glucoside" OR "Eposide" OR "Vepesid" OR "Etoposide, alpha-D-Glucopyranosyl Isomer" OR "alpha-D-Glucopyranosyl Isomer Etoposide" OR "Etoposide, alpha D Glucopyranosyl Isomer" OR "Etoposide, (5S)-Isomer" OR "Etoposide, (5a alpha)-Isomer" OR "Etoposide, (5a alpha,9 alpha)-Isomer" OR "NSC-141540" OR "NSC141540" OR "NSC 141540" OR "VP 16-213" OR "VP 16213" OR "VP 16 213" OR "VP-16" OR "VP16" OR "VP 16" OR "Celltop" OR "Eposin" OR "Toposar" OR "Etoposide Teva" OR "Teva, Etoposide" OR "Eto-GRY" OR "Eto GRY" OR "Etoposide Pierre Fabre" OR "Etoposido Ferrer Farma" OR "Etopos" OR "Exitop" OR "Lastet" OR "Onkoposid" OR "Riboposid" OR "Vépéside-Sandoz" OR "Vépéside Sandoz" OR "Etomedac")
+
+#12     #5 OR #6 OR #7 OR #8 OR #9 OR #10 OR #11
+
+
+
+#______________免疫治疗_________________#
+
+#13     "Immunotherapy"[Mesh] OR immunotherap* OR chemoimmunotherap*
+
+#14     ("Immune Checkpoint Inhibitors"[Mesh] OR  "Immune Checkpoint Inhibitors" OR "Checkpoint Inhibitors, Immune" OR "Immune Checkpoint Blockers" OR "Checkpoint Blockers, Immune" OR "Immune Checkpoint Inhibitor" OR "Checkpoint Inhibitor, Immune" OR "CTLA-4 Inhibitors" OR "CTLA 4 Inhibitors" OR "Cytotoxic T-Lymphocyte-Associated Protein 4 Inhibitors" OR "Cytotoxic T Lymphocyte Associated Protein 4 Inhibitors" OR "Cytotoxic T-Lymphocyte-Associated Protein 4 Inhibitor" OR "Cytotoxic T Lymphocyte Associated Protein 4 Inhibitor" OR "CTLA-4 Inhibitor" OR "CTLA 4 Inhibitor" OR "PD-1 Inhibitors" OR "PD 1 Inhibitors" OR "Programmed Cell Death Protein 1 Inhibitor" OR "Programmed Cell Death Protein 1 Inhibitors" OR "PD-1 Inhibitor" OR "Inhibitor, PD-1" OR "PD 1 Inhibitor" OR "Immune Checkpoint Blockade" OR "Checkpoint Blockade, Immune" OR "Immune Checkpoint Inhibition" OR "Checkpoint Inhibition, Immune" OR "PD-L1 Inhibitors" OR "PD L1 Inhibitors" OR "Programmed Death-Ligand 1 Inhibitors" OR "Programmed Death Ligand 1 Inhibitors" OR "PD-L1 Inhibitor" OR "PD L1 Inhibitor" OR "PD-1-PD-L1 Blockade" OR "Blockade, PD-1-PD-L1" OR "PD 1 PD L1 Blockade")
+
+
+#15     ("Nivolumab"[Mesh] OR "Nivolumab" OR "MDX-1106" OR "MDX1106" OR "MDX 1106" OR "Opdivo" OR "BMS-936558" OR "BMS936558" OR "BMS 936558" OR "ONO-4538" OR "ONO4538" OR "ONO 4538")
+
+#16     "Ipilimumab"[Mesh] OR "Ipilimumab" OR "Anti-CTLA-4 MAb Ipilimumab" OR "Anti CTLA 4 MAb Ipilimumab" OR "Ipilimumab, Anti-CTLA-4 MAb" OR "MDX 010" OR "MDX-010" OR "MDX010" OR "MDX-CTLA-4" OR "MDX CTLA 4" OR "Yervoy"
+
+#17     "camrelizumab"[Supplementary Concept] OR "camrelizumab" OR "SHR-1210" OR "SHR 1210" OR "carrelizumab"
+
+
+#18     "atezolizumab"[Supplementary Concept] OR "atezolizumab" OR "immunoglobulin G1, anti-(human CD antigen CD274) (human monoclonal MDPL3280a heavy chain), disulfide with human monoclonal MDPL3280a kappa-chain, dimer" OR "anti-PDL1" OR "MPDL3280A" OR "MPDL-3280A" OR "Tecentriq" OR "RG7446" OR "RG-7446"
+
+#19     "pembrolizumab"[Supplementary Concept] OR "pembrolizumab" OR "MK-3475" OR "Keytruda" OR "lambrolizumab" OR "SCH-900475"
+
+#20     "pidilizumab"[Supplementary Concept] OR "pidilizumab" OR "CT-011" OR "CT 011"
+
+#21     "avelumab"[Supplementary Concept] OR "avelumab" OR "MSB0010718C" OR "MSB-0010718C" OR "bavencio" OR "MSB0010682" OR "MSB-0010682"
+
+#22     "durvalumab"[Supplementary Concept]  OR "durvalumab" OR "MEDI4736" OR "MEDI-4736" OR "Imfinzi"
+
+#23     "tislelizumab"[Supplementary Concept] OR "tislelizumab" OR "BGB-A317"
+
+#24     "toripalimab"[Supplementary Concept] OR "toripalimab"
+
+#25     "Serplulimab"
+   
+#26     "Adebrelimab"
+
+
+#27     #13 OR #14 OR #15 OR #16 OR #17 OR #18 OR #19 OR #20 OR #21 OR #22 OR #23 OR #24 OR #25 OR #26
+
+#____________________放疗__________________________________#
+
+#28     "Radiotherapy"[Mesh] OR Radiotherapy OR Radiation Therapy OR Targeted Radiotherap* OR Targeted Radiation Therap* OR radiation OR irradiation OR radio-chemotherapy OR chemoradiotherapy OR radiation treatment OR 3D Conformal Radiation Therapy OR 3D-CRT OR Intensity-Modulated Radiation Therapy OR IMRT OR Image-Guided Radiation Therapy OR IGRT OR Stereotactic Radiation Therapy OR SRT OR Stereotactic Radiosurgery OR SRS OR Stereotactic Body Radiation Therapy OR SBRT OR Volumetric Modulated Arc Therapy OR  VMAT OR Adaptive Radiation Therapy OR ART
+
+
+#__________________结果__________#
+
+#29     #4 AND #12 AND #27 AND #28
+
+#30     randomized controlled trial[Publication Type] OR randomi?ed[Title/Abstract] OR placebo[Title/Abstract] OR drug therapy[MeSH Subheading] OR randomly[Title/Abstract] OR trial[Title/Abstract] OR group[Title/Abstract]
+
+#31      animals[MeSH Terms] NOT humans[MeSH Terms]
+#32      #30 NOT 31
+
+#33      #29 AND #32
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+### Scopus
+
+```
+TITLE-ABS-KEY ((("extensive stage" OR "extensive disease" OR "extensive" OR "advanced") AND ("Small Cell Lung Carcinoma" OR "Carcinoma, Small Cell Lung" OR "Oat Cell Carcinoma of Lung" OR "Oat Cell Lung Cancer" OR "Small Cell Lung Cancer" OR "Small Cell Cancer of the Lung" OR "SCLC") ) OR "ES-SCLC")
+
+TITLE-ABS-KEY ( "Drug Therap*" OR "Chemotherap*" OR "Pharmacotherap*" OR "Therap*, Drug" OR "Antineoplastic Agent*" OR "Antitumor Agent*" OR "Anticancer Agent*" OR "Antineoplastic Drug*" OR "Antitumor Drug*" OR "Cancer Chemotherapy Agent*" OR "Antineoplastic*" OR "Chemotherapeutic Anticancer Agent*" OR "Cancer Chemotherapy Drug*" OR "Cisplatin" OR "cis-Diamminedichloroplatinum" OR "cis Diamminedichloroplatinum" OR "cis-Diamminedichloroplatinum(II)" OR "cis-Dichlorodiammineplatinum(II)" OR "cis-Platinum" OR "Dichlorodiammineplatinum" OR "Platinum Diamminodichloride" OR "Diamminodichloride, Platinum" OR "Biocisplatinum" OR "Platidiam" OR "Platino" OR "Platinol" OR "NSC-119875" OR "Carboplatin" OR "CBDCA" OR "cis-Diammine(cyclobutanedicarboxylato)platinum II" OR "Paraplatin" OR "Paraplatine" OR "NSC-241240" OR "NSC241240" OR "NSC 241240" OR "JM-8" OR "JM8" OR "JM 8" OR "Blastocarb" OR "Carbotec" OR "Carbosin" OR "Ercar" OR "Nealorin" OR "Neocarbo" OR "Platinwas" OR "Ribocarbo" OR "Carboplat" OR "Oxaliplatin" OR "1,2-Diamminocyclohexane(trans-1)oxolatoplatinum(II)" OR "L-OHP" OR "Cpd" OR "Platinum(2+) ethanedioate (1R,2R)-1,2-cyclohexanediamine (1:1:1)" OR "Oxalato-(1,2-cyclohexanediamine)platinum II" OR "Oxaliplatin, (SP-4-2-(1R-trans))-isomer" OR "Oxaliplatine" OR "1,2-Diaminocyclohexane Platinum Oxalate" OR "1,2 Diaminocyclohexane Platinum Oxalate" OR "Platinum(II)-1,2-cyclohexanediamine Oxalate" OR "Cis-oxalato-(trans-l)-1,2-diaminocyclohexane-platinum(II)" OR "ACT 078" OR "ACT-078" OR "ACT078" OR "Oxaliplatin, (SP-4-3-(cis))-isomer" OR "Eloxatine" OR "Lobaplatin" OR "1,2-diaminomethylcyclobutane-platinum(II) lactate" OR "D 19466" OR "D-19466" OR "Etoposide" OR "Demethyl Epipodophyllotoxin Ethylidine Glucoside" OR "Eposide" OR "Vepesid" OR "Etoposide, alpha-D-Glucopyranosyl Isomer" OR "alpha-D-Glucopyranosyl Isomer Etoposide" OR "Etoposide, alpha D Glucopyranosyl Isomer" OR "Etoposide, (5S)-Isomer" OR "Etoposide, (5a alpha)-Isomer" OR "Etoposide, (5a alpha,9 alpha)-Isomer" OR "NSC-141540" OR "NSC141540" OR "NSC 141540" OR "VP 16-213" OR "VP 16213" OR "VP 16 213" OR "VP-16" OR "VP16" OR "VP 16" OR "Celltop" OR "Eposin" OR "Toposar" OR "Etoposide Teva" OR "Teva, Etoposide" OR "Eto-GRY" OR "Eto GRY" OR "Etoposide Pierre Fabre" OR "Etoposido Ferrer Farma" OR "Etopos" OR "Exitop" OR "Lastet" OR "Onkoposid" OR "Riboposid" OR "Vépéside-Sandoz" OR "Vépéside Sandoz" OR "Etomedac")
+
+TITLE-ABS-KEY(  "immunotherap*" OR "chemoimmunotherap*" OR "Immune Checkpoint Inhibitors" OR "Checkpoint Inhibitors, Immune" OR "Immune Checkpoint Blockers" OR "Checkpoint Blockers, Immune" OR "Immune Checkpoint Inhibitor" OR "Checkpoint Inhibitor, Immune" OR "CTLA-4 Inhibitors" OR "CTLA 4 Inhibitors" OR "Cytotoxic T-Lymphocyte-Associated Protein 4 Inhibitors" OR "Cytotoxic T Lymphocyte Associated Protein 4 Inhibitors" OR "Cytotoxic T-Lymphocyte-Associated Protein 4 Inhibitor" OR "Cytotoxic T Lymphocyte Associated Protein 4 Inhibitor" OR "CTLA-4 Inhibitor" OR "CTLA 4 Inhibitor" OR "PD-1 Inhibitors" OR "PD 1 Inhibitors" OR "Programmed Cell Death Protein 1 Inhibitor" OR "Programmed Cell Death Protein 1 Inhibitors" OR "PD-1 Inhibitor" OR "Inhibitor, PD-1" OR "PD 1 Inhibitor" OR "Immune Checkpoint Blockade" OR "Checkpoint Blockade, Immune" OR "Immune Checkpoint Inhibition" OR "Checkpoint Inhibition, Immune" OR "PD-L1 Inhibitors" OR "PD L1 Inhibitors" OR "Programmed Death-Ligand 1 Inhibitors" OR "Programmed Death Ligand 1 Inhibitors" OR "PD-L1 Inhibitor" OR "PD L1 Inhibitor" OR "PD-1-PD-L1 Blockade" OR "Blockade, PD-1-PD-L1" OR "PD 1 PD L1 Blockade" OR "Nivolumab" OR "MDX-1106" OR "MDX1106" OR "MDX 1106" OR "Opdivo" OR "BMS-936558" OR "BMS936558" OR "BMS 936558" OR "ONO-4538" OR "ONO4538" OR "ONO 4538" OR "Ipilimumab" OR "Anti-CTLA-4 MAb Ipilimumab" OR "Anti CTLA 4 MAb Ipilimumab" OR "Ipilimumab, Anti-CTLA-4 MAb" OR "MDX 010" OR "MDX-010" OR "MDX010" OR "MDX-CTLA-4" OR "MDX CTLA 4" OR "Yervoy" OR "camrelizumab" OR "SHR-1210" OR "SHR 1210" OR "carrelizumab" "atezolizumab" OR "immunoglobulin G1, anti-(human CD antigen CD274) (human monoclonal MDPL3280a heavy chain), disulfide with human monoclonal MDPL3280a kappa-chain, dimer" OR "anti-PDL1" OR "MPDL3280A" OR "MPDL-3280A" OR "Tecentriq" OR "RG7446" OR "RG-7446" OR "pembrolizumab" OR "MK-3475" OR "Keytruda" OR "lambrolizumab" OR "SCH-900475" OR "pidilizumab" OR "CT-011" OR "CT 011" "avelumab" OR "MSB0010718C" OR "MSB-0010718C" OR "bavencio" OR "MSB0010682" OR "MSB-0010682" OR "durvalumab" OR "MEDI4736" OR "MEDI-4736" OR "Imfinzi" OR "tislelizumab" OR "BGB-A317" OR "toripalimab" OR "Serplulimab" OR "Adebrelimab" )
+
+TITLE-ABS-KEY("Radiotherapy" OR "Radiation Therapy" OR "Targeted Radiotherap*" OR "Targeted Radiation Therap*" OR "radiation" OR "irradiation" OR "radio-chemotherapy" OR "chemoradiotherapy" OR "radiation treatment" OR "3D Conformal Radiation Therapy" OR "3D-CRT" OR "Intensity-Modulated Radiation Therapy" OR "IMRT" OR "Image-Guided Radiation Therapy" OR "IGRT" OR "Stereotactic Radiation Therapy" OR "SRT" OR "Stereotactic Radiosurgery" OR "SRS" OR "Stereotactic Body Radiation Therapy" OR "SBRT" OR "Volumetric Modulated Arc Therapy" OR  "VMAT" OR "Adaptive Radiation Therapy" OR "ART")
+
+AND ALL(
+"randomi?ed controlled trial" OR "randomi?ed" OR "placebo" OR "randomly" OR "trial" OR "group")
+
+
+
+
+
+```
+
+
+
+
+### ASCO
+
+
+```
+extensive stage small cell lung cancer  AND radiotherapy
+extensive stage small cell lung cancer  AND radiation
+extensive disease small cell lung cancer  AND radiation
+
+
+```
+
