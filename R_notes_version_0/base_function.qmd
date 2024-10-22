@@ -2,24 +2,24 @@
 
 ## 赋值运算符
 
-| **Assignment operator in R** |                      **Description**                      |
-|:------------------------:|:-------------------------------------------:|
-|             `<-`             |                      Left assignment                      |
-|              =               | Left assignment (not recommended) and argument assignment |
-|             `->`             |                     Right assignment                      |
-|            `<<-`             |    Left lexicographic assignment (for advanced users)     |
-|            `->>`             |    Right lexicographic assignment (for advanced users)    |
+| **Assignment operator in R** | **Description** |
+|:--:|:--:|
+| `<-` | Left assignment |
+| = | Left assignment (not recommended) and argument assignment |
+| `->` | Right assignment |
+| `<<-` | Left lexicographic assignment (for advanced users) |
+| `->>` | Right lexicographic assignment (for advanced users) |
 
 ## 其他运算符
 
-| **Miscellaneous operator in R** |                     **Description**                      |
-|:-------------------------:|:-------------------------------------------:|
-|               \$                |          Named list or dataframe column subset           |
-|                :                |                    Sequence generator                    |
-|               ::                | Accessing functions of packages It is not usually needed |
-|               :::               |         Accessing internal functions of packages         |
-|               \~                |                      Model formulae                      |
-|               \@                |         Accessing slots in S4 classes (Advanced)         |
+| **Miscellaneous operator in R** | **Description** |
+|:--:|:--:|
+| \$ | Named list or dataframe column subset |
+| : | Sequence generator |
+| :: | Accessing functions of packages It is not usually needed |
+| ::: | Accessing internal functions of packages |
+| \~ | Model formulae |
+| \@ | Accessing slots in S4 classes (Advanced) |
 
 ## 逻辑索引
 
@@ -179,7 +179,6 @@ Merged <- merge(x = df_1, y = df_2, by = NULL)
 head(Merged)
 ```
 
-
 ### 按行名合并
 
 ```{r}
@@ -198,7 +197,6 @@ df2
 merge(df1, df2, by = 0, all = TRUE) 
 merge(df1, df2, by = "row.names", all = TRUE) # Equivalent
 ```
-
 
 ## AsIs `I()`
 
