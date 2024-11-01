@@ -10,7 +10,17 @@ R中的数据结构包括 **原子向量**（atomic vector）和**泛型向量**
 
 ## 属性
 
-在R中任何一个**对象**都具有两个最基本的属性：数据类型和长度，分别可以通过调用 `typeof()`和`length()` 查看，但无法通过 `attributes()` 查看。
+在R中任何一个**对象**都具有属性：
+
+-   names,dimnames
+
+-   length
+
+-   dimensions（例如matrices，arrays）
+
+-   class
+
+-   自定义属性
 
 在R中有多种方式查看对象的属性，
 

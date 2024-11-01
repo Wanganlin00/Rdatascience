@@ -2,19 +2,7 @@
 
 R中的条件（condition）系统提供了一组成对的工具，提示函数正在发生异常情况，并允许该函数的用户处理它
 
-提示信息
-
-```{r}
-print("Running...")
-
-message("Running...")
-
-cat("Running...\n")
-
-warning("Running...")
-```
-
-signals conditions
+## signals conditions
 
 -   `stop()` for errors
 -   `warning()` for warnings
@@ -28,14 +16,12 @@ warning("This is what a warning looks like")
 
 
 message("This is what a message looks like")
+
+print("Running...")
+cat("Running...\n")
 ```
 
-处理条件信息
-
--   `tryCatch()`
--   `withCallingHandlers()`
-
-## error
+### error
 
 停止执行并返回到顶部
 
@@ -51,7 +37,7 @@ h <- function() rlang::abort("This is an error!")
 h()
 ```
 
-## warning
+### warning
 
 捕获警告并聚合显示
 
@@ -83,7 +69,7 @@ fw <- function() {
 fw()
 ```
 
-## message
+### message
 
 消息立即显示
 
@@ -108,8 +94,9 @@ fm()
 -   忽略错误：`try()`，最好是使用[`tryCatch()`](https://rdrr.io/r/base/conditions.html)
 
     ```{r error=TRUE}
-    default <- NULL
-    try(default=read.csv("possibly-bad-input.csv"), silent = FALSE)
+
+    try(log("a"))
+    try(log("a"),silent = TRUE)
     ```
 
 -   忽略警告。[`suppressWarnings()`](https://rdrr.io/r/base/warning.html)
@@ -144,6 +131,11 @@ conditionCall(cnd)
 ```
 
 ### 退出处理程序
+
+处理条件信息
+
+-   `tryCatch()`
+-   `withCallingHandlers()`
 
 [`tryCatch()`](https://rdrr.io/r/base/conditions.html)定义**exiting**handlers，，通常用于处理错误情况。它允许您覆盖默认的错误行为。
 
@@ -317,4 +309,48 @@ my_log <- function(x, base = exp(1)) {
 ```{r error=TRUE}
 my_log(letters)
 my_log(letters)
+```
+
+## Debugging
+
+`traceback()`: 函数调用栈
+
+```{r error=TRUE}
+lm(y ~ x)
+traceback() 
+```
+
+表示第7次调用函数出现错误。
+
+`debug()` : 标记函数，调用函数时出现错误自动进入browser，输入 `n` 一行一行运行直到出现错误
+
+```{r error=TRUE}
+debug(lm)
+lm(y ~ x)
+
+
+# Browse[1]> n
+# debug: ret.x <- x
+# Browse[1]> n
+# debug: ret.y <- y
+# Browse[1]> n
+# debug: cl <- match.call()
+# Browse[1]> n
+# debug: mf <- match.call(expand.dots = FALSE)
+# Browse[1]> n
+# debug: m <- match(c("formula", "data", "subset", "weights", "na.action", 
+#     "offset"), names(mf), 0L)
+# Browse[1]> n
+# debug: mf <- mf[c(1L, m)]
+# Browse[1]> n
+# debug: mf$drop.unused.levels <- TRUE
+# Browse[1]> n
+# debug: mf[[1L]] <- quote(stats::model.frame)
+# Browse[1]> n
+# debug: mf <- eval(mf, parent.frame())
+# Browse[1]> n
+# Error in eval(predvars, data, env) : object 'y' not found
+
+
+undebug(lm)
 ```
