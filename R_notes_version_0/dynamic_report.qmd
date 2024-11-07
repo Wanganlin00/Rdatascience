@@ -37,7 +37,7 @@ author:
   roles: "made the document"
 keywords: "dynamic report"
 date: today
-description: "<br/>加油.<br/>day day up"
+description: "<br/>good good study<br/>day day up"
 
 theme:
   dark: darkly # 深色模式
@@ -62,6 +62,8 @@ editor: visual
 | **粗体**                                                                 | `**粗体**`                                                |
 +--------------------------------------------------------------------------+-----------------------------------------------------------+
 | *斜体*                                                                   | `*斜体*`                                                  |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| [颜色标注]{style="color:red"}                                            | `[颜色标注]{style="color:red"}`                           |
 +--------------------------------------------------------------------------+-----------------------------------------------------------+
 | [下横线]{.underline}                                                     | `[下横线]{.underline}`                                    |
 +--------------------------------------------------------------------------+-----------------------------------------------------------+
@@ -88,25 +90,25 @@ editor: visual
 
 ### Execute chunk
 
-+-----------+---------+----------------------------------------------------------+
-| Option    | Default | Effects                                                  |
-+===========+=========+==========================================================+
-| `echo`    | `true`  | `false`: hide code in output\\                           |
-|           |         |                                                          |
-|           |         | :   include code cell syntax`fenced`                     |
-+-----------+---------+----------------------------------------------------------+
-| `eval`    | `true`  | `false`: don’t run code                                  |
-+-----------+---------+----------------------------------------------------------+
-| `include` | `true`  | `false`: don’t include code or results                   |
-+-----------+---------+----------------------------------------------------------+
-| `output`  | `true`  | `false`: don’t include results\\                         |
-|           |         |                                                          |
-|           |         | :   treat results as raw markdown`asis`                  |
-+-----------+---------+----------------------------------------------------------+
-| `warning` | `true`  | `false`: don’t include warnings in output                |
-+-----------+---------+----------------------------------------------------------+
-| `error`   | `false` | `true`: include error in output and continue with render |
-+-----------+---------+----------------------------------------------------------+
++-----------+-----------+----------------------------------------------------------+
+| Option    | Default   | Effects                                                  |
++===========+===========+==========================================================+
+| `echo`    | `true`    | `false`: hide code in output\\                           |
+|           |           |                                                          |
+|           |           | :   include code cell syntax`fenced`                     |
++-----------+-----------+----------------------------------------------------------+
+| `eval`    | `true`    | `false`: don’t run code                                  |
++-----------+-----------+----------------------------------------------------------+
+| `include` | `true`    | `false`: don’t include code or results                   |
++-----------+-----------+----------------------------------------------------------+
+| `output`  | `true`    | `false`: don’t include results\\                         |
+|           |           |                                                          |
+|           |           | :   treat results as raw markdown`asis`                  |
++-----------+-----------+----------------------------------------------------------+
+| `warning` | `true`    | `false`: don’t include warnings in output                |
++-----------+-----------+----------------------------------------------------------+
+| `error`   | `false`   | `true`: include error in output and continue with render |
++-----------+-----------+----------------------------------------------------------+
 
 ### 添加页脚
 
@@ -138,15 +140,15 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 ## 脚注
 
-第一个[^1]
+第一个[^dynamic_report-1]
 
-[^1]: WANG,A.,et al.(2025)
+[^dynamic_report-1]: WANG,A.,et al.(2025)
 
-For instance[^2], here is one attached to the word carrot[^3].
+For instance[^dynamic_report-2], here is one attached to the word carrot[^dynamic_report-3].
 
-[^2]: dafhaifhafoahfo
+[^dynamic_report-2]: dafhaifhafoahfo
 
-[^3]: The carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color
+[^dynamic_report-3]: The carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color
 
 ## Figure
 
@@ -354,7 +356,7 @@ See @tip-example...
 
 自定义callout
 
-::: callout-gradient
+:::: callout-gradient
 ::: callout-note
 This is a custom callout.
 
@@ -362,7 +364,7 @@ Using CSS, you can control pretty much everything.
 
 This div is even shaking every now and then 🙃
 :::
-:::
+::::
 
 | 标注类型    | 前缀    |
 |-------------|---------|
@@ -456,27 +458,7 @@ knitr::opts_chunk$set(
 ggplot2::theme_set(new = ggplot2::theme_classic())
 ```
 
-## html
-
-```{=html}
-<body>
-    
-
-<p><abbr title="Mister"> Mr. </abbr>  </p>
-
-<p><center>Center</center></p>
-
-
-
-<p><mark>Text highlight</mark></p>
-
-<p keyboard <kbd>Ctrl+C</kbd>></p>
-
-
-<P>小文本<small>Text</small></P>
-</body>
-```
-### 内联代码
+## 内联代码
 
 Use computed values directly in text sections. Code is evaluated at render and results appear as text.
 
@@ -491,23 +473,20 @@ a 的值为 `` `r a` ``
 
 ## 文本高亮
 
-```{=html}
-<body>
-<p><mark>Text highlight</mark></p>
+\<<mark>Text highlight</mark>
 
-<p> keyboard <kbd>  Ctrl+C    </kbd>></p>
+keyboard
 
-</body>
-```
+<kbd> Ctrl+C </kbd>\>
+
 ## 会话信息
 
-```{=html}
 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
 
 <mark><b><i>Session Information,click to show</i></b></mark>
 
 </button>
-```
+
 ::: {#collapseOne .accordion-collapse .collapse style="color: red"}
 ```{r}
 sessionInfo()

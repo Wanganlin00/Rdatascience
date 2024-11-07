@@ -1,8 +1,17 @@
 # 数据类型
 
-数据类型是指数据的存储格式，定义了存储在变量中的数据的性质和类别，通常是原子的，无法分解成更简单的类型。
+数据类型是指数据的存储格式，定义了存储在变量中的数据的性质和类别，通常无法分解成更简单的类型。
 
-在R中有5 种最基本的数据存储格式base type： **numeric**（**integer**，**double**），**logical**，**character**，**complex** 和 **raw**。
+元素类型（element type）
+
+R 有 5种基础和 4 种特殊的 element types：
+
+| 基础                                            | 特殊                   |
+|-------------------------------------------------|------------------------|
+| `numeric` ：`integer`（整型）`double`（双精度） | `raw`（原始型）        |
+| `logical`（逻辑）                               | `NA`（缺失值）         |
+| `character`（字符串）                           | `NULL`（空）           |
+| `complex` （复数型）                            | `expression`（表达式） |
 
 ## numeric
 
@@ -26,6 +35,8 @@ typeof(1.1)
 ```
 
 [**浮点标准定义的特殊值**]{.underline}
+
+`Inf`(正无穷)，`-Inf`（负无穷），`NaN`（非数）
 
 -   Infinity 无穷大
 
@@ -73,14 +84,18 @@ xor(x,y)
 
 ```{r}
 typeof("R language")
+sprintf("%.30f", 5.2)
 ```
+
+## 强制类型转换
+
+逻辑 -\> 整数 -\> 浮点数 -\> 字符
 
 ## complex
 
 ```{r}
 z <- 2+3i
 typeof(z) 
-
 is.complex(z)
 # 获取实部
 Re(z)
@@ -100,6 +115,7 @@ Conj(z)
 ```{r}
 charToRaw("abcde12345") #每个字符的原始二进制表示（ASCII码）转换成16进制输出
 typeof(charToRaw("abcde12345")) 
+# ?raw
 ```
 
 ## NA
@@ -123,6 +139,12 @@ is.null(NULL)
 c()
 ```
 
-## 强制类型转换
+## 表达式
 
-逻辑 -\> 整数 -\> 浮点数 -\> 字符
+`expression`是一种特殊的 element type，单独的一个`expression`存储的是一个没有执行的 R 代码
+
+```{r}
+expr <- expression(1 + 3)
+typeof(expr)
+eval(expr)
+```

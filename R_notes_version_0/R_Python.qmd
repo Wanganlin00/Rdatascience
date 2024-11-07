@@ -1,29 +1,40 @@
+---
+execute: 
+  eval: false
+---
+
 # R⬌Python {.unnumbered}
 
 ## 对象转换
 
-| R                      | Python            | 例                                               |
-|------------------------|-------------------|--------------------------------------------------|
-| 单元素向量             | 标量Scalar        | `1`、 `1L`、`TRUE`、`"foo"`                      |
-| 未命名列表或多元素向量 | List              | `c(1.0, 2.0, 3.0)`, `c(1L, 2L, 3L)`              |
-| 命名列表               | Dict              | `list(a = 1L, b = 2.0)`, `dict(x = x_data)`      |
-| Matrix/Array           | NumPy ndarray     | `matrix(c(1,2,3,4), nrow = 2, ncol = 2)`         |
-| Data Frame             | Pandas DataFrame  | `data.frame(x = c(1,2,3), y = c("a", "b", "c"))` |
-| Function               | Python function   | `function(x) x + 1`                              |
-| NULL, TRUE, FALSE      | None, True, False | `NULL`, `TRUE`, `ALSE`                           |
+| R | Python | 例 |
+|------------------------|------------------------|------------------------|
+| 单元素向量 | 标量Scalar | `1`、 `1L`、`TRUE`、`"foo"` |
+| 未命名列表或多元素向量 | List | `c(1.0, 2.0, 3.0)`, `c(1L, 2L, 3L)` |
+| 命名列表 | Dict | `list(a = 1L, b = 2.0)`, `dict(x = x_data)` |
+| Matrix/Array | NumPy ndarray | `matrix(c(1,2,3,4), nrow = 2, ncol = 2)` |
+| Data Frame | Pandas DataFrame | `data.frame(x = c(1,2,3), y = c("a", "b", "c"))` |
+| Function | Python function | `function(x) x + 1` |
+| NULL, TRUE, FALSE | None, True, False | `NULL`, `TRUE`, `ALSE` |
 
 : Type conversions
 
-### [`reticulate::`](https://rstudio.github.io/reticulate/index.html){.uri}
+## [`reticulate::`](https://rstudio.github.io/reticulate/index.html){.uri}
 
 ```{r}
 #| comment: "#>"
 library(reticulate)
 #devtools::install_version( "ggmap",  version = "3.5.2")
-if(!require("tidyverse")) {
-    utils::install.packages("tidyverse")
-    library(tidyverse)
-}
+
+"R code"
+
+
+```
+
+```{r}
+#| comment: "###>"
+
+"python code"
 ```
 
 ### **R 安装 python 模块**
@@ -45,7 +56,7 @@ reticulate::repl_python()
 
 ### R 调用 Python 模块
 
-```{r}
+```{r eval=FALSE}
 #| comment: "#>"
 # 调用os模块(module)的listdir()函数
 os <- reticulate::import("os")
@@ -197,12 +208,3 @@ py$J
 class(py$J)
 py$J(2, 3)
 ```
-
-## 编写 Python 时 rpy2 拥有的互操作性
-
-```{r}
-#| comment: "#>"
-py_module_available("rpy2")
-```
-
-......

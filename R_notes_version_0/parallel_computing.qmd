@@ -1,0 +1,46 @@
+# 并行计算 
+
+Parallel computing
+
+## 硬件
+
+```{r}
+if(!require(benchmarkme)) install.packages("benchmarkme")
+```
+
+1字节（byte）= 8位（bit） 二进制数 = 1个 ASCII 字符。
+
+International System of Units (SI)
+
+```{r}
+# 随机存取存储器 Random access memory,RAM
+get_ram()
+
+
+# CPU
+get_cpu()
+```
+
+standard hard disk drives (HDDs)
+
+Solid state drives (SSDs)
+
+## 并行计算
+
+![](images/parallel_computation.jpeg){fig-align="center"}
+
+Cluster
+
+Master
+
+Worker
+
+Job -\> (Spilt) -\> task 1,...,n, -\> (feed) -\> R worker
+
+<https://www.futureverse.org/>
+
+### **`furrr`** 包
+
+### **`future.apply`** 包
+
+### **`BiocParallel`** 包

@@ -1,24 +1,6 @@
-# 读取和写出
+# 读写
 
-## Tibble
-
-```{r}
-library(tibble)
-tibble(
-  x = c(1, 2, 5), 
-  y = c("h", "m", "g"),
-  z = c(0.08, 0.83, 0.60)
-)
-
-tribble(
-  ~x, ~y, ~z,
-  1, "h", 0.08,
-  2, "m", 0.83,
-  5, "g", 0.60
-)
-```
-
-## Import
+## Read
 
 ### 文本文件
 
@@ -32,7 +14,7 @@ utilities,a piece of computer software that performs a particular task
 
 ```{r}
 # 列名(第1行),行标识符 (第1列)
-utils::read.table("data/read_write/leadership.txt",header = TRUE,sep=",",row.names = 1)
+read.table("data/read_write/leadership.txt",header = TRUE,sep=",",row.names = 1)
 ```
 
 #### `readr::`
@@ -57,15 +39,11 @@ read_csv(sales_files, id = "file_path")
 
 ### Excel
 
-```{r}
-library(readxl)
-```
-
 #### 批量读取 sheet
 
 ```{r}
-
-filename <- "data/read_write/多个sheet-iris_data.xlsx"
+library(readxl)
+filename <- "data/read_write/multi-sheet-iris_data.xlsx"
 
 excel_sheets(filename)
 
@@ -136,6 +114,8 @@ read_rds("data/read_write/leadership.rds")
 
 Parquet，a fast binary and columnar storage file format(列式存储文件)
 
+`arrow`
+
 ```{r eval=FALSE}
 library(arrow)
 read_parquet(file = "data/read_write/leadership.parquet" )
@@ -158,14 +138,16 @@ library(dbplyr)
  Currer     Bell    F      2
     Dr.    Seuss    M     49
     ""   Student   NA     21' |> read_fwf()
-
 ```
 
 ### 网络下载
 
-```{r}
+```{r eval=FALSE}
 url = "https://vincentarelbundock.github.io/Rdatasets/csv/datasets/co2.csv"
 download.file(url, "data/read_write/网络下载.csv")
+```
+
+```{r}
 read_csv("data/read_write/网络下载.csv") %>% head()
 ```
 
@@ -195,16 +177,6 @@ read_sav(file = "data/read_write/非正态分布的均值比较.sav") %>% head()
 
 ```
 
-### 键盘输入
-
-```{r}
-#| eval: false
-df <- data.frame(id=character(0),age=numeric(0),sex=character(0))
-df <- edit(df)
-
-fix(df)
-```
-
 ## Write
 
 ### 文本输出
@@ -229,25 +201,16 @@ while(!is.null(dev.list()))  dev.off()
 
 ```{r}
 library(writexl)
-library(janitor)
 library(dplyr)
 
-df <- iris |> clean_names()
-l <- df |>
-  clean_names() |>
-  split(f = df$species)
+df <- iris %>% as_tibble(rownames = "id")
+df %>% head()
+l <- df  |>
+  group_split(Species)
 
-lt <- c(l, iris = list(df))
+names(l) <- sapply(unique(iris$Species), as.character)
 
-write_xlsx(lt, path = "data/read_write/多个sheet-iris_data.xlsx")
-```
+lt <- c(iris = list(df),l)
 
-```         
-write_xlsx(
-  x,
-  path = tempfile(fileext = ".xlsx"),
-  col_names = TRUE,
-  format_headers = TRUE,
-  use_zip64 = FALSE
-)
+write_xlsx(lt, path = "data/read_write/multi-sheet-iris_data.xlsx")
 ```

@@ -573,13 +573,11 @@ is(new("Employee"))
 
 OOP风格又分为两种风格：一种是基于对象的编程（Object-Based Programming），也称原型编程（Prototype Programming）；另一种是基于类的编程（Class-Based Programming）。proto工具包采用的是前者。因为没有“类”的概念，原型编程可以更自由地定义对象。
 
+`library(proto)`
+
 proto对象的元素分为两类：一类称为属性（field），在R中就是变量（variable），如oo中的x；另一类称为方法（method），在R中就是函数（function）
 
-```{r}
-library(proto)
-```
-
-### ggproto 类
+### ggproto 
 
 [参考 ggplot2-book.org/internals#sec-ggproto](https://ggplot2-book.org/internals#sec-ggproto)
 
@@ -627,14 +625,17 @@ NewSubClass
 
 ```{r}
 library(R6)
+library(R6)
+
 Book <- R6Class(
     "Book",
-    # 父类
+    # 定义私有变量
     private = list(
         title = NA,
         price = NA,
         category = NA
     ),
+    # 定义公共方法
     public = list(
         initialize = function(title, price, category) {
             private$title <- title
@@ -643,7 +644,7 @@ Book <- R6Class(
         },
         getPrice = function() {
             private$price
-        },
+        }
     )
 )
 

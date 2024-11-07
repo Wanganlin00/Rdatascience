@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "R 数据科学与编程"
+  title: "R数据科学与编程"
   reader-mode: true
   chapters:
     - index.qmd
@@ -25,12 +25,16 @@ book:
         
     - part: "大数据"
       chapters: 
-        - big_data.qmd
+
         - data.table.qmd
         - arrow.qmd
         - polars.qmd
+        - parallel_computing.qmd
+        - spark.qmd
         - Rcpp.qmd
         - R_Python.qmd
+        
+        
     - part: "编程"
       chapters:
       - control_structure.qmd

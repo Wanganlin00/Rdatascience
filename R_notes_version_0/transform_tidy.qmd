@@ -1,8 +1,8 @@
 # 数据清洗
 
-```{r}
-if(!require(tidyverse)) install.packages("tidyverse")
-library(tidyverse)
+```{r include=FALSE}
+if(!require(DT)) install.packages("DT")
+if(!require(janitor)) install.packages("janitor")
 ```
 
 ## 行操作**dplyr**
@@ -492,7 +492,6 @@ cms_patient_experience |>
 # df |> separate_wider_regex(cols,patterns)
 ```
 
-
 ```{r}
 df1 <- tibble(x = c("a,b,c", "d,e", "f"))
 df1 |> 
@@ -551,7 +550,6 @@ df5 |>
                              age = "[0-9]+"      #匹配 ≥1 个数字
                          ))
 ```
-
 
 ## 重编码
 

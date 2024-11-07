@@ -12,12 +12,14 @@
 
 3.  quasiquotation
 
+```{r include=FALSE}
+if(!require(lobstr)) install.packages("lobstr")
+```
 
 ```{r}
 library(rlang)
 library(lobstr)
 ```
-
 
 ## 表达式
 
@@ -113,7 +115,6 @@ lobstr::ast(pkg::foo(1))
 lobstr::ast(foo(1)(2))
 ```
 
-
 ### 配对列表
 
 ```{r}
@@ -131,12 +132,10 @@ pl$x
 
 空符号，empty symbol，表示缺失的参数
 
-```{r}
+```{r eval=FALSE}
 missing_arg()
 typeof(missing_arg())
 is_missing(missing_arg())
-
-is_missing(args[[1]])
 ```
 
 ### `...`
@@ -187,8 +186,6 @@ x2 <- rlang::parse_expr(x1)
 x2
 is.call(x2)
 ```
-
-
 
 ## 捕获代码结构 `expression`
 
@@ -256,8 +253,6 @@ x <- 8
 eval(z)
 y
 ```
-
-
 
 ```{r}
 base::eval(expr(x + y), env(x = 1, y = 10))
@@ -339,7 +334,6 @@ with2 <- function(df, expr) {
 with2(df, x + y)
 ```
 
-
 ## 抽象语法树
 
 表达式（expressions） 也称为抽象语法树（ abstract syntax trees ，ASTs）。
@@ -377,7 +371,6 @@ x <- 4
 expr(`<-`(y, `*`(x, 10)))
 lobstr::ast(y <- x * 10)
 ```
-
 
 ```{r}
 x3 <- "a <- 1; a + 1"
