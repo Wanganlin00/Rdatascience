@@ -11,7 +11,7 @@ library(dplyr, warn.conflicts = FALSE)
 
 ## dtplyr 语法
 
-DTPLYR 使用 DPLYR 的语法s实现 [data.table](http://r-datatable.com/) 的速度；编写 DPLYR（和 TidyR）代码，DTPLYR 将其转换为等效的 Data.Table。
+DTPLYR 使用 DPLYR 的语法s实现 [data.table](http://r-datatable.com/) 的速度；编写 DPLYR（和 TidyR）代码，DTPLYR 将其转换为等效的 Data.Table。
 
 ```{r}
 mtcars2 <- lazy_dt(mtcars)
