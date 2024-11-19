@@ -15,5 +15,3 @@
 -   [arrow.apache.R](https://arrow.apache.org/docs/r/)
 
 -   [Pandoc](https://pandoc.org/)
-
-

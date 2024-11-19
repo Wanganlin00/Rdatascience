@@ -21,7 +21,6 @@ book:
 
         
 execute:
-  cache: true
   message: false 
   warning: false 
 # eval: false  阻止对代码进行执行。（显然，如果不运行代码，则不会生成任何结果）
