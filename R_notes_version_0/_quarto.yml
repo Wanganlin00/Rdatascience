@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "R数据科学与编程"
+  title: "R数据科学"
   reader-mode: true
   chapters:
     - index.qmd
@@ -22,17 +22,7 @@ book:
         - transform_tidy.qmd
         - functionals.qmd
         - dynamic_report.qmd
-        
-    - part: "大数据"
-      chapters: 
 
-        - data.table.qmd
-        - arrow.qmd
-        - polars.qmd
-        - parallel_computing.qmd
-        - spark.qmd
-        - Rcpp.qmd
-        - R_Python.qmd
         
         
     - part: "编程"
