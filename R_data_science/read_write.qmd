@@ -2,7 +2,7 @@
 
 ## Read
 
-### 文本文件
+### 文本格式
 
 常用的分隔符如逗号`,` ，制表符`\t`，分号`;`，空格`space`，...... 等。
 
@@ -102,7 +102,7 @@ add <- function(x,y){
 ```
 :::
 
-### 二进制文件
+### 二进制格式
 
 RDS，R's custom binary format called RDS
 
@@ -116,7 +116,7 @@ Parquet，a fast binary and columnar storage file format(列式存储文件)
 
 `arrow`
 
-```{r eval=FALSE}
+```{r}
 library(arrow)
 read_parquet(file = "data/read_write/leadership.parquet" )
 ```
@@ -182,8 +182,8 @@ read_sav(file = "data/read_write/非正态分布的均值比较.sav") %>% head()
 ### 文本输出
 
 ```{r}
-sink("data/sink_output.txt",append = F,split = T)  # split =T 输出到控制台和文件
-letters
+sink("data/read_write/sink_output.txt",append = F,split = T)  # split =T 输出到控制台和文件
+cat(letters)
 sink(NULL)
 ```
 
@@ -191,8 +191,10 @@ sink(NULL)
 
 Rstudio 直接 Export save as Image/PDF，copy to clipboard
 
-```{r eval=FALSE}
-pdf(file = "data/pdf_output.pdf")       # bmp,jpeg,png，SVG
+```{r}
+
+# bmp,jpeg,png，SVG
+svg(file = "data/read_write/svg_output.svg")       
 plot(1:25,1:25,pch=1:25,col="green",bg="red",type = "b")
 while(!is.null(dev.list()))  dev.off() 
 ```

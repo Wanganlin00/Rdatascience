@@ -5,10 +5,10 @@
 <meta name="generator" content="quarto-1.6.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="ANLIN">
-<meta name="dcterms.date" content="2024-11-07">
+<meta name="dcterms.date" content="2024-11-19">
 <meta name="keywords" content="dynamic report">
 <meta name="description" content=" good good study day day up">
-<title>11&nbsp; 动态报告 – R数据科学与编程</title>
+<title>12&nbsp; 动态报告 – R数据科学</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./data.table.html" rel="next">
 <link href="./functionals.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -161,7 +160,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_type.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./dynamic_report.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">动态报告</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dynamic_report.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">动态报告</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -169,9 +168,9 @@ window.Quarto = {
       </button>
     </div>
   </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_type.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./dynamic_report.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">动态报告</span></a></li></ol></nav>
+    <div class="quarto-title column-body">
       <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">动态报告</span>
+<span class="chapter-number">12</span>&nbsp; <span class="chapter-title">动态报告</span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
             <p class="subtitle lead">quarto</p>
                   <div>
@@ -202,7 +201,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 7, 2024</p>
+        <p class="date">November 19, 2024</p>
       </div>
     </div>
     
@@ -221,7 +220,7 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R数据科学与编程</a> 
+      <a href="./">R数据科学</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -251,200 +250,71 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">介绍</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">R Data Science</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_type.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据类型</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据结构</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./numeric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数值型数据的操纵</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./logical_operation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">逻辑运算的操纵</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./string_text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./base_function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">base 函数</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_write.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">读写</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">读写</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./base_function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">base 函数</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numeric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">数值型数据的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./logical_operation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">逻辑运算的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datetime.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">日期时间</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./string_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./transform_tidy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">数据清洗</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据清洗</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./functionals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dynamic_report.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
   </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">大数据</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data.table.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><code>data.table</code></span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./arrow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Arrow</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./polars.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Polars</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./parallel_computing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">并行计算</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spark.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Spark</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Rcpp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Rcpp</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./R_Python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R⬌Python</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">编程</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./exception_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">环境</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">函数</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Functional_Programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Generic_Programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">泛型编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./object_oriented_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./meta_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">元编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./quasiquotation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Quasiquotation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
-  </div>
-</li>
-      </ul>
 </li>
     </ul>
 </div>
@@ -729,7 +599,7 @@ window.Quarto = {
 <p>Div .class <code>.panel-tabset .nav-pills</code></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
 <ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Scatterplot</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Scatterplot</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Boxplot</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Barplot</a></li>
 </ul>
@@ -830,12 +700,12 @@ window.Quarto = {
 图&nbsp;1: 左右图
 </figcaption></figure>
 </div>
-<p>如左图 <a href="#fig-plot-1" class="quarto-xref">图&nbsp;<span>11.1 (a)</span></a> 所示，点有25种不同的形状，</p>
-<p>右图 <a href="#fig-plot-2" class="quarto-xref">图&nbsp;<span>11.1 (b)</span></a> 所示。</p>
+<p>如左图 <a href="#fig-plot-1" class="quarto-xref">图&nbsp;<span>12.1 (a)</span></a> 所示，点有25种不同的形状，</p>
+<p>右图 <a href="#fig-plot-2" class="quarto-xref">图&nbsp;<span>12.1 (b)</span></a> 所示。</p>
 <section id="sec-eda" class="level4 page-columns page-full" data-number="5.4.1"><h4 data-number="5.4.1" class="anchored" data-anchor-id="sec-eda">
 <span class="header-section-number">5.4.1</span> EDA</h4>
-<p>引用章节： <a href="#sec-eda" class="quarto-xref"><span>Section 11.5.4.1</span></a> and <a href="#sec-formula" class="quarto-xref"><span>Section 11.7</span></a></p>
-<p>引用图片 <a href="#fig-histogram" class="quarto-xref">图&nbsp;<span>11.2</span></a> shows two histograms displaying the distributions of <code>price</code> and <code>area</code> individually.</p>
+<p>引用章节： <a href="#sec-eda" class="quarto-xref"><span>Section 12.5.4.1</span></a> and <a href="#sec-formula" class="quarto-xref"><span>Section 12.7</span></a></p>
+<p>引用图片 <a href="#fig-histogram" class="quarto-xref">图&nbsp;<span>12.2</span></a> shows two histograms displaying the distributions of <code>price</code> and <code>area</code> individually.</p>
 <details class="code-fold"><summary>直方图</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Histogram of cty"</span><span class="op">)</span></span>
@@ -874,7 +744,7 @@ window.Quarto = {
 </div>
 </section></section></section><section id="表格" class="level2" data-number="6"><h2 data-number="6" class="anchored" data-anchor-id="表格">
 <span class="header-section-number">6</span> 表格</h2>
-<p><a href="#tbl-stats" class="quarto-xref">表&nbsp;<span>11.1</span></a> displays basic summary statistics for these two variables.</p>
+<p><a href="#tbl-stats" class="quarto-xref">表&nbsp;<span>12.1</span></a> displays basic summary statistics for these two variables.</p>
 <div class="cell">
 <details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
@@ -930,9 +800,9 @@ window.Quarto = {
 </div>
 </section><section id="sec-formula" class="level2" data-number="7"><h2 data-number="7" class="anchored" data-anchor-id="sec-formula">
 <span class="header-section-number">7</span> 公式</h2>
-<p>Black-Scholes (<a href="#eq-black-scholes" class="quarto-xref">式&nbsp;<span>11.1</span></a>) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:</p>
+<p>Black-Scholes (<a href="#eq-black-scholes" class="quarto-xref">式&nbsp;<span>12.1</span></a>) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:</p>
 <p><span id="eq-black-scholes"><span class="math display">\[ \frac{\partial \mathrm C}{ \partial \mathrm t } + \frac{1}{2}\sigma^{2} \mathrm S^{2} \frac{\partial^{2} \mathrm C}{\partial \mathrm C^2}   + \mathrm r \mathrm S \frac{\partial \mathrm C}{\partial \mathrm S}\ =   \mathrm r \mathrm C   \tag{1}\]</span></span></p>
-<p>We can fit a simple linear regression model of the form shown in <a href="#eq-slr" class="quarto-xref">式&nbsp;<span>11.2</span></a>.</p>
+<p>We can fit a simple linear regression model of the form shown in <a href="#eq-slr" class="quarto-xref">式&nbsp;<span>12.2</span></a>.</p>
 <p><span id="eq-slr"><span class="math display">\[
 price = \hat{\beta}_0 + \hat{\beta}_1 \times area + \epsilon
 \tag{2}\]</span></span></p>
@@ -1017,7 +887,7 @@ Tip&nbsp;1
 <p>Add an ID starting with <code>#tip-</code> to reference a tip.</p>
 </div>
 </div>
-<p>See <a href="#tip-example" class="quarto-xref">Tip&nbsp;<span>11.1</span></a>…</p>
+<p>See <a href="#tip-example" class="quarto-xref">Tip&nbsp;<span>12.1</span></a>…</p>
 <p>自定义callout</p>
 <div class="callout-gradient">
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1140,7 +1010,7 @@ x_{n1} &amp; x_{n2}&amp;...&amp;x_{np} \\
 </dd>
 </dl>
 <p>或者</p>
-<p>引用<a href="#thm-lebesgue01" class="quarto-xref">Theorem&nbsp;<span>11.1</span></a>。</p>
+<p>引用<a href="#thm-lebesgue01" class="quarto-xref">Theorem&nbsp;<span>12.1</span></a>。</p>
 <div id="thm-lebesgue01" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (勒贝格定理)</strong></span> 一元函数黎曼可积， 当且仅当其不连续点的集合为零测集。</p>
 </div>
@@ -1920,13 +1790,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./functionals.html" class="pagination-link" aria-label="泛函`purrr`">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data.table.html" class="pagination-link" aria-label="`data.table`">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><code>data.table</code></span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>

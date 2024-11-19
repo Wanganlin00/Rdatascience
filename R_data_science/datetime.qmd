@@ -1,0 +1,125 @@
+# 日期时间
+
+## 创建
+
+使用日期时间时，1 表示 1 秒，因此 binwidth 为 86400 表示一天
+
+对于日期，1 表示 1 天
+
+```{r}
+#字符串捕获
+ymd("2017-01-31")
+mdy("January 31st, 2017")
+dmy("31-Jan-2017")
+ymd_hms("2017-01-31 20:11:59")
+mdy_hm("01/31/2017 08:01")
+```
+
+```{r}
+# 导入文件
+csv <- "\ndate,datetime\n2022-01-02,2022-01-02 05:12\n"
+read_csv(csv)
+
+(csv <- "
+  date
+  01/02/15
+")
+read_csv(csv, col_types = cols(date = col_date("%m/%d/%y")))
+read_csv(csv, col_types = cols(date = col_date("%y/%m/%d")))
+```
+
+```{r}
+#类型转换
+as_datetime(60 * 60 * 10)
+as_date(365 * 10 + 2)
+
+today()
+as_datetime(today())
+
+now()
+as_date(now())
+                 
+```
+
+## datetime组件
+
+```{r}
+# 获取日期时间组件
+dttm <- ymd_hms("2026-07-08 12:34:56")
+year(dttm)
+month(dttm,label = TRUE)
+mday(dttm)
+yday(dttm)  #一年中的第几天
+wday(dttm, label = TRUE, abbr = FALSE)  #星期几
+hour(dttm)
+minute(dttm)
+second(dttm)
+
+# 修改组件
+
+year(dttm) <- 2030
+month(dttm) <- 01
+hour(dttm) <- hour(dttm) + 1
+dttm
+update(dttm, year = 2030, month = 2, mday = 2, hour = 2)
+update(ymd("2023-02-01"), mday = 30)
+update(ymd("2023-02-01"), hour = 400)
+```
+
+## Rounding
+
+```{r}
+#floor_date()round_date()ceiling_date()
+```
+
+## duration
+
+```{r}
+# 时间跨度Time spans
+# 持续时间 duration  始终以秒为单位记录时间跨度
+h_age <- today() - ymd("2000-10-18")
+as.duration(h_age)
+dseconds(15)
+dminutes(10)
+dhours(c(12, 24))
+ddays(0:5)
+dweeks(3)
+dyears(1)/ddays(1)       #365.25 天
+
+```
+
+## Periods
+
+```{r}
+# Periods  “人类”时间（如天和月）
+years(1)      #365.25 天
+years(1) / days(1)
+hours(c(12, 24))
+days(7)
+months(1:6)
+ymd("2024-01-01") + dyears(1)  #闰年
+ymd("2024-01-01") + years(1) 
+                                       
+ymd_hms("2026-03-08 01:00:00", tz = "America/New_York")+ddays(1)
+ymd_hms("2026-03-08 01:00:00", tz = "America/New_York")+days(1)
+```
+
+## Intervals
+
+```{r}
+#  start %--% end
+y2023 <- ymd("2023-01-01") %--% ymd("2024-01-01")
+y2024 <- ymd("2024-01-01") %--% ymd("2025-01-01")
+y2023 / days(1)
+y2024 / days(1)
+
+
+                           
+```
+
+## 时区
+
+```{r}
+Sys.timezone()
+OlsonNames()
+```

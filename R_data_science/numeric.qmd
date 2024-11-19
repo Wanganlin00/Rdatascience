@@ -140,7 +140,7 @@ round(x / 4) * 4
 ```
 
 ```{r}
-# 一半到舍入最近的偶数
+# *.5 will be rounded to the even integer（偶数整数）舍入到最近的偶数
 round(c(1.5, 2.5,3.5,4.5))
 ```
 

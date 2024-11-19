@@ -140,6 +140,7 @@ dfs
 ## 合并
 
 ```{r}
+#| code-fold: true
 set.seed(61)
 
 employee_id <- 1:10
@@ -150,10 +151,15 @@ employee_age <- round(rnorm(10, mean = 50, sd = 8))
 employee_position <- c("CTO", "CFO", "Administrative", rep("Technician", 7))
 
 
-df_1 <- data.frame(id = employee_id[1:8], name = employee_name[1:8],
+df_1 <- data.frame(id = employee_id[1:8],
+                   name = employee_name[1:8],
                    month_salary = employee_salary[1:8])
-df_2 <- data.frame(id = employee_id[-5], name = employee_name[-5],
-                   age = employee_age[-5], position = employee_position[-5])
+df_2 <- data.frame(
+    id = employee_id[-5],
+    name = employee_name[-5],
+    age = employee_age[-5],
+    position = employee_position[-5]
+)
 
 df_1
 df_2
@@ -200,18 +206,11 @@ merge(df1, df2, by = "row.names", all = TRUE) # Equivalent
 
 ## AsIs `I()`
 
-`I()`函数来自于stats包，它是as.is函数的别名。I()函数用于改变对象的类别，指示R在进行操作时应该将该对象视为其原始形式，不对它进行任何转换。
+`I()`函数来自于`base`包，它是as.is函数的别名。I()函数用于改变对象的类别，指示R在进行操作时应该将该对象视为其原始形式，不对它进行任何转换。
 
-```{r error=TRUE}
-
-summary(mtcars$mpg) |> as_tibble()
-
+```{r}
 lapply(summary(mtcars$mpg), I) 
 lapply(summary(mtcars$mpg), I) |> as_tibble()
-
-sapply(summary(mtcars$mpg), I, simplify = F) 
-sapply(summary(mtcars$mpg), I, simplify = F) |> as_tibble()
-
 ```
 
 ## 数学函数

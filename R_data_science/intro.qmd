@@ -1,34 +1,33 @@
 # 介绍
 
-
-## 工作空间
-
-```{r}
-x=10
-save(x,file = "mydata.RData")
-load("mydata.RData")
-
-my_model <- lm(hwy~ displ, data = mpg)
-saveRDS(my_model, file = "my_model.rds")
-readRDS("my_model.rds")
-
-ls()
-rm(list = ls())
-```
-
 ## 工作目录
 
 ```{r}
 getwd()
-
-
 # setwd("My\\Path")
 # setwd("My/Path") # Equivalent
 ```
 
+## 保存
+
+```{r}
+x <- "Hello world"
+save(x,file = "data/intro/mydata.RData")
+load("data/intro/mydata.RData")
+
+my_model <- lm(hwy~ displ, data = mpg)
+saveRDS(my_model, file = "data/intro/my_model.rds")
+readRDS("data/intro/my_model.rds")
+```
+
+## 工作空间
+
+```{r}
+ls()
+rm(list = ls())
+```
+
 ## 文件系统
-
-
 
 ### 文件夹
 
@@ -65,7 +64,6 @@ file.path(system.file("data",package = "MatrixEQTL"),"exprsData.txt")
 
 ```
 
-
 ### 压缩文件
 
 ```{r}
@@ -80,7 +78,7 @@ chooseBioCmirror()
 setRepositories()
 ```
 
-###  安装
+### 安装
 
 ```{r eval=FALSE}
 # CRAN 
@@ -112,16 +110,12 @@ update.packages(ask = FALSE)
 remotes::update_packages()
 ```
 
-
-
-
 ### 检查
 
 ```{r eval=FALSE}
 # If FALSE, install the package
 if (require("MASS")) install.packages("MASS")
 ```
-
 
 ```{r}
 
@@ -131,11 +125,9 @@ sessionInfo()
 
 ### 删除
 
-```{r eval=FALSE} 
+```{r eval=FALSE}
 remove.packages("airway")
 ```
-
-
 
 ## 全局选项
 
@@ -149,6 +141,7 @@ getOption("BioC_mirror")
 ## 语言设置
 
 ```{r}
+Sys.getenv()["HOMEPATH"]
+Sys.getenv()["LANGUAGE"]
 Sys.setenv(LANGUAGE = "en")
 ```
-

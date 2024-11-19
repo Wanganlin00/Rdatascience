@@ -143,6 +143,24 @@ select(mpg,where(is.numeric))|> DT::datatable()
 select(mpg,where(~is.numeric(.x) && mean(.x,na.rm=TRUE)<50))|> DT::datatable()
 ```
 
+## 多个列 iteration
+
+```         
+across(.cols, .fns, ..., .names = NULL, .unpack = FALSE)
+if_any(.cols, .fns, ..., .names = NULL)
+if_all(.cols, .fns, ..., .names = NULL)
+
+.cols
+tidy-select
+everything()        #选择每一列
+where()  #根据类型选择列
+where(is.numeric) selects all numeric columns.
+where(is.character) selects all string columns.
+where(is.Date) selects all date columns.
+where(is.POSIXct) selects all date-time columns.
+where(is.logical) selects all logical columns.
+```
+
 ### `across(.cols, .fns, ...)`
 
 ```{r}
@@ -502,7 +520,7 @@ df2 |>
   separate_longer_position(x, width = 1)
 ```
 
-### `tidyr::separate_wider_*()`
+### `separate_wider_*()`
 
 ```{r}
 df3 <- tibble(x = c("a10.1.2022", "b10.2.2011", "e15.1.2015"))
@@ -549,6 +567,26 @@ df5 |>
                              "_",
                              age = "[0-9]+"      #匹配 ≥1 个数字
                          ))
+```
+
+### tidyr::extract()
+
+```{r}
+tibble(
+  obs.=c('Rich(Sam)','Wind(Ash)','Bil(Hela)'),
+  A_count=c(7,10,5)
+) %>% 
+  extract(obs.,into = c("site","surveyor"),
+          regex = "(.*)\\((.*)\\)")
+```
+
+### unite()
+
+```{r}
+# 合并列
+table5
+table5 %>% 
+  unite(year_Y,century,year,sep='')
 ```
 
 ## 重编码
