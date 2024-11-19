@@ -16,10 +16,4 @@
 
 -   [Pandoc](https://pandoc.org/)
 
-## 编程
 
--   [Advanced R](https://adv-r.hadley.nz/index.html#other-books)
-
--   [Efficient R programming](https://csgillespie.github.io/efficientR/)
-
--   [R Packages(2e)](https://r-pkgs.org/)

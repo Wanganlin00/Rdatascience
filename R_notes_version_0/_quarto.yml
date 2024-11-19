@@ -8,35 +8,16 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    
-    - part: "R Data Science"
-      chapters: 
-        - data_type.qmd
-        - data_structure.qmd
-        - numeric.qmd
-        - logical_operation.qmd
-        - string_text.qmd
-        
-        - base_function.qmd
-        - read_write.qmd
-        - transform_tidy.qmd
-        - functionals.qmd
-        - dynamic_report.qmd
-
-        
-        
-    - part: "编程"
-      chapters:
-      - control_structure.qmd
-      - exception_handling.qmd
-      - environments.qmd
-      - functions.qmd
-      - Functional_Programming.qmd
-      - Generic_Programming.qmd
-      - object_oriented_programming.qmd
-      - meta_programming.qmd
-      - quasiquotation.qmd
-      - evaluation.qmd
+    - data_type.qmd
+    - data_structure.qmd
+    - read_write.qmd
+    - base_function.qmd
+    - numeric.qmd
+    - logical_operation.qmd
+    - string_text.qmd
+    - transform_tidy.qmd
+    - functionals.qmd
+    - dynamic_report.qmd
 
         
 execute:
