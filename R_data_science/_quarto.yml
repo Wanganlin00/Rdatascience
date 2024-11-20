@@ -15,7 +15,7 @@ book:
     - numeric.qmd
     - logical_operation.qmd
     - datetime.qmd
-    - string_text.qmd
+    - string.qmd
     - transform_tidy.qmd
     - functionals.qmd
     - dynamic_report.qmd
