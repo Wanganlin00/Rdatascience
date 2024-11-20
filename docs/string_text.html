@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>6&nbsp; 字符文本的操纵 – R数据科学与编程</title>
+<title>9&nbsp; 字符文本的操纵 – R数据科学</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,8 +60,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./base_function.html" rel="next">
-<link href="./logical_operation.html" rel="prev">
+<link href="./transform_tidy.html" rel="next">
+<link href="./datetime.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_type.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./string_text.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./string_text.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R数据科学与编程</a> 
+      <a href="./">R数据科学</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -145,200 +145,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">介绍</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">R Data Science</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_type.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据类型</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据结构</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./numeric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数值型数据的操纵</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./logical_operation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">逻辑运算的操纵</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./string_text.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./base_function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">base 函数</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_write.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">读写</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">读写</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./base_function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">base 函数</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numeric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">数值型数据的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./logical_operation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">逻辑运算的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datetime.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">日期时间</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./string_text.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./transform_tidy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">数据清洗</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据清洗</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./functionals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dynamic_report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
   </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">大数据</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data.table.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><code>data.table</code></span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./arrow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Arrow</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./polars.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Polars</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./parallel_computing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">并行计算</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spark.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Spark</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Rcpp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Rcpp</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./R_Python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R⬌Python</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">编程</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./exception_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">环境</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">函数</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Functional_Programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Generic_Programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">泛型编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./object_oriented_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./meta_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">元编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./quasiquotation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Quasiquotation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
-  </div>
-</li>
-      </ul>
 </li>
     </ul>
 </div>
@@ -348,30 +219,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#stringr" id="toc-stringr" class="nav-link active" data-scroll-target="#stringr"><span class="header-section-number">6.1</span> <strong><code>stringr</code></strong></a></li>
-  <li><a href="#%E5%8C%B9%E9%85%8D%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" id="toc-匹配正则表达式" class="nav-link" data-scroll-target="#%E5%8C%B9%E9%85%8D%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="header-section-number">6.2</span> 匹配正则表达式</a></li>
-  <li><a href="#%E5%8C%B9%E9%85%8D%E5%9B%BA%E5%AE%9A%E9%A1%B9" id="toc-匹配固定项" class="nav-link" data-scroll-target="#%E5%8C%B9%E9%85%8D%E5%9B%BA%E5%AE%9A%E9%A1%B9"><span class="header-section-number">6.3</span> 匹配固定项</a></li>
-  <li><a href="#str_flatten" id="toc-str_flatten" class="nav-link" data-scroll-target="#str_flatten"><span class="header-section-number">6.4</span> <code>str_flatten</code></a></li>
-  <li><a href="#str_glue" id="toc-str_glue" class="nav-link" data-scroll-target="#str_glue"><span class="header-section-number">6.5</span> <code>str_glue()</code></a></li>
-  <li><a href="#%E8%BD%AC%E4%B9%89escape" id="toc-转义escape" class="nav-link" data-scroll-target="#%E8%BD%AC%E4%B9%89escape"><span class="header-section-number">6.6</span> 转义escape</a></li>
-  <li><a href="#raw" id="toc-raw" class="nav-link" data-scroll-target="#raw"><span class="header-section-number">6.7</span> raw</a></li>
+<li><a href="#stringr" id="toc-stringr" class="nav-link active" data-scroll-target="#stringr"><span class="header-section-number">9.1</span> <strong><code>stringr</code></strong></a></li>
+  <li><a href="#%E5%8C%B9%E9%85%8D%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" id="toc-匹配正则表达式" class="nav-link" data-scroll-target="#%E5%8C%B9%E9%85%8D%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="header-section-number">9.2</span> 匹配正则表达式</a></li>
+  <li><a href="#%E5%8C%B9%E9%85%8D%E5%9B%BA%E5%AE%9A%E9%A1%B9" id="toc-匹配固定项" class="nav-link" data-scroll-target="#%E5%8C%B9%E9%85%8D%E5%9B%BA%E5%AE%9A%E9%A1%B9"><span class="header-section-number">9.3</span> 匹配固定项</a></li>
+  <li><a href="#str_flatten" id="toc-str_flatten" class="nav-link" data-scroll-target="#str_flatten"><span class="header-section-number">9.4</span> <code>str_flatten</code></a></li>
+  <li><a href="#str_glue" id="toc-str_glue" class="nav-link" data-scroll-target="#str_glue"><span class="header-section-number">9.5</span> <code>str_glue()</code></a></li>
+  <li><a href="#%E8%BD%AC%E4%B9%89escape" id="toc-转义escape" class="nav-link" data-scroll-target="#%E8%BD%AC%E4%B9%89escape"><span class="header-section-number">9.6</span> 转义escape</a></li>
+  <li><a href="#raw" id="toc-raw" class="nav-link" data-scroll-target="#raw"><span class="header-section-number">9.7</span> raw</a></li>
   <li>
-<a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" id="toc-正则表达式" class="nav-link" data-scroll-target="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="header-section-number">6.8</span> 正则表达式</a>
+<a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" id="toc-正则表达式" class="nav-link" data-scroll-target="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="header-section-number">9.8</span> 正则表达式</a>
   <ul>
-<li><a href="#%E7%9B%B4%E6%8E%A5%E5%8C%B9%E9%85%8D" id="toc-直接匹配" class="nav-link" data-scroll-target="#%E7%9B%B4%E6%8E%A5%E5%8C%B9%E9%85%8D"><span class="header-section-number">6.8.1</span> 直接匹配</a></li>
-  <li><a href="#%E5%AD%97%E7%AC%A6%E7%B1%BB-character-classes" id="toc-字符类-character-classes" class="nav-link" data-scroll-target="#%E5%AD%97%E7%AC%A6%E7%B1%BB-character-classes"><span class="header-section-number">6.8.2</span> 字符类 character classes</a></li>
-  <li><a href="#%E9%87%8F%E8%AF%8D-quantifier" id="toc-量词-quantifier" class="nav-link" data-scroll-target="#%E9%87%8F%E8%AF%8D-quantifier"><span class="header-section-number">6.8.3</span> 量词 Quantifier</a></li>
-  <li><a href="#%E5%85%83%E5%AD%97%E7%AC%A6meta-characters" id="toc-元字符meta-characters" class="nav-link" data-scroll-target="#%E5%85%83%E5%AD%97%E7%AC%A6meta-characters"><span class="header-section-number">6.8.4</span> 元字符（meta-characters）</a></li>
-  <li><a href="#%E9%9B%B6%E5%AE%BD%E5%8C%B9%E9%85%8D" id="toc-零宽匹配" class="nav-link" data-scroll-target="#%E9%9B%B6%E5%AE%BD%E5%8C%B9%E9%85%8D"><span class="header-section-number">6.8.5</span> 零宽匹配</a></li>
-  <li><a href="#%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6" id="toc-或运算符" class="nav-link" data-scroll-target="#%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="header-section-number">6.8.6</span> 或运算符</a></li>
+<li><a href="#%E7%9B%B4%E6%8E%A5%E5%8C%B9%E9%85%8D" id="toc-直接匹配" class="nav-link" data-scroll-target="#%E7%9B%B4%E6%8E%A5%E5%8C%B9%E9%85%8D"><span class="header-section-number">9.8.1</span> 直接匹配</a></li>
+  <li><a href="#%E5%AD%97%E7%AC%A6%E7%B1%BB-character-classes" id="toc-字符类-character-classes" class="nav-link" data-scroll-target="#%E5%AD%97%E7%AC%A6%E7%B1%BB-character-classes"><span class="header-section-number">9.8.2</span> 字符类 character classes</a></li>
+  <li><a href="#%E9%87%8F%E8%AF%8D-quantifier" id="toc-量词-quantifier" class="nav-link" data-scroll-target="#%E9%87%8F%E8%AF%8D-quantifier"><span class="header-section-number">9.8.3</span> 量词 Quantifier</a></li>
+  <li><a href="#%E5%85%83%E5%AD%97%E7%AC%A6meta-characters" id="toc-元字符meta-characters" class="nav-link" data-scroll-target="#%E5%85%83%E5%AD%97%E7%AC%A6meta-characters"><span class="header-section-number">9.8.4</span> 元字符（meta-characters）</a></li>
+  <li><a href="#%E9%9B%B6%E5%AE%BD%E5%8C%B9%E9%85%8D" id="toc-零宽匹配" class="nav-link" data-scroll-target="#%E9%9B%B6%E5%AE%BD%E5%8C%B9%E9%85%8D"><span class="header-section-number">9.8.5</span> 零宽匹配</a></li>
+  <li><a href="#%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6" id="toc-或运算符" class="nav-link" data-scroll-target="#%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="header-section-number">9.8.6</span> 或运算符</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_type.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./string_text.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">字符文本的操纵</span>
+<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">字符文本的操纵</span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -386,12 +257,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="stringr" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="stringr">
-<span class="header-section-number">6.1</span> <a href="https://stringr.tidyverse.org/"><strong><code>stringr</code></strong></a>
+</header><section id="stringr" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="stringr">
+<span class="header-section-number">9.1</span> <a href="https://stringr.tidyverse.org/"><strong><code>stringr</code></strong></a>
 </h2>
 <p><a href="https://stringi.gagolewski.com/"><strong><code>stringi</code></strong></a>+ <a href="https://stringr.tidyverse.org/"><code>stringr</code></a> + <a href="https://glue.tidyverse.org/"><code>glue</code></a> + <a href="https://stringx.gagolewski.com/"><code>stringx</code></a></p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>,<span class="st">"why"</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"pear"</span>,<span class="st">"why"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># 连接</span></span>
 <span><span class="fu">str_c</span><span class="op">(</span><span class="va">x</span>, collapse <span class="op">=</span> <span class="st">"; "</span><span class="op">)</span></span>
@@ -468,10 +339,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] "i" "k" "y"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="匹配正则表达式" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="匹配正则表达式">
-<span class="header-section-number">6.2</span> 匹配正则表达式</h2>
+</section><section id="匹配正则表达式" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="匹配正则表达式">
+<span class="header-section-number">9.2</span> 匹配正则表达式</h2>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">strings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">strings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"apple"</span>, </span>
 <span>  <span class="st">"219 733 8965"</span>, </span>
 <span>  <span class="st">"329-293-8753"</span>, </span>
@@ -602,10 +473,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1,] "a"  "b-c"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="匹配固定项" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="匹配固定项">
-<span class="header-section-number">6.3</span> 匹配固定项</h2>
+</section><section id="匹配固定项" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="匹配固定项">
+<span class="header-section-number">9.3</span> 匹配固定项</h2>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a1</span> <span class="op">&lt;-</span> <span class="st">"\u00e1"</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a1</span> <span class="op">&lt;-</span> <span class="st">"\u00e1"</span></span>
 <span><span class="va">a2</span> <span class="op">&lt;-</span> <span class="st">"a\u0301"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">a1</span>, <span class="va">a2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "á" "á"</span></span>
@@ -633,11 +504,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] │ &lt;x&gt; &lt;X&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="str_flatten" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="str_flatten">
-<span class="header-section-number">6.4</span> <code>str_flatten</code>
+</section><section id="str_flatten" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="str_flatten">
+<span class="header-section-number">9.4</span> <code>str_flatten</code>
 </h2>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">tribble</span><span class="op">(</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">tribble</span><span class="op">(</span></span>
 <span>  <span class="op">~</span> <span class="va">name</span>, <span class="op">~</span> <span class="va">fruit</span>,</span>
 <span>  <span class="st">"Carmen"</span>, <span class="st">"banana"</span>,</span>
 <span>  <span class="st">"Carmen"</span>, <span class="st">"apple"</span>,</span>
@@ -674,11 +545,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="str_glue" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="str_glue">
-<span class="header-section-number">6.5</span> <code>str_glue()</code>
+</section><section id="str_glue" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="str_glue">
+<span class="header-section-number">9.5</span> <code>str_glue()</code>
 </h2>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"Fred"</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"Fred"</span></span>
 <span><span class="va">age</span> <span class="op">&lt;-</span> <span class="fl">50</span></span>
 <span><span class="va">anniversary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"1991-10-12"</span><span class="op">)</span></span>
 <span></span>
@@ -693,10 +564,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; My name is Fred, not {name}.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="转义escape" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="转义escape">
-<span class="header-section-number">6.6</span> 转义escape</h2>
+</section><section id="转义escape" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="转义escape">
+<span class="header-section-number">9.6</span> 转义escape</h2>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 转义字符串</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 转义字符串</span></span>
 <span><span class="va">single_quote</span> <span class="op">&lt;-</span> <span class="st">"\'"</span></span>
 <span><span class="va">double_quote</span> <span class="op">&lt;-</span> <span class="st">'\"'</span></span>
 <span><span class="va">backslash</span> <span class="op">&lt;-</span> <span class="st">"\\"</span></span>
@@ -711,7 +582,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"one\ntwo"</span>, <span class="st">"one\ttwo"</span>, <span class="st">"\u00b5"</span>, <span class="st">"\U0001f604"</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"one\ntwo"</span>, <span class="st">"one\ttwo"</span>, <span class="st">"\u00b5"</span>, <span class="st">"\U0001f604"</span><span class="op">)</span></span>
 <span><span class="va">x</span></span>
 <span><span class="co">#&gt; [1] "one\ntwo" "one\ttwo" "µ"        "😄"</span></span>
 <span><span class="fu">str_view</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
@@ -723,17 +594,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dot</span> <span class="op">&lt;-</span> <span class="st">"\\."</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dot</span> <span class="op">&lt;-</span> <span class="st">"\\."</span></span>
 <span><span class="fu">str_view</span><span class="op">(</span><span class="va">dot</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] │ \.</span></span>
 <span><span class="fu">str_view</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"abc"</span>, <span class="st">"a.c"</span>, <span class="st">"bef"</span><span class="op">)</span>, <span class="st">"a\\.c"</span><span class="op">)</span>  </span>
 <span><span class="co">#&gt; [2] │ &lt;a.c&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="raw" class="level2" data-number="6.7"><h2 data-number="6.7" class="anchored" data-anchor-id="raw">
-<span class="header-section-number">6.7</span> raw</h2>
+</section><section id="raw" class="level2" data-number="9.7"><h2 data-number="9.7" class="anchored" data-anchor-id="raw">
+<span class="header-section-number">9.7</span> raw</h2>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">single_quote</span> <span class="op">&lt;-</span> <span class="st">r"(')"</span>        <span class="co"># []    ---()---  -()-</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">single_quote</span> <span class="op">&lt;-</span> <span class="st">r"(')"</span>        <span class="co"># []    ---()---  -()-</span></span>
 <span><span class="va">double_quote</span> <span class="op">&lt;-</span> <span class="st">r"["]"</span></span>
 <span><span class="va">backslash</span> <span class="op">&lt;-</span> <span class="st">r"--(\)--"</span></span>
 <span></span>
@@ -746,12 +617,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [3] │ \</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="正则表达式" class="level2" data-number="6.8"><h2 data-number="6.8" class="anchored" data-anchor-id="正则表达式">
-<span class="header-section-number">6.8</span> 正则表达式</h2>
-<section id="直接匹配" class="level3" data-number="6.8.1"><h3 data-number="6.8.1" class="anchored" data-anchor-id="直接匹配">
-<span class="header-section-number">6.8.1</span> 直接匹配</h3>
+</section><section id="正则表达式" class="level2" data-number="9.8"><h2 data-number="9.8" class="anchored" data-anchor-id="正则表达式">
+<span class="header-section-number">9.8</span> 正则表达式</h2>
+<section id="直接匹配" class="level3" data-number="9.8.1"><h3 data-number="9.8.1" class="anchored" data-anchor-id="直接匹配">
+<span class="header-section-number">9.8.1</span> 直接匹配</h3>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">str_view</span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"berry"</span><span class="op">)</span>  </span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">str_view</span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"berry"</span><span class="op">)</span>  </span>
 <span><span class="co">#&gt;  [6] │ bil&lt;berry&gt;</span></span>
 <span><span class="co">#&gt;  [7] │ black&lt;berry&gt;</span></span>
 <span><span class="co">#&gt; [10] │ blue&lt;berry&gt;</span></span>
@@ -768,10 +639,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [76] │ straw&lt;berry&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="字符类-character-classes" class="level3" data-number="6.8.2"><h3 data-number="6.8.2" class="anchored" data-anchor-id="字符类-character-classes">
-<span class="header-section-number">6.8.2</span> 字符类 character classes</h3>
+</section><section id="字符类-character-classes" class="level3" data-number="9.8.2"><h3 data-number="9.8.2" class="anchored" data-anchor-id="字符类-character-classes">
+<span class="header-section-number">9.8.2</span> 字符类 character classes</h3>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#   [...]    匹配方括号内任意一个字符</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#   [...]    匹配方括号内任意一个字符</span></span>
 <span><span class="co">#   [^...]   匹配除方括号内的任意字符</span></span>
 <span><span class="fu">str_view</span><span class="op">(</span><span class="va">words</span>, <span class="st">"[aeiou]x[aeiou]"</span><span class="op">)</span>  <span class="co">#匹配 中间x两边元音</span></span>
 <span><span class="co">#&gt; [284] │ &lt;exa&gt;ct</span></span>
@@ -794,10 +665,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] │ abcd&lt; &gt;&lt;A&gt;&lt;B&gt;&lt;C&gt;&lt;D&gt;&lt; &gt;&lt; &gt;12345&lt; &gt;&lt;-&gt;&lt;!&gt;&lt;[&gt;&lt;@&gt;&lt;#&gt;&lt;%&gt;&lt;^&gt;&lt;.&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="量词-quantifier" class="level3" data-number="6.8.3"><h3 data-number="6.8.3" class="anchored" data-anchor-id="量词-quantifier">
-<span class="header-section-number">6.8.3</span> 量词 Quantifier</h3>
+</section><section id="量词-quantifier" class="level3" data-number="9.8.3"><h3 data-number="9.8.3" class="anchored" data-anchor-id="量词-quantifier">
+<span class="header-section-number">9.8.3</span> 量词 Quantifier</h3>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># {n}正好匹配 n 次。</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># {n}正好匹配 n 次。</span></span>
 <span><span class="co"># {n,}至少匹配 n 次。</span></span>
 <span><span class="co"># {n,m}N 次和 M 次之间的匹配。</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1234_abcd  123 a33a bbbc  22_23"</span> , <span class="st">"abb"</span>,<span class="st">"aab"</span>,<span class="st">'a_bbbbb'</span><span class="op">)</span></span>
@@ -856,10 +727,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [4] │ &lt;a&gt;_bbbbb</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="元字符meta-characters" class="level3" data-number="6.8.4"><h3 data-number="6.8.4" class="anchored" data-anchor-id="元字符meta-characters">
-<span class="header-section-number">6.8.4</span> 元字符（meta-characters）</h3>
+</section><section id="元字符meta-characters" class="level3" data-number="9.8.4"><h3 data-number="9.8.4" class="anchored" data-anchor-id="元字符meta-characters">
+<span class="header-section-number">9.8.4</span> 元字符（meta-characters）</h3>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#\d匹配任何数字;匹配任何非数字的内容\D</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#\d匹配任何数字;匹配任何非数字的内容\D</span></span>
 <span><span class="fu">str_view</span><span class="op">(</span><span class="va">x</span>, <span class="st">"\\d+"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] │ &lt;1234&gt;_abcd  &lt;123&gt; a&lt;33&gt;a bbbc  &lt;22&gt;_&lt;23&gt;</span></span>
 <span><span class="fu">str_view</span><span class="op">(</span><span class="va">x</span>, <span class="st">"\\D+"</span><span class="op">)</span></span>
@@ -901,7 +772,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><strong>锚点Anchors</strong></p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 匹配开头或结尾：^  $</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 匹配开头或结尾：^  $</span></span>
 <span><span class="fu">str_view</span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"^a"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] │ &lt;a&gt;pple</span></span>
 <span><span class="co">#&gt; [2] │ &lt;a&gt;pricot</span></span>
@@ -933,11 +804,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [4] │ &lt;sum&gt;(x)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="零宽匹配" class="level3" data-number="6.8.5"><h3 data-number="6.8.5" class="anchored" data-anchor-id="零宽匹配">
-<span class="header-section-number">6.8.5</span> 零宽匹配</h3>
+</section><section id="零宽匹配" class="level3" data-number="9.8.5"><h3 data-number="9.8.5" class="anchored" data-anchor-id="零宽匹配">
+<span class="header-section-number">9.8.5</span> 零宽匹配</h3>
 <p>zero-width match</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">str_view</span><span class="op">(</span><span class="st">"abc"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"$"</span>, <span class="st">"^"</span>, <span class="st">"\\b"</span><span class="op">)</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">str_view</span><span class="op">(</span><span class="st">"abc"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"$"</span>, <span class="st">"^"</span>, <span class="st">"\\b"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] │ abc&lt;&gt;</span></span>
 <span><span class="co">#&gt; [2] │ &lt;&gt;abc</span></span>
 <span><span class="co">#&gt; [3] │ &lt;&gt;abc&lt;&gt;</span></span>
@@ -945,10 +816,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] "abc++"   "++abc"   "++abc++"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="或运算符" class="level3" data-number="6.8.6"><h3 data-number="6.8.6" class="anchored" data-anchor-id="或运算符">
-<span class="header-section-number">6.8.6</span> 或运算符</h3>
+</section><section id="或运算符" class="level3" data-number="9.8.6"><h3 data-number="9.8.6" class="anchored" data-anchor-id="或运算符">
+<span class="header-section-number">9.8.6</span> 或运算符</h3>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#alternation</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#alternation</span></span>
 <span><span class="fu">str_view</span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"apple|melon|nut"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] │ &lt;apple&gt;</span></span>
 <span><span class="co">#&gt; [13] │ canary &lt;melon&gt;</span></span>
@@ -1439,13 +1310,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./logical_operation.html" class="pagination-link" aria-label="逻辑运算的操纵">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">逻辑运算的操纵</span></span>
+      <a href="./datetime.html" class="pagination-link" aria-label="日期时间">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">日期时间</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./base_function.html" class="pagination-link" aria-label="base 函数">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">base 函数</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./transform_tidy.html" class="pagination-link" aria-label="数据清洗">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据清洗</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">

@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.32">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>8&nbsp; 日期时间 – R数据科学</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./string_text.html" rel="next">
+<link href="./logical_operation.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-f90a1b115807ea56b20e50efb3bb25e2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./datetime.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">日期时间</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R数据科学</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">推荐阅读</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">介绍</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_type.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据类型</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据结构</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./read_write.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">读写</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./base_function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">base 函数</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numeric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">数值型数据的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./logical_operation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">逻辑运算的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datetime.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">日期时间</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./string_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./transform_tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据清洗</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functionals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dynamic_report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#%E5%88%9B%E5%BB%BA" id="toc-创建" class="nav-link active" data-scroll-target="#%E5%88%9B%E5%BB%BA"><span class="header-section-number">8.1</span> 创建</a></li>
+  <li><a href="#datetime%E7%BB%84%E4%BB%B6" id="toc-datetime组件" class="nav-link" data-scroll-target="#datetime%E7%BB%84%E4%BB%B6"><span class="header-section-number">8.2</span> datetime组件</a></li>
+  <li><a href="#rounding" id="toc-rounding" class="nav-link" data-scroll-target="#rounding"><span class="header-section-number">8.3</span> Rounding</a></li>
+  <li><a href="#duration" id="toc-duration" class="nav-link" data-scroll-target="#duration"><span class="header-section-number">8.4</span> duration</a></li>
+  <li><a href="#periods" id="toc-periods" class="nav-link" data-scroll-target="#periods"><span class="header-section-number">8.5</span> Periods</a></li>
+  <li><a href="#intervals" id="toc-intervals" class="nav-link" data-scroll-target="#intervals"><span class="header-section-number">8.6</span> Intervals</a></li>
+  <li><a href="#%E6%97%B6%E5%8C%BA" id="toc-时区" class="nav-link" data-scroll-target="#%E6%97%B6%E5%8C%BA"><span class="header-section-number">8.7</span> 时区</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">日期时间</span>
+</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><section id="创建" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="创建">
+<span class="header-section-number">8.1</span> 创建</h2>
+<p>使用日期时间时，1 表示 1 秒，因此 binwidth 为 86400 表示一天</p>
+<p>对于日期，1 表示 1 天</p>
+<div class="cell">
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#字符串捕获</span></span>
+<span><span class="fu">ymd</span><span class="op">(</span><span class="st">"2017-01-31"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2017-01-31"</span></span>
+<span><span class="fu">mdy</span><span class="op">(</span><span class="st">"January 31st, 2017"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2017-01-31"</span></span>
+<span><span class="fu">dmy</span><span class="op">(</span><span class="st">"31-Jan-2017"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2017-01-31"</span></span>
+<span><span class="fu">ymd_hms</span><span class="op">(</span><span class="st">"2017-01-31 20:11:59"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2017-01-31 20:11:59 UTC"</span></span>
+<span><span class="fu">mdy_hm</span><span class="op">(</span><span class="st">"01/31/2017 08:01"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2017-01-31 08:01:00 UTC"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 导入文件</span></span>
+<span><span class="va">csv</span> <span class="op">&lt;-</span> <span class="st">"\ndate,datetime\n2022-01-02,2022-01-02 05:12\n"</span></span>
+<span><span class="fu">read_csv</span><span class="op">(</span><span class="va">csv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div class="kable-table">
+<table class="caption-top table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">date</th>
+<th style="text-align: left;">datetime</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: left;">2022-01-02</td>
+<td style="text-align: left;">2022-01-02 05:12:00</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
+<span><span class="op">(</span><span class="va">csv</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
+<span><span class="st">  date</span></span>
+<span><span class="st">  01/02/15</span></span>
+<span><span class="st">"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "\n  date\n  01/02/15\n"</span></span>
+<span><span class="fu">read_csv</span><span class="op">(</span><span class="va">csv</span>, col_types <span class="op">=</span> <span class="fu">cols</span><span class="op">(</span>date <span class="op">=</span> <span class="fu">col_date</span><span class="op">(</span><span class="st">"%m/%d/%y"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div class="kable-table">
+<table class="caption-top table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">date</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: left;">2015-01-02</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">read_csv</span><span class="op">(</span><span class="va">csv</span>, col_types <span class="op">=</span> <span class="fu">cols</span><span class="op">(</span>date <span class="op">=</span> <span class="fu">col_date</span><span class="op">(</span><span class="st">"%y/%m/%d"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div class="kable-table">
+<table class="caption-top table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">date</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: left;">2001-02-15</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#类型转换</span></span>
+<span><span class="fu">as_datetime</span><span class="op">(</span><span class="fl">60</span> <span class="op">*</span> <span class="fl">60</span> <span class="op">*</span> <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "1970-01-01 10:00:00 UTC"</span></span>
+<span><span class="fu">as_date</span><span class="op">(</span><span class="fl">365</span> <span class="op">*</span> <span class="fl">10</span> <span class="op">+</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "1980-01-01"</span></span>
+<span></span>
+<span><span class="fu">today</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2024-11-19"</span></span>
+<span><span class="fu">as_datetime</span><span class="op">(</span><span class="fu">today</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2024-11-19 UTC"</span></span>
+<span></span>
+<span><span class="fu">now</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2024-11-19 23:36:23 CST"</span></span>
+<span><span class="fu">as_date</span><span class="op">(</span><span class="fu">now</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2024-11-19"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="datetime组件" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="datetime组件">
+<span class="header-section-number">8.2</span> datetime组件</h2>
+<div class="cell">
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 获取日期时间组件</span></span>
+<span><span class="va">dttm</span> <span class="op">&lt;-</span> <span class="fu">ymd_hms</span><span class="op">(</span><span class="st">"2026-07-08 12:34:56"</span><span class="op">)</span></span>
+<span><span class="fu">year</span><span class="op">(</span><span class="va">dttm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2026</span></span>
+<span><span class="fu">month</span><span class="op">(</span><span class="va">dttm</span>,label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 7月</span></span>
+<span><span class="co">#&gt; 12 Levels: 1月 &lt; 2月 &lt; 3月 &lt; 4月 &lt; 5月 &lt; 6月 &lt; 7月 &lt; 8月 &lt; 9月 &lt; ... &lt; 12月</span></span>
+<span><span class="fu">mday</span><span class="op">(</span><span class="va">dttm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 8</span></span>
+<span><span class="fu">yday</span><span class="op">(</span><span class="va">dttm</span><span class="op">)</span>  <span class="co">#一年中的第几天</span></span>
+<span><span class="co">#&gt; [1] 189</span></span>
+<span><span class="fu">wday</span><span class="op">(</span><span class="va">dttm</span>, label <span class="op">=</span> <span class="cn">TRUE</span>, abbr <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>  <span class="co">#星期几</span></span>
+<span><span class="co">#&gt; [1] 星期三</span></span>
+<span><span class="co">#&gt; Levels: 星期日 &lt; 星期一 &lt; 星期二 &lt; 星期三 &lt; 星期四 &lt; 星期五 &lt; 星期六</span></span>
+<span><span class="fu">hour</span><span class="op">(</span><span class="va">dttm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 12</span></span>
+<span><span class="fu">minute</span><span class="op">(</span><span class="va">dttm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 34</span></span>
+<span><span class="fu">second</span><span class="op">(</span><span class="va">dttm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 56</span></span>
+<span></span>
+<span><span class="co"># 修改组件</span></span>
+<span></span>
+<span><span class="fu">year</span><span class="op">(</span><span class="va">dttm</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">2030</span></span>
+<span><span class="fu">month</span><span class="op">(</span><span class="va">dttm</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">01</span></span>
+<span><span class="fu">hour</span><span class="op">(</span><span class="va">dttm</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu">hour</span><span class="op">(</span><span class="va">dttm</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span><span class="va">dttm</span></span>
+<span><span class="co">#&gt; [1] "2030-01-08 13:34:56 UTC"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">dttm</span>, year <span class="op">=</span> <span class="fl">2030</span>, month <span class="op">=</span> <span class="fl">2</span>, mday <span class="op">=</span> <span class="fl">2</span>, hour <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2030-02-02 02:34:56 UTC"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="fu">ymd</span><span class="op">(</span><span class="st">"2023-02-01"</span><span class="op">)</span>, mday <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2023-03-02"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="fu">ymd</span><span class="op">(</span><span class="st">"2023-02-01"</span><span class="op">)</span>, hour <span class="op">=</span> <span class="fl">400</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2023-02-17 16:00:00 UTC"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="rounding" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="rounding">
+<span class="header-section-number">8.3</span> Rounding</h2>
+<div class="cell">
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#floor_date()round_date()ceiling_date()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="duration" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="duration">
+<span class="header-section-number">8.4</span> duration</h2>
+<div class="cell">
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 时间跨度Time spans</span></span>
+<span><span class="co"># 持续时间 duration  始终以秒为单位记录时间跨度</span></span>
+<span><span class="va">h_age</span> <span class="op">&lt;-</span> <span class="fu">today</span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fu">ymd</span><span class="op">(</span><span class="st">"2000-10-18"</span><span class="op">)</span></span>
+<span><span class="fu">as.duration</span><span class="op">(</span><span class="va">h_age</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "760147200s (~24.09 years)"</span></span>
+<span><span class="fu">dseconds</span><span class="op">(</span><span class="fl">15</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "15s"</span></span>
+<span><span class="fu">dminutes</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "600s (~10 minutes)"</span></span>
+<span><span class="fu">dhours</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "43200s (~12 hours)" "86400s (~1 days)"</span></span>
+<span><span class="fu">ddays</span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "0s"                "86400s (~1 days)"  "172800s (~2 days)"</span></span>
+<span><span class="co">#&gt; [4] "259200s (~3 days)" "345600s (~4 days)" "432000s (~5 days)"</span></span>
+<span><span class="fu">dweeks</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "1814400s (~3 weeks)"</span></span>
+<span><span class="fu">dyears</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">/</span><span class="fu">ddays</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>       <span class="co">#365.25 天</span></span>
+<span><span class="co">#&gt; [1] 365.25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="periods" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="periods">
+<span class="header-section-number">8.5</span> Periods</h2>
+<div class="cell">
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Periods  “人类”时间（如天和月）</span></span>
+<span><span class="fu">years</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>      <span class="co">#365.25 天</span></span>
+<span><span class="co">#&gt; [1] "1y 0m 0d 0H 0M 0S"</span></span>
+<span><span class="fu">years</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">/</span> <span class="fu">days</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 365.25</span></span>
+<span><span class="fu">hours</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">24</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "12H 0M 0S" "24H 0M 0S"</span></span>
+<span><span class="fu">days</span><span class="op">(</span><span class="fl">7</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "7d 0H 0M 0S"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/weekday.POSIXt.html">months</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "1m 0d 0H 0M 0S" "2m 0d 0H 0M 0S" "3m 0d 0H 0M 0S" "4m 0d 0H 0M 0S"</span></span>
+<span><span class="co">#&gt; [5] "5m 0d 0H 0M 0S" "6m 0d 0H 0M 0S"</span></span>
+<span><span class="fu">ymd</span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">dyears</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>  <span class="co">#闰年</span></span>
+<span><span class="co">#&gt; [1] "2024-12-31 06:00:00 UTC"</span></span>
+<span><span class="fu">ymd</span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">years</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> </span>
+<span><span class="co">#&gt; [1] "2025-01-01"</span></span>
+<span>                                       </span>
+<span><span class="fu">ymd_hms</span><span class="op">(</span><span class="st">"2026-03-08 01:00:00"</span>, tz <span class="op">=</span> <span class="st">"America/New_York"</span><span class="op">)</span><span class="op">+</span><span class="fu">ddays</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2026-03-09 02:00:00 EDT"</span></span>
+<span><span class="fu">ymd_hms</span><span class="op">(</span><span class="st">"2026-03-08 01:00:00"</span>, tz <span class="op">=</span> <span class="st">"America/New_York"</span><span class="op">)</span><span class="op">+</span><span class="fu">days</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "2026-03-09 01:00:00 EDT"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="intervals" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="intervals">
+<span class="header-section-number">8.6</span> Intervals</h2>
+<div class="cell">
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#  start %--% end</span></span>
+<span><span class="va">y2023</span> <span class="op">&lt;-</span> <span class="fu">ymd</span><span class="op">(</span><span class="st">"2023-01-01"</span><span class="op">)</span> <span class="op">%--%</span> <span class="fu">ymd</span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span></span>
+<span><span class="va">y2024</span> <span class="op">&lt;-</span> <span class="fu">ymd</span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span> <span class="op">%--%</span> <span class="fu">ymd</span><span class="op">(</span><span class="st">"2025-01-01"</span><span class="op">)</span></span>
+<span><span class="va">y2023</span> <span class="op">/</span> <span class="fu">days</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 365</span></span>
+<span><span class="va">y2024</span> <span class="op">/</span> <span class="fu">days</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 366</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="时区" class="level2" data-number="8.7"><h2 data-number="8.7" class="anchored" data-anchor-id="时区">
+<span class="header-section-number">8.7</span> 时区</h2>
+<div class="cell">
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/timezones.html">Sys.timezone</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Asia/Shanghai"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/timezones.html">OlsonNames</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   [1] "Africa/Abidjan"                   "Africa/Accra"                    </span></span>
+<span><span class="co">#&gt;   [3] "Africa/Addis_Ababa"               "Africa/Algiers"                  </span></span>
+<span><span class="co">#&gt;   [5] "Africa/Asmara"                    "Africa/Asmera"                   </span></span>
+<span><span class="co">#&gt;   [7] "Africa/Bamako"                    "Africa/Bangui"                   </span></span>
+<span><span class="co">#&gt;   [9] "Africa/Banjul"                    "Africa/Bissau"                   </span></span>
+<span><span class="co">#&gt;  [11] "Africa/Blantyre"                  "Africa/Brazzaville"              </span></span>
+<span><span class="co">#&gt;  [13] "Africa/Bujumbura"                 "Africa/Cairo"                    </span></span>
+<span><span class="co">#&gt;  [15] "Africa/Casablanca"                "Africa/Ceuta"                    </span></span>
+<span><span class="co">#&gt;  [17] "Africa/Conakry"                   "Africa/Dakar"                    </span></span>
+<span><span class="co">#&gt;  [19] "Africa/Dar_es_Salaam"             "Africa/Djibouti"                 </span></span>
+<span><span class="co">#&gt;  [21] "Africa/Douala"                    "Africa/El_Aaiun"                 </span></span>
+<span><span class="co">#&gt;  [23] "Africa/Freetown"                  "Africa/Gaborone"                 </span></span>
+<span><span class="co">#&gt;  [25] "Africa/Harare"                    "Africa/Johannesburg"             </span></span>
+<span><span class="co">#&gt;  [27] "Africa/Juba"                      "Africa/Kampala"                  </span></span>
+<span><span class="co">#&gt;  [29] "Africa/Khartoum"                  "Africa/Kigali"                   </span></span>
+<span><span class="co">#&gt;  [31] "Africa/Kinshasa"                  "Africa/Lagos"                    </span></span>
+<span><span class="co">#&gt;  [33] "Africa/Libreville"                "Africa/Lome"                     </span></span>
+<span><span class="co">#&gt;  [35] "Africa/Luanda"                    "Africa/Lubumbashi"               </span></span>
+<span><span class="co">#&gt;  [37] "Africa/Lusaka"                    "Africa/Malabo"                   </span></span>
+<span><span class="co">#&gt;  [39] "Africa/Maputo"                    "Africa/Maseru"                   </span></span>
+<span><span class="co">#&gt;  [41] "Africa/Mbabane"                   "Africa/Mogadishu"                </span></span>
+<span><span class="co">#&gt;  [43] "Africa/Monrovia"                  "Africa/Nairobi"                  </span></span>
+<span><span class="co">#&gt;  [45] "Africa/Ndjamena"                  "Africa/Niamey"                   </span></span>
+<span><span class="co">#&gt;  [47] "Africa/Nouakchott"                "Africa/Ouagadougou"              </span></span>
+<span><span class="co">#&gt;  [49] "Africa/Porto-Novo"                "Africa/Sao_Tome"                 </span></span>
+<span><span class="co">#&gt;  [51] "Africa/Timbuktu"                  "Africa/Tripoli"                  </span></span>
+<span><span class="co">#&gt;  [53] "Africa/Tunis"                     "Africa/Windhoek"                 </span></span>
+<span><span class="co">#&gt;  [55] "America/Adak"                     "America/Anchorage"               </span></span>
+<span><span class="co">#&gt;  [57] "America/Anguilla"                 "America/Antigua"                 </span></span>
+<span><span class="co">#&gt;  [59] "America/Araguaina"                "America/Argentina/Buenos_Aires"  </span></span>
+<span><span class="co">#&gt;  [61] "America/Argentina/Catamarca"      "America/Argentina/ComodRivadavia"</span></span>
+<span><span class="co">#&gt;  [63] "America/Argentina/Cordoba"        "America/Argentina/Jujuy"         </span></span>
+<span><span class="co">#&gt;  [65] "America/Argentina/La_Rioja"       "America/Argentina/Mendoza"       </span></span>
+<span><span class="co">#&gt;  [67] "America/Argentina/Rio_Gallegos"   "America/Argentina/Salta"         </span></span>
+<span><span class="co">#&gt;  [69] "America/Argentina/San_Juan"       "America/Argentina/San_Luis"      </span></span>
+<span><span class="co">#&gt;  [71] "America/Argentina/Tucuman"        "America/Argentina/Ushuaia"       </span></span>
+<span><span class="co">#&gt;  [73] "America/Aruba"                    "America/Asuncion"                </span></span>
+<span><span class="co">#&gt;  [75] "America/Atikokan"                 "America/Atka"                    </span></span>
+<span><span class="co">#&gt;  [77] "America/Bahia"                    "America/Bahia_Banderas"          </span></span>
+<span><span class="co">#&gt;  [79] "America/Barbados"                 "America/Belem"                   </span></span>
+<span><span class="co">#&gt;  [81] "America/Belize"                   "America/Blanc-Sablon"            </span></span>
+<span><span class="co">#&gt;  [83] "America/Boa_Vista"                "America/Bogota"                  </span></span>
+<span><span class="co">#&gt;  [85] "America/Boise"                    "America/Buenos_Aires"            </span></span>
+<span><span class="co">#&gt;  [87] "America/Cambridge_Bay"            "America/Campo_Grande"            </span></span>
+<span><span class="co">#&gt;  [89] "America/Cancun"                   "America/Caracas"                 </span></span>
+<span><span class="co">#&gt;  [91] "America/Catamarca"                "America/Cayenne"                 </span></span>
+<span><span class="co">#&gt;  [93] "America/Cayman"                   "America/Chicago"                 </span></span>
+<span><span class="co">#&gt;  [95] "America/Chihuahua"                "America/Ciudad_Juarez"           </span></span>
+<span><span class="co">#&gt;  [97] "America/Coral_Harbour"            "America/Cordoba"                 </span></span>
+<span><span class="co">#&gt;  [99] "America/Costa_Rica"               "America/Creston"                 </span></span>
+<span><span class="co">#&gt; [101] "America/Cuiaba"                   "America/Curacao"                 </span></span>
+<span><span class="co">#&gt; [103] "America/Danmarkshavn"             "America/Dawson"                  </span></span>
+<span><span class="co">#&gt; [105] "America/Dawson_Creek"             "America/Denver"                  </span></span>
+<span><span class="co">#&gt; [107] "America/Detroit"                  "America/Dominica"                </span></span>
+<span><span class="co">#&gt; [109] "America/Edmonton"                 "America/Eirunepe"                </span></span>
+<span><span class="co">#&gt; [111] "America/El_Salvador"              "America/Ensenada"                </span></span>
+<span><span class="co">#&gt; [113] "America/Fort_Nelson"              "America/Fort_Wayne"              </span></span>
+<span><span class="co">#&gt; [115] "America/Fortaleza"                "America/Glace_Bay"               </span></span>
+<span><span class="co">#&gt; [117] "America/Godthab"                  "America/Goose_Bay"               </span></span>
+<span><span class="co">#&gt; [119] "America/Grand_Turk"               "America/Grenada"                 </span></span>
+<span><span class="co">#&gt; [121] "America/Guadeloupe"               "America/Guatemala"               </span></span>
+<span><span class="co">#&gt; [123] "America/Guayaquil"                "America/Guyana"                  </span></span>
+<span><span class="co">#&gt; [125] "America/Halifax"                  "America/Havana"                  </span></span>
+<span><span class="co">#&gt; [127] "America/Hermosillo"               "America/Indiana/Indianapolis"    </span></span>
+<span><span class="co">#&gt; [129] "America/Indiana/Knox"             "America/Indiana/Marengo"         </span></span>
+<span><span class="co">#&gt; [131] "America/Indiana/Petersburg"       "America/Indiana/Tell_City"       </span></span>
+<span><span class="co">#&gt; [133] "America/Indiana/Vevay"            "America/Indiana/Vincennes"       </span></span>
+<span><span class="co">#&gt; [135] "America/Indiana/Winamac"          "America/Indianapolis"            </span></span>
+<span><span class="co">#&gt; [137] "America/Inuvik"                   "America/Iqaluit"                 </span></span>
+<span><span class="co">#&gt; [139] "America/Jamaica"                  "America/Jujuy"                   </span></span>
+<span><span class="co">#&gt; [141] "America/Juneau"                   "America/Kentucky/Louisville"     </span></span>
+<span><span class="co">#&gt; [143] "America/Kentucky/Monticello"      "America/Knox_IN"                 </span></span>
+<span><span class="co">#&gt; [145] "America/Kralendijk"               "America/La_Paz"                  </span></span>
+<span><span class="co">#&gt; [147] "America/Lima"                     "America/Los_Angeles"             </span></span>
+<span><span class="co">#&gt; [149] "America/Louisville"               "America/Lower_Princes"           </span></span>
+<span><span class="co">#&gt; [151] "America/Maceio"                   "America/Managua"                 </span></span>
+<span><span class="co">#&gt; [153] "America/Manaus"                   "America/Marigot"                 </span></span>
+<span><span class="co">#&gt; [155] "America/Martinique"               "America/Matamoros"               </span></span>
+<span><span class="co">#&gt; [157] "America/Mazatlan"                 "America/Mendoza"                 </span></span>
+<span><span class="co">#&gt; [159] "America/Menominee"                "America/Merida"                  </span></span>
+<span><span class="co">#&gt; [161] "America/Metlakatla"               "America/Mexico_City"             </span></span>
+<span><span class="co">#&gt; [163] "America/Miquelon"                 "America/Moncton"                 </span></span>
+<span><span class="co">#&gt; [165] "America/Monterrey"                "America/Montevideo"              </span></span>
+<span><span class="co">#&gt; [167] "America/Montreal"                 "America/Montserrat"              </span></span>
+<span><span class="co">#&gt; [169] "America/Nassau"                   "America/New_York"                </span></span>
+<span><span class="co">#&gt; [171] "America/Nipigon"                  "America/Nome"                    </span></span>
+<span><span class="co">#&gt; [173] "America/Noronha"                  "America/North_Dakota/Beulah"     </span></span>
+<span><span class="co">#&gt; [175] "America/North_Dakota/Center"      "America/North_Dakota/New_Salem"  </span></span>
+<span><span class="co">#&gt; [177] "America/Nuuk"                     "America/Ojinaga"                 </span></span>
+<span><span class="co">#&gt; [179] "America/Panama"                   "America/Pangnirtung"             </span></span>
+<span><span class="co">#&gt; [181] "America/Paramaribo"               "America/Phoenix"                 </span></span>
+<span><span class="co">#&gt; [183] "America/Port-au-Prince"           "America/Port_of_Spain"           </span></span>
+<span><span class="co">#&gt; [185] "America/Porto_Acre"               "America/Porto_Velho"             </span></span>
+<span><span class="co">#&gt; [187] "America/Puerto_Rico"              "America/Punta_Arenas"            </span></span>
+<span><span class="co">#&gt; [189] "America/Rainy_River"              "America/Rankin_Inlet"            </span></span>
+<span><span class="co">#&gt; [191] "America/Recife"                   "America/Regina"                  </span></span>
+<span><span class="co">#&gt; [193] "America/Resolute"                 "America/Rio_Branco"              </span></span>
+<span><span class="co">#&gt; [195] "America/Rosario"                  "America/Santa_Isabel"            </span></span>
+<span><span class="co">#&gt; [197] "America/Santarem"                 "America/Santiago"                </span></span>
+<span><span class="co">#&gt; [199] "America/Santo_Domingo"            "America/Sao_Paulo"               </span></span>
+<span><span class="co">#&gt; [201] "America/Scoresbysund"             "America/Shiprock"                </span></span>
+<span><span class="co">#&gt; [203] "America/Sitka"                    "America/St_Barthelemy"           </span></span>
+<span><span class="co">#&gt; [205] "America/St_Johns"                 "America/St_Kitts"                </span></span>
+<span><span class="co">#&gt; [207] "America/St_Lucia"                 "America/St_Thomas"               </span></span>
+<span><span class="co">#&gt; [209] "America/St_Vincent"               "America/Swift_Current"           </span></span>
+<span><span class="co">#&gt; [211] "America/Tegucigalpa"              "America/Thule"                   </span></span>
+<span><span class="co">#&gt; [213] "America/Thunder_Bay"              "America/Tijuana"                 </span></span>
+<span><span class="co">#&gt; [215] "America/Toronto"                  "America/Tortola"                 </span></span>
+<span><span class="co">#&gt; [217] "America/Vancouver"                "America/Virgin"                  </span></span>
+<span><span class="co">#&gt; [219] "America/Whitehorse"               "America/Winnipeg"                </span></span>
+<span><span class="co">#&gt; [221] "America/Yakutat"                  "America/Yellowknife"             </span></span>
+<span><span class="co">#&gt; [223] "Antarctica/Casey"                 "Antarctica/Davis"                </span></span>
+<span><span class="co">#&gt; [225] "Antarctica/DumontDUrville"        "Antarctica/Macquarie"            </span></span>
+<span><span class="co">#&gt; [227] "Antarctica/Mawson"                "Antarctica/McMurdo"              </span></span>
+<span><span class="co">#&gt; [229] "Antarctica/Palmer"                "Antarctica/Rothera"              </span></span>
+<span><span class="co">#&gt; [231] "Antarctica/South_Pole"            "Antarctica/Syowa"                </span></span>
+<span><span class="co">#&gt; [233] "Antarctica/Troll"                 "Antarctica/Vostok"               </span></span>
+<span><span class="co">#&gt; [235] "Arctic/Longyearbyen"              "Asia/Aden"                       </span></span>
+<span><span class="co">#&gt; [237] "Asia/Almaty"                      "Asia/Amman"                      </span></span>
+<span><span class="co">#&gt; [239] "Asia/Anadyr"                      "Asia/Aqtau"                      </span></span>
+<span><span class="co">#&gt; [241] "Asia/Aqtobe"                      "Asia/Ashgabat"                   </span></span>
+<span><span class="co">#&gt; [243] "Asia/Ashkhabad"                   "Asia/Atyrau"                     </span></span>
+<span><span class="co">#&gt; [245] "Asia/Baghdad"                     "Asia/Bahrain"                    </span></span>
+<span><span class="co">#&gt; [247] "Asia/Baku"                        "Asia/Bangkok"                    </span></span>
+<span><span class="co">#&gt; [249] "Asia/Barnaul"                     "Asia/Beirut"                     </span></span>
+<span><span class="co">#&gt; [251] "Asia/Bishkek"                     "Asia/Brunei"                     </span></span>
+<span><span class="co">#&gt; [253] "Asia/Calcutta"                    "Asia/Chita"                      </span></span>
+<span><span class="co">#&gt; [255] "Asia/Choibalsan"                  "Asia/Chongqing"                  </span></span>
+<span><span class="co">#&gt; [257] "Asia/Chungking"                   "Asia/Colombo"                    </span></span>
+<span><span class="co">#&gt; [259] "Asia/Dacca"                       "Asia/Damascus"                   </span></span>
+<span><span class="co">#&gt; [261] "Asia/Dhaka"                       "Asia/Dili"                       </span></span>
+<span><span class="co">#&gt; [263] "Asia/Dubai"                       "Asia/Dushanbe"                   </span></span>
+<span><span class="co">#&gt; [265] "Asia/Famagusta"                   "Asia/Gaza"                       </span></span>
+<span><span class="co">#&gt; [267] "Asia/Harbin"                      "Asia/Hebron"                     </span></span>
+<span><span class="co">#&gt; [269] "Asia/Ho_Chi_Minh"                 "Asia/Hong_Kong"                  </span></span>
+<span><span class="co">#&gt; [271] "Asia/Hovd"                        "Asia/Irkutsk"                    </span></span>
+<span><span class="co">#&gt; [273] "Asia/Istanbul"                    "Asia/Jakarta"                    </span></span>
+<span><span class="co">#&gt; [275] "Asia/Jayapura"                    "Asia/Jerusalem"                  </span></span>
+<span><span class="co">#&gt; [277] "Asia/Kabul"                       "Asia/Kamchatka"                  </span></span>
+<span><span class="co">#&gt; [279] "Asia/Karachi"                     "Asia/Kashgar"                    </span></span>
+<span><span class="co">#&gt; [281] "Asia/Kathmandu"                   "Asia/Katmandu"                   </span></span>
+<span><span class="co">#&gt; [283] "Asia/Khandyga"                    "Asia/Kolkata"                    </span></span>
+<span><span class="co">#&gt; [285] "Asia/Krasnoyarsk"                 "Asia/Kuala_Lumpur"               </span></span>
+<span><span class="co">#&gt; [287] "Asia/Kuching"                     "Asia/Kuwait"                     </span></span>
+<span><span class="co">#&gt; [289] "Asia/Macao"                       "Asia/Macau"                      </span></span>
+<span><span class="co">#&gt; [291] "Asia/Magadan"                     "Asia/Makassar"                   </span></span>
+<span><span class="co">#&gt; [293] "Asia/Manila"                      "Asia/Muscat"                     </span></span>
+<span><span class="co">#&gt; [295] "Asia/Nicosia"                     "Asia/Novokuznetsk"               </span></span>
+<span><span class="co">#&gt; [297] "Asia/Novosibirsk"                 "Asia/Omsk"                       </span></span>
+<span><span class="co">#&gt; [299] "Asia/Oral"                        "Asia/Phnom_Penh"                 </span></span>
+<span><span class="co">#&gt; [301] "Asia/Pontianak"                   "Asia/Pyongyang"                  </span></span>
+<span><span class="co">#&gt; [303] "Asia/Qatar"                       "Asia/Qostanay"                   </span></span>
+<span><span class="co">#&gt; [305] "Asia/Qyzylorda"                   "Asia/Rangoon"                    </span></span>
+<span><span class="co">#&gt; [307] "Asia/Riyadh"                      "Asia/Saigon"                     </span></span>
+<span><span class="co">#&gt; [309] "Asia/Sakhalin"                    "Asia/Samarkand"                  </span></span>
+<span><span class="co">#&gt; [311] "Asia/Seoul"                       "Asia/Shanghai"                   </span></span>
+<span><span class="co">#&gt; [313] "Asia/Singapore"                   "Asia/Srednekolymsk"              </span></span>
+<span><span class="co">#&gt; [315] "Asia/Taipei"                      "Asia/Tashkent"                   </span></span>
+<span><span class="co">#&gt; [317] "Asia/Tbilisi"                     "Asia/Tehran"                     </span></span>
+<span><span class="co">#&gt; [319] "Asia/Tel_Aviv"                    "Asia/Thimbu"                     </span></span>
+<span><span class="co">#&gt; [321] "Asia/Thimphu"                     "Asia/Tokyo"                      </span></span>
+<span><span class="co">#&gt; [323] "Asia/Tomsk"                       "Asia/Ujung_Pandang"              </span></span>
+<span><span class="co">#&gt; [325] "Asia/Ulaanbaatar"                 "Asia/Ulan_Bator"                 </span></span>
+<span><span class="co">#&gt; [327] "Asia/Urumqi"                      "Asia/Ust-Nera"                   </span></span>
+<span><span class="co">#&gt; [329] "Asia/Vientiane"                   "Asia/Vladivostok"                </span></span>
+<span><span class="co">#&gt; [331] "Asia/Yakutsk"                     "Asia/Yangon"                     </span></span>
+<span><span class="co">#&gt; [333] "Asia/Yekaterinburg"               "Asia/Yerevan"                    </span></span>
+<span><span class="co">#&gt; [335] "Atlantic/Azores"                  "Atlantic/Bermuda"                </span></span>
+<span><span class="co">#&gt; [337] "Atlantic/Canary"                  "Atlantic/Cape_Verde"             </span></span>
+<span><span class="co">#&gt; [339] "Atlantic/Faeroe"                  "Atlantic/Faroe"                  </span></span>
+<span><span class="co">#&gt; [341] "Atlantic/Jan_Mayen"               "Atlantic/Madeira"                </span></span>
+<span><span class="co">#&gt; [343] "Atlantic/Reykjavik"               "Atlantic/South_Georgia"          </span></span>
+<span><span class="co">#&gt; [345] "Atlantic/St_Helena"               "Atlantic/Stanley"                </span></span>
+<span><span class="co">#&gt; [347] "Australia/ACT"                    "Australia/Adelaide"              </span></span>
+<span><span class="co">#&gt; [349] "Australia/Brisbane"               "Australia/Broken_Hill"           </span></span>
+<span><span class="co">#&gt; [351] "Australia/Canberra"               "Australia/Currie"                </span></span>
+<span><span class="co">#&gt; [353] "Australia/Darwin"                 "Australia/Eucla"                 </span></span>
+<span><span class="co">#&gt; [355] "Australia/Hobart"                 "Australia/LHI"                   </span></span>
+<span><span class="co">#&gt; [357] "Australia/Lindeman"               "Australia/Lord_Howe"             </span></span>
+<span><span class="co">#&gt; [359] "Australia/Melbourne"              "Australia/North"                 </span></span>
+<span><span class="co">#&gt; [361] "Australia/NSW"                    "Australia/Perth"                 </span></span>
+<span><span class="co">#&gt; [363] "Australia/Queensland"             "Australia/South"                 </span></span>
+<span><span class="co">#&gt; [365] "Australia/Sydney"                 "Australia/Tasmania"              </span></span>
+<span><span class="co">#&gt; [367] "Australia/Victoria"               "Australia/West"                  </span></span>
+<span><span class="co">#&gt; [369] "Australia/Yancowinna"             "Brazil/Acre"                     </span></span>
+<span><span class="co">#&gt; [371] "Brazil/DeNoronha"                 "Brazil/East"                     </span></span>
+<span><span class="co">#&gt; [373] "Brazil/West"                      "Canada/Atlantic"                 </span></span>
+<span><span class="co">#&gt; [375] "Canada/Central"                   "Canada/Eastern"                  </span></span>
+<span><span class="co">#&gt; [377] "Canada/Mountain"                  "Canada/Newfoundland"             </span></span>
+<span><span class="co">#&gt; [379] "Canada/Pacific"                   "Canada/Saskatchewan"             </span></span>
+<span><span class="co">#&gt; [381] "Canada/Yukon"                     "CET"                             </span></span>
+<span><span class="co">#&gt; [383] "Chile/Continental"                "Chile/EasterIsland"              </span></span>
+<span><span class="co">#&gt; [385] "CST6CDT"                          "Cuba"                            </span></span>
+<span><span class="co">#&gt; [387] "EET"                              "Egypt"                           </span></span>
+<span><span class="co">#&gt; [389] "Eire"                             "EST"                             </span></span>
+<span><span class="co">#&gt; [391] "EST5EDT"                          "Etc/GMT"                         </span></span>
+<span><span class="co">#&gt; [393] "Etc/GMT-0"                        "Etc/GMT-1"                       </span></span>
+<span><span class="co">#&gt; [395] "Etc/GMT-10"                       "Etc/GMT-11"                      </span></span>
+<span><span class="co">#&gt; [397] "Etc/GMT-12"                       "Etc/GMT-13"                      </span></span>
+<span><span class="co">#&gt; [399] "Etc/GMT-14"                       "Etc/GMT-2"                       </span></span>
+<span><span class="co">#&gt; [401] "Etc/GMT-3"                        "Etc/GMT-4"                       </span></span>
+<span><span class="co">#&gt; [403] "Etc/GMT-5"                        "Etc/GMT-6"                       </span></span>
+<span><span class="co">#&gt; [405] "Etc/GMT-7"                        "Etc/GMT-8"                       </span></span>
+<span><span class="co">#&gt; [407] "Etc/GMT-9"                        "Etc/GMT+0"                       </span></span>
+<span><span class="co">#&gt; [409] "Etc/GMT+1"                        "Etc/GMT+10"                      </span></span>
+<span><span class="co">#&gt; [411] "Etc/GMT+11"                       "Etc/GMT+12"                      </span></span>
+<span><span class="co">#&gt; [413] "Etc/GMT+2"                        "Etc/GMT+3"                       </span></span>
+<span><span class="co">#&gt; [415] "Etc/GMT+4"                        "Etc/GMT+5"                       </span></span>
+<span><span class="co">#&gt; [417] "Etc/GMT+6"                        "Etc/GMT+7"                       </span></span>
+<span><span class="co">#&gt; [419] "Etc/GMT+8"                        "Etc/GMT+9"                       </span></span>
+<span><span class="co">#&gt; [421] "Etc/GMT0"                         "Etc/Greenwich"                   </span></span>
+<span><span class="co">#&gt; [423] "Etc/UCT"                          "Etc/Universal"                   </span></span>
+<span><span class="co">#&gt; [425] "Etc/UTC"                          "Etc/Zulu"                        </span></span>
+<span><span class="co">#&gt; [427] "Europe/Amsterdam"                 "Europe/Andorra"                  </span></span>
+<span><span class="co">#&gt; [429] "Europe/Astrakhan"                 "Europe/Athens"                   </span></span>
+<span><span class="co">#&gt; [431] "Europe/Belfast"                   "Europe/Belgrade"                 </span></span>
+<span><span class="co">#&gt; [433] "Europe/Berlin"                    "Europe/Bratislava"               </span></span>
+<span><span class="co">#&gt; [435] "Europe/Brussels"                  "Europe/Bucharest"                </span></span>
+<span><span class="co">#&gt; [437] "Europe/Budapest"                  "Europe/Busingen"                 </span></span>
+<span><span class="co">#&gt; [439] "Europe/Chisinau"                  "Europe/Copenhagen"               </span></span>
+<span><span class="co">#&gt; [441] "Europe/Dublin"                    "Europe/Gibraltar"                </span></span>
+<span><span class="co">#&gt; [443] "Europe/Guernsey"                  "Europe/Helsinki"                 </span></span>
+<span><span class="co">#&gt; [445] "Europe/Isle_of_Man"               "Europe/Istanbul"                 </span></span>
+<span><span class="co">#&gt; [447] "Europe/Jersey"                    "Europe/Kaliningrad"              </span></span>
+<span><span class="co">#&gt; [449] "Europe/Kiev"                      "Europe/Kirov"                    </span></span>
+<span><span class="co">#&gt; [451] "Europe/Kyiv"                      "Europe/Lisbon"                   </span></span>
+<span><span class="co">#&gt; [453] "Europe/Ljubljana"                 "Europe/London"                   </span></span>
+<span><span class="co">#&gt; [455] "Europe/Luxembourg"                "Europe/Madrid"                   </span></span>
+<span><span class="co">#&gt; [457] "Europe/Malta"                     "Europe/Mariehamn"                </span></span>
+<span><span class="co">#&gt; [459] "Europe/Minsk"                     "Europe/Monaco"                   </span></span>
+<span><span class="co">#&gt; [461] "Europe/Moscow"                    "Europe/Nicosia"                  </span></span>
+<span><span class="co">#&gt; [463] "Europe/Oslo"                      "Europe/Paris"                    </span></span>
+<span><span class="co">#&gt; [465] "Europe/Podgorica"                 "Europe/Prague"                   </span></span>
+<span><span class="co">#&gt; [467] "Europe/Riga"                      "Europe/Rome"                     </span></span>
+<span><span class="co">#&gt; [469] "Europe/Samara"                    "Europe/San_Marino"               </span></span>
+<span><span class="co">#&gt; [471] "Europe/Sarajevo"                  "Europe/Saratov"                  </span></span>
+<span><span class="co">#&gt; [473] "Europe/Simferopol"                "Europe/Skopje"                   </span></span>
+<span><span class="co">#&gt; [475] "Europe/Sofia"                     "Europe/Stockholm"                </span></span>
+<span><span class="co">#&gt; [477] "Europe/Tallinn"                   "Europe/Tirane"                   </span></span>
+<span><span class="co">#&gt; [479] "Europe/Tiraspol"                  "Europe/Ulyanovsk"                </span></span>
+<span><span class="co">#&gt; [481] "Europe/Uzhgorod"                  "Europe/Vaduz"                    </span></span>
+<span><span class="co">#&gt; [483] "Europe/Vatican"                   "Europe/Vienna"                   </span></span>
+<span><span class="co">#&gt; [485] "Europe/Vilnius"                   "Europe/Volgograd"                </span></span>
+<span><span class="co">#&gt; [487] "Europe/Warsaw"                    "Europe/Zagreb"                   </span></span>
+<span><span class="co">#&gt; [489] "Europe/Zaporozhye"                "Europe/Zurich"                   </span></span>
+<span><span class="co">#&gt; [491] "GB"                               "GB-Eire"                         </span></span>
+<span><span class="co">#&gt; [493] "GMT"                              "GMT-0"                           </span></span>
+<span><span class="co">#&gt; [495] "GMT+0"                            "GMT0"                            </span></span>
+<span><span class="co">#&gt; [497] "Greenwich"                        "Hongkong"                        </span></span>
+<span><span class="co">#&gt; [499] "HST"                              "Iceland"                         </span></span>
+<span><span class="co">#&gt; [501] "Indian/Antananarivo"              "Indian/Chagos"                   </span></span>
+<span><span class="co">#&gt; [503] "Indian/Christmas"                 "Indian/Cocos"                    </span></span>
+<span><span class="co">#&gt; [505] "Indian/Comoro"                    "Indian/Kerguelen"                </span></span>
+<span><span class="co">#&gt; [507] "Indian/Mahe"                      "Indian/Maldives"                 </span></span>
+<span><span class="co">#&gt; [509] "Indian/Mauritius"                 "Indian/Mayotte"                  </span></span>
+<span><span class="co">#&gt; [511] "Indian/Reunion"                   "Iran"                            </span></span>
+<span><span class="co">#&gt; [513] "Israel"                           "Jamaica"                         </span></span>
+<span><span class="co">#&gt; [515] "Japan"                            "Kwajalein"                       </span></span>
+<span><span class="co">#&gt; [517] "Libya"                            "MET"                             </span></span>
+<span><span class="co">#&gt; [519] "Mexico/BajaNorte"                 "Mexico/BajaSur"                  </span></span>
+<span><span class="co">#&gt; [521] "Mexico/General"                   "MST"                             </span></span>
+<span><span class="co">#&gt; [523] "MST7MDT"                          "Navajo"                          </span></span>
+<span><span class="co">#&gt; [525] "NZ"                               "NZ-CHAT"                         </span></span>
+<span><span class="co">#&gt; [527] "Pacific/Apia"                     "Pacific/Auckland"                </span></span>
+<span><span class="co">#&gt; [529] "Pacific/Bougainville"             "Pacific/Chatham"                 </span></span>
+<span><span class="co">#&gt; [531] "Pacific/Chuuk"                    "Pacific/Easter"                  </span></span>
+<span><span class="co">#&gt; [533] "Pacific/Efate"                    "Pacific/Enderbury"               </span></span>
+<span><span class="co">#&gt; [535] "Pacific/Fakaofo"                  "Pacific/Fiji"                    </span></span>
+<span><span class="co">#&gt; [537] "Pacific/Funafuti"                 "Pacific/Galapagos"               </span></span>
+<span><span class="co">#&gt; [539] "Pacific/Gambier"                  "Pacific/Guadalcanal"             </span></span>
+<span><span class="co">#&gt; [541] "Pacific/Guam"                     "Pacific/Honolulu"                </span></span>
+<span><span class="co">#&gt; [543] "Pacific/Johnston"                 "Pacific/Kanton"                  </span></span>
+<span><span class="co">#&gt; [545] "Pacific/Kiritimati"               "Pacific/Kosrae"                  </span></span>
+<span><span class="co">#&gt; [547] "Pacific/Kwajalein"                "Pacific/Majuro"                  </span></span>
+<span><span class="co">#&gt; [549] "Pacific/Marquesas"                "Pacific/Midway"                  </span></span>
+<span><span class="co">#&gt; [551] "Pacific/Nauru"                    "Pacific/Niue"                    </span></span>
+<span><span class="co">#&gt; [553] "Pacific/Norfolk"                  "Pacific/Noumea"                  </span></span>
+<span><span class="co">#&gt; [555] "Pacific/Pago_Pago"                "Pacific/Palau"                   </span></span>
+<span><span class="co">#&gt; [557] "Pacific/Pitcairn"                 "Pacific/Pohnpei"                 </span></span>
+<span><span class="co">#&gt; [559] "Pacific/Ponape"                   "Pacific/Port_Moresby"            </span></span>
+<span><span class="co">#&gt; [561] "Pacific/Rarotonga"                "Pacific/Saipan"                  </span></span>
+<span><span class="co">#&gt; [563] "Pacific/Samoa"                    "Pacific/Tahiti"                  </span></span>
+<span><span class="co">#&gt; [565] "Pacific/Tarawa"                   "Pacific/Tongatapu"               </span></span>
+<span><span class="co">#&gt; [567] "Pacific/Truk"                     "Pacific/Wake"                    </span></span>
+<span><span class="co">#&gt; [569] "Pacific/Wallis"                   "Pacific/Yap"                     </span></span>
+<span><span class="co">#&gt; [571] "Poland"                           "Portugal"                        </span></span>
+<span><span class="co">#&gt; [573] "PRC"                              "PST8PDT"                         </span></span>
+<span><span class="co">#&gt; [575] "ROC"                              "ROK"                             </span></span>
+<span><span class="co">#&gt; [577] "Singapore"                        "Turkey"                          </span></span>
+<span><span class="co">#&gt; [579] "UCT"                              "Universal"                       </span></span>
+<span><span class="co">#&gt; [581] "US/Alaska"                        "US/Aleutian"                     </span></span>
+<span><span class="co">#&gt; [583] "US/Arizona"                       "US/Central"                      </span></span>
+<span><span class="co">#&gt; [585] "US/East-Indiana"                  "US/Eastern"                      </span></span>
+<span><span class="co">#&gt; [587] "US/Hawaii"                        "US/Indiana-Starke"               </span></span>
+<span><span class="co">#&gt; [589] "US/Michigan"                      "US/Mountain"                     </span></span>
+<span><span class="co">#&gt; [591] "US/Pacific"                       "US/Samoa"                        </span></span>
+<span><span class="co">#&gt; [593] "UTC"                              "W-SU"                            </span></span>
+<span><span class="co">#&gt; [595] "WET"                              "Zulu"                            </span></span>
+<span><span class="co">#&gt; attr(,"Version")</span></span>
+<span><span class="co">#&gt; [1] "2024a"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+<!-- -->
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./logical_operation.html" class="pagination-link" aria-label="逻辑运算的操纵">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">逻辑运算的操纵</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./string_text.html" class="pagination-link" aria-label="字符文本的操纵">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 日期时间</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## 创建</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>使用日期时间时，1 表示 1 秒，因此 binwidth 为 86400 表示一天</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>对于日期，1 表示 1 天</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#字符串捕获</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">"2017-01-31"</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mdy</span>(<span class="st">"January 31st, 2017"</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="fu">dmy</span>(<span class="st">"31-Jan-2017"</span>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd_hms</span>(<span class="st">"2017-01-31 20:11:59"</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">mdy_hm</span>(<span class="st">"01/31/2017 08:01"</span>)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 导入文件</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>csv <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\n</span><span class="st">date,datetime</span><span class="sc">\n</span><span class="st">2022-01-02,2022-01-02 05:12</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(csv)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>(csv <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="st">  date</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="st">  01/02/15</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(csv, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">date =</span> <span class="fu">col_date</span>(<span class="st">"%m/%d/%y"</span>)))</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(csv, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">date =</span> <span class="fu">col_date</span>(<span class="st">"%y/%m/%d"</span>)))</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="co">#类型转换</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="fu">as_datetime</span>(<span class="dv">60</span> <span class="sc">*</span> <span class="dv">60</span> <span class="sc">*</span> <span class="dv">10</span>)</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="fu">as_date</span>(<span class="dv">365</span> <span class="sc">*</span> <span class="dv">10</span> <span class="sc">+</span> <span class="dv">2</span>)</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="fu">as_datetime</span>(<span class="fu">today</span>())</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a><span class="fu">as_date</span>(<span class="fu">now</span>())</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>                 </span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## datetime组件</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="co"># 获取日期时间组件</span></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>dttm <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">"2026-07-08 12:34:56"</span>)</span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="fu">year</span>(dttm)</span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(dttm,<span class="at">label =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="fu">mday</span>(dttm)</span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a><span class="fu">yday</span>(dttm)  <span class="co">#一年中的第几天</span></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="fu">wday</span>(dttm, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">abbr =</span> <span class="cn">FALSE</span>)  <span class="co">#星期几</span></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="fu">hour</span>(dttm)</span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="fu">minute</span>(dttm)</span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a><span class="fu">second</span>(dttm)</span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="co"># 修改组件</span></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a><span class="fu">year</span>(dttm) <span class="ot">&lt;-</span> <span class="dv">2030</span></span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(dttm) <span class="ot">&lt;-</span> <span class="dv">01</span></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="fu">hour</span>(dttm) <span class="ot">&lt;-</span> <span class="fu">hour</span>(dttm) <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>dttm</span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a><span class="fu">update</span>(dttm, <span class="at">year =</span> <span class="dv">2030</span>, <span class="at">month =</span> <span class="dv">2</span>, <span class="at">mday =</span> <span class="dv">2</span>, <span class="at">hour =</span> <span class="dv">2</span>)</span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a><span class="fu">update</span>(<span class="fu">ymd</span>(<span class="st">"2023-02-01"</span>), <span class="at">mday =</span> <span class="dv">30</span>)</span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a><span class="fu">update</span>(<span class="fu">ymd</span>(<span class="st">"2023-02-01"</span>), <span class="at">hour =</span> <span class="dv">400</span>)</span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rounding</span></span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a><span class="co">#floor_date()round_date()ceiling_date()</span></span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## duration</span></span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a><span class="co"># 时间跨度Time spans</span></span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a><span class="co"># 持续时间 duration  始终以秒为单位记录时间跨度</span></span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a>h_age <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="st">"2000-10-18"</span>)</span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a><span class="fu">as.duration</span>(h_age)</span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a><span class="fu">dseconds</span>(<span class="dv">15</span>)</span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a><span class="fu">dminutes</span>(<span class="dv">10</span>)</span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a><span class="fu">dhours</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">24</span>))</span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a><span class="fu">ddays</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a><span class="fu">dweeks</span>(<span class="dv">3</span>)</span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a><span class="fu">dyears</span>(<span class="dv">1</span>)<span class="sc">/</span><span class="fu">ddays</span>(<span class="dv">1</span>)       <span class="co">#365.25 天</span></span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## Periods</span></span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Periods  “人类”时间（如天和月）</span></span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a><span class="fu">years</span>(<span class="dv">1</span>)      <span class="co">#365.25 天</span></span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a><span class="fu">years</span>(<span class="dv">1</span>) <span class="sc">/</span> <span class="fu">days</span>(<span class="dv">1</span>)</span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a><span class="fu">hours</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">24</span>))</span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a><span class="fu">days</span>(<span class="dv">7</span>)</span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="fu">months</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">"2024-01-01"</span>) <span class="sc">+</span> <span class="fu">dyears</span>(<span class="dv">1</span>)  <span class="co">#闰年</span></span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">"2024-01-01"</span>) <span class="sc">+</span> <span class="fu">years</span>(<span class="dv">1</span>) </span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a>                                       </span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd_hms</span>(<span class="st">"2026-03-08 01:00:00"</span>, <span class="at">tz =</span> <span class="st">"America/New_York"</span>)<span class="sc">+</span><span class="fu">ddays</span>(<span class="dv">1</span>)</span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd_hms</span>(<span class="st">"2026-03-08 01:00:00"</span>, <span class="at">tz =</span> <span class="st">"America/New_York"</span>)<span class="sc">+</span><span class="fu">days</span>(<span class="dv">1</span>)</span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## Intervals</span></span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a><span class="co">#  start %--% end</span></span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>y2023 <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">"2023-01-01"</span>) <span class="sc">%--%</span> <span class="fu">ymd</span>(<span class="st">"2024-01-01"</span>)</span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a>y2024 <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">"2024-01-01"</span>) <span class="sc">%--%</span> <span class="fu">ymd</span>(<span class="st">"2025-01-01"</span>)</span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a>y2023 <span class="sc">/</span> <span class="fu">days</span>(<span class="dv">1</span>)</span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a>y2024 <span class="sc">/</span> <span class="fu">days</span>(<span class="dv">1</span>)</span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a>                           </span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a><span class="fu">## 时区</span></span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.timezone</span>()</span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a><span class="fu">OlsonNames</span>()</span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

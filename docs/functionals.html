@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>10&nbsp; 泛函purrr – R数据科学与编程</title>
+<title>11&nbsp; 泛函purrr – R数据科学</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_type.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./functionals.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./functionals.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R数据科学与编程</a> 
+      <a href="./">R数据科学</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -145,200 +145,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">介绍</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">R Data Science</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_type.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">数据类型</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">数据结构</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./numeric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">数值型数据的操纵</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./logical_operation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">逻辑运算的操纵</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./string_text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./base_function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">base 函数</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_write.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">读写</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">读写</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./base_function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">base 函数</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numeric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">数值型数据的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./logical_operation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">逻辑运算的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datetime.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">日期时间</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./string_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">字符文本的操纵</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./transform_tidy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">数据清洗</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据清洗</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./functionals.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dynamic_report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">动态报告</span></span></a>
   </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">大数据</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data.table.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><code>data.table</code></span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./arrow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Arrow</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./polars.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Polars</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./parallel_computing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">并行计算</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spark.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Spark</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Rcpp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Rcpp</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./R_Python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R⬌Python</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">编程</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./control_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">控制结构</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./exception_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">异常处理</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./environments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">环境</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">函数</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Functional_Programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">函数式编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Generic_Programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">泛型编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./object_oriented_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">面向对象编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./meta_programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">元编程</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./quasiquotation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Quasiquotation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Evaluation</span></span></a>
-  </div>
-</li>
-      </ul>
 </li>
     </ul>
 </div>
@@ -349,49 +220,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#map-%E5%8F%98%E4%BD%93" id="toc-map-变体" class="nav-link active" data-scroll-target="#map-%E5%8F%98%E4%BD%93"><span class="header-section-number">10.1</span> <code>map</code> 变体</a>
+<a href="#map-%E5%8F%98%E4%BD%93" id="toc-map-变体" class="nav-link active" data-scroll-target="#map-%E5%8F%98%E4%BD%93"><span class="header-section-number">11.1</span> <code>map</code> 变体</a>
   <ul>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%88%97%E8%A1%A8" id="toc-返回列表" class="nav-link" data-scroll-target="#%E8%BF%94%E5%9B%9E%E5%88%97%E8%A1%A8"><span class="header-section-number">10.1.1</span> 返回列表</a></li>
-  <li><a href="#%E8%BF%94%E5%9B%9E%E5%8E%9F%E5%AD%90%E5%90%91%E9%87%8F" id="toc-返回原子向量" class="nav-link" data-scroll-target="#%E8%BF%94%E5%9B%9E%E5%8E%9F%E5%AD%90%E5%90%91%E9%87%8F"><span class="header-section-number">10.1.2</span> 返回原子向量</a></li>
-  <li><a href="#%E8%BF%94%E5%9B%9E%E4%B8%8E%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E7%9B%B8%E5%90%8C%E7%9A%84%E8%BE%93%E5%87%BAmodify" id="toc-返回与输入类型相同的输出modify" class="nav-link" data-scroll-target="#%E8%BF%94%E5%9B%9E%E4%B8%8E%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E7%9B%B8%E5%90%8C%E7%9A%84%E8%BE%93%E5%87%BAmodify"><span class="header-section-number">10.1.3</span> <strong>返回与输入类型相同的输出：<code>modify()</code></strong></a></li>
-  <li><a href="#%E6%97%A0%E8%BF%94%E5%9B%9E" id="toc-无返回" class="nav-link" data-scroll-target="#%E6%97%A0%E8%BF%94%E5%9B%9E"><span class="header-section-number">10.1.4</span> 无返回</a></li>
-  <li><a href="#%E4%B8%A4%E4%B8%AA%E8%BE%93%E5%85%A5" id="toc-两个输入" class="nav-link" data-scroll-target="#%E4%B8%A4%E4%B8%AA%E8%BE%93%E5%85%A5"><span class="header-section-number">10.1.5</span> 两个输入</a></li>
-  <li><a href="#%E9%81%8D%E5%8E%86%E5%80%BC%E5%92%8C%E7%B4%A2%E5%BC%95" id="toc-遍历值和索引" class="nav-link" data-scroll-target="#%E9%81%8D%E5%8E%86%E5%80%BC%E5%92%8C%E7%B4%A2%E5%BC%95"><span class="header-section-number">10.1.6</span> <strong>遍历值和索引</strong></a></li>
-  <li><a href="#%E4%BB%BB%E6%84%8F%E6%95%B0%E9%87%8F%E7%9A%84%E8%BE%93%E5%85%A5" id="toc-任意数量的输入" class="nav-link" data-scroll-target="#%E4%BB%BB%E6%84%8F%E6%95%B0%E9%87%8F%E7%9A%84%E8%BE%93%E5%85%A5"><span class="header-section-number">10.1.7</span> <strong>任意数量的输入</strong></a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%88%97%E8%A1%A8" id="toc-返回列表" class="nav-link" data-scroll-target="#%E8%BF%94%E5%9B%9E%E5%88%97%E8%A1%A8"><span class="header-section-number">11.1.1</span> 返回列表</a></li>
+  <li><a href="#%E8%BF%94%E5%9B%9E%E5%8E%9F%E5%AD%90%E5%90%91%E9%87%8F" id="toc-返回原子向量" class="nav-link" data-scroll-target="#%E8%BF%94%E5%9B%9E%E5%8E%9F%E5%AD%90%E5%90%91%E9%87%8F"><span class="header-section-number">11.1.2</span> 返回原子向量</a></li>
+  <li><a href="#%E8%BF%94%E5%9B%9E%E4%B8%8E%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E7%9B%B8%E5%90%8C%E7%9A%84%E8%BE%93%E5%87%BAmodify" id="toc-返回与输入类型相同的输出modify" class="nav-link" data-scroll-target="#%E8%BF%94%E5%9B%9E%E4%B8%8E%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B%E7%9B%B8%E5%90%8C%E7%9A%84%E8%BE%93%E5%87%BAmodify"><span class="header-section-number">11.1.3</span> <strong>返回与输入类型相同的输出：<code>modify()</code></strong></a></li>
+  <li><a href="#%E6%97%A0%E8%BF%94%E5%9B%9E" id="toc-无返回" class="nav-link" data-scroll-target="#%E6%97%A0%E8%BF%94%E5%9B%9E"><span class="header-section-number">11.1.4</span> 无返回</a></li>
+  <li><a href="#%E4%B8%A4%E4%B8%AA%E8%BE%93%E5%85%A5" id="toc-两个输入" class="nav-link" data-scroll-target="#%E4%B8%A4%E4%B8%AA%E8%BE%93%E5%85%A5"><span class="header-section-number">11.1.5</span> 两个输入</a></li>
+  <li><a href="#%E9%81%8D%E5%8E%86%E5%80%BC%E5%92%8C%E7%B4%A2%E5%BC%95" id="toc-遍历值和索引" class="nav-link" data-scroll-target="#%E9%81%8D%E5%8E%86%E5%80%BC%E5%92%8C%E7%B4%A2%E5%BC%95"><span class="header-section-number">11.1.6</span> <strong>遍历值和索引</strong></a></li>
+  <li><a href="#%E4%BB%BB%E6%84%8F%E6%95%B0%E9%87%8F%E7%9A%84%E8%BE%93%E5%85%A5" id="toc-任意数量的输入" class="nav-link" data-scroll-target="#%E4%BB%BB%E6%84%8F%E6%95%B0%E9%87%8F%E7%9A%84%E8%BE%93%E5%85%A5"><span class="header-section-number">11.1.7</span> <strong>任意数量的输入</strong></a></li>
   </ul>
 </li>
   <li>
-<a href="#reduce-%E5%AE%B6%E6%97%8F" id="toc-reduce-家族" class="nav-link" data-scroll-target="#reduce-%E5%AE%B6%E6%97%8F"><span class="header-section-number">10.2</span> <code>reduce</code> 家族</a>
+<a href="#reduce-%E5%AE%B6%E6%97%8F" id="toc-reduce-家族" class="nav-link" data-scroll-target="#reduce-%E5%AE%B6%E6%97%8F"><span class="header-section-number">11.2</span> <code>reduce</code> 家族</a>
   <ul>
-<li><a href="#reduce" id="toc-reduce" class="nav-link" data-scroll-target="#reduce"><span class="header-section-number">10.2.1</span> <code>reduce()</code></a></li>
-  <li><a href="#accumulate" id="toc-accumulate" class="nav-link" data-scroll-target="#accumulate"><span class="header-section-number">10.2.2</span> <code>accumulate()</code></a></li>
-  <li><a href="#reduce2xyf.init" id="toc-reduce2xyf.init" class="nav-link" data-scroll-target="#reduce2xyf.init"><span class="header-section-number">10.2.3</span> <code>reduce2(x,y,f,.init)</code></a></li>
+<li><a href="#reduce" id="toc-reduce" class="nav-link" data-scroll-target="#reduce"><span class="header-section-number">11.2.1</span> <code>reduce()</code></a></li>
+  <li><a href="#accumulate" id="toc-accumulate" class="nav-link" data-scroll-target="#accumulate"><span class="header-section-number">11.2.2</span> <code>accumulate()</code></a></li>
+  <li><a href="#reduce2xyf.init" id="toc-reduce2xyf.init" class="nav-link" data-scroll-target="#reduce2xyf.init"><span class="header-section-number">11.2.3</span> <code>reduce2(x,y,f,.init)</code></a></li>
   </ul>
 </li>
-  <li><a href="#%E8%B0%93%E8%AF%8D%E6%B3%9B%E5%87%BD" id="toc-谓词泛函" class="nav-link" data-scroll-target="#%E8%B0%93%E8%AF%8D%E6%B3%9B%E5%87%BD"><span class="header-section-number">10.3</span> 谓词泛函</a></li>
+  <li><a href="#%E8%B0%93%E8%AF%8D%E6%B3%9B%E5%87%BD" id="toc-谓词泛函" class="nav-link" data-scroll-target="#%E8%B0%93%E8%AF%8D%E6%B3%9B%E5%87%BD"><span class="header-section-number">11.3</span> 谓词泛函</a></li>
   <li>
-<a href="#base-%E5%8C%85%E6%B3%9B%E5%87%BD" id="toc-base-包泛函" class="nav-link" data-scroll-target="#base-%E5%8C%85%E6%B3%9B%E5%87%BD"><span class="header-section-number">10.4</span> <em>base</em> 包泛函</a>
+<a href="#base-%E5%8C%85%E6%B3%9B%E5%87%BD" id="toc-base-包泛函" class="nav-link" data-scroll-target="#base-%E5%8C%85%E6%B3%9B%E5%87%BD"><span class="header-section-number">11.4</span> <em>base</em> 包泛函</a>
   <ul>
-<li><a href="#apply" id="toc-apply" class="nav-link" data-scroll-target="#apply"><span class="header-section-number">10.4.1</span> <code>apply()</code></a></li>
+<li><a href="#apply" id="toc-apply" class="nav-link" data-scroll-target="#apply"><span class="header-section-number">11.4.1</span> <code>apply()</code></a></li>
   </ul>
 </li>
   <li>
-<a href="#apply%E5%87%BD%E6%95%B0%E7%B0%87" id="toc-apply函数簇" class="nav-link" data-scroll-target="#apply%E5%87%BD%E6%95%B0%E7%B0%87"><span class="header-section-number">10.5</span> apply函数簇</a>
+<a href="#apply%E5%87%BD%E6%95%B0%E7%B0%87" id="toc-apply函数簇" class="nav-link" data-scroll-target="#apply%E5%87%BD%E6%95%B0%E7%B0%87"><span class="header-section-number">11.5</span> apply函数簇</a>
   <ul>
-<li><a href="#apply-1" id="toc-apply-1" class="nav-link" data-scroll-target="#apply-1"><span class="header-section-number">10.5.1</span> <code>apply()</code></a></li>
-  <li><a href="#aggregate" id="toc-aggregate" class="nav-link" data-scroll-target="#aggregate"><span class="header-section-number">10.5.2</span> <code>aggregate()</code></a></li>
-  <li><a href="#by-tapply" id="toc-by-tapply" class="nav-link" data-scroll-target="#by-tapply"><span class="header-section-number">10.5.3</span> <code>by()</code>, <code>tapply()</code></a></li>
-  <li><a href="#lapply-sapply" id="toc-lapply-sapply" class="nav-link" data-scroll-target="#lapply-sapply"><span class="header-section-number">10.5.4</span> <code>lapply()</code>, <code>sapply()</code></a></li>
-  <li><a href="#vapply" id="toc-vapply" class="nav-link" data-scroll-target="#vapply"><span class="header-section-number">10.5.5</span> <code>vapply</code></a></li>
-  <li><a href="#%E6%95%B0%E5%AD%A6%E6%B3%9B%E5%87%BD" id="toc-数学泛函" class="nav-link" data-scroll-target="#%E6%95%B0%E5%AD%A6%E6%B3%9B%E5%87%BD"><span class="header-section-number">10.5.6</span> 数学泛函</a></li>
+<li><a href="#apply-1" id="toc-apply-1" class="nav-link" data-scroll-target="#apply-1"><span class="header-section-number">11.5.1</span> <code>apply()</code></a></li>
+  <li><a href="#aggregate" id="toc-aggregate" class="nav-link" data-scroll-target="#aggregate"><span class="header-section-number">11.5.2</span> <code>aggregate()</code></a></li>
+  <li><a href="#by-tapply" id="toc-by-tapply" class="nav-link" data-scroll-target="#by-tapply"><span class="header-section-number">11.5.3</span> <code>by()</code>, <code>tapply()</code></a></li>
+  <li><a href="#lapply-sapply" id="toc-lapply-sapply" class="nav-link" data-scroll-target="#lapply-sapply"><span class="header-section-number">11.5.4</span> <code>lapply()</code>, <code>sapply()</code></a></li>
+  <li><a href="#vapply" id="toc-vapply" class="nav-link" data-scroll-target="#vapply"><span class="header-section-number">11.5.5</span> <code>vapply</code></a></li>
+  <li><a href="#%E6%95%B0%E5%AD%A6%E6%B3%9B%E5%87%BD" id="toc-数学泛函" class="nav-link" data-scroll-target="#%E6%95%B0%E5%AD%A6%E6%B3%9B%E5%87%BD"><span class="header-section-number">11.5.6</span> 数学泛函</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_type.html">R Data Science</a></li><li class="breadcrumb-item"><a href="./functionals.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span>
+<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">泛函<code>purrr</code></span>
 </h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -414,11 +285,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>泛函（functionals）是将函数作为输入并返回向量作为输出的函数。</p>
 <p>在R语言中，<code>purrr</code>是一个函数式编程包，它提供了一种简洁的方式来迭代数据结构。这个包的名字来源于它所提供的核心功能，即“纯”（<strong>pure</strong>）函数的迭代。在函数式编程中，<strong>纯函数</strong>是指给定相同的输入总是返回相同输出的函数，并且没有副作用（如更改全局变量的值<code>-&gt;</code>、写入磁盘<code>write_csv()</code>或显示在屏幕上<code><a href="https://rdrr.io/r/base/print.html">print()</a></code>）。</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/">purrr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/">purrr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="map-变体" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="map-变体">
-<span class="header-section-number">10.1</span> <code>map</code> 变体</h2>
+<section id="map-变体" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="map-变体">
+<span class="header-section-number">11.1</span> <code>map</code> 变体</h2>
 <table class="caption-top table">
 <thead><tr class="header">
 <th>参数 \ 返回</th>
@@ -464,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p><code>map</code> 的基本构造如下，实际上是用 C 语言编写的，以节省性能，保留名称，并支持一些快捷方式。</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">simple_map</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">f</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">simple_map</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">f</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="co"># 分配一个与输入长度相同的列表</span></span>
 <span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>        <span class="co"># 用 for 循环填充列表</span></span>
 <span>    <span class="va">out</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">f</span><span class="op">(</span><span class="va">x</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>, <span class="va">...</span><span class="op">)</span></span>
@@ -473,11 +344,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="返回列表" class="level3" data-number="10.1.1"><h3 data-number="10.1.1" class="anchored" data-anchor-id="返回列表">
-<span class="header-section-number">10.1.1</span> 返回列表</h3>
+<section id="返回列表" class="level3" data-number="11.1.1"><h3 data-number="11.1.1" class="anchored" data-anchor-id="返回列表">
+<span class="header-section-number">11.1.1</span> 返回列表</h3>
 <p><a href="https://purrr.tidyverse.org/reference/map.html"><code>purrr::map(1:3,f)</code></a> 接受一个向量和一个函数，为向量的每个元素调用一次函数，并在列表中返回结果，等价于<a href="https://rdrr.io/r/base/list.html"><code>list(f(1), f(2), f(3))</code></a></p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">triple</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">3</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">triple</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">3</span></span>
 <span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="va">triple</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
 <span><span class="co">#&gt; [1] 3</span></span>
@@ -489,11 +360,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] 9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="返回原子向量" class="level3" data-number="10.1.2"><h3 data-number="10.1.2" class="anchored" data-anchor-id="返回原子向量">
-<span class="header-section-number">10.1.2</span> 返回原子向量</h3>
+</section><section id="返回原子向量" class="level3" data-number="11.1.2"><h3 data-number="11.1.2" class="anchored" data-anchor-id="返回原子向量">
+<span class="header-section-number">11.1.2</span> 返回原子向量</h3>
 <p><a href="#0"><code>map_lgl()</code>、<code>map_int()</code>、<code>map_dbl()</code>、<code>map_chr()</code></a> 每个都返回一个指定类型的原子向量</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_chr</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">typeof</span><span class="op">)</span> </span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_chr</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">typeof</span><span class="op">)</span> </span>
 <span><span class="co">#&gt;      mpg      cyl     disp       hp     drat       wt     qsec       vs </span></span>
 <span><span class="co">#&gt; "double" "double" "double" "double" "double" "double" "double" "double" </span></span>
 <span><span class="co">#&gt;       am     gear     carb </span></span>
@@ -515,7 +386,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_cyl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/split.html">split</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_cyl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/split.html">split</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span></span>
 <span><span class="va">by_cyl</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">.x</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">coef</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -524,11 +395,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; -5.647025 -2.780106 -2.192438</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="返回与输入类型相同的输出modify" class="level3" data-number="10.1.3"><h3 data-number="10.1.3" class="anchored" data-anchor-id="返回与输入类型相同的输出modify">
-<span class="header-section-number">10.1.3</span> <strong>返回与输入类型相同的输出：<code>modify()</code></strong>
+</section><section id="返回与输入类型相同的输出modify" class="level3" data-number="11.1.3"><h3 data-number="11.1.3" class="anchored" data-anchor-id="返回与输入类型相同的输出modify">
+<span class="header-section-number">11.1.3</span> <strong>返回与输入类型相同的输出：<code>modify()</code></strong>
 </h3>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,</span>
 <span>  y <span class="op">=</span> <span class="fl">6</span><span class="op">:</span><span class="fl">4</span></span>
 <span><span class="op">)</span></span>
@@ -568,11 +439,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="无返回" class="level3" data-number="10.1.4"><h3 data-number="10.1.4" class="anchored" data-anchor-id="无返回">
-<span class="header-section-number">10.1.4</span> 无返回</h3>
+</section><section id="无返回" class="level3" data-number="11.1.4"><h3 data-number="11.1.4" class="anchored" data-anchor-id="无返回">
+<span class="header-section-number">11.1.4</span> 无返回</h3>
 <p>某些函数主要是为了它们的副作用（如<code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code>、<code>write_csv()</code>、<code>ggsave()</code>）而被调用，并且捕获和存储它们的结果是没有意义的。</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">welcome</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">welcome</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Welcome "</span>, <span class="va">x</span>, <span class="st">"!\n"</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="va">names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Hadley"</span>, <span class="st">"Jenny"</span><span class="op">)</span></span>
@@ -587,23 +458,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">walk</a></span><span class="op">(</span><span class="va">names</span>, <span class="va">welcome</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">walk</a></span><span class="op">(</span><span class="va">names</span>, <span class="va">welcome</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Welcome Hadley!</span></span>
 <span><span class="co">#&gt; Welcome Jenny!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cyls</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/split.html">split</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cyls</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/split.html">split</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span></span>
 <span><span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"data/cyl-"</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cyls</span><span class="op">)</span>, <span class="st">".csv"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">walk2</a></span><span class="op">(</span><span class="va">cyls</span>, <span class="va">paths</span>, <span class="va">write.csv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>等价于<code>write.csv(cyls[[1]]paths[[1]])</code>、<code>write.csv(cyls[[2]],paths[[2]])</code></p>
 <p><code>write.csv(cyls[[3]], paths[[3]])</code></p>
-</section><section id="两个输入" class="level3" data-number="10.1.5"><h3 data-number="10.1.5" class="anchored" data-anchor-id="两个输入">
-<span class="header-section-number">10.1.5</span> 两个输入</h3>
+</section><section id="两个输入" class="level3" data-number="11.1.5"><h3 data-number="11.1.5" class="anchored" data-anchor-id="两个输入">
+<span class="header-section-number">11.1.5</span> 两个输入</h3>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">xs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span></span>
@@ -658,13 +529,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [8] 0.4418898</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="遍历值和索引" class="level3" data-number="10.1.6"><h3 data-number="10.1.6" class="anchored" data-anchor-id="遍历值和索引">
-<span class="header-section-number">10.1.6</span> <strong>遍历值和索引</strong>
+</section><section id="遍历值和索引" class="level3" data-number="11.1.6"><h3 data-number="11.1.6" class="anchored" data-anchor-id="遍历值和索引">
+<span class="header-section-number">11.1.6</span> <strong>遍历值和索引</strong>
 </h3>
 <p><a href="https://purrr.tidyverse.org/reference/imap.html"><code>imap(x, f)</code></a>等价于<a href="https://purrr.tidyverse.org/reference/map2.html"><code>map2(x, names(x), f)</code>、<code>map2(x, seq_along(x), f)</code></a></p>
 <p><a href="https://purrr.tidyverse.org/reference/imap.html"><code>imap()</code></a>通常可用于构建标签：</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/imap.html">imap_chr</a></span><span class="op">(</span><span class="va">iris</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"The first value of "</span>, <span class="va">.y</span>, <span class="st">" is "</span>, <span class="va">.x</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/imap.html">imap_chr</a></span><span class="op">(</span><span class="va">iris</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"The first value of "</span>, <span class="va">.y</span>, <span class="st">" is "</span>, <span class="va">.x</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                             Sepal.Length </span></span>
 <span><span class="co">#&gt; "The first value of Sepal.Length is 5.1" </span></span>
 <span><span class="co">#&gt;                              Sepal.Width </span></span>
@@ -690,7 +561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>如果向量未命名，则第二个参数将是索引：</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://purrr.tidyverse.org/reference/imap.html">imap_chr</a></span><span class="op">(</span><span class="va">x</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"The maximum value of "</span>, <span class="va">.y</span>, <span class="st">" is "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "The maximum value of 1 is 965" "The maximum value of 2 is 978"</span></span>
 <span><span class="co">#&gt; [3] "The maximum value of 3 is 949" "The maximum value of 4 is 871"</span></span>
@@ -701,12 +572,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [5] "The highest value of 5 is 843" "The highest value of 6 is 848"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="任意数量的输入" class="level3" data-number="10.1.7"><h3 data-number="10.1.7" class="anchored" data-anchor-id="任意数量的输入">
-<span class="header-section-number">10.1.7</span> <strong>任意数量的输入</strong>
+</section><section id="任意数量的输入" class="level3" data-number="11.1.7"><h3 data-number="11.1.7" class="anchored" data-anchor-id="任意数量的输入">
+<span class="header-section-number">11.1.7</span> <strong>任意数量的输入</strong>
 </h3>
 <p><code>map2(x, y, f )</code> 等价于 <code>pmap(list(x, y), f)</code></p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/pmap.html">pmap_dbl</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">xs</span>, <span class="va">ws</span><span class="op">)</span>, <span class="va">weighted.mean</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/pmap.html">pmap_dbl</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">xs</span>, <span class="va">ws</span><span class="op">)</span>, <span class="va">weighted.mean</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1]        NA 0.4590300 0.5834602 0.5998278 0.3067582 0.4448242 0.3947274</span></span>
 <span><span class="co">#&gt; [8] 0.4418898</span></span>
 <span><span class="fu"><a href="https://purrr.tidyverse.org/reference/pmap.html">pmap_dbl</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">xs</span>, <span class="va">ws</span><span class="op">)</span>, <span class="va">weighted.mean</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -715,7 +586,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 命名列表 调用函数</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 命名列表 调用函数</span></span>
 <span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span> <span class="va">n</span>, <span class="op">~</span> <span class="va">min</span>, <span class="op">~</span> <span class="va">max</span>,</span>
 <span>   <span class="fl">1L</span>,     <span class="fl">0</span>,     <span class="fl">1</span>,</span>
@@ -735,11 +606,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1] 210.2793 755.9765 955.3395</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="reduce-家族" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="reduce-家族">
-<span class="header-section-number">10.2</span> <code>reduce</code> 家族</h2>
+</section></section><section id="reduce-家族" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="reduce-家族">
+<span class="header-section-number">11.2</span> <code>reduce</code> 家族</h2>
 <p>通过迭代应用两个输入的函数（a&nbsp;<strong>binary</strong>&nbsp;function）将列表简化为单个值。</p>
-<section id="reduce" class="level3" data-number="10.2.1"><h3 data-number="10.2.1" class="anchored" data-anchor-id="reduce">
-<span class="header-section-number">10.2.1</span> <code>reduce()</code>
+<section id="reduce" class="level3" data-number="11.2.1"><h3 data-number="11.2.1" class="anchored" data-anchor-id="reduce">
+<span class="header-section-number">11.2.1</span> <code>reduce()</code>
 </h3>
 <p><a href="https://purrr.tidyverse.org/reference/reduce.html"><code>reduce()</code></a>获取长度为&nbsp;<em>n</em>&nbsp;的向量，并通过一次调用具有一对值的函数来生成长度为 1 的向量</p>
 <div class="quarto-figure quarto-figure-center">
@@ -748,7 +619,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><code>reduce(1:4, f)</code>等价于<code>f(f(f(1, 2), 3), 4)</code></p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">15</span>, replace <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">15</span>, replace <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># 交集</span></span>
 <span><span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="va">l</span>, <span class="va">intersect</span><span class="op">)</span></span>
@@ -760,7 +631,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">simple_reduce</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">f</span><span class="op">)</span> <span class="op">{</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">simple_reduce</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">f</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">out</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
 <span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">f</span><span class="op">(</span><span class="va">out</span>, <span class="va">x</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
@@ -769,12 +640,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="accumulate" class="level3" data-number="10.2.2"><h3 data-number="10.2.2" class="anchored" data-anchor-id="accumulate">
-<span class="header-section-number">10.2.2</span> <code>accumulate()</code>
+</section><section id="accumulate" class="level3" data-number="11.2.2"><h3 data-number="11.2.2" class="anchored" data-anchor-id="accumulate">
+<span class="header-section-number">11.2.2</span> <code>accumulate()</code>
 </h3>
 <p>第一个变体 ，不仅返回最终结果，还返回所有中间结果</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate</a></span><span class="op">(</span><span class="va">l</span>, <span class="va">intersect</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate</a></span><span class="op">(</span><span class="va">l</span>, <span class="va">intersect</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
 <span><span class="co">#&gt;  [1] 10  5  7  8  1  8  6 10  3  6 10  6  8  3  4</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -789,7 +660,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">10</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">`+`</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 17</span></span>
 <span></span>
@@ -797,11 +668,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; [1]  4  7 17</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="reduce2xyf.init" class="level3" data-number="10.2.3"><h3 data-number="10.2.3" class="anchored" data-anchor-id="reduce2xyf.init">
-<span class="header-section-number">10.2.3</span> <code>reduce2(x,y,f,.init)</code>
+</section><section id="reduce2xyf.init" class="level3" data-number="11.2.3"><h3 data-number="11.2.3" class="anchored" data-anchor-id="reduce2xyf.init">
+<span class="header-section-number">11.2.3</span> <code>reduce2(x,y,f,.init)</code>
 </h3>
-</section></section><section id="谓词泛函" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="谓词泛函">
-<span class="header-section-number">10.3</span> 谓词泛函</h2>
+</section></section><section id="谓词泛函" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="谓词泛函">
+<span class="header-section-number">11.3</span> 谓词泛函</h2>
 <p>在编程和数学中，“谓词”（Predicate）是一个表达式，它返回一个布尔值（真或假）。谓词通常用于逻辑和函数式编程中，作为判断或决策的基础。</p>
 <p>谓词泛函（Predicate Functionals）是谓词的一个特例，它是一个接受一个或多个参数，并返回一个布尔值的函数。谓词泛函在很多编程语言中都很常见，尤其是在支持函数式编程的语言中。</p>
 <p>谓词泛函的一些关键特点包括：</p>
@@ -820,7 +691,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><a href="https://purrr.tidyverse.org/reference/keep.html"><code>keep(.x, .p)</code></a> <em>保留</em>所有匹配的元素; <a href="https://purrr.tidyverse.org/reference/keep.html"><code>discard(.x, .p)</code></a><em>删除</em>所有匹配的元素。</p></li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  num1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span>, <span class="fl">20</span><span class="op">)</span>,</span>
 <span>  num2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">7</span><span class="op">)</span>,</span>
 <span>  chr1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span></span>
@@ -840,7 +711,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>map变体也有谓词泛函</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map_if.html">map_if</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">is.numeric</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map_if.html">map_if</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">is.numeric</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 3</span></span>
 <span><span class="co">#&gt;  $ num1: num 10</span></span>
 <span><span class="co">#&gt;  $ num2: num 6</span></span>
@@ -856,10 +727,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt;  $ num2: num 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="base-包泛函" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="base-包泛函">
-<span class="header-section-number">10.4</span> <em>base</em> 包泛函</h2>
-<section id="apply" class="level3" data-number="10.4.1"><h3 data-number="10.4.1" class="anchored" data-anchor-id="apply">
-<span class="header-section-number">10.4.1</span> <code>apply()</code>
+</section><section id="base-包泛函" class="level2" data-number="11.4"><h2 data-number="11.4" class="anchored" data-anchor-id="base-包泛函">
+<span class="header-section-number">11.4</span> <em>base</em> 包泛函</h2>
+<section id="apply" class="level3" data-number="11.4.1"><h3 data-number="11.4.1" class="anchored" data-anchor-id="apply">
+<span class="header-section-number">11.4.1</span> <code>apply()</code>
 </h3>
 <p><code><a href="https://rdrr.io/r/base/apply.html">base::apply()</a></code></p>
 <ul>
@@ -868,7 +739,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><code>FUN</code>，一个汇总函数。</p></li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a3d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html">array</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">24</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a3d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html">array</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">24</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">a3d</span></span>
 <span><span class="co">#&gt; , , 1</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -895,7 +766,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code>、<code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code>&nbsp;和&nbsp;<code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code>&nbsp;针对的都是列表结构的数据，<code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code>是简化（simplified）版本的&nbsp;<code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code>，而&nbsp;<code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code>&nbsp;则在&nbsp;<code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code>&nbsp;的基础上加了结果验证，以保证可靠性。</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>  <span class="fl">35</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">1</span>, sd <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,</span>
@@ -909,7 +780,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">temp</span>, <span class="va">basic</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">temp</span>, <span class="va">basic</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
 <span><span class="co">#&gt;      min     mean   median      max </span></span>
 <span><span class="co">#&gt; 19.73327 31.09343 32.89923 39.89794 </span></span>
@@ -934,7 +805,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span><span class="op">(</span><span class="va">temp</span>, <span class="va">basic</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span><span class="op">(</span><span class="va">temp</span>, <span class="va">basic</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;            [,1]     [,2]     [,3]      [,4]</span></span>
 <span><span class="co">#&gt; min    19.73327 20.28530 13.88828  1.818265</span></span>
 <span><span class="co">#&gt; mean   31.09343 23.00890 23.72360 31.437784</span></span>
@@ -943,24 +814,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p><code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code> 第 3 个参数传入对每一个子集调用函数后结果的预期，上述设定为包含 4 个元素的数值型向量。</p>
-</section></section><section id="apply函数簇" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="apply函数簇">
-<span class="header-section-number">10.5</span> apply函数簇</h2>
-<section id="apply-1" class="level3" data-number="10.5.1"><h3 data-number="10.5.1" class="anchored" data-anchor-id="apply-1">
-<span class="header-section-number">10.5.1</span> <code>apply()</code>
+</section></section><section id="apply函数簇" class="level2" data-number="11.5"><h2 data-number="11.5" class="anchored" data-anchor-id="apply函数簇">
+<span class="header-section-number">11.5</span> apply函数簇</h2>
+<section id="apply-1" class="level3" data-number="11.5.1"><h3 data-number="11.5.1" class="anchored" data-anchor-id="apply-1">
+<span class="header-section-number">11.5.1</span> <code>apply()</code>
 </h3>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span>X <span class="op">=</span> <span class="va">mtcars</span>, MARGIN <span class="op">=</span> <span class="fl">2</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span>X <span class="op">=</span> <span class="va">mtcars</span>, MARGIN <span class="op">=</span> <span class="fl">2</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span>
 <span><span class="co">#&gt;        mpg        cyl       disp         hp       drat         wt       qsec </span></span>
 <span><span class="co">#&gt;  20.090625   6.187500 230.721875 146.687500   3.596563   3.217250  17.848750 </span></span>
 <span><span class="co">#&gt;         vs         am       gear       carb </span></span>
 <span><span class="co">#&gt;   0.437500   0.406250   3.687500   2.812500</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="aggregate" class="level3" data-number="10.5.2"><h3 data-number="10.5.2" class="anchored" data-anchor-id="aggregate">
-<span class="header-section-number">10.5.2</span> <code>aggregate()</code>
+</section><section id="aggregate" class="level3" data-number="11.5.2"><h3 data-number="11.5.2" class="anchored" data-anchor-id="aggregate">
+<span class="header-section-number">11.5.2</span> <code>aggregate()</code>
 </h3>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtcars</span>,</span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mtcars</span>,</span>
 <span>          by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>am<span class="op">=</span><span class="va">mtcars</span><span class="op">$</span><span class="va">am</span>,cyl<span class="op">=</span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span>,</span>
 <span>          FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
@@ -1091,7 +962,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">.</span><span class="op">~</span><span class="va">am</span><span class="op">+</span><span class="va">cyl</span>,</span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">.</span><span class="op">~</span><span class="va">am</span><span class="op">+</span><span class="va">cyl</span>,</span>
 <span>          data <span class="op">=</span> <span class="va">mtcars</span>,</span>
 <span>          FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
@@ -1206,7 +1077,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">~</span><span class="va">am</span><span class="op">+</span><span class="va">cyl</span>,</span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">~</span><span class="va">am</span><span class="op">+</span><span class="va">cyl</span>,</span>
 <span>          data <span class="op">=</span> <span class="va">mtcars</span>,</span>
 <span>          FUN <span class="op">=</span> <span class="va">summary</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
@@ -1253,12 +1124,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section><section id="by-tapply" class="level3" data-number="10.5.3"><h3 data-number="10.5.3" class="anchored" data-anchor-id="by-tapply">
-<span class="header-section-number">10.5.3</span> <code>by()</code>, <code>tapply()</code>
+</section><section id="by-tapply" class="level3" data-number="11.5.3"><h3 data-number="11.5.3" class="anchored" data-anchor-id="by-tapply">
+<span class="header-section-number">11.5.3</span> <code>by()</code>, <code>tapply()</code>
 </h3>
 <p><code><a href="https://rdrr.io/r/base/by.html">by()</a></code>是应用于数据框的tapply的面向对象包装器。</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/by.html">by</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mtcars</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>,</span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/by.html">by</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mtcars</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>,</span>
 <span>   INDICES <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>cyl<span class="op">=</span><span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span>,</span>
 <span>   FUN <span class="op">=</span> <span class="va">summary</span><span class="op">)</span></span>
 <span><span class="co">#&gt; cyl: 4</span></span>
@@ -1351,13 +1222,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt;  Max.   :19.20   Max.   :8   Max.   :472.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="lapply-sapply" class="level3" data-number="10.5.4"><h3 data-number="10.5.4" class="anchored" data-anchor-id="lapply-sapply">
-<span class="header-section-number">10.5.4</span> <code>lapply()</code>, <code>sapply()</code>
+</section><section id="lapply-sapply" class="level3" data-number="11.5.4"><h3 data-number="11.5.4" class="anchored" data-anchor-id="lapply-sapply">
+<span class="header-section-number">11.5.4</span> <code>lapply()</code>, <code>sapply()</code>
 </h3>
 <p><code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> returns a list of the same length as X,</p>
 <p><code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code> is a user-friendly version and wrapper of <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> by default returning a vector or matrix</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, beta <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, logic <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, beta <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, logic <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span>X <span class="op">=</span> <span class="va">x</span>,FUN <span class="op">=</span> <span class="va">quantile</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $a</span></span>
 <span><span class="co">#&gt;    0%   25%   50%   75%  100% </span></span>
@@ -1380,11 +1251,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 100% 10.00 20.08553692   1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="vapply" class="level3" data-number="10.5.5"><h3 data-number="10.5.5" class="anchored" data-anchor-id="vapply">
-<span class="header-section-number">10.5.5</span> <code>vapply</code>
+</section><section id="vapply" class="level3" data-number="11.5.5"><h3 data-number="11.5.5" class="anchored" data-anchor-id="vapply">
+<span class="header-section-number">11.5.5</span> <code>vapply</code>
 </h3>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_cyl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/split.html">split</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span></span>
+<details open="" class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_cyl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/split.html">split</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span></span>
 <span><span class="va">models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">by_cyl</span>, <span class="kw">function</span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">models</span></span>
 <span><span class="co">#&gt; $`4`</span></span>
@@ -1420,8 +1291,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; -5.647025 -2.780106 -2.192438</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="数学泛函" class="level3" data-number="10.5.6"><h3 data-number="10.5.6" class="anchored" data-anchor-id="数学泛函">
-<span class="header-section-number">10.5.6</span> 数学泛函</h3>
+</section><section id="数学泛函" class="level3" data-number="11.5.6"><h3 data-number="11.5.6" class="anchored" data-anchor-id="数学泛函">
+<span class="header-section-number">11.5.6</span> 数学泛函</h3>
 
 
 <!-- -->
@@ -1898,12 +1769,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./transform_tidy.html" class="pagination-link" aria-label="数据清洗">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">数据清洗</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据清洗</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./dynamic_report.html" class="pagination-link" aria-label="动态报告">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">动态报告</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">动态报告</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1923,12 +1794,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## `map` 变体</span></span>
 <span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>| 参数 <span class="sc">\\</span> 返回    | 列表                                                        | 原子                                                                 | 同类型                                                           | 无                                                           |</span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>|---------------|---------------|---------------|---------------|---------------|</span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>| 一个参数        | <span class="co">[</span><span class="ot">`map()`</span><span class="co">](https://purrr.tidyverse.org/reference/map.html)</span>   | <span class="co">[</span><span class="ot">`map_lgl()`</span><span class="co">](https://purrr.tidyverse.org/reference/map.html)</span>, ...   | <span class="co">[</span><span class="ot">`modify()`</span><span class="co">](https://purrr.tidyverse.org/reference/modify.html)</span>  | <span class="co">[</span><span class="ot">`walk()`</span><span class="co">](https://purrr.tidyverse.org/reference/map.html)</span>   |</span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>| 两个参数        | <span class="co">[</span><span class="ot">`map2()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span> | <span class="co">[</span><span class="ot">`map2_lgl()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span>, ... | <span class="co">[</span><span class="ot">`modify2()`</span><span class="co">](https://purrr.tidyverse.org/reference/modify.html)</span> | <span class="co">[</span><span class="ot">`walk2()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span> |</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>| 参数 <span class="sc">\\</span> 返回 | 列表 | 原子 | 同类型 | 无 |</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>|----|----|----|----|----|</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>| 一个参数 | <span class="co">[</span><span class="ot">`map()`</span><span class="co">](https://purrr.tidyverse.org/reference/map.html)</span> | <span class="co">[</span><span class="ot">`map_lgl()`</span><span class="co">](https://purrr.tidyverse.org/reference/map.html)</span>, ... | <span class="co">[</span><span class="ot">`modify()`</span><span class="co">](https://purrr.tidyverse.org/reference/modify.html)</span> | <span class="co">[</span><span class="ot">`walk()`</span><span class="co">](https://purrr.tidyverse.org/reference/map.html)</span> |</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>| 两个参数 | <span class="co">[</span><span class="ot">`map2()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span> | <span class="co">[</span><span class="ot">`map2_lgl()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span>, ... | <span class="co">[</span><span class="ot">`modify2()`</span><span class="co">](https://purrr.tidyverse.org/reference/modify.html)</span> | <span class="co">[</span><span class="ot">`walk2()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span> |</span>
 <span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>| 一个参数 + 索引 | <span class="co">[</span><span class="ot">`imap()`</span><span class="co">](https://purrr.tidyverse.org/reference/imap.html)</span> | <span class="co">[</span><span class="ot">`imap_lgl()`</span><span class="co">](https://purrr.tidyverse.org/reference/imap.html)</span>, ... | <span class="co">[</span><span class="ot">`imodify()`</span><span class="co">](https://purrr.tidyverse.org/reference/modify.html)</span> | <span class="co">[</span><span class="ot">`iwalk()`</span><span class="co">](https://purrr.tidyverse.org/reference/imap.html)</span> |</span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>| N 个参数        | <span class="co">[</span><span class="ot">`pmap()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span> | <span class="co">[</span><span class="ot">`pmap_lgl()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span>, ... | —                                                                | <span class="co">[</span><span class="ot">`pwalk()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span> |</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>| N 个参数 | <span class="co">[</span><span class="ot">`pmap()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span> | <span class="co">[</span><span class="ot">`pmap_lgl()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span>, ... | — | <span class="co">[</span><span class="ot">`pwalk()`</span><span class="co">](https://purrr.tidyverse.org/reference/map2.html)</span> |</span>
 <span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="in">`map`</span> 的基本构造如下，实际上是用 C 语言编写的，以节省性能，保留名称，并支持一些快捷方式。</span>
 <span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a></span>
@@ -2281,7 +2152,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb32-426"><a href="#cb32-426" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-427"><a href="#cb32-427" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-428"><a href="#cb32-428" aria-hidden="true" tabindex="-1"></a><span class="fu">### 数学泛函</span></span>
-<span id="cb32-429"><a href="#cb32-429" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
