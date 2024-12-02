@@ -1,0 +1,211 @@
+# 正则表达式
+
+## 匹配固定项
+
+```{r}
+str_view(fruit, "berry")  
+```
+
+## 量词 Quantifier
+
+### 贪婪量词
+
+尽可能匹配
+
+```         
+n*      匹配任意次数（0 or more than n）       {0,}
+n+      至少匹配1次（1 or more than n ）       {1,}
+n?      匹配 0或1次（0 or 1 n）                {0,1}
+
+{n,}    至少匹配 n 次。
+{n,m}   N ~ M 次之间的匹配。
+{n}     正好匹配 n 次。
+```
+
+```{r}
+x <- c("1234_abcd abbb", "123 a33aabb", " ab.bcaab", "abbb_132bb")
+
+str_view(x, "ab*") 
+
+str_view(x, "ab+") 
+
+str_view(x, "ab?")
+
+str_view(x, "b{2,5}")
+str_view(x, "\\d{2}")
+str_view(x, "\\d{2,}")
+str_view(x, "\\d{2,3}")
+```
+
+```         
+```
+
+### 懒惰量词
+
+在满足条件的情况下会尽量少地匹配
+
+原有量词后加一个 ? ，仅保持最小匹配
+
+```{r}
+str_view(x, "b{3,5}?")  #匹配bbb
+str_view(x, "abb??")  # 匹配ab
+str_view(x, "ab+?")  # 匹配ab
+str_view(x, "ab*?")  # 匹配a
+
+```
+
+## Ranges
+
+在方括号`[]`内定义字符范围
+
+### 字符类
+
+| expression | function                                            |
+|------------|-----------------------------------------------------|
+| .          | Any character except new line (\n)                  |
+| (A\|B)     | A or B                                              |
+| (...)      | Group                                               |
+| \n         | nth group / sub pattern                             |
+| \[ABC\]    | Range (A, B or C) 匹配方括号内任意一个字符          |
+| \[\^ABC\]  | Not A, B or C 匹配除方括号内的任意字符              |
+| \-         | 定义一个范围 `[a - zA - Z0 - 9]`                    |
+| \\         | 对特殊字符进行转义，\[\\\^\\-\\\]\] 匹配 \^、-和 \] |
+
+```{r}
+str_view(words, "[aeiou]x[aeiou]")  #匹配 中间x两边元音
+str_view(words, "[^aeiou]y[^aeiou]") #匹配 中间y两边辅音
+str_view(fruit, "a...e")
+x <- "ab-cd AB[CD  123.45 !@#%^  "
+str_view(x, "[abc\\-\\[\\@\\.]")
+```
+
+### 或运算符
+
+```{r}
+#alternation
+str_view(fruit, "apple|melon|nut")
+str_view(fruit, "aa|ee|ii|oo|uu")
+```
+
+
+### Unicode字符
+
+-   **基本 Unicode 范围匹配**：对于支持 Unicode 的正则表达式引擎，可以匹配更广泛的字符范围。例如，`\p{L}`匹配任何语言中的字母字符。`\p{Nd}`匹配任何十进制数字（相当于`[0 - 9]`的 Unicode 版本）。
+
+    ```{r}
+    x <- c("拼音aāà⇌α", "拉丁aáǎβ", "a€∀ζ","货币123¥δ")
+
+    str_view(x,pattern = "\\p{L}")
+    str_view(x,pattern = "\\p{Nd}")
+    ```
+
+-   **特定语言或脚本的 Unicode 范围**：可以使用更具体的 Unicode 脚本块来匹配字符。比如，`\p{Han}`匹配中文、日文、韩文等汉字字符。`\p{Greek}`匹配希腊字母。这些对于处理多语言文本非常有用，例如在文本提取或格式化中，根据不同语言的字符进行区分。
+
+```{r}
+str_view(x,pattern = "\\p{Han}")
+str_view(x,pattern = "\\p{Greek}")
+```
+
+## 锚点Anchors
+
+```{r}
+# 匹配开头^  或结尾$ 
+str_view(fruit, "^(str)")
+str_view(fruit, "(is)$")
+
+str_view(fruit, "apple")
+str_view(fruit, "^apple$") #仅匹配完整字符串
+
+
+
+```
+
+## 元字符（meta-characters）
+
+```{r}
+x <- c("1234_abcd abbb", "123 a33aabb", " ab.bcaab", "abbb_132bb")
+#\d匹配任何数字;匹配任何非数字的内容\D
+str_view(x, "\\d+")
+str_view(x, "\\D+")
+
+#\s匹配任何空格（例如，空格、制表符、换行符）;匹配任何非空格的内容。\S
+str_view(x, "\\s+")
+str_view(x, "\\S+")
+
+#\w匹配任何“单词”字符，即字母、数字和下划线;匹配任何“非单词”字符。\W
+str_view(x, "\\w+")
+str_view(x, "\\W+")
+
+
+#  \b  单词的开头或结尾,字符的边界
+x <- c("summary(x)", "summarize(df)", "row_sum(x)", "sum_(x)")
+str_view(x, "sum")
+str_view(x, "^sum$")
+str_view(x, "\\bsum\\_\\b") 
+
+
+```
+
+
+
+
+
+## 零宽匹配
+
+断言（assertions）是一种零宽度（zero - width）的匹配，它用于指定一个位置，这个位置应该满足某种条件，但不会消耗（匹配）任何字符。
+
+zero-width match
+
+```{r}
+str_view("abc", c("$", "^", "\\b"))
+str_replace_all(
+    string = "abc",
+    pattern =  c("$", "^", "\\b"),
+    replacement =  "+_+"
+)
+```
+
+### 断言assertions
+
+```{r}
+x <- c("ocauuno", "0on0242uh","nauguio","nucu0ono0huhun")
+
+# 正向肯定预查（Positive Lookahead）
+str_view(x,pattern = "n(?=o)")  # 向后匹配 n后面紧跟着o，不匹配o
+
+# 正向否定预查（Negative Lookahead）
+str_view(x,pattern = "n(?!o)")  # 匹配后面不跟着o的n
+
+
+
+# 反向肯定预查（Positive Lookbehind）
+str_view(x,pattern = "(?<=0o)n")  # 匹配前面是0o的n
+
+# 反向否定预查（Negative Lookbehind）
+
+str_view(x,pattern = "(?<!0o)n")  # 匹配前面不是0o的n
+```
+
+## 反向引用backreference
+
+反向引用（Backreference）允许引用之前在正则表达式中匹配到的子表达式。简单来说，就是可以在正则表达式的后续部分重复使用之前已经匹配的内容。它通过使用`\数字`的形式来实现，其中 “数字” 表示之前捕获组的编号。
+
+捕获组是通过在正则表达式中使用括号()来定义的。例如，在正则表达式(\d{3})-(\d{4})中，(\d{3})是第一个捕获组，(\d{4})是第二个捕获组。捕获组的编号是从左到右，从 1 开始计数。当这个正则表达式匹配一个电话号码，如123 - 4567时，123被存储在第一个捕获组中，4567被存储在第二个捕获组中。
+
+```{r}
+str_replace(string = c("123 - 4567 - 0030 - 789",
+                           "123 - 4567 - 4567 - 123"),
+         pattern = "(\\d{3}) - (\\d{4}) - \\2 - \\1",
+         replacement = "backreference")
+```
+
+
+有时候，我们可能不希望捕获组存储匹配内容，但又想使用分组来控制优先级或者方便使用反向引用。这时候可以使用非捕获组，其语法是(?:...)。例如，在正则表达式(?:\d{3})-(\d{4})中，(?:\d{3})是一个非捕获组，它匹配 3 位数字但不存储，只有(\d{4})是捕获组。如果要在后续部分引用\d{3}部分的内容，就不能使用反向引用，因为它没有被捕获。
+
+```{r}
+str_replace(string = c("123 - 4567 - 0030 - 789",
+                           "123 - 4567 - 45657 - 123"),
+         pattern = "(\\d{3}) - (?:\\d{4}) - (?:\\d{5}) - \\1",
+         replacement = "no backreference")
+```
+
