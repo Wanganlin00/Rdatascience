@@ -128,7 +128,7 @@ str_view(c("", "a", "."), stringr::fixed("a"))
 str_view("x X", stringr::fixed("X", ignore_case = TRUE))
 ```
 
-## `str_flatten`
+## 宽格式`str_flatten`
 
 ```{r}
 df <- tribble(
@@ -170,7 +170,6 @@ single_quote <- "\'"
 double_quote <- '\"'
 backslash <- "\\"
 x <- c(single_quote, double_quote, backslash)
-x
 
 str_view(x)
 ```
@@ -197,118 +196,4 @@ backslash <- r"--(\)--"
 x <- c(single_quote, double_quote, backslash)
 x
 str_view(x)
-```
-
-## 正则表达式
-
-### 直接匹配
-
-```{r}
-str_view(fruit, "berry")  
-```
-
-### 字符类 character classes
-
-```{r}
-#   [...]    匹配方括号内任意一个字符
-#   [^...]   匹配除方括号内的任意字符
-str_view(words, "[aeiou]x[aeiou]")  #匹配 中间x两边元音
-
-str_view(words, "[^aeiou]y[^aeiou]") #匹配 中间y两边辅音
-
-#  -   定义一个范围，匹配任何小写字母并匹配任何数字。[a-z][0-9]
-#  \   对特殊字符进行转义，[\\^\\-\\]]  匹配 ^、-和 ]
-x <- "abcd ABCD  12345 -![@#%^."
-str_view(x, "[abc\\^\\[]")
-str_view(x, "[a-zA-Z]")
-str_view(x, "[^a-z0-9]")
-```
-
-### 量词 Quantifier
-
-```{r}
-# {n}正好匹配 n 次。
-# {n,}至少匹配 n 次。
-# {n,m}N 次和 M 次之间的匹配。
-x <- c("1234_abcd  123 a33a bbbc  22_23" , "abb","aab",'a_bbbbb')
-
-str_view(x, "b{2,5}")
-str_view(x, "\\d{2}")
-str_view(x, "\\d{2,}")
-str_view(x, "\\d{2,3}")
-
-
-
-#    ?  匹配 0 或 1 次   {0,1}
-#    +  至少匹配一次    {1,}
-#    *  匹配任意次数    {0,}
-
-str_view(x, "ab?")  
-str_view(x, "ab+")  
-str_view(x, "ab*")  
-  
-# 贪婪量词 尽可能匹配  上述都是
-
-# 懒惰量词 原有量词后加一个 ? ，仅保持最小匹配
-str_view(x, "\\d{2,3}?")
-
-str_view(x, "ab??")  # 匹配a
-str_view(x, "ab+?")  # 匹配ab
-str_view(x, "ab*?")  # 匹配a
-
-```
-
-### 元字符（meta-characters）
-
-```{r}
-#\d匹配任何数字;匹配任何非数字的内容\D
-str_view(x, "\\d+")
-str_view(x, "\\D+")
-
-#\s匹配任何空格（例如，空格、制表符、换行符）;匹配任何非空格的内容。\S
-str_view(x, "\\s+")
-str_view(x, "\\S+")
-
-#\w匹配任何“单词”字符，即字母、数字和下划线;匹配任何“非单词”字符。\W
-str_view(x, "\\w+")
-str_view(x, "\\W+")
-
-
-#   .        匹配除 \n 以外的任意字符
-str_view(fruit, "a...e")
-```
-
-**锚点Anchors**
-
-```{r}
-# 匹配开头或结尾：^  $
-str_view(fruit, "^a")
-str_view(fruit, "a$")
-
-str_view(fruit, "apple")
-str_view(fruit, "^apple$") #仅匹配完整字符串
-
-
-#  \b  单词的开头或结尾,字符的边界
-x <- c("summary(x)", "summarize(df)", "rowsum(x)", "sum(x)")
-str_view(x, "sum")
-str_view(x, "^sum$")
-str_view(x, "\\bsum\\b") 
-```
-
-### 零宽匹配
-
-zero-width match
-
-```{r}
-str_view("abc", c("$", "^", "\\b"))
-str_replace_all("abc", c("$", "^", "\\b"), "++")
-```
-
-### 或运算符
-
-```{r}
-#alternation
-str_view(fruit, "apple|melon|nut")
-str_view(fruit, "aa|ee|ii|oo|uu")
 ```
