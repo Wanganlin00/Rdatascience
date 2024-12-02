@@ -12,10 +12,15 @@ book:
     - data_structure.qmd
     - read_write.qmd
     - base_function.qmd
+    
+    
     - numeric.qmd
     - logical_operation.qmd
     - datetime.qmd
+    - regular_expressions.qmd
     - string.qmd
+
+
     - transform_tidy.qmd
     - functionals.qmd
     - dynamic_report.qmd
