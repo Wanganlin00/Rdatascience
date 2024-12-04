@@ -1,6 +1,20 @@
-<html>                
-  <head>
-<style type="text/css">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initialscale=1.0">
+        <title>HTML格式</title>
+    <style type="text/css">
+    
+    div {
+            border: 1px solid red;
+            padding: 10px;
+        }
+    
+    span {
+            border: 1px solid blue;
+            padding: 5px;
+        }
 .inline {
   background-color: #f7f7f7;
   border:solid 1px #B0B0B0;
@@ -62,34 +76,98 @@
   font-weight: bold;
 }
 </style>                       
-  <title>Page title</title>
-  </head>  
+
+    </head>
+
   
-  <body>                  
-  <h1 id='first'>  A heading</h1> 
-    <section> <b>第一节 A &gt B </b><i>some italics text.</i> <section>
-     <p> 第一段 Some text &amp; <b>some bold text.</b></p>  
-    <p>This is a link for web scraping : <a href='https://r4ds.hadley.nz/webscraping'>Web scraping</a></p>
-    <p><a href='https://en.wikipedia.org/wiki/Cat'>cats</a></p>
-    <p><a href='https://en.wikipedia.org/wiki/Dog'>dogs</a></p>
-     <p> Some text ; 
-        <ol>
+    <body>                  
+        
+        <h1 id='first'>  一、超文本标记语言（Hyper Text Markup Language，HTML）</h1> 
+        
+        <h2>标题、章节和段落</h2>
+        h1, h2, h3, h4, h5, h6
+        <section>章节，可设置风格</section>
+        <p>段落</P>
+        <subsecion>子章节</subsecion>
+        
+        <h2>文本格式</h2>
+        <b>我是加粗⽂字1</b> 
+        <br/> 
+        <strong>我是加粗⽂字2</strong> 
+        <br/>
+        <br/>
+        <i>斜体italic</i> 
+        <br/>
+        <em>斜体italic</em>
+        <br/>
+        <br/>
+        原价:<s>998</s> 现价:9.98
+        
+        <br> 
+        原价:<del>999</del> 现价:9.98
+        
+        <h2>图片</h2>
+        
+        <img src="Logo2.png" alt="图⽚没有被正常加载时显示此内容" width="500" height="300" title="⿏标悬停在图⽚上的提示⽂字">
+        <img src=' images/boolean_operations.png' width='300' height='200'>  </img> 
+        
+        <h2/>超链接</h2>
+        <p>   <a href="https://www.baidu.com/" target="_blank">点击在新窗⼝（默认）打开百度</a>       
+        </p>
+        <p>   <a href="https://www.baidu.com/" target="_self">点击在原窗口打开百度</a>       
+        </p>
+        <p><a href="#"> 刷新  </a></p>
+        
+        <h2>列表</h2>
+            <h3>无序列表</h3>
+            <ul>
+                <li>python</li>
+                <li>java</li>
+                <li>go</li>
+            </ul>
+              <ul>
+            <li><b>C-3PO</b> is a <i>droid</i> that weighs <span class='weight'>167 kg</span></li>
+            <li><b>R4-P17</b> is a <i>droid</i></li>
+            <li><b>R2-D2</b> is a <i>droid</i> that weighs <span class='weight'>96 kg</span></li>
+            <li><b>Yoda</b> weighs <span class='weight'>66 kg</span></li>
+            </ul>
+            
+            
+            <h3>有序列表</h3>
+            <ol>
+                <li>python</li>
+                <li>java</li>
+                <li>go</li>
+                
+            </ol>  
+          <ol>
           <li>x &lt= y</li>
           <li>y = x </li>
-        </ol>
-        <img src='myimg.png' width='300' height='200'>  </img> 
-    <section> <b>第二节</b>
+          </ol>
+        <h2>布局标签</h2>
+            <div>大盒子，独占一行,这是第一个 div 元素内容</div>
+            <div>这是第二个 div 元素内容</div>
+            <p>这是一个段落元素，会在 div 元素下方另起一行显示</p>
+        
+            <span>小盒子，一行可以放多个,第一个 span 元素</span>
+            <span>第二个 span 元素</span>
+            <span>第三个 span 元素</span>
+            <p>这是一个段落元素，会另起一行显示，和 span 元素的行布局互不影响</p>
+  
+    <h2>表格</h2>
+tr标签：定义表格中的行；
+th标签：表格单元格；
+td标签：定义表格中的单元格，必须嵌套其中；
      <p>This is a paragraph</p>
-       <table class='mytable'>
+       <table class='table' align="center" border="1" width="50">
+           <thead>表格</thead>
+           <tbody>
     <tr><th>x</th>   <th>y</th></tr>
     <tr><td>1.5</td> <td>2.7</td></tr>
     <tr><td>4.9</td> <td>1.3</td></tr>
     <tr><td>7.2</td> <td>8.1</td></tr>
+    </tbody>
   </table>
-  <ul>
-    <li><b>C-3PO</b> is a <i>droid</i> that weighs <span class='weight'>167 kg</span></li>
-    <li><b>R4-P17</b> is a <i>droid</i></li>
-    <li><b>R2-D2</b> is a <i>droid</i> that weighs <span class='weight'>96 kg</span></li>
-    <li><b>Yoda</b> weighs <span class='weight'>66 kg</span></li>
-  </ul>
+  
+
   </body>
