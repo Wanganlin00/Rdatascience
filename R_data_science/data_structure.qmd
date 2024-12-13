@@ -8,6 +8,12 @@ R中的数据结构包括 **原子向量**（atomic vector）和**泛型向量**
 
 -   泛型向量是原子向量的集合，即列表`list`。
 
+|     | Homogeneous   | Heterogeneous |
+|:----|:--------------|---------------|
+| 1维 | Atomic vector | List          |
+| 2维 | Matrix        | Data frame    |
+| n维 | Array         |               |
+
 ## 属性
 
 在R中任何一个**对象**都具有属性：
