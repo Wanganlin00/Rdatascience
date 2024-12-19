@@ -414,6 +414,9 @@ attributes(df2)
 
 names(tibble(`1` = 1))
 
+# 循环补齐(recycling)
+data.frame(x = 1:4, y = 1, z=1:2)
+
 tibble(x = 1:4, y = 1)
 tibble(x = 1:4, y = 1:2)
 

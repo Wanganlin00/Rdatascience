@@ -7,21 +7,22 @@ book:
   reader-mode: true
   chapters:
     - index.qmd
-    - intro.qmd
+    - config.qmd
     - data_type.qmd
     - data_structure.qmd
     - read_write.qmd
     - base_function.qmd
     
     
+    - transform_tidy.qmd
     - numeric.qmd
     - logical_operation.qmd
     - datetime.qmd
-    - regular_expressions.qmd
+    - regular_expression.qmd
     - string.qmd
 
 
-    - transform_tidy.qmd
+
     - functionals.qmd
     - dynamic_report.qmd
 

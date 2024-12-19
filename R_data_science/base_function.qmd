@@ -10,16 +10,23 @@
 | `<<-` | Left lexicographic assignment (for advanced users) |
 | `->>` | Right lexicographic assignment (for advanced users) |
 
-## 其他运算符
+## 子集运输符
+
+|  |  |
+|----|----|
+| \[ |  Operators acting on vectors, matrices, arrays and lists to extract or replace parts |
+| \[\[ | extract value on  list, dataframe |
+| \$ | Named list or dataframe column subset |
+| \@ | Accessing slots in S4 classes (Advanced) |
+
+## 特殊运算符
 
 | **Miscellaneous operator in R** | **Description** |
 |:--:|:--:|
-| \$ | Named list or dataframe column subset |
 | : | Sequence generator |
 | :: | Accessing functions of packages It is not usually needed |
 | ::: | Accessing internal functions of packages |
 | \~ | Model formulae |
-| \@ | Accessing slots in S4 classes (Advanced) |
 
 ## 逻辑索引
 
@@ -53,45 +60,6 @@ duplicated(x)
 
 xu <- x[!duplicated(x)]
 xu
-```
-
-## 子集运算
-
-`[`，`$`，`[[`
-
-S4 对象： `@` `slot`
-
-### `[ ]`
-
-```{r}
-x <- c(2.1, 4.2, 3.3, 5.4)
-
-x[c(3, 1)]
-
-x[-c(3, 1)]
-
-x[c(TRUE, TRUE, FALSE, FALSE)]
-x[x > 3]
-
-x[c(TRUE, FALSE)] # recycling rules 循环
-
-x[]
-
-x[0]
-```
-
-### `$`, `[[ ]]`
-
-`$`是一个简写运算符, `x$y`大致相当于 `x[["y"]]` ,从左到右部分赋值
-
-```{r}
-x <- list(abc = 1)
-x$a
-
-x[["a"]]
-
-options(warnPartialMatchDollar = TRUE)
-x$a
 ```
 
 ## 生成数值序列
