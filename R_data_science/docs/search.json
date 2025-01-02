@@ -132,171 +132,321 @@
   {
     "objectID": "dynamic_report.html",
     "href": "dynamic_report.html",
-    "title": "\n12  动态报告\n",
+    "title": "\n13  动态报告\n",
     "section": "",
     "text": "1 文本格式\nhttps://quarto.org/docs/guide/\nhttps://www.productive-r-workflow.com/quarto-tricks",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#section-text_format",
     "href": "dynamic_report.html#section-text_format",
-    "title": "\n12  动态报告\n",
+    "title": "\n13  动态报告\n",
     "section": "",
-    "text": "output\nsyntax\n\n\n\ncode\n` code `\n\n\n\n粗体\n**粗体**\n\n\n\n斜体\n*斜体*\n\n\n\n颜色标注\n[颜色标注]{style=\"color:red\"}\n\n\n\n下横线\n[下横线]{.underline}\n\n\n\n删除线\n~~删除线~~\n\n\n\n上标X2\n\nX^2^\n\n\n\n下标 X1\n\nX~1~\n\n\n\n\n水平线分隔符\n\n\n***\n\n\n\nhttps://r4ds.hadley.nz/\n&lt;https://r4ds.hadley.nz/&gt;\n\n\n\nquarto\n[quarto](https://quarto.org)\n\n\n\n\n | \n\n\n\n\n\n\nBlockquote\n\n&gt; Blockquote",
+    "text": "output\nsyntax\n\n\n\ncode\n` code `\n\n\n\n粗体\n**粗体**\n\n\n\n斜体\n*斜体*\n\n\n\nText highlight\n&lt;mark&gt;Text highlight&lt;/mark&gt;\n\n\n\n颜色标注\n[颜色标注]{style=\"color:red\"}\n\n\n\nkeyboard  Ctrl+C \n\n&lt;kbd&gt; Ctrl+C &lt;/kbd&gt;\n\n\n\n下横线\n[下横线]{.underline}\n\n\n\n删除线\n~~删除线~~\n\n\n\n上标X2\n\nX^2^\n\n\n\n下标 X1\n\nX~1~\n\n\n\n\n水平线分隔符\n\n\n***\n\n\n\nhttps://r4ds.hadley.nz/\n&lt;https://r4ds.hadley.nz/&gt;\n\n\n\nquarto\n[quarto](https://quarto.org)\n\n\n\n\n | \n\n\n\n\n\n\nBlockquote\n\n&gt; Blockquote",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#yaml",
     "href": "dynamic_report.html#yaml",
-    "title": "\n12  动态报告\n",
+    "title": "\n13  动态报告\n",
     "section": "\n2 YAML",
-    "text": "2 YAML\n\n2.1 Execute chunk\n\n\n\n\n\n\n\nOption\nDefault\nEffects\n\n\n\necho\ntrue\n\n\nfalse: hide code in output\\\n\ninclude code cell syntaxfenced\n\n\n\n\neval\ntrue\n\nfalse: don’t run code\n\n\ninclude\ntrue\n\nfalse: don’t include code or results\n\n\noutput\ntrue\n\n\nfalse: don’t include results\\\n\ntreat results as raw markdownasis\n\n\n\n\nwarning\ntrue\n\nfalse: don’t include warnings in output\n\n\nerror\nfalse\n\ntrue: include error in output and continue with render\n\n\n\n2.2 添加页脚\n您可以创建包含某些内容的文件。然后将其显示在 quarto 文档的底部。html\n首先，创建一个名为 file 的文件。在其中复制以下内容：footer.html\n在YAML block 中添加 include-after-body: \"footer.html\"\n\n2.3 标题上方添加额外空间\n使用自定义样式表可以直接实现此效果。此样式表将包含专门设计用于在标题上方添加额外空间的规则。\n首先创建一个名为并包含以下规则的 CSS 文件：style.css\nh1, .h1, h2, .h2, h3, .h3 {\n  margin-top: 84px;\n}\n这些 CSS 规则将在 1、2 和 3 级标题（分别由h1 、h2 和h3 标签表示）上方添加 84 像素的边距。\n最后，在YAML block 中添加 css: style.css",
+    "text": "2 YAML\n\n2.1 添加页脚\n您可以创建包含某些内容的文件。然后将其显示在 quarto 文档的底部。html\n首先，创建一个名为 file 的文件。在其中复制以下内容：footer.html\n在YAML block 中添加 include-after-body: \"footer.html\"\n\n2.2 标题上方添加额外空间\n使用自定义样式表可以直接实现此效果。此样式表将包含专门设计用于在标题上方添加额外空间的规则。\n首先创建一个名为并包含以下规则的 CSS 文件：style.css\nh1, .h1, h2, .h2, h3, .h3 {\n  margin-top: 84px;\n}\n这些 CSS 规则将在 1、2 和 3 级标题（分别由h1 、h2 和h3 标签表示）上方添加 84 像素的边距。\n最后，在YAML block 中添加 css: style.css",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#内部链接",
     "href": "dynamic_report.html#内部链接",
-    "title": "\n12  动态报告\n",
+    "title": "\n13  动态报告\n",
     "section": "\n3 内部链接",
     "text": "3 内部链接\n如 文本格式 是第一节",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#脚注",
     "href": "dynamic_report.html#脚注",
-    "title": "\n12  动态报告\n",
+    "title": "\n13  动态报告\n",
     "section": "\n4 脚注",
-    "text": "4 脚注\n第一个1\nFor instance2, here is one attached to the word carrot3.",
+    "text": "4 脚注\n第一个1\nFor instance2, here is one attached to the word carrot3.\n\n4.1 Execute chunk\n\n\n\n\n\n\n\nOption\nDefault\nEffects\n\n\n\necho\ntrue\n\n\nfalse: hide code in output\\\n\ninclude code cell syntaxfenced\n\n\n\n\neval\ntrue\n\nfalse: don’t run code\n\n\ninclude\ntrue\n\nfalse: don’t include code or results\n\n\noutput\ntrue\n\n\nfalse: don’t include results\\\n\ntreat results as raw markdownasis\n\n\n\n\nwarning\ntrue\n\nfalse: don’t include warnings in output\n\n\nerror\nfalse\n\ntrue: include error in output and continue with render",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#figure",
     "href": "dynamic_report.html#figure",
-    "title": "\n12  动态报告\n",
+    "title": "\n13  动态报告\n",
     "section": "\n5 Figure",
-    "text": "5 Figure\n\n5.1 Caption\n\nShow the codelibrary(tidyverse)\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_boxplot() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\nFigure: Here is a really important caption.\n\n\n\n标题文本居中\ninclude-in-header:\n   - text: |\n       &lt;style&gt;\n       figcaption {\n         text-align: center;\n       }\n       &lt;/style&gt;\n\n5.2 交互式图\n\nShow the codelibrary(plotly)\np &lt;- mpg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_boxplot() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n# Turn it interactive with ggplotly\np &lt;- ggplotly(p)\np\n\n\n\n\n\n\n5.3 选项卡\nDiv .class .panel-tabset .nav-pills\n\n\nScatterplot\nBoxplot\nBarplot\n\n\n\n\nShow the codempg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_point() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\nShow the codempg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_boxplot() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\nShow the codempg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_bar(stat = \"identity\") +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\n\n5.4 全宽图\n\nShow the code\nlibrary(patchwork)\nlibrary(ggplot2)\n\nggplot(mtcars) + geom_point(aes(mpg, disp))+\nggplot(mtcars) + geom_boxplot(aes(gear, disp, group = gear))+\nggplot(mtcars) + geom_smooth(aes(disp, qsec))+\nggplot(mtcars) + geom_bar(aes(carb))\n\n\n\n\n\n\n\nShow the codeplot(1:25,1:25,pch=c(1:25))\nplot(1:25,c(1:25)^2,type=\"b\",pch=c(1:25))\n\n\n\n\n\n\n\n\n\n(a) 点\n\n\n\n\n\n\n\n\n\n(b) 线\n\n\n\n\n\n\n图 1: 左右图\n\n\n如左图 图 12.1 (a) 所示，点有25种不同的形状，\n右图 图 12.1 (b) 所示。\n\n5.4.1 EDA\n引用章节： Section 12.5.4.1 and Section 12.7\n引用图片 图 12.2 shows two histograms displaying the distributions of price and area individually.\n直方图ggplot(mpg, aes(cty)) +\n  geom_histogram() +\n  labs(title = \"Histogram of cty\")\n\nggplot(mpg, aes(x =hwy)) +\n  geom_histogram() +\n  labs(title = \"Histogram of hwy\")\n\n\n\n\n\n\n\n\n\n(a) Histogram of ctys\n\n\n\n\n\n\n\n\n\n(b) Histogram of hwys\n\n\n\n\n\n\n图 2: Histograms of mpg",
+    "text": "5 Figure\n\n5.1 Caption\n\nShow the codelibrary(tidyverse)\n\nmpg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_boxplot() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\n箱线图\n\n\n\n标题文本居中\ninclude-in-header:\n   - text: |\n       &lt;style&gt;\n       figcaption {\n         text-align: center;\n       }\n       &lt;/style&gt;\nShow the codeplot(1:25,1:25,pch=c(1:25))\nplot(1:25,1:25,type=\"o\",pch=c(1:25))\n\n\n\n\n\n\n\n\n\n(a) 点\n\n\n\n\n\n\n\n\n\n(b) 线\n\n\n\n\n\n\n图 1: 组图",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#表格",
     "href": "dynamic_report.html#表格",
-    "title": "\n12  动态报告\n",
-    "section": "\n6 表格",
-    "text": "6 表格\n表 12.1 displays basic summary statistics for these two variables.\n\nShow the codempg %&gt;%\n  summarise(\n    mean_displ=mean(displ),\n    mean_hwy=mean(hwy),\n    mean_cty=mean(cty),\n    .by = cyl\n    ) %&gt;%\n  knitr::kable(digits = c(0, 0, 0, 0, 2))\n\n\n表 1: Table Summary statistics\n\n\n\n\ncyl\nmean_displ\nmean_hwy\nmean_cty\n\n\n\n4\n2\n29\n21\n\n\n6\n3\n23\n16\n\n\n8\n5\n18\n13\n\n\n5\n2\n29\n20",
+    "title": "\n13  动态报告\n",
+    "section": "\n7 表格",
+    "text": "7 表格\n表 13.1 displays basic summary statistics for these two variables.\n\nShow the codempg %&gt;%\n  summarise(\n    mean_displ=mean(displ),\n    mean_hwy=mean(hwy),\n    mean_cty=mean(cty),\n    .by = cyl\n    ) %&gt;%\n  knitr::kable(digits = c(0, 0, 0, 0, 2))\n\n\n表 1: Table Summary statistics\n\n\n\n\ncyl\nmean_displ\nmean_hwy\nmean_cty\n\n\n\n4\n2\n29\n21\n\n\n6\n3\n23\n16\n\n\n8\n5\n18\n13\n\n\n5\n2\n29\n20",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#sec-formula",
     "href": "dynamic_report.html#sec-formula",
-    "title": "\n12  动态报告\n",
-    "section": "\n7 公式",
-    "text": "7 公式\nBlack-Scholes (式 12.1) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:\n\\[ \\frac{\\partial \\mathrm C}{ \\partial \\mathrm t } + \\frac{1}{2}\\sigma^{2} \\mathrm S^{2} \\frac{\\partial^{2} \\mathrm C}{\\partial \\mathrm C^2}   + \\mathrm r \\mathrm S \\frac{\\partial \\mathrm C}{\\partial \\mathrm S}\\ =   \\mathrm r \\mathrm C   \\tag{1}\\]\nWe can fit a simple linear regression model of the form shown in 式 12.2.\n\\[\nprice = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\times area + \\epsilon\n\\tag{2}\\]",
+    "title": "\n13  动态报告\n",
+    "section": "\n8 公式",
+    "text": "8 公式\nBlack-Scholes (式 13.1) is a mathematical model that seeks to explain the behavior of financial derivatives, most commonly options:\n\\[ \\frac{\\partial \\mathrm C}{ \\partial \\mathrm t } + \\frac{1}{2}\\sigma^{2} \\mathrm S^{2} \\frac{\\partial^{2} \\mathrm C}{\\partial \\mathrm C^2}   + \\mathrm r \\mathrm S \\frac{\\partial \\mathrm C}{\\partial \\mathrm S}\\ =   \\mathrm r \\mathrm C   \\tag{1}\\]\nWe can fit a simple linear regression model of the form shown in 式 13.2.\n\\[\nprice = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\times area + \\epsilon\n\\tag{2}\\]",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#callout",
     "href": "dynamic_report.html#callout",
-    "title": "\n12  动态报告\n",
-    "section": "\n8 Callout",
-    "text": "8 Callout\n\n\n\n\n\n\nNote\n\n\n\nNote that there are five types of callouts, including: note, tip, warning, caution, and important.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis is an example of an tip callout\n\n\n\n\n\n\n\n\nCaution\n\n\n\nThis is an example of an caution callout\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThis is an example of an warning callout\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an example of an important callout\n\n\n\n\n\n\n\n\nTip 1\n\n\n\n交叉引用 a Tip\nAdd an ID starting with #tip- to reference a tip.\n\n\nSee Tip 12.1…\n自定义callout\n\n\n\n\n\n\n\nNote\n\n\n\nThis is a custom callout.\nUsing CSS, you can control pretty much everything.\nThis div is even shaking every now and then 🙃\n\n\n\n\n\n标注类型\n前缀\n\n\n\nnote\n#nte-\n\n\ntip\n#tip-\n\n\nwarning\n#wrn-\n\n\nimportant\n#imp-\n\n\ncaution\n#cau-",
+    "title": "\n13  动态报告\n",
+    "section": "\n9 Callout",
+    "text": "9 Callout\n\n\n\n\n\n\nNote\n\n\n\nNote that there are five types of callouts, including: note, tip, warning, caution, and important.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis is an example of an tip callout\n\n\n\n\n\n\n\n\nCaution\n\n\n\nThis is an example of an caution callout\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThis is an example of an warning callout\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an example of an important callout\n\n\n\n\n\n\n\n\nTip 1\n\n\n\n交叉引用 a Tip\nAdd an ID starting with #tip- to reference a tip.\n\n\nSee Tip 13.1…\n自定义callout\n\n\n\n\n\n\n\nNote\n\n\n\nThis is a custom callout.\nUsing CSS, you can control pretty much everything.\nThis div is even shaking every now and then 🙃\n\n\n\n\n\n标注类型\n前缀\n\n\n\nnote\n#nte-\n\n\ntip\n#tip-\n\n\nwarning\n#wrn-\n\n\nimportant\n#imp-\n\n\ncaution\n#cau-",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#页边距",
     "href": "dynamic_report.html#页边距",
-    "title": "\n12  动态报告\n",
-    "section": "\n9 页边距",
-    "text": "9 页边距\n\n9.1 R结果\n\nShow the codeknitr::kable(\n  mtcars[1:3, 1:3]\n)\n\n\n\n\n\nmpg\ncyl\ndisp\n\n\n\nMazda RX4\n21.0\n6\n160\n\n\nMazda RX4 Wag\n21.0\n6\n160\n\n\nDatsun 710\n22.8\n4\n108\n\n\n\n\n\n9.2 Div\n\n\nHi! I’m a side note! 🔥",
+    "title": "\n13  动态报告\n",
+    "section": "\n10 页边距",
+    "text": "10 页边距\n\n10.1 R结果\n\nShow the codeknitr::kable(\n  mtcars[1:3, 1:3]\n)\n\n\n\n\n\nmpg\ncyl\ndisp\n\n\n\nMazda RX4\n21.0\n6\n160\n\n\nMazda RX4 Wag\n21.0\n6\n160\n\n\nDatsun 710\n22.8\n4\n108\n\n\n\n\n\n10.2 Div\n\n\nHi! I’m a side note! 🔥",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#latex",
     "href": "dynamic_report.html#latex",
-    "title": "\n12  动态报告\n",
-    "section": "\n10 LaTex",
-    "text": "10 LaTex\n\n10.1 公式对齐\n\\[\\begin{aligned}\n  f(x) =& \\sum_{k=0}^\\infty \\frac{1}{k!} x^k \\\\\n  =& e^x\n\\end{aligned}\\]\n\n10.2 括号等高\n\\[\\phi(x) = \\frac{1}{\\sqrt{2\\pi}} \\exp\\left\\{ \\frac{1}{2} x^2 \\right\\} \\]\n\n10.3 矩阵\n\\[\n\\begin{bmatrix}\nx_{11} & x_{12}&...&x_{1p} \\\\\nx_{21} & x_{22}&...&x_{2p} \\\\\n\\vdots &\\vdots &   &\\vdots\\\\\nx_{n1} & x_{n2}&...&x_{np} \\\\\n\\end{bmatrix}\n\\]\n\n10.4 向量表示\n\\[   \\boldsymbol{v} = (v_1, v_2)^T \\]",
+    "title": "\n13  动态报告\n",
+    "section": "\n11 LaTex",
+    "text": "11 LaTex\n\n11.1 公式对齐\n\\[\\begin{aligned}\n  f(x) =& \\sum_{k=0}^\\infty \\frac{1}{k!} x^k \\\\\n  =& e^x\n\\end{aligned}\\]\n\n11.2 括号等高\n\\[\\phi(x) = \\frac{1}{\\sqrt{2\\pi}} \\exp\\left\\{ \\frac{1}{2} x^2 \\right\\} \\]\n\n11.3 矩阵\n\\[\n\\begin{bmatrix}\nx_{11} & x_{12}&...&x_{1p} \\\\\nx_{21} & x_{22}&...&x_{2p} \\\\\n\\vdots &\\vdots &   &\\vdots\\\\\nx_{n1} & x_{n2}&...&x_{np} \\\\\n\\end{bmatrix}\n\\]\n\n11.4 向量表示\n\\[   \\boldsymbol{v} = (v_1, v_2)^T \\]",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#定理类段落",
     "href": "dynamic_report.html#定理类段落",
-    "title": "\n12  动态报告\n",
-    "section": "\n11 定理类段落",
-    "text": "11 定理类段落\n\n术语\n\n定义：三角形的内角和等于180°。\n\n\n或者\n引用Theorem 12.1。\n\nTheorem 1 (勒贝格定理) 一元函数黎曼可积， 当且仅当其不连续点的集合为零测集。\n\n\n\n环境名\n默认显示名\n标签前缀\n\n\n\ntheorem\nTheorem\n#thm-\n\n\nlemma\nLemma\n#lem-\n\n\ncorollary\nCorollary\n#cor-\n\n\nproposition\nProposition\n#prp-\n\n\nconjecture\nConjecture\n#cnj-\n\n\ndefinition\nDefinition\n#def-\n\n\nexample\nExample\n#exm-\n\n\nexercise\nExercise\n#exr-",
+    "title": "\n13  动态报告\n",
+    "section": "\n12 定理类段落",
+    "text": "12 定理类段落\n\n术语\n\n定义：三角形的内角和等于180°。\n\n\n或者\n引用Theorem 13.1。\n\nTheorem 1 (勒贝格定理) 一元函数黎曼可积， 当且仅当其不连续点的集合为零测集。\n\n\n\n环境名\n默认显示名\n标签前缀\n\n\n\ntheorem\nTheorem\n#thm-\n\n\nlemma\nLemma\n#lem-\n\n\ncorollary\nCorollary\n#cor-\n\n\nproposition\nProposition\n#prp-\n\n\nconjecture\nConjecture\n#cnj-\n\n\ndefinition\nDefinition\n#def-\n\n\nexample\nExample\n#exm-\n\n\nexercise\nExercise\n#exr-",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#opts_chunkset.r",
     "href": "dynamic_report.html#opts_chunkset.r",
-    "title": "\n12  动态报告\n",
-    "section": "\n12 _opts_chunk$set.R",
-    "text": "12 _opts_chunk$set.R\n\nShow the codeknitr::opts_chunk$set(\n  # comment = \"#&gt;\",\n  # collapse = TRUE,\n  # cache = TRUE,\n  # message = FALSE,\n  # error = FALSE,\n)\nggplot2::theme_set(new = ggplot2::theme_classic())",
+    "title": "\n13  动态报告\n",
+    "section": "\n13 _opts_chunk$set.R",
+    "text": "13 _opts_chunk$set.R\n\nShow the codeknitr::opts_chunk$set(\n  # comment = \"#&gt;\",\n  # collapse = TRUE,\n  # cache = TRUE,\n  # message = FALSE,\n  # error = FALSE,\n)\nggplot2::theme_set(new = ggplot2::theme_classic())",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#内联代码",
     "href": "dynamic_report.html#内联代码",
-    "title": "\n12  动态报告\n",
-    "section": "\n13 内联代码",
-    "text": "13 内联代码\nUse computed values directly in text sections. Code is evaluated at render and results appear as text.\n\nShow the codea &lt;- 1+2+3\n\n\n\n13.0.1 Knitr\na 的值为 6",
+    "title": "\n13  动态报告\n",
+    "section": "\n14 内联代码",
+    "text": "14 内联代码\nUse computed values directly in text sections. Code is evaluated at render and results appear as text.\n\nShow the codea &lt;- 1+2+3\n\n\n\n14.0.1 Knitr\na 的值为 6",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#文本高亮",
     "href": "dynamic_report.html#文本高亮",
-    "title": "\n12  动态报告\n",
-    "section": "\n14 文本高亮",
-    "text": "14 文本高亮\n&lt;Text highlight\nkeyboard\n Ctrl+C &gt;",
+    "title": "\n13  动态报告\n",
+    "section": "\n15 文本高亮",
+    "text": "15 文本高亮\n&lt;Text highlight\n\n\n红色文本\n\nkeyboard\n Ctrl+C &gt;",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#会话信息",
     "href": "dynamic_report.html#会话信息",
-    "title": "\n12  动态报告\n",
+    "title": "\n13  动态报告\n",
     "section": "\n15 会话信息",
-    "text": "15 会话信息\n\nSession Information,click to show\n\n\n\nShow the codesessionInfo()\n#&gt; R version 4.4.1 (2024-06-14 ucrt)\n#&gt; Platform: x86_64-w64-mingw32/x64\n#&gt; Running under: Windows 10 x64 (build 19045)\n#&gt; \n#&gt; Matrix products: default\n#&gt; \n#&gt; \n#&gt; locale:\n#&gt; [1] LC_COLLATE=Chinese (Simplified)_China.utf8 \n#&gt; [2] LC_CTYPE=Chinese (Simplified)_China.utf8   \n#&gt; [3] LC_MONETARY=Chinese (Simplified)_China.utf8\n#&gt; [4] LC_NUMERIC=C                               \n#&gt; [5] LC_TIME=Chinese (Simplified)_China.utf8    \n#&gt; \n#&gt; time zone: Asia/Shanghai\n#&gt; tzcode source: internal\n#&gt; \n#&gt; attached base packages:\n#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     \n#&gt; \n#&gt; other attached packages:\n#&gt;  [1] plotly_4.10.4    writexl_1.5.0    readxl_1.4.3     patchwork_1.2.0 \n#&gt;  [5] lubridate_1.9.3  forcats_1.0.0    stringr_1.5.1    dplyr_1.1.4     \n#&gt;  [9] purrr_1.0.2      readr_2.1.5      tidyr_1.3.1      tibble_3.2.1    \n#&gt; [13] ggplot2_3.5.1    tidyverse_2.0.0  conflicted_1.2.0 showtext_0.9-7  \n#&gt; [17] showtextdb_3.0   sysfonts_0.8.9  \n#&gt; \n#&gt; loaded via a namespace (and not attached):\n#&gt;  [1] gtable_0.3.5            xfun_0.45               htmlwidgets_1.6.4      \n#&gt;  [4] lattice_0.22-6          tzdb_0.4.0              crosstalk_1.2.1        \n#&gt;  [7] vctrs_0.6.5             tools_4.4.1             generics_0.1.3         \n#&gt; [10] stats4_4.4.1            fansi_1.0.6             pkgconfig_2.0.3        \n#&gt; [13] Matrix_1.7-0            data.table_1.15.4       S4Vectors_0.42.1       \n#&gt; [16] lifecycle_1.0.4         GenomeInfoDbData_1.2.12 farver_2.1.2           \n#&gt; [19] compiler_4.4.1          munsell_0.5.1           codetools_0.2-20       \n#&gt; [22] GenomeInfoDb_1.40.1     htmltools_0.5.8.1       lazyeval_0.2.2         \n#&gt; [25] yaml_2.3.9              pillar_1.9.0            cachem_1.1.0           \n#&gt; [28] nlme_3.1-165            tidyselect_1.2.1        digest_0.6.36          \n#&gt; [31] stringi_1.8.4           splines_4.4.1           labeling_0.4.3         \n#&gt; [34] fastmap_1.2.0           grid_4.4.1              colorspace_2.1-0       \n#&gt; [37] cli_3.6.3               magrittr_2.0.3          utf8_1.2.4             \n#&gt; [40] withr_3.0.0             scales_1.3.0            UCSC.utils_1.0.0       \n#&gt; [43] timechange_0.3.0        rmarkdown_2.27          XVector_0.44.0         \n#&gt; [46] httr_1.4.7              cellranger_1.1.0        hms_1.1.3              \n#&gt; [49] memoise_2.0.1           evaluate_0.24.0         knitr_1.48             \n#&gt; [52] GenomicRanges_1.56.1    IRanges_2.38.1          viridisLite_0.4.2      \n#&gt; [55] mgcv_1.9-1              rlang_1.1.4             glue_1.7.0             \n#&gt; [58] BiocGenerics_0.50.0     rstudioapi_0.16.0       jsonlite_1.8.8         \n#&gt; [61] R6_2.5.1                zlibbioc_1.50.0",
+    "text": "15 会话信息\n\nSession Information,click to show\n\n\n\nShow the codesessionInfo()\n#&gt; R version 4.4.2 (2024-10-31 ucrt)\n#&gt; Platform: x86_64-w64-mingw32/x64\n#&gt; Running under: Windows 11 x64 (build 22631)\n#&gt; \n#&gt; Matrix products: default\n#&gt; \n#&gt; \n#&gt; locale:\n#&gt; [1] LC_COLLATE=Chinese (Simplified)_China.utf8 \n#&gt; [2] LC_CTYPE=Chinese (Simplified)_China.utf8   \n#&gt; [3] LC_MONETARY=Chinese (Simplified)_China.utf8\n#&gt; [4] LC_NUMERIC=C                               \n#&gt; [5] LC_TIME=Chinese (Simplified)_China.utf8    \n#&gt; \n#&gt; time zone: Asia/Shanghai\n#&gt; tzcode source: internal\n#&gt; \n#&gt; attached base packages:\n#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     \n#&gt; \n#&gt; other attached packages:\n#&gt;  [1] writexl_1.5.1    readxl_1.4.3     conflicted_1.2.0 lubridate_1.9.4 \n#&gt;  [5] forcats_1.0.0    stringr_1.5.1    dplyr_1.1.4      purrr_1.0.2     \n#&gt;  [9] readr_2.1.5      tidyr_1.3.1      tibble_3.2.1     ggplot2_3.5.1   \n#&gt; [13] tidyverse_2.0.0  showtext_0.9-7   showtextdb_3.0   sysfonts_0.8.9  \n#&gt; \n#&gt; loaded via a namespace (and not attached):\n#&gt;  [1] gtable_0.3.6            xfun_0.49               htmlwidgets_1.6.4      \n#&gt;  [4] tzdb_0.4.0              vctrs_0.6.5             tools_4.4.2            \n#&gt;  [7] generics_0.1.3          stats4_4.4.2            fansi_1.0.6            \n#&gt; [10] pkgconfig_2.0.3         S4Vectors_0.44.0        lifecycle_1.0.4        \n#&gt; [13] GenomeInfoDbData_1.2.13 compiler_4.4.2          farver_2.1.2           \n#&gt; [16] munsell_0.5.1           GenomeInfoDb_1.42.1     htmltools_0.5.8.1      \n#&gt; [19] yaml_2.3.10             pillar_1.9.0            cachem_1.1.0           \n#&gt; [22] tidyselect_1.2.1        digest_0.6.37           stringi_1.8.4          \n#&gt; [25] labeling_0.4.3          fastmap_1.2.0           grid_4.4.2             \n#&gt; [28] colorspace_2.1-1        cli_3.6.3               magrittr_2.0.3         \n#&gt; [31] utf8_1.2.4              withr_3.0.2             scales_1.3.0           \n#&gt; [34] UCSC.utils_1.2.0        timechange_0.3.0        rmarkdown_2.29         \n#&gt; [37] XVector_0.46.0          httr_1.4.7              cellranger_1.1.0       \n#&gt; [40] hms_1.1.3               memoise_2.0.1           evaluate_1.0.1         \n#&gt; [43] knitr_1.49              GenomicRanges_1.58.0    IRanges_2.40.1         \n#&gt; [46] rlang_1.1.4             glue_1.8.0              BiocGenerics_0.52.0    \n#&gt; [49] rstudioapi_0.17.1       jsonlite_1.8.9          R6_2.5.1               \n#&gt; [52] zlibbioc_1.52.0",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   },
   {
     "objectID": "dynamic_report.html#footnotes",
     "href": "dynamic_report.html#footnotes",
-    "title": "\n12  动态报告\n",
+    "title": "\n13  动态报告\n",
     "section": "",
     "text": "WANG,A.,et al.(2025)↩︎\ndafhaifhafoahfo↩︎\nThe carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color↩︎",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>动态报告</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
+    ]
+  },
+  {
+    "objectID": "regular_expression.html",
+    "href": "regular_expression.html",
+    "title": "\n10  正则表达式\n",
+    "section": "",
+    "text": "10.1 匹配固定项\nShow the codestr_view(fruit, \"berry\")  \n#&gt;  [6] │ bil&lt;berry&gt;\n#&gt;  [7] │ black&lt;berry&gt;\n#&gt; [10] │ blue&lt;berry&gt;\n#&gt; [11] │ boysen&lt;berry&gt;\n#&gt; [19] │ cloud&lt;berry&gt;\n#&gt; [21] │ cran&lt;berry&gt;\n#&gt; [29] │ elder&lt;berry&gt;\n#&gt; [32] │ goji &lt;berry&gt;\n#&gt; [33] │ goose&lt;berry&gt;\n#&gt; [38] │ huckle&lt;berry&gt;\n#&gt; [50] │ mul&lt;berry&gt;\n#&gt; [70] │ rasp&lt;berry&gt;\n#&gt; [73] │ salal &lt;berry&gt;\n#&gt; [76] │ straw&lt;berry&gt;",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>正则表达式</span>"
+    ]
+  },
+  {
+    "objectID": "regular_expression.html#量词-quantifier",
+    "href": "regular_expression.html#量词-quantifier",
+    "title": "\n10  正则表达式\n",
+    "section": "\n10.2 量词 Quantifier",
+    "text": "10.2 量词 Quantifier\n\n10.2.1 贪婪量词\n尽可能匹配\nn*      匹配任意次数（0 or more than n）       {0,}\nn+      至少匹配1次（1 or more than n ）       {1,}\nn?      匹配 0或1次（0 or 1 n）                {0,1}\n\n{n,}    至少匹配 n 次。\n{n,m}   N ~ M 次之间的匹配。\n{n}     正好匹配 n 次。\n\nShow the codex &lt;- c(\"1234_abcd abbb\", \"123 a33aabb\", \" ab.bcaab\", \"abbb_132bb\")\n\nstr_view(x, \"ab*\") \n#&gt; [1] │ 1234_&lt;ab&gt;cd &lt;abbb&gt;\n#&gt; [2] │ 123 &lt;a&gt;33&lt;a&gt;&lt;abb&gt;\n#&gt; [3] │  &lt;ab&gt;.bc&lt;a&gt;&lt;ab&gt;\n#&gt; [4] │ &lt;abbb&gt;_132bb\n\nstr_view(x, \"ab+\") \n#&gt; [1] │ 1234_&lt;ab&gt;cd &lt;abbb&gt;\n#&gt; [2] │ 123 a33a&lt;abb&gt;\n#&gt; [3] │  &lt;ab&gt;.bca&lt;ab&gt;\n#&gt; [4] │ &lt;abbb&gt;_132bb\n\nstr_view(x, \"ab?\")\n#&gt; [1] │ 1234_&lt;ab&gt;cd &lt;ab&gt;bb\n#&gt; [2] │ 123 &lt;a&gt;33&lt;a&gt;&lt;ab&gt;b\n#&gt; [3] │  &lt;ab&gt;.bc&lt;a&gt;&lt;ab&gt;\n#&gt; [4] │ &lt;ab&gt;bb_132bb\n\nstr_view(x, \"b{2,5}\")\n#&gt; [1] │ 1234_abcd a&lt;bbb&gt;\n#&gt; [2] │ 123 a33aa&lt;bb&gt;\n#&gt; [4] │ a&lt;bbb&gt;_132&lt;bb&gt;\nstr_view(x, \"\\\\d{2}\")\n#&gt; [1] │ &lt;12&gt;&lt;34&gt;_abcd abbb\n#&gt; [2] │ &lt;12&gt;3 a&lt;33&gt;aabb\n#&gt; [4] │ abbb_&lt;13&gt;2bb\nstr_view(x, \"\\\\d{2,}\")\n#&gt; [1] │ &lt;1234&gt;_abcd abbb\n#&gt; [2] │ &lt;123&gt; a&lt;33&gt;aabb\n#&gt; [4] │ abbb_&lt;132&gt;bb\nstr_view(x, \"\\\\d{2,3}\")\n#&gt; [1] │ &lt;123&gt;4_abcd abbb\n#&gt; [2] │ &lt;123&gt; a&lt;33&gt;aabb\n#&gt; [4] │ abbb_&lt;132&gt;bb\n\n\n\n10.2.2 懒惰量词\n在满足条件的情况下会尽量少地匹配\n原有量词后加一个 ? ，仅保持最小匹配\n\nShow the codestr_view(x, \"b{3,5}?\")  #匹配bbb\n#&gt; [1] │ 1234_abcd a&lt;bbb&gt;\n#&gt; [4] │ a&lt;bbb&gt;_132bb\nstr_view(x, \"abb??\")  # 匹配ab\n#&gt; [1] │ 1234_&lt;ab&gt;cd &lt;ab&gt;bb\n#&gt; [2] │ 123 a33a&lt;ab&gt;b\n#&gt; [3] │  &lt;ab&gt;.bca&lt;ab&gt;\n#&gt; [4] │ &lt;ab&gt;bb_132bb\nstr_view(x, \"ab+?\")  # 匹配ab\n#&gt; [1] │ 1234_&lt;ab&gt;cd &lt;ab&gt;bb\n#&gt; [2] │ 123 a33a&lt;ab&gt;b\n#&gt; [3] │  &lt;ab&gt;.bca&lt;ab&gt;\n#&gt; [4] │ &lt;ab&gt;bb_132bb\nstr_view(x, \"ab*?\")  # 匹配a\n#&gt; [1] │ 1234_&lt;a&gt;bcd &lt;a&gt;bbb\n#&gt; [2] │ 123 &lt;a&gt;33&lt;a&gt;&lt;a&gt;bb\n#&gt; [3] │  &lt;a&gt;b.bc&lt;a&gt;&lt;a&gt;b\n#&gt; [4] │ &lt;a&gt;bbb_132bb",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>正则表达式</span>"
+    ]
+  },
+  {
+    "objectID": "regular_expression.html#ranges",
+    "href": "regular_expression.html#ranges",
+    "title": "\n10  正则表达式\n",
+    "section": "\n10.3 Ranges",
+    "text": "10.3 Ranges\n在方括号[]内定义字符范围\n\n10.3.1 字符类\n\n\nexpression\nfunction\n\n\n\n.\nAny character except new line ()\n\n\n(A|B)\nA or B\n\n\n(…)\nGroup\n\n\n\nnth group / sub pattern\n\n\n[ABC]\nRange (A, B or C) 匹配方括号内任意一个字符\n\n\n[^ABC]\nNot A, B or C 匹配除方括号内的任意字符\n\n\n-\n定义一个范围 [a - zA - Z0 - 9]\n\n\n\n\\\n对特殊字符进行转义，[\\^\\-\\]] 匹配 ^、-和 ]\n\n\n\n\nShow the code\nc(\"s.d \\n zxc\") %&gt;%\n  str_view(\".\")\n#&gt; [1] │ &lt;s&gt;&lt;.&gt;&lt;d&gt;&lt; &gt;\n#&gt;     │ &lt; &gt;&lt;z&gt;&lt;x&gt;&lt;c&gt;\n\n\nstr_view(words, \"[aeiou]x[aeiou]\")  #匹配 中间x两边元音\n#&gt; [284] │ &lt;exa&gt;ct\n#&gt; [285] │ &lt;exa&gt;mple\n#&gt; [288] │ &lt;exe&gt;rcise\n#&gt; [289] │ &lt;exi&gt;st\nstr_view(words, \"[^aeiou]y[^aeiou]\") #匹配 中间y两边辅音\n#&gt; [836] │ &lt;sys&gt;tem\n#&gt; [901] │ &lt;typ&gt;e\nstr_view(fruit, \"a...e\")\n#&gt;  [1] │ &lt;apple&gt;\n#&gt;  [7] │ bl&lt;ackbe&gt;rry\n#&gt; [48] │ mand&lt;arine&gt;\n#&gt; [51] │ nect&lt;arine&gt;\n#&gt; [62] │ pine&lt;apple&gt;\n#&gt; [64] │ pomegr&lt;anate&gt;\n#&gt; [70] │ r&lt;aspbe&gt;rry\n#&gt; [73] │ sal&lt;al be&gt;rry\nx &lt;- \"ab-cd AB[CD  123.45 !@#%^  \"\nstr_view(x, \"[abc\\\\-\\\\[\\\\@\\\\.]\")\n#&gt; [1] │ &lt;a&gt;&lt;b&gt;&lt;-&gt;&lt;c&gt;d AB&lt;[&gt;CD  123&lt;.&gt;45 !&lt;@&gt;#%^\n\n\n\n10.3.2 或运算符\n\nShow the code#alternation\nstr_view(fruit, \"apple|melon|nut\")\n#&gt;  [1] │ &lt;apple&gt;\n#&gt; [13] │ canary &lt;melon&gt;\n#&gt; [20] │ coco&lt;nut&gt;\n#&gt; [52] │ &lt;nut&gt;\n#&gt; [62] │ pine&lt;apple&gt;\n#&gt; [72] │ rock &lt;melon&gt;\n#&gt; [80] │ water&lt;melon&gt;\nstr_view(fruit, \"aa|ee|ii|oo|uu\")\n#&gt;  [9] │ bl&lt;oo&gt;d orange\n#&gt; [33] │ g&lt;oo&gt;seberry\n#&gt; [47] │ lych&lt;ee&gt;\n#&gt; [66] │ purple mangost&lt;ee&gt;n\n\n\n\n10.3.3 Unicode字符\n\n\n基本 Unicode 范围匹配：对于支持 Unicode 的正则表达式引擎，可以匹配更广泛的字符范围。例如，\\p{L}匹配任何语言中的字母字符。\\p{Nd}匹配任何十进制数字（相当于[0 - 9]的 Unicode 版本）。\n\nShow the codex &lt;- c(\"拼音aāà⇌α\", \"拉丁aáǎβ\", \"a€∀ζ\",\"货币123¥δ\")\n\nstr_view(x,pattern = \"\\\\p{L}\")\n#&gt; [1] │ &lt;拼&gt;&lt;音&gt;&lt;a&gt;&lt;ā&gt;&lt;à&gt;⇌&lt;α&gt;\n#&gt; [2] │ &lt;拉&gt;&lt;丁&gt;&lt;a&gt;&lt;á&gt;&lt;ǎ&gt;&lt;β&gt;\n#&gt; [3] │ &lt;a&gt;€∀&lt;ζ&gt;\n#&gt; [4] │ &lt;货&gt;&lt;币&gt;123¥&lt;δ&gt;\nstr_view(x,pattern = \"\\\\p{Nd}\")\n#&gt; [4] │ 货币&lt;1&gt;&lt;2&gt;&lt;3&gt;¥δ\n\n\n\n特定语言或脚本的 Unicode 范围：可以使用更具体的 Unicode 脚本块来匹配字符。比如，\\p{Han}匹配中文、日文、韩文等汉字字符。\\p{Greek}匹配希腊字母。这些对于处理多语言文本非常有用，例如在文本提取或格式化中，根据不同语言的字符进行区分。\n\n\nShow the codestr_view(x,pattern = \"\\\\p{Han}\")\n#&gt; [1] │ &lt;拼&gt;&lt;音&gt;aāà⇌α\n#&gt; [2] │ &lt;拉&gt;&lt;丁&gt;aáǎβ\n#&gt; [4] │ &lt;货&gt;&lt;币&gt;123¥δ\nstr_view(x,pattern = \"\\\\p{Greek}\")\n#&gt; [1] │ 拼音aāà⇌&lt;α&gt;\n#&gt; [2] │ 拉丁aáǎ&lt;β&gt;\n#&gt; [3] │ a€∀&lt;ζ&gt;\n#&gt; [4] │ 货币123¥&lt;δ&gt;",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>正则表达式</span>"
+    ]
+  },
+  {
+    "objectID": "regular_expression.html#锚点anchors",
+    "href": "regular_expression.html#锚点anchors",
+    "title": "\n10  正则表达式\n",
+    "section": "\n10.4 锚点Anchors",
+    "text": "10.4 锚点Anchors\n\nShow the code# 匹配开头^  或结尾$ \nstr_view(fruit, \"^(str)\")\n#&gt; [76] │ &lt;str&gt;awberry\nstr_view(fruit, \"(is)$\")\n#&gt; [61] │ physal&lt;is&gt;\n\nstr_view(fruit, \"apple\")\n#&gt;  [1] │ &lt;apple&gt;\n#&gt; [62] │ pine&lt;apple&gt;\nstr_view(fruit, \"^apple$\") #仅匹配完整字符串\n#&gt; [1] │ &lt;apple&gt;",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>正则表达式</span>"
+    ]
+  },
+  {
+    "objectID": "regular_expression.html#元字符meta-characters",
+    "href": "regular_expression.html#元字符meta-characters",
+    "title": "\n10  正则表达式\n",
+    "section": "\n10.5 元字符（meta-characters）",
+    "text": "10.5 元字符（meta-characters）\n\nShow the codex &lt;- c(\"1234_abcd abbb\", \"123 a33aabb\", \" ab.bcaab\", \"abbb_132bb\")\n#\\d匹配任何数字;匹配任何非数字的内容\\D\nstr_view(x, \"\\\\d+\")\n#&gt; [1] │ &lt;1234&gt;_abcd abbb\n#&gt; [2] │ &lt;123&gt; a&lt;33&gt;aabb\n#&gt; [4] │ abbb_&lt;132&gt;bb\nstr_view(x, \"\\\\D+\")\n#&gt; [1] │ 1234&lt;_abcd abbb&gt;\n#&gt; [2] │ 123&lt; a&gt;33&lt;aabb&gt;\n#&gt; [3] │ &lt; ab.bcaab&gt;\n#&gt; [4] │ &lt;abbb_&gt;132&lt;bb&gt;\n\n#\\s匹配任何空格（例如，空格、制表符、换行符）;匹配任何非空格的内容。\\S\nstr_view(x, \"\\\\s+\")\n#&gt; [1] │ 1234_abcd&lt; &gt;abbb\n#&gt; [2] │ 123&lt; &gt;a33aabb\n#&gt; [3] │ &lt; &gt;ab.bcaab\nstr_view(x, \"\\\\S+\")\n#&gt; [1] │ &lt;1234_abcd&gt; &lt;abbb&gt;\n#&gt; [2] │ &lt;123&gt; &lt;a33aabb&gt;\n#&gt; [3] │  &lt;ab.bcaab&gt;\n#&gt; [4] │ &lt;abbb_132bb&gt;\n\n#\\w匹配任何“单词”字符，即字母、数字和下划线;匹配任何“非单词”字符。\\W\nstr_view(x, \"\\\\w+\")\n#&gt; [1] │ &lt;1234_abcd&gt; &lt;abbb&gt;\n#&gt; [2] │ &lt;123&gt; &lt;a33aabb&gt;\n#&gt; [3] │  &lt;ab&gt;.&lt;bcaab&gt;\n#&gt; [4] │ &lt;abbb_132bb&gt;\nstr_view(x, \"\\\\W+\")\n#&gt; [1] │ 1234_abcd&lt; &gt;abbb\n#&gt; [2] │ 123&lt; &gt;a33aabb\n#&gt; [3] │ &lt; &gt;ab&lt;.&gt;bcaab\n\n\n#  \\b  单词的开头或结尾,字符的边界\nx &lt;- c(\"summary(x)\", \"summarize(df)\", \"row_sum(x)\", \"sum_(x)\")\nstr_view(x, \"sum\")\n#&gt; [1] │ &lt;sum&gt;mary(x)\n#&gt; [2] │ &lt;sum&gt;marize(df)\n#&gt; [3] │ row_&lt;sum&gt;(x)\n#&gt; [4] │ &lt;sum&gt;_(x)\nstr_view(x, \"^sum$\")\nstr_view(x, \"\\\\bsum\\\\_\\\\b\") \n#&gt; [4] │ &lt;sum_&gt;(x)",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>正则表达式</span>"
+    ]
+  },
+  {
+    "objectID": "regular_expression.html#零宽匹配",
+    "href": "regular_expression.html#零宽匹配",
+    "title": "\n10  正则表达式\n",
+    "section": "\n10.6 零宽匹配",
+    "text": "10.6 零宽匹配\n断言（assertions）是一种零宽度（zero - width）的匹配，它用于指定一个位置，这个位置应该满足某种条件，但不会消耗（匹配）任何字符。\nzero-width match\n\nShow the codestr_view(\"abc\", c(\"$\", \"^\", \"\\\\b\"))\n#&gt; [1] │ abc&lt;&gt;\n#&gt; [2] │ &lt;&gt;abc\n#&gt; [3] │ &lt;&gt;abc&lt;&gt;\nstr_replace_all(\n    string = \"abc\",\n    pattern =  c(\"$\", \"^\", \"\\\\b\"),\n    replacement =  \"+_+\"\n)\n#&gt; [1] \"abc+_+\"    \"+_+abc\"    \"+_+abc+_+\"\n\n\n\n10.6.1 断言assertions\n\n(?=pattern) 要求此位置的后面必须匹配表达式pattern\n(?!pattern) 要求此位置的后面不能匹配表达式pattern\n(?&lt;=pattern) 要求此位置的前面必须匹配表达式pattern\n(?&lt;!pattern) 要求此位置的前面不能匹配表达式pattern\n\n\nShow the codex &lt;- c(\"ocauuno\", \"0on0242uh\",\"nauguio\",\"nucu0ono0huhun\")\n\n# 正向肯定预查（Positive Lookahead）\nstr_view(x,pattern = \"n(?=o)\")  # 向后匹配 n后面紧跟着o，不匹配o\n#&gt; [1] │ ocauu&lt;n&gt;o\n#&gt; [4] │ nucu0o&lt;n&gt;o0huhun\n\n# 正向否定预查（Negative Lookahead）\nstr_view(x,pattern = \"n(?!o)\")  # 匹配后面不跟着o的n\n#&gt; [2] │ 0o&lt;n&gt;0242uh\n#&gt; [3] │ &lt;n&gt;auguio\n#&gt; [4] │ &lt;n&gt;ucu0ono0huhu&lt;n&gt;\n\n\n\n# 反向肯定预查（Positive Lookbehind）\nstr_view(x,pattern = \"(?&lt;=0o)n\")  # 匹配前面是0o的n\n#&gt; [2] │ 0o&lt;n&gt;0242uh\n#&gt; [4] │ nucu0o&lt;n&gt;o0huhun\n\n# 反向否定预查（Negative Lookbehind）\n\nstr_view(x,pattern = \"(?&lt;!0o)n\")  # 匹配前面不是0o的n\n#&gt; [1] │ ocauu&lt;n&gt;o\n#&gt; [3] │ &lt;n&gt;auguio\n#&gt; [4] │ &lt;n&gt;ucu0ono0huhu&lt;n&gt;",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>正则表达式</span>"
+    ]
+  },
+  {
+    "objectID": "regular_expression.html#反向引用backreference",
+    "href": "regular_expression.html#反向引用backreference",
+    "title": "\n10  正则表达式\n",
+    "section": "\n10.7 反向引用backreference",
+    "text": "10.7 反向引用backreference\n反向引用（Backreference）允许引用之前在正则表达式中匹配到的子表达式。简单来说，就是可以在正则表达式的后续部分重复使用之前已经匹配的内容。它通过使用\\数字的形式来实现，其中 “数字” 表示之前捕获组的编号。\n\nShow the code# 有哪些字母是重复两次的\nstr_view(fruit, \"(.)\\\\1\", match = TRUE)\n#&gt;  [1] │ a&lt;pp&gt;le\n#&gt;  [5] │ be&lt;ll&gt; pe&lt;pp&gt;er\n#&gt;  [6] │ bilbe&lt;rr&gt;y\n#&gt;  [7] │ blackbe&lt;rr&gt;y\n#&gt;  [8] │ blackcu&lt;rr&gt;ant\n#&gt;  [9] │ bl&lt;oo&gt;d orange\n#&gt; [10] │ bluebe&lt;rr&gt;y\n#&gt; [11] │ boysenbe&lt;rr&gt;y\n#&gt; [16] │ che&lt;rr&gt;y\n#&gt; [17] │ chili pe&lt;pp&gt;er\n#&gt; [19] │ cloudbe&lt;rr&gt;y\n#&gt; [21] │ cranbe&lt;rr&gt;y\n#&gt; [23] │ cu&lt;rr&gt;ant\n#&gt; [28] │ e&lt;gg&gt;plant\n#&gt; [29] │ elderbe&lt;rr&gt;y\n#&gt; [32] │ goji be&lt;rr&gt;y\n#&gt; [33] │ g&lt;oo&gt;sebe&lt;rr&gt;y\n#&gt; [38] │ hucklebe&lt;rr&gt;y\n#&gt; [47] │ lych&lt;ee&gt;\n#&gt; [50] │ mulbe&lt;rr&gt;y\n#&gt; ... and 9 more\n\nstr_view(fruit, \"(..)\\\\1\", match = TRUE)\n#&gt;  [4] │ b&lt;anan&gt;a\n#&gt; [20] │ &lt;coco&gt;nut\n#&gt; [22] │ &lt;cucu&gt;mber\n#&gt; [41] │ &lt;juju&gt;be\n#&gt; [56] │ &lt;papa&gt;ya\n#&gt; [73] │ s&lt;alal&gt; berry\n\n\n捕获组是通过在正则表达式中使用括号()来定义的。例如，在正则表达式()-()中，()是第一个捕获组，()是第二个捕获组。捕获组的编号是从左到右，从 1 开始计数。当这个正则表达式匹配一个电话号码，如123 - 4567时，123被存储在第一个捕获组中，4567被存储在第二个捕获组中。\n\nShow the codestr_replace(string = c(\"123 - 4567 - 0030 - 789\",\n                           \"123 - 4567 - 4567 - 123\"),\n         pattern = \"(\\\\d{3}) - (\\\\d{4}) - \\\\2 - \\\\1\",\n         replacement = \"backreference\")\n#&gt; [1] \"123 - 4567 - 0030 - 789\" \"backreference\"\n\n\n有时候，我们可能不希望捕获组存储匹配内容，但又想使用分组来控制优先级或者方便使用反向引用。这时候可以使用非捕获组，其语法是(?:…)。例如，在正则表达式(?:)-()中，(?:)是一个非捕获组，它匹配 3 位数字但不存储，只有()是捕获组。如果要在后续部分引用部分的内容，就不能使用反向引用，因为它没有被捕获。\n\nShow the codestr_replace(string = c(\"123 - 4567 - 0030 - 789\",\n                           \"123 - 4567 - 45657 - 123\"),\n         pattern = \"(\\\\d{3}) - (?:\\\\d{4}) - (?:\\\\d{5}) - \\\\1\",\n         replacement = \"no backreference\")\n#&gt; [1] \"123 - 4567 - 0030 - 789\" \"no backreference\"",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>正则表达式</span>"
+    ]
+  },
+  {
+    "objectID": "string.html",
+    "href": "string.html",
+    "title": "\n11  字符文本的操纵\n",
+    "section": "",
+    "text": "11.1 stringr\nstringi+ stringr + glue + stringx\nShow the codex &lt;- c(\"apple\", \"banana\", \"pear\",\"why\")\n\n# 连接\nstr_c(x, collapse = \"; \")\n#&gt; [1] \"apple; banana; pear; why\"\npaste0(\"Hello \", c(\"John\", \"Susan\"))\n#&gt; [1] \"Hello John\"  \"Hello Susan\"\npaste(\"x\",c(\"a\",\"b\"),sep=\"\",collapse = \"?\")  \n#&gt; [1] \"xa?xb\"\npaste0(\"x\",c(\"A\",\"B\"),collapse=\"?\")\n#&gt; [1] \"xA?xB\"\ncat(\"hello\",\"BOb\",\"\\b\\n\",\"\\bIsn\\' R\",\"\\t\",\"GREAT?\\n\",sep = \" \" )\n#&gt; hello BOb \n#&gt;  Isn' R      GREAT?\n\n# \nstr_length(x) \n#&gt; [1] 5 6 4 3\nstr_sub(x,start =  1,end =  2)\n#&gt; [1] \"ap\" \"ba\" \"pe\" \"wh\"\nstr_dup(x, times = 2)\n#&gt; [1] \"appleapple\"   \"bananabanana\" \"pearpear\"     \"whywhy\"\n\n\n# 空格\nstr_pad(x, 10, \"both\")\n#&gt; [1] \"  apple   \" \"  banana  \" \"   pear   \" \"   why    \"\nx &lt;- c(\"  a   \", \"b   \",  \"   c\")\nstr_trim(x,side = \"left\")\n#&gt; [1] \"a   \" \"b   \" \"c\"\n\njabberwocky &lt;- str_c(\n  \"`Twas brillig, and the slithy toves \",\n  \"did gyre and gimble in the wabe: \",\n  \"All mimsy were the borogoves, \",\n  \"and the mome raths outgrabe. \"\n)\nstr_wrap(jabberwocky, width = 40)\n#&gt; [1] \"`Twas brillig, and the slithy toves did\\ngyre and gimble in the wabe: All mimsy\\nwere the borogoves, and the mome raths\\noutgrabe.\"\ncat(str_wrap(jabberwocky, width = 40))\n#&gt; `Twas brillig, and the slithy toves did\n#&gt; gyre and gimble in the wabe: All mimsy\n#&gt; were the borogoves, and the mome raths\n#&gt; outgrabe.\n\n# 截断\nx &lt;- \"This string is moderately long\"\nrbind(\n  str_trunc(x, 20, \"right\"),\n  str_trunc(x, 20, \"left\"),\n  str_trunc(x, 20, \"center\")\n)\n#&gt;      [,1]                  \n#&gt; [1,] \"This string is mo...\"\n#&gt; [2,] \"...s moderately long\"\n#&gt; [3,] \"This stri...ely long\"\n\n# Locale sensitive \nx &lt;- \"I like horses.\"\nstr_to_upper(x)\n#&gt; [1] \"I LIKE HORSES.\"\nstr_to_title(x)\n#&gt; [1] \"I Like Horses.\"\nstr_to_lower(x)\n#&gt; [1] \"i like horses.\"\nstr_to_lower(x,locale =  \"tr\")\n#&gt; [1] \"ı like horses.\"\n\n# 排序\nx &lt;- c(\"y\", \"i\", \"k\")\nstr_order(x)\n#&gt; [1] 2 3 1\n\nstr_sort(x,locale = \"en\")\n#&gt; [1] \"i\" \"k\" \"y\"",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>字符文本的操纵</span>"
+    ]
+  },
+  {
+    "objectID": "string.html#匹配正则表达式",
+    "href": "string.html#匹配正则表达式",
+    "title": "\n11  字符文本的操纵\n",
+    "section": "\n11.2 匹配正则表达式",
+    "text": "11.2 匹配正则表达式\n\nShow the codestrings &lt;- c(\n  \"apple\", \n  \"219 733 8965\", \n  \"329-293-8753\", \n  \"Work: 579-499-7527; Home: 543.355.3679\"\n)\nphone &lt;- \"([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})\"\n# 检测\nstr_detect(strings, phone)\n#&gt; [1] FALSE  TRUE  TRUE  TRUE\ngrepl(pattern = phone, x = strings)\n#&gt; [1] FALSE  TRUE  TRUE  TRUE\n\n# 查找\nstr_subset(strings, phone)\n#&gt; [1] \"219 733 8965\"                          \n#&gt; [2] \"329-293-8753\"                          \n#&gt; [3] \"Work: 579-499-7527; Home: 543.355.3679\"\ngrep(pattern = phone, x = strings,value = T)\n#&gt; [1] \"219 733 8965\"                          \n#&gt; [2] \"329-293-8753\"                          \n#&gt; [3] \"Work: 579-499-7527; Home: 543.355.3679\"\n\nstr_which(strings, phone)\n#&gt; [1] 2 3 4\ngrep(pattern = phone, x = strings)\n#&gt; [1] 2 3 4\n\n\n# 计数\nstr_count(strings, phone)\n#&gt; [1] 0 1 1 2\n\n# 定位\nstr_locate(strings, phone)\n#&gt;      start end\n#&gt; [1,]    NA  NA\n#&gt; [2,]     1  12\n#&gt; [3,]     1  12\n#&gt; [4,]     7  18\nstr_locate_all(strings, phone)\n#&gt; [[1]]\n#&gt;      start end\n#&gt; \n#&gt; [[2]]\n#&gt;      start end\n#&gt; [1,]     1  12\n#&gt; \n#&gt; [[3]]\n#&gt;      start end\n#&gt; [1,]     1  12\n#&gt; \n#&gt; [[4]]\n#&gt;      start end\n#&gt; [1,]     7  18\n#&gt; [2,]    27  38\n\n# 提取\nstr_extract(strings, phone)\n#&gt; [1] NA             \"219 733 8965\" \"329-293-8753\" \"579-499-7527\"\nstr_extract_all(strings, phone)\n#&gt; [[1]]\n#&gt; character(0)\n#&gt; \n#&gt; [[2]]\n#&gt; [1] \"219 733 8965\"\n#&gt; \n#&gt; [[3]]\n#&gt; [1] \"329-293-8753\"\n#&gt; \n#&gt; [[4]]\n#&gt; [1] \"579-499-7527\" \"543.355.3679\"\nstr_extract_all(strings, phone, simplify = TRUE)\n#&gt;      [,1]           [,2]          \n#&gt; [1,] \"\"             \"\"            \n#&gt; [2,] \"219 733 8965\" \"\"            \n#&gt; [3,] \"329-293-8753\" \"\"            \n#&gt; [4,] \"579-499-7527\" \"543.355.3679\"\n\n# 提取匹配的捕获组 （）\nstr_match(strings, phone)\n#&gt;      [,1]           [,2]  [,3]  [,4]  \n#&gt; [1,] NA             NA    NA    NA    \n#&gt; [2,] \"219 733 8965\" \"219\" \"733\" \"8965\"\n#&gt; [3,] \"329-293-8753\" \"329\" \"293\" \"8753\"\n#&gt; [4,] \"579-499-7527\" \"579\" \"499\" \"7527\"\nstr_match_all(strings, phone)\n#&gt; [[1]]\n#&gt;      [,1] [,2] [,3] [,4]\n#&gt; \n#&gt; [[2]]\n#&gt;      [,1]           [,2]  [,3]  [,4]  \n#&gt; [1,] \"219 733 8965\" \"219\" \"733\" \"8965\"\n#&gt; \n#&gt; [[3]]\n#&gt;      [,1]           [,2]  [,3]  [,4]  \n#&gt; [1,] \"329-293-8753\" \"329\" \"293\" \"8753\"\n#&gt; \n#&gt; [[4]]\n#&gt;      [,1]           [,2]  [,3]  [,4]  \n#&gt; [1,] \"579-499-7527\" \"579\" \"499\" \"7527\"\n#&gt; [2,] \"543.355.3679\" \"543\" \"355\" \"3679\"\n\n# 替换\nstr_replace(strings, phone, replacement = \"XXX-XXX-XXXX\")\n#&gt; [1] \"apple\"                                 \n#&gt; [2] \"XXX-XXX-XXXX\"                          \n#&gt; [3] \"XXX-XXX-XXXX\"                          \n#&gt; [4] \"Work: XXX-XXX-XXXX; Home: 543.355.3679\"\n\nstr_replace_all(strings, phone, replacement = \"XXX-XXX-XXXX\")\n#&gt; [1] \"apple\"                                 \n#&gt; [2] \"XXX-XXX-XXXX\"                          \n#&gt; [3] \"XXX-XXX-XXXX\"                          \n#&gt; [4] \"Work: XXX-XXX-XXXX; Home: XXX-XXX-XXXX\"\n\nx &lt;- c(\"apple\", \"pear\", \"banana\")\nstr_remove(x, \"[aeiou]\")      #删除        相当于替换符为空字符\"\"\n#&gt; [1] \"pple\"  \"par\"   \"bnana\"\nstr_remove_all(x, \"[aeiou]\")   #str_replace(x, pattern, \"\")\n#&gt; [1] \"ppl\" \"pr\"  \"bnn\"\n\n# 拆分\nstr_split(\"a-b-c\", pattern = \"-\")\n#&gt; [[1]]\n#&gt; [1] \"a\" \"b\" \"c\"\nstr_split_fixed(\"a-b-c\", \"-\", n = 2)\n#&gt;      [,1] [,2] \n#&gt; [1,] \"a\"  \"b-c\"",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>字符文本的操纵</span>"
+    ]
+  },
+  {
+    "objectID": "string.html#匹配固定项",
+    "href": "string.html#匹配固定项",
+    "title": "\n11  字符文本的操纵\n",
+    "section": "\n11.3 匹配固定项",
+    "text": "11.3 匹配固定项\n\nShow the codea1 &lt;- \"\\u00e1\"\na2 &lt;- \"a\\u0301\"\nc(a1, a2)\n#&gt; [1] \"á\" \"á\"\nstr_detect(a1, fixed(a2))\n#&gt; [1] FALSE\nstr_detect(a1, coll(a2))\n#&gt; [1] TRUE\n\nx &lt;- \"This is a sentence.\"\nstr_split(x, boundary(\"word\"))\n#&gt; [[1]]\n#&gt; [1] \"This\"     \"is\"       \"a\"        \"sentence\"\nstr_count(x, boundary(\"word\"))\n#&gt; [1] 4\nstr_extract_all(x, boundary(\"word\"))\n#&gt; [[1]]\n#&gt; [1] \"This\"     \"is\"       \"a\"        \"sentence\"\nstr_split(x, \"\")\n#&gt; [[1]]\n#&gt;  [1] \"T\" \"h\" \"i\" \"s\" \" \" \"i\" \"s\" \" \" \"a\" \" \" \"s\" \"e\" \"n\" \"t\" \"e\" \"n\" \"c\" \"e\" \".\"\n\nstr_view(c(\"\", \"a\", \".\"), stringr::fixed(\"a\"))\n#&gt; [2] │ &lt;a&gt;\nstr_view(\"x X\", stringr::fixed(\"X\", ignore_case = TRUE))\n#&gt; [1] │ &lt;x&gt; &lt;X&gt;",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>字符文本的操纵</span>"
+    ]
+  },
+  {
+    "objectID": "string.html#宽格式str_flatten",
+    "href": "string.html#宽格式str_flatten",
+    "title": "\n11  字符文本的操纵\n",
+    "section": "\n11.4 宽格式str_flatten\n",
+    "text": "11.4 宽格式str_flatten\n\n\nShow the codedf &lt;- tribble(\n  ~ name, ~ fruit,\n  \"Carmen\", \"banana\",\n  \"Carmen\", \"apple\",\n  \"Marvin\", \"nectarine\",\n  \"Terence\", \"cantaloupe\",\n  \"Terence\", \"papaya\",\n  \"Terence\", \"mandarin\"\n)\ndf |&gt;\n  group_by(name) |&gt; \n  summarize(fruits = str_flatten(fruit, \", \",last = \", and \"))\n\n\n\n\nname\nfruits\n\n\n\nCarmen\nbanana, and apple\n\n\nMarvin\nnectarine\n\n\nTerence\ncantaloupe, papaya, and mandarin",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>字符文本的操纵</span>"
+    ]
+  },
+  {
+    "objectID": "string.html#str_glue",
+    "href": "string.html#str_glue",
+    "title": "\n11  字符文本的操纵\n",
+    "section": "\n11.5 str_glue()\n",
+    "text": "11.5 str_glue()\n\n\nShow the codename &lt;- \"Fred\"\nage &lt;- 50\nanniversary &lt;- as.Date(\"1991-10-12\")\n\nstr_glue(\n  \"My name is {name}, \",\n  \"my age next year is {age + 1}, \",\n  \"and my anniversary is {format(anniversary, '%A, %B %d, %Y')}.\"\n)\n#&gt; My name is Fred, my age next year is 51, and my anniversary is 星期六, 十月 12, 1991.\n\nstr_glue(\"My name is {name}, not {{name}}.\")\n#&gt; My name is Fred, not {name}.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>字符文本的操纵</span>"
+    ]
+  },
+  {
+    "objectID": "string.html#转义escape",
+    "href": "string.html#转义escape",
+    "title": "\n11  字符文本的操纵\n",
+    "section": "\n11.6 转义escape",
+    "text": "11.6 转义escape\n\nShow the code# 转义字符串\nsingle_quote &lt;- \"\\'\"\ndouble_quote &lt;- '\\\"'\nbackslash &lt;- \"\\\\\"\nx &lt;- c(single_quote, double_quote, backslash)\n\nstr_view(x)\n#&gt; [1] │ '\n#&gt; [2] │ \"\n#&gt; [3] │ \\\n\n\n\nShow the codex &lt;- c(\"one\\ntwo\", \"one\\ttwo\", \"\\u00b5\", \"\\U0001f604\")\nx\n#&gt; [1] \"one\\ntwo\" \"one\\ttwo\" \"µ\"        \"😄\"\nstr_view(x)\n#&gt; [1] │ one\n#&gt;     │ two\n#&gt; [2] │ one{\\t}two\n#&gt; [3] │ µ\n#&gt; [4] │ 😄\n\n\n\nShow the codedot &lt;- \"\\\\.\"\nstr_view(dot)\n#&gt; [1] │ \\.\nstr_view(c(\"abc\", \"a.c\", \"bef\"), \"a\\\\.c\")  \n#&gt; [2] │ &lt;a.c&gt;",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>字符文本的操纵</span>"
+    ]
+  },
+  {
+    "objectID": "string.html#raw",
+    "href": "string.html#raw",
+    "title": "\n11  字符文本的操纵\n",
+    "section": "\n11.7 raw",
+    "text": "11.7 raw\n\nShow the codesingle_quote &lt;- r\"(')\"        # []    ---()---  -()-\ndouble_quote &lt;- r\"[\"]\"\nbackslash &lt;- r\"--(\\)--\"\n\nx &lt;- c(single_quote, double_quote, backslash)\nx\n#&gt; [1] \"'\"  \"\\\"\" \"\\\\\"\nstr_view(x)\n#&gt; [1] │ '\n#&gt; [2] │ \"\n#&gt; [3] │ \\",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>字符文本的操纵</span>"
+    ]
+  },
+  {
+    "objectID": "dynamic_report.html#pandoc-div块",
+    "href": "dynamic_report.html#pandoc-div块",
+    "title": "\n13  动态报告\n",
+    "section": "\n6 Pandoc Div块",
+    "text": "6 Pandoc Div块\nDiv .class .panel-tabset .nav-pills\n\n\nScatterplot\nBoxplot\nBarplot\n\n\n\n\nShow the codempg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_point() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\nShow the codempg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_boxplot() +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\nShow the codempg %&gt;%\n  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +\n  geom_bar(stat = \"identity\") +\n  xlab(\"class\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\n如左图 图 13.1 (a) 所示，点有25种不同的形状，\n右图 图 13.1 (b) 所示。\n\nShow the codeplot(cars)\nplot(pressure)\nplot(mtcars)\n\n\n\n\n\n\n\n\n\n(a) 汽车\n\n\n\n\n\n\n\n\n\n\n\n(b) 压力\n\n\n\n\n\n\n\n\n\n(c) mtcars\n\n\n\n\n\n\n图 2: 复杂排版组图输出",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>动态报告</span>"
     ]
   }
 ]

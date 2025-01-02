@@ -1,4 +1,28 @@
 ---
+subtitle: "quarto" 
+date: "2024-10-08"
+date-modified: last-modified
+author: 
+  name: "ANLIN"
+  affiliation: "Independant 😀"
+  email: anlinwang00@gmail.com
+  roles: "made the document"
+keywords: "dynamic report"
+description: "<br/>good good study<br/>day day up"
+title-block-banner: "#f0f3f5"
+title-block-banner-color: "black"
+
+code-fold: true
+code-summary: "Show the code"
+format: html
+code-link: true
+anchor-sections: true
+link-external-icon: true
+link-external-newwindow: true
+theme:
+  light: flatly
+  dark: darkly # 深色模式
+  
 toc: true
 number-sections: true
 crossref: 
@@ -23,25 +47,6 @@ include-in-header:  # caption 文本居中
          text-align: center;
        }
        </style>
-code-fold: true
-code-summary: "Show the code"
-format: html
-
-subtitle: "quarto" 
-title-block-banner: "#f0f3f5"
-title-block-banner-color: "black"
-author: 
-  name: "ANLIN"
-  affiliation: "Independant 😀"
-  email: anlinwang00@gmail.com
-  roles: "made the document"
-keywords: "dynamic report"
-date: today
-description: "<br/>good good study<br/>day day up"
-
-theme:
-  dark: darkly # 深色模式
-  light: flatly
 
 editor: visual
 ---
@@ -63,7 +68,11 @@ editor: visual
 +--------------------------------------------------------------------------+-----------------------------------------------------------+
 | *斜体*                                                                   | `*斜体*`                                                  |
 +--------------------------------------------------------------------------+-----------------------------------------------------------+
+| <mark>Text highlight</mark>                                              | `<mark>Text highlight</mark>`                             |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
 | [颜色标注]{style="color:red"}                                            | `[颜色标注]{style="color:red"}`                           |
++--------------------------------------------------------------------------+-----------------------------------------------------------+
+| keyboard <kbd> Ctrl+C </kbd>                                             | `<kbd> Ctrl+C </kbd>`                                     |
 +--------------------------------------------------------------------------+-----------------------------------------------------------+
 | [下横线]{.underline}                                                     | `[下横线]{.underline}`                                    |
 +--------------------------------------------------------------------------+-----------------------------------------------------------+
@@ -87,28 +96,6 @@ editor: visual
 +--------------------------------------------------------------------------+-----------------------------------------------------------+
 
 ## YAML
-
-### Execute chunk
-
-+-----------+-----------+----------------------------------------------------------+
-| Option    | Default   | Effects                                                  |
-+===========+===========+==========================================================+
-| `echo`    | `true`    | `false`: hide code in output\\                           |
-|           |           |                                                          |
-|           |           | :   include code cell syntax`fenced`                     |
-+-----------+-----------+----------------------------------------------------------+
-| `eval`    | `true`    | `false`: don’t run code                                  |
-+-----------+-----------+----------------------------------------------------------+
-| `include` | `true`    | `false`: don’t include code or results                   |
-+-----------+-----------+----------------------------------------------------------+
-| `output`  | `true`    | `false`: don’t include results\\                         |
-|           |           |                                                          |
-|           |           | :   treat results as raw markdown`asis`                  |
-+-----------+-----------+----------------------------------------------------------+
-| `warning` | `true`    | `false`: don’t include warnings in output                |
-+-----------+-----------+----------------------------------------------------------+
-| `error`   | `false`   | `true`: include error in output and continue with render |
-+-----------+-----------+----------------------------------------------------------+
 
 ### 添加页脚
 
@@ -150,6 +137,28 @@ For instance[^dynamic_report-2], here is one attached to the word carrot[^dynami
 
 [^dynamic_report-3]: The carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color
 
+### Execute chunk
+
++------------+------------+----------------------------------------------------------+
+| Option     | Default    | Effects                                                  |
++============+============+==========================================================+
+| `echo`     | `true`     | `false`: hide code in output\\                           |
+|            |            |                                                          |
+|            |            | :   include code cell syntax`fenced`                     |
++------------+------------+----------------------------------------------------------+
+| `eval`     | `true`     | `false`: don’t run code                                  |
++------------+------------+----------------------------------------------------------+
+| `include`  | `true`     | `false`: don’t include code or results                   |
++------------+------------+----------------------------------------------------------+
+| `output`   | `true`     | `false`: don’t include results\\                         |
+|            |            |                                                          |
+|            |            | :   treat results as raw markdown`asis`                  |
++------------+------------+----------------------------------------------------------+
+| `warning`  | `true`     | `false`: don’t include warnings in output                |
++------------+------------+----------------------------------------------------------+
+| `error`    | `false`    | `true`: include error in output and continue with render |
++------------+------------+----------------------------------------------------------+
+
 ## Figure
 
 ### Caption
@@ -158,7 +167,7 @@ For instance[^dynamic_report-2], here is one attached to the word carrot[^dynami
 #| fig-align: center
 #| fig-width: 6
 #| fig-height: 6
-#| fig-cap: "Figure: Here is a really important caption."
+#| fig-cap: 箱线图
 #| fig-cap-location: top
 library(tidyverse)
 
@@ -181,27 +190,25 @@ include-in-header:
        </style>
 ```
 
-### 交互式图
-
 ```{r}
-library(plotly)
-p <- mpg %>%
-  ggplot(aes(x = reorder(class, hwy), y = hwy, fill = class)) +
-  geom_boxplot() +
-  xlab("class") +
-  theme(legend.position = "none")
+#| label: fig-plot
+#| fig-cap: 组图
+#| fig-subcap:
+#|   - "点"
+#|   - "线"
+#| layout-ncol: 2
+#| column: page-right
 
-# Turn it interactive with ggplotly
-p <- ggplotly(p)
-p
+plot(1:25,1:25,pch=c(1:25))
+plot(1:25,1:25,type="o",pch=c(1:25))
 ```
 
-### 选项卡
+## Pandoc Div块
 
 Div .class `.panel-tabset .nav-pills`
 
 ::: {.panel-tabset .nav-pills}
-## Scatterplot
+### Scatterplot
 
 ```{r, warning=FALSE}
 mpg %>%
@@ -212,7 +219,7 @@ mpg %>%
 
 ```
 
-## Boxplot
+### Boxplot
 
 ```{r, warning=FALSE}
 mpg %>%
@@ -222,7 +229,7 @@ mpg %>%
   theme(legend.position = "none")
 ```
 
-## Barplot
+### Barplot
 
 ```{r, warning=FALSE}
 mpg %>%
@@ -233,65 +240,22 @@ mpg %>%
 ```
 :::
 
-### 全宽图
-
-```{r}
-#| column: screen
-#| out-width: 100%
-#| message: false
-
-
-library(patchwork)
-library(ggplot2)
-
-ggplot(mtcars) + geom_point(aes(mpg, disp))+
-ggplot(mtcars) + geom_boxplot(aes(gear, disp, group = gear))+
-ggplot(mtcars) + geom_smooth(aes(disp, qsec))+
-ggplot(mtcars) + geom_bar(aes(carb))
-
-```
-
-```{r}
-#| label: fig-plot
-#| fig-cap: "左右图"
-#| fig-subcap:
-#|   - "点"
-#|   - "线"
-#| layout-ncol: 2
-#| column: page-right
-
-plot(1:25,1:25,pch=c(1:25))
-plot(1:25,c(1:25)^2,type="b",pch=c(1:25))
-```
-
 如左图 @fig-plot-1 所示，点有25种不同的形状，
 
 右图 @fig-plot-2 所示。
 
-#### EDA {#sec-eda}
-
-引用章节： @sec-eda and @sec-formula
-
-引用图片 @fig-histogram shows two histograms displaying the distributions of `price` and `area` individually.
-
 ```{r}
-#| label: fig-histogram
-#| code-summary: "直方图"
-#| fig-cap: "Histograms of mpg"
+#| label: fig-输出复杂排版图片
+#| fig-cap: 复杂排版组图输出
 #| fig-subcap:
-#|   - "Histogram of `cty`s"
-#|   - "Histogram of `hwy`s" 
-#| fig-alt: "What's this."
-#| layout-ncol: 2
-#| column: page-right
+#|   - 汽车
+#|   - 压力
+#|   - mtcars
+#| layout: [[1], [1, 1]]
 
-ggplot(mpg, aes(cty)) +
-  geom_histogram() +
-  labs(title = "Histogram of cty")
-
-ggplot(mpg, aes(x =hwy)) +
-  geom_histogram() +
-  labs(title = "Histogram of hwy")
+plot(cars)
+plot(pressure)
+plot(mtcars)
 ```
 
 ## 表格
@@ -470,14 +434,6 @@ a <- 1+2+3
 #### Knitr
 
 a 的值为 `` `r a` ``
-
-## 文本高亮
-
-\<<mark>Text highlight</mark>
-
-keyboard
-
-<kbd> Ctrl+C </kbd>\>
 
 ## 会话信息
 
