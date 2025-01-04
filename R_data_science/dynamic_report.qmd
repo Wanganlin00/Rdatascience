@@ -7,6 +7,7 @@ author:
   affiliation: "Independant 😀"
   email: anlinwang00@gmail.com
   roles: "made the document"
+  
 keywords: "dynamic report"
 description: "<br/>good good study<br/>day day up"
 title-block-banner: "#f0f3f5"
@@ -95,6 +96,10 @@ editor: visual
 | > Blockquote                                                             | `> Blockquote`                                            |
 +--------------------------------------------------------------------------+-----------------------------------------------------------+
 
+## html
+
+Here's some raw inline HTML: <a>html</a>
+
 ## YAML
 
 ### 添加页脚
@@ -127,37 +132,37 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 ## 脚注
 
-第一个[^dynamic_report-1]
+第一个[^1]
 
-[^dynamic_report-1]: WANG,A.,et al.(2025)
+[^1]: WANG,A.,et al.(2025)
 
-For instance[^dynamic_report-2], here is one attached to the word carrot[^dynamic_report-3].
+For instance[^2], here is one attached to the word carrot[^3].
 
-[^dynamic_report-2]: dafhaifhafoahfo
+[^2]: dafhaifhafoahfo
 
-[^dynamic_report-3]: The carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color
+[^3]: The carrot (Daucus carota subsp. sativus) is a root vegetable, typically orange in color
 
 ### Execute chunk
 
-+------------+------------+----------------------------------------------------------+
-| Option     | Default    | Effects                                                  |
-+============+============+==========================================================+
-| `echo`     | `true`     | `false`: hide code in output\\                           |
-|            |            |                                                          |
-|            |            | :   include code cell syntax`fenced`                     |
-+------------+------------+----------------------------------------------------------+
-| `eval`     | `true`     | `false`: don’t run code                                  |
-+------------+------------+----------------------------------------------------------+
-| `include`  | `true`     | `false`: don’t include code or results                   |
-+------------+------------+----------------------------------------------------------+
-| `output`   | `true`     | `false`: don’t include results\\                         |
-|            |            |                                                          |
-|            |            | :   treat results as raw markdown`asis`                  |
-+------------+------------+----------------------------------------------------------+
-| `warning`  | `true`     | `false`: don’t include warnings in output                |
-+------------+------------+----------------------------------------------------------+
-| `error`    | `false`    | `true`: include error in output and continue with render |
-+------------+------------+----------------------------------------------------------+
++-----------+---------+----------------------------------------------------------+
+| Option    | Default | Effects                                                  |
++===========+=========+==========================================================+
+| `echo`    | `true`  | `false`: hide code in output\\                           |
+|           |         |                                                          |
+|           |         | :   include code cell syntax`fenced`                     |
++-----------+---------+----------------------------------------------------------+
+| `eval`    | `true`  | `false`: don’t run code                                  |
++-----------+---------+----------------------------------------------------------+
+| `include` | `true`  | `false`: don’t include code or results                   |
++-----------+---------+----------------------------------------------------------+
+| `output`  | `true`  | `false`: don’t include results\\                         |
+|           |         |                                                          |
+|           |         | :   treat results as raw markdown`asis`                  |
++-----------+---------+----------------------------------------------------------+
+| `warning` | `true`  | `false`: don’t include warnings in output                |
++-----------+---------+----------------------------------------------------------+
+| `error`   | `false` | `true`: include error in output and continue with render |
++-----------+---------+----------------------------------------------------------+
 
 ## Figure
 
